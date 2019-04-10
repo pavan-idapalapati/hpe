@@ -1,0 +1,193 @@
+stages:
+  - prepare
+  - test
+  - build
+  - staging-deploy
+  - production-deploy
+  - portfolio-deploy
+  - nuke-deploys
+  - nuke-portfolio
+
+
+variables:
+  # Asset CDNs for staging and production.  These are used during asset
+  # deployment for staging only.
+  # product types: quiz, brochure, interactivemap, microsite, productwizard
+  STAGING_ASSET_HOST: https://edge.spiceworksstatic.com/service.labs/proof-HPE-callguide-WS2008EOL
+  PRODUCTION_ASSET_HOST: https://edge.spiceworksstatic.com/service.labs/HPE-callguide-WS2008EOL
+  PORTFOLIO_ASSET_HOST: https://edge.spiceworksstatic.com/service.labs/portfolio-HPE-callguide-WS2008EOL
+  # S3 bucket URLs for staging and production.  These are used during asset
+  # deployment.
+  STAGING_S3_BUCKET_URL: s3://edge-spiceworksstatic-com/service.labs/proof-HPE-callguide-WS2008EOL
+  PRODUCTION_S3_BUCKET_URL: s3://edge-spiceworksstatic-com/service.labs/HPE-callguide-WS2008EOL
+  PORTFOLIO_S3_BUCKET_URL: s3://edge-spiceworksstatic-com/service.labs/portfolio-HPE-callguide-WS2008EOL
+
+# Template that wraps up some common settings for jobs in this project.
+.job-template: &job-template
+  image: node:8.11.1-alpine
+  # image: node:6.11.0-alpine
+  tags:
+    - linux
+    - k8s
+
+# Installs prerequisites used for the test and build stages and captures them as
+# artifacts.
+prepare:
+  <<: *job-template
+  stage: prepare
+  variables:
+    npm_config_cache: .npm
+  script:
+    - ./configure-npm.sh
+    - npm install --loglevel error --no-spin
+  artifacts:
+    paths:
+      - node_modules
+    expire_in: 1 day
+  cache:
+    paths:
+      # One or more paths containing items to reuse between builds.
+      #
+      # NOTE:
+      # Cached paths will tend to collect stale data over time which could
+      # pollute artifacts built using those paths in later stages.
+      - .npm
+      - node_modules
+    key: "$CI_JOB_NAME.$CI_COMMIT_REF_NAME"
+    untracked: true
+
+
+.test:
+ <<: *job-template
+ stage: test
+ dependencies:
+   - prepare
+ script:
+   - ng test:headless --single-run
+
+# Template for performing a build.
+#
+# Users of this template must define the ASSET_HOST variable so that the
+# application which is built knows how to find its assets.
+.build-template: &build-template
+  <<: *job-template
+  stage: build
+  dependencies:
+    - prepare
+  only:
+    - master
+  script:
+    - PATH=$PWD/node_modules/.bin:$PATH
+    - ng build --prod --deploy-url $ASSET_HOST/
+  artifacts:
+    paths:
+    - dist/
+    expire_in: 1 day
+
+build:staging:
+  <<: *build-template
+  variables:
+    ASSET_HOST: $STAGING_ASSET_HOST
+    DEPLOY_HOST: https://interactive.spiceworks.com/proof-HPE-callguide-WS2008EOL
+
+build:production:
+  <<: *build-template
+  variables:
+    ASSET_HOST: $PRODUCTION_ASSET_HOST
+    DEPLOY_HOST: https://interactive.spiceworks.com/HPE-callguide-WS2008EOL
+
+build:portfolio:
+  <<: *build-template
+  variables:
+    ASSET_HOST: $PORTFOLIO_ASSET_HOST    
+    DEPLOY_HOST: https://interactive.spiceworks.com/portfolio-HPE-callguide-WS2008EOL
+
+# Template for performing a deployment.
+#
+# Users of this template must define CI job settings for:
+# * Stage
+# * Environment
+# * Variables, specifically S3_BUCKET_URL and NONFINGERPRINTED_TTL
+.deploy-template: &deploy-template
+  <<: *job-template
+  image: spiceworksops/deploy-tools:1
+  only:
+    - master
+  when: manual
+  script:
+    - ASSETS_PATH=dist
+    - FINGERPRINTED_NAMES='*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].*'
+    # S3 sync the items that should be cached forever.
+    - aws s3 sync --cache-control max-age=31556926 --exclude '*' --include "$FINGERPRINTED_NAMES" $ASSETS_PATH $S3_BUCKET_URL
+    # S3 sync the items that should only be cached for a short time.
+    - aws s3 sync --cache-control max-age=$NONFINGERPRINTED_TTL --exclude "$FINGERPRINTED_NAMES" $ASSETS_PATH $S3_BUCKET_URL
+
+deploy:staging:
+  <<: *deploy-template
+  stage: staging-deploy
+  environment:
+    name: staging
+    url: $STAGING_ASSET_HOST/index.html
+  dependencies:
+    - build:staging
+  variables:
+    NONFINGERPRINTED_TTL: '60'
+    S3_BUCKET_URL: $STAGING_S3_BUCKET_URL
+
+deploy:production:
+  <<: *deploy-template
+  stage: production-deploy
+  environment:
+    name: production
+    url: $PRODUCTION_ASSET_HOST/index.html
+  dependencies:
+    - build:production
+  variables:
+    NONFINGERPRINTED_TTL: '600'
+    S3_BUCKET_URL: $PRODUCTION_S3_BUCKET_URL
+
+deploy:portfolio:
+  <<: *deploy-template
+  stage: portfolio-deploy
+  environment:
+    name: portfolio
+    url: $PORTFOLIO_ASSET_HOST/index.html
+  dependencies:
+    - build:portfolio
+  variables:
+    NONFINGERPRINTED_TTL: '600'
+    S3_BUCKET_URL: $PORTFOLIO_S3_BUCKET_URL    
+
+# Purges the deployed app from both the staging and production S3 buckets.
+nuke-deploys: 
+  <<: *job-template
+  stage: nuke-deploys
+  image: spiceworksops/deploy-tools:1
+  only:
+    - master
+  when: manual
+  dependencies: []
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - printf '\n\n\e[1;31m%s\e[0m\n%s\n\n' 'Purging all assets for this project from staging and production in 10 seconds!' 'Cancel this job now if you do not want to purge this content'
+    - sleep 10
+    - aws s3 rm $STAGING_S3_BUCKET_URL --recursive
+    - aws s3 rm $PRODUCTION_S3_BUCKET_URL --recursive
+    # - aws s3 rm $PORTFOLIO_S3_BUCKET_URL --recursive
+
+# Purges the deployed app from both the staging and production S3 buckets.
+nuke-portfolio: 
+  <<: *job-template
+  stage: nuke-portfolio
+  image: spiceworksops/deploy-tools:1
+  only:
+    - master
+  when: manual
+  dependencies: []
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - printf '\n\n\e[1;31m%s\e[0m\n%s\n\n' 'Purging all assets for this project from portfolio in 5 seconds!' 'Cancel this job now if you do not want to purge this content'
+    - sleep 5
+    - aws s3 rm $PORTFOLIO_S3_BUCKET_URL --recursive
