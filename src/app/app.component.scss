@@ -1,0 +1,280 @@
+
+
+.main-section {
+	background: #3c1454;
+	height: 100%;
+}
+
+input{
+    border: 1px solid #C6C9CA;
+    outline: none;
+    padding: 2px;
+}
+
+.header-section {
+	height: 100px;
+	background: white;
+	padding: 0px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-content {
+	background: red;
+}
+
+.logo-image{
+    height: 65px;
+}
+
+.content-section {
+	padding: 50px 50px 30px 50px;	
+	background-color: white;
+	box-shadow: 1px 1px 5px -1px;
+}
+
+.common-heading-padding {
+	padding-bottom: 22px;
+}
+
+.common-subheading-padding{
+    padding-bottom: 20px;
+}
+
+.common-block-padding {
+	padding-bottom: 45px;
+}
+
+.common-input-element-padding {
+	padding-bottom: 5px;
+}
+
+.common-label-padding{
+    padding-bottom: 10px;
+}
+
+.common-button-styles {
+    position: relative;
+	display: flex;
+	justify-content: flex-end;
+    text-align: center;
+}
+
+.button-styling {
+    position: relative;
+	background: #2AD2C9;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 226px;
+	text-align: center;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+
+.input-section {
+	display: flex;
+	align-items: center;
+    color: black;   
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.input-element {
+	height: 40px;
+	width: 515px;
+}
+
+.information {
+	display: flex;
+	// justify-content: center;
+	padding: 30px 0px;
+}
+
+
+input[type=checkbox] + label {
+    display: block;
+    margin: 0.2em;
+    cursor: pointer;
+    padding: 0.2em;
+    
+  }
+  
+  input[type=checkbox] {
+    display: none;
+  }
+  
+  input[type=checkbox] + label:before {
+    content: "\2714";
+    border: 0.1em solid #2AD2C9;  
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    margin-right: 10px;
+    vertical-align: bottom;
+    color: #2AD2C9;
+    transition: .1s;
+  }
+  
+  input[type=checkbox] + label:active:before {
+    transform: scale(0);
+  }
+  
+  input[type=checkbox]:checked + label:before {
+    background-color: white;
+    border-color: #2AD2C9;
+    color: #fff;
+  }
+
+  input[type=radio]{
+      margin:0 auto;
+  }
+
+  .text-area{
+    outline:none;
+    padding:10px;
+    border: 1px solid #C6C9CA;
+  }
+  
+
+  .form-radio
+{
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     display: inline-block;
+     position: relative;
+     background-color: white;
+     color: #666;
+     top: 5px;
+     height: 28px;
+     width: 28px;
+     border: 1px solid #c7cbcc;
+     border-radius: 50px;
+     cursor: pointer;     
+     margin-right: 7px;
+     outline: none;
+}
+
+.form-radio:hover
+{
+     background-color: #f7f7f7;
+}
+.form-radio:checked
+{
+     background-color: #2AD2C9;
+}
+
+.input-label-text{
+    font-size: 16px;
+    color:#191919;
+}
+
+.section-heading-text{
+    font-size: 34px;
+    color: #000000;
+}
+
+.section-subheading-text{
+    font-size: 24px;
+}
+
+.next-arrow{
+    position: absolute;
+    height: 18px;
+    top: 11px;
+    right: 12px;
+}
+  
+.prev-arrow{
+    position: absolute;
+    height: 18px;
+    top: 11px;
+    left: 12px;
+    transform: rotate(180deg);
+}
+
+.radio-label-text{
+    padding-left: 20px;
+}
+  
+.radio-button-padding{
+    padding-bottom:35px;
+}
+
+.checkbox-padding{
+    padding-bottom: 20px;
+}
+
+.prev-arrow-button{
+    margin-right:15px;
+}
+
+.form-question-text{
+    font-size: 35px;
+}
+.radio-input-section{
+    padding-left: 47px;
+}
+.checkbox-input-section{
+    padding-left: 41px;
+}
+.form-question-text{
+    font-size: 35px;
+}
+
+.left-side-section{
+    width: 270px;
+}
+
+  .accordion-container{
+    position: relative;
+    max-width: 270px;
+    height: auto;
+    margin: 0px 10px;
+  }
+  .set{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color:#fff;
+  }
+  .set > a{
+    display: block;
+    padding: 25px 15px 25px 45px;
+    text-decoration: none;
+    color: #000;  
+    border-top: 1px solid #979797;  
+    -webkit-transition:all 0.2s linear;
+    -moz-transition:all 0.2s linear;
+    transition:all 0.2s linear;
+  }
+  .set > a img{
+    float: right;
+    margin-top: 2px;
+  }
+  .set > a.active{
+    border-bottom: 1px solid #979797;
+  }
+  .content{
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    display:none;
+  }
+  .content p{
+    padding: 10px 15px;
+    margin: 0;
+    color: #333;
+  }
+  .icon-plus{
+      height: 16px;
+  }
+  .content-section{
+      background-color: #ffffff;
+      margin-right:30px;
+      padding-left:15px;
+      word-break: break-all;
+  }
