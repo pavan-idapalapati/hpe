@@ -272,9 +272,20 @@ input[type=checkbox] + label {
   .icon-plus{
       height: 16px;
   }
-  .content-section{
-      background-color: #ffffff;
-      margin-right:30px;
+  .content-sections{
+      background-color: #ffffff;      
       padding-left:15px;
       word-break: break-all;
+      padding:10px 10px;
+      border-bottom: 1px solid #2AD2C9;
+  }
+
+  .right-content-text{
+    background-color: #ffffff;     
+    word-break: break-all;
+    padding:15px 35px 15px 15px;
+  }
+
+  .right-side-text{
+      display: flex;
   }
