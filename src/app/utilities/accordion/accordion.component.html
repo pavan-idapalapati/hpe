@@ -1,19 +1,19 @@
 <p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)">
-        <p-accordionTab header="Godfather I"  class="accordion-header" *ngFor="let accordion of accordionData; let i= index">
-            <p-header class="accordion-heading">
-                <div>Header Content</div>
-                <img src="../assets/images/icon_Plus.png" class="icon-plus" *ngIf="openAccordionIndex != i">
-                <img src="../assets/images/icon_Minus.png" class="icon-minus" *ngIf="openAccordionIndex == i">
-            </p-header>
-            <ng-template pTemplate="content">
-                    Complex Content to Lazy Load
-                    The story begins as Don Vito Corleone, the head of a New York Mafia family, overseeshis
-                    daughter's wedding. His beloved son ichael has just come home from the war, but does not intend
-                    to become part of his father's business. T hrough Michael's life the nature of the family
-                    business becomes clear. The business of the family is just like the head of the family, kind and
-                    benevolent to those who give respect, but given to ruthless violence whenever anything stands
-                    against the good of the family.
-                </ng-template>
-        </p-accordionTab>
-       
-    </p-accordion>
+    <p-accordionTab header="Godfather I"  class="accordion-header">
+        <p-header class="accordion-heading">
+            <div>Header Content</div>
+            <img src="../assets/images/icon_Plus.png" class="icon-plus" *ngIf="openAccordionIndex != i">
+            <img src="../assets/images/icon_Minus.png" class="icon-minus" *ngIf="openAccordionIndex == i">
+        </p-header>
+        <ng-template pTemplate="content" >
+            <div *ngFor="let eachQue of questionnaireData; let i= index">
+                <div class="content-sections">
+                    <div>
+                        <input type="checkbox" [id]="eachQue.formData[0].name+ind" [name]="eachQue.formData[0].name+ind" [value]="eachQue.question" [checked]="eachQue.isAnswered" [(ngModel)]="eachQue.isAnswered">
+                        <label [for]="eachQue.formData[0].name+ind" class="input-label-text">{{ eachQue.question }}{{eachQue.isAnswered}}</label>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-accordionTab>
+</p-accordion>

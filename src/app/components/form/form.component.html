@@ -54,7 +54,7 @@
 			<div *ngIf="eachFormElem.type === 'checkbox'">
 				<div>{{eachFormElem.label}}</div>
 				<div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
-					<input type="checkbox" [name]="eachOption.name+ind" [value]="eachOption.value" [checked]="eachOption.isSelected" [(ngModel)]="eachOption.isSelected" >
+					<input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind" [value]="eachOption.value" [checked]="eachOption.isSelected" [(ngModel)]="eachOption.isSelected" >
 					<label [for]="eachOption.name+ind" class="input-label-text">{{eachOption.label}}</label>
 					<div *ngIf="eachOption.helpField">
 						<div *ngFor="let eachHelpFiled of eachOption.helpField" class="radio-button-padding">
