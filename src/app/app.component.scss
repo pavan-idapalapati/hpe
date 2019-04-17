@@ -297,20 +297,5 @@ input[type=checkbox] + label {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
-.accordion-header {
-    display: block;
-    text-decoration: none;
-    color: #000;  
-    border-top: 1px solid #979797;  
-    background-color: #fff;
-    cursor: pointer;
-}
-.accordion-heading {
-    padding: 25px 15px 25px 45px;
-    display: flex;
-    justify-content: space-between;
-}
-.ui-accordion-content {
-    // padding: 25px 15px 25px 45px;
 
-}
+

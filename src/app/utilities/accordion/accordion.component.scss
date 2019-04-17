@@ -1,0 +1,21 @@
+.accordion-header {
+    display: block;
+    text-decoration: none;
+    color: #000;  
+    border-top: 1px solid #979797;  
+    background-color: #fff;
+    cursor: pointer;
+}
+.accordion-heading {
+    padding: 25px 15px 25px 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon-minus {
+    height: 2px;
+    width: 16px;
+}
+.icon-plus{
+    height: 16px;
+}

@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {AccordionModule} from 'primeng/accordion';
+import { AccordionComponent } from './utilities/accordion/accordion.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccordionComponent
   ],
   imports: [
     BrowserModule,
