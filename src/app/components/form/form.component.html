@@ -1,0 +1,60 @@
+<section>
+	<form (submit)="nextQuestion()">
+		<div>{{currentFormData.question}}</div>
+		<div *ngFor="let eachFormElem of currentFormData.formData; let outerIndex = index">
+			<div *ngIf="eachFormElem.type === 'text'">
+				<label [for]="eachFormElem.name">{{eachFormElem.label}}</label>
+				<input  [type]="eachFormElem.type" [name]="eachFormElem.name+outerIndex" [(ngModel)]="eachFormElem.value" >
+			</div>
+			<div *ngIf="eachFormElem.type === 'textArea'">
+				<label [for]="eachFormElem.name">{{eachFormElem.label}}</label>
+				<textarea [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value" ></textarea>
+			</div>
+			<div *ngIf="eachFormElem.type === 'list'">
+				<div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
+					<label>{{eachOption.label}}</label>
+					<div>{{eachOption.value}}</div>
+				</div>
+			</div>
+			<div *ngIf="eachFormElem.type === 'radio'">
+				<label [for]="eachFormElem.name">{{eachFormElem.label}}</label>
+				<div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
+					<label [for]="eachFormElem.name">{{eachOption.label}}</label>
+					<input type="radio" [name]="eachFormElem.name" [value]="eachOption.value" [(ngModel)]="eachFormElem.value" >
+					<div *ngIf="eachOption.helpField">
+						<div *ngFor="let eachHelpFiled of eachOption.helpField">
+							<label>{{ eachHelpFiled.label }}</label>
+							<input [type]="eachHelpFiled.type" name="dummy" [(ngModel)]="eachHelpFiled.value">
+						</div>
+					</div>
+					<div *ngIf="eachOption.addDetailsData">
+						<div class="add-details-section" *ngFor="let eachHelpFiled of eachOption.addDetailsData; let formInd=index">
+							<div *ngFor="let eachFiled of eachHelpFiled.fields; let fieldInd=index;">
+								<label>{{ eachFiled.label }}</label>
+								<input [type]="eachFiled.type" [name]="'addDetailsData'+formInd+fieldInd" [(ngModel)]="eachFiled.value">
+							</div>
+						</div>
+						<div (click)="addNewDetails(eachFormElem, ind)">+ Add details</div>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="eachFormElem.type === 'checkbox'">
+				<label [for]="eachFormElem.name">{{eachFormElem.label}}</label>
+				<div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
+					<label [for]="eachFormElem.name">{{eachOption.label}}</label>
+					<input type="checkbox" [name]="eachFormElem.name+ind" [value]="eachOption.value" [checked]="eachOption.isSelected" [(ngModel)]="eachOption.isSelected" >
+					<div *ngIf="eachOption.helpField">
+						<div *ngFor="let eachHelpFiled of eachOption.helpField">
+							<label>{{ eachHelpFiled.label }}</label>
+							<input [type]="eachHelpFiled.type" name="dummy" [(ngModel)]="eachHelpFiled.value">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<input *ngIf="currentPage != 0" type="button" value="Previous question" (click)="previousQuestion()">
+			<input name="submit" value="Next question" type="submit">
+		</div>
+	</form>
+</section>

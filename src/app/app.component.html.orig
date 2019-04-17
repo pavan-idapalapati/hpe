@@ -1,12 +1,9 @@
 <main class="main-section">
+<<<<<<< HEAD
     <header class="header-section">
         <img src="../assets/images/Logo.png" class="logo-image">
         <div class="section-heading-text">WS2008 EOS Call Guide</div>
     </header>
-  <div>
-    <!-- <app-questionnaire-nav></app-questionnaire-nav> -->
-    <router-outlet></router-outlet>
-  </div>
 
     <!-- page1 html start here -->
     <section class="information">
@@ -75,6 +72,104 @@
 
 
 
+=======
+  <header class="header-section">
+    <img src="../assets/images/Logo.png" class="logo-image">
+    <div class="section-heading-text">WS2008 EOS Call Guide</div>
+  </header>
+  <div>
+    <app-questionnaire-nav></app-questionnaire-nav>
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- page1 html start here -->
+  <section class="information">
+    <div class="left-side-section">
+      <div class="accordion-container">
+        <div class="set">
+          <a href="#">
+            Questions
+            <img src="../assets/images/icon_Plus.png" class="icon-plus">
+          </a>
+          <div class="content">
+
+          </div>
+        </div>
+        <div class="set">
+          <a href="#">
+            Phasellus
+            <img src="../assets/images/icon_Plus.png" class="icon-plus">
+          </a>
+          <div class="content">
+          </div>
+        </div>
+        <div class="set">
+          <a href="#">
+            Praesent
+            <img src="../assets/images/icon_Plus.png" class="icon-plus">
+          </a>
+          <div class="content">
+
+          </div>
+        </div>
+        <div class="set">
+          <a href="#">
+            Curabitur
+            <img src="../assets/images/icon_Plus.png" class="icon-plus">
+          </a>
+          <div class="content">
+
+          </div>
+        </div>
+        <div class="content-sections">
+          <div><input type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+            <label for="fruit1" class="input-label-text">Apple ehwrghwe ewyrguewr yewgruwer heryweur
+              yewvrehwrhewrhewbrhwerewhrh</label></div>
+        </div>
+        <div class="content-sections">
+          <div><input type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+            <label for="fruit1" class="input-label-text">Apple ehwrghwe ewyrguewr yewgruwer heryweur
+              yewvrehwrhewrhewbrhwerewhrh</label></div>
+        </div>
+        <div class="content-sections">
+          <div><input type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+            <label for="fruit1" class="input-label-text">Apple ehwrghwe ewyrguewr yewgruwer heryweur
+              yewvrehwrhewrhewbrhwerewhrh</label></div>
+        </div>
+        <div class="right-content-text">                     
+            <div>Efficiency:WS 2008 was built before containers technology. Containers support more apps on a single machine than
+              VMs
+              do, which means you reduce your overall server count. WS 2016 takes full advantage of this technology.
+            </div>         
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <div class="common-block-padding">
+        <div class="section-heading-text common-heading-padding">Start a new session:</div>
+        <div class="section-subheading-text common-subheading-padding">Your Information</div>
+        <!-- input element -->
+        <div class="input-section">
+          <div class="input-label-text">Sales Rep Name:</div>
+          <input type="text" class="input-element">
+        </div>
+      </div>
+      <div class="common-block-padding">
+        <div class="section-heading-text common-heading-padding">Start a new session:</div>
+        <div class="section-subheading-text common-subheading-padding">Your Information</div>
+        <!-- input element -->
+        <div class="input-section">
+          <div class="input-label-text">Sales Rep Name:</div>
+          <input type="text" class="input-element">
+        </div>
+        <div class="input-section">
+          <div class="input-label-text">Sales Rep Name:</div>
+          <input type="text" class="input-element">
+        </div>
+        <div class="input-section">
+          <div class="input-label-text">Sales Rep Name:</div>
+          <input type="text" class="input-element">
+>>>>>>> origin/ng-dev
         </div>
         <div class="content-section">
             <div class="common-block-padding">

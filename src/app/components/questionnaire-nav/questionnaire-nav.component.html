@@ -1,0 +1,8 @@
+<section>
+  <div *ngFor="let eachQue of questionnaireData">
+    <div [ngClass]="{'active-question': (currentPage == eachQue.id)}">{{ eachQue.question }}</div>
+    <div>
+      <input type="checkbox" [checked]="eachQue.isAnswered" >
+    </div>
+  </div>
+</section>

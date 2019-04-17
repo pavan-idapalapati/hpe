@@ -1,0 +1,11 @@
+<div *ngIf="unansweredQuestions.length">
+  unanswered questions
+  <div *ngFor="let question of unansweredQuestions">
+    <div >
+      {{question.question}}  <span (click)="takeQuestion(question)">Take Question</span>
+    </div>
+  </div>
+</div>
+<div (click)="finishQuestionaire()">
+  Finish
+</div>
