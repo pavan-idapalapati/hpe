@@ -3,16 +3,16 @@
         <img src="../assets/images/Logo.png" class="logo-image">
         <div class="section-heading-text">WS2008 EOS Call Guide</div>
     </header>
-  <div>
-    <!-- <app-questionnaire-nav></app-questionnaire-nav> -->
-    <router-outlet></router-outlet>
-  </div>
+    <div>
+        <!-- <app-questionnaire-nav></app-questionnaire-nav> -->
+        <router-outlet></router-outlet>
+    </div>
 
     <!-- page1 html start here -->
     <section class="information">
         <div class="left-side-section">
             <div class="accordion-container">
-               <app-accordion></app-accordion>
+                <app-accordion></app-accordion>
                 <div class="set">
                     <a href="#">
                         Questions
@@ -223,8 +223,18 @@
             </div>
         </div>
         <div class="right-nav">
-            <div class="right-nav-button-wrapper"></div>
-            <app-accordion class="right-nav-accordion"></app-accordion>
+            <div class="right-nav-button-wrapper">
+                <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
+                    <img (click)="closeSideNav()" class="side-nav-icon" src="../assets/images/icon_arrow.png">
+                </div>
+                <div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
+                    <img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon" src="../assets/images/icon_arrow.png">
+
+                </div>
+            </div>
+            <div class="right-nav-accordion" #rightNavAccordion>
+                <app-accordion ></app-accordion>
+            </div>
         </div>
     </section>
     <!-- page1 html end here -->

@@ -33,6 +33,7 @@ input{
 	background-color: white;
     box-shadow: 1px 1px 5px -1px;
     margin:30px 0px;
+    margin-right: 10px;
 }
 
 .common-heading-padding {
@@ -86,7 +87,6 @@ input{
 .input-element {
 	height: 40px;
     display: flex;
-    flex: 68%;
 }
 
 .information {
@@ -307,8 +307,31 @@ input[type=checkbox] + label {
 }
 
 .right-nav-accordion {
-    transition: all 2s ease-in-out;
-    width:500px;
+    width:0px;
+    overflow: hidden;
+}
+
+.side-nav-icon {
+    width: 11px;
+    height: 19px;
+    cursor: pointer;
+}
+.prev-side-nav-icon {
+    transform: rotate(180deg);
+}
+
+.right-nav-accordion-transition {
+    width: 400px;
+    transition: all .3s ease-in-out;
+}
+.remove-right-nav-accordion-transition {
+    width: 0px;
+    transition: all .3s ease-in-out;
+}
+.nav-button-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top:17px;;
 }
 
 
