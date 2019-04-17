@@ -31,7 +31,8 @@ input{
 .content-section {
 	padding: 50px 50px 30px 50px;	
 	background-color: white;
-	box-shadow: 1px 1px 5px -1px;
+    box-shadow: 1px 1px 5px -1px;
+    margin:30px 0px;
 }
 
 .common-heading-padding {
@@ -84,13 +85,13 @@ input{
 
 .input-element {
 	height: 40px;
-	width: 515px;
+    display: flex;
+    flex: 68%;
 }
 
 .information {
 	display: flex;
 	// justify-content: center;
-	padding: 30px 0px;
 }
 
 
@@ -227,14 +228,14 @@ input[type=checkbox] + label {
 }
 
 .left-side-section{
-    width: 270px;
+    // width: 270px;
 }
 
   .accordion-container{
-    position: relative;
-    max-width: 270px;
+    // position: relative;
+    width: 270px;
     height: auto;
-    margin: 0px 10px;
+    margin-right:10px;
   }
   .set{
     position: relative;
@@ -269,15 +270,14 @@ input[type=checkbox] + label {
     margin: 0;
     color: #333;
   }
-  .icon-plus{
-      height: 16px;
-  }
+
   .content-sections{
       background-color: #ffffff;      
       padding-left:15px;
       word-break: break-all;
       padding:10px 10px;
       border-bottom: 1px solid #2AD2C9;
+      width:100%;
   }
 
   .right-content-text{
@@ -296,6 +296,19 @@ input[type=checkbox] + label {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+.right-nav {
+    display: flex;
+}
+
+.right-nav-button-wrapper {
+    width: 42px;
+    background-color: #2AD2C9;
+}
+
+.right-nav-accordion {
+    transition: all 2s ease-in-out;
+    width:500px;
 }
 
 
