@@ -289,3 +289,23 @@ input[type=checkbox] + label {
   .right-side-text{
       display: flex;
   }
+
+  div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.accordion-header {
+    display: block;
+    padding: 25px 15px 25px 45px;
+    text-decoration: none;
+    color: #000;  
+    border-top: 1px solid #979797;  
+    background-color: #fff;
+}
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+}
