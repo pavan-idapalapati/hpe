@@ -8,7 +8,6 @@ import { FormDataService } from 'src/app/services/form-data.service';
 })
 export class AccordionComponent implements OnInit {
     openAccordionIndex;
-    accordionData = [1, 2];
     questionnaireData: any;
     currentPage: any;
 
@@ -20,7 +19,6 @@ export class AccordionComponent implements OnInit {
             this.questionnaireData = questionnaireData.data.data;
             this.currentPage = questionnaireData.currentPage;
         }
-
     }
     
     onTabOpen(event) {

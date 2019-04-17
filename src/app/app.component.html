@@ -3,75 +3,13 @@
 		<img src="../assets/images/Logo.png" class="logo-image">
 		<div class="section-heading-text">WS2008 EOS Call Guide</div>
 	</header>
-	
 
 	<!-- page1 html start here -->
 	<section class="information">
 		<div class="left-side-section">
 			<div class="accordion-container">
 				<app-accordion></app-accordion>
-				<!-- <div class="set">
-					<a href="#">
-						Questions
-						<img src="../assets/images/icon_Plus.png" class="icon-plus">
-					</a>
-					<div class="content">
-
-					</div>
-				</div>
-				<div class="set">
-					<a href="#">
-						Phasellus
-						<img src="../assets/images/icon_Plus.png" class="icon-plus">
-					</a>
-					<div class="content">
-					</div>
-				</div>
-				<div class="set">
-					<a href="#">
-						Praesent
-						<img src="../assets/images/icon_Plus.png" class="icon-plus">
-					</a>
-					<div class="content">
-
-					</div>
-				</div>
-				<div class="set">
-					<a href="#">
-						Curabitur
-						<img src="../assets/images/icon_Plus.png" class="icon-plus">
-					</a>
-					<div class="content">
-
-					</div>
-				</div>
-				<div class="content-sections">
-					<div><input type="checkbox" id="fruit1" name="fruit-1" value="Apple">
-						<label for="fruit1" class="input-label-text">Apple ehwrghwe ewyrguewr yewgruwer heryweur
-							yewvrehwrhewrhewbrhwerewhrh</label></div>
-				</div>
-				<div class="content-sections">
-					<div><input type="checkbox" id="fruit1" name="fruit-1" value="Apple">
-						<label for="fruit1" class="input-label-text">Apple ehwrghwe ewyrguewr yewgruwer heryweur
-							yewvrehwrhewrhewbrhwerewhrh</label></div>
-				</div>
-				<div class="content-sections">
-					<div><input type="checkbox" id="fruit1" name="fruit-1" value="Apple">
-						<label for="fruit1" class="input-label-text">Apple ehwrghwe ewyrguewr yewgruwer heryweur
-							yewvrehwrhewrhewbrhwerewhrh</label></div>
-				</div>
-				<div class="right-content-text">
-					<div>Efficiency:WS 2008 was built before containers technology. Containers support more apps on a
-						single machine than
-						VMs
-						do, which means you reduce your overall server count. WS 2016 takes full advantage of this
-						technology.
-					</div>
-				</div> -->
 			</div>
-
-
-
 		</div>
 		<div class="content-section">
 			<div>
@@ -80,22 +18,20 @@
 			</div>
 		</div>
 		<div class="right-nav">
-            <div class="right-nav-button-wrapper">
-                <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
-                    <img (click)="closeSideNav()" class="side-nav-icon" src="../assets/images/icon_arrow.png">
-                </div>
-                <div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
-                    <img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon" src="../assets/images/icon_arrow.png">
+			<div class="right-nav-button-wrapper">
+				<div *ngIf="openSideNavFlag" class="nav-button-wrapper">
+					<img (click)="closeSideNav()" class="side-nav-icon" src="../assets/images/icon_arrow.png">
+				</div>
+				<div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
+					<img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon"
+						src="../assets/images/icon_arrow.png">
 
-                </div>
-            </div>
-            <div class="right-nav-accordion" #rightNavAccordion>
-                <app-accordion ></app-accordion>
-            </div>
-		</div>				
-		
+				</div>
+			</div>
+			<div class="right-nav-accordion" #rightNavAccordion>
+				<app-accordion></app-accordion>
+			</div>
+		</div>
 
 	</section>
-	<!-- page1 html end here -->
-	<h3 class="first">Default</h3>
 </main>
