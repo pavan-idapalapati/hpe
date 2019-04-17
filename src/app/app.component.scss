@@ -64,15 +64,19 @@ input{
 }
 
 .button-styling {
-    position: relative;
+  position: relative;
 	background: #2AD2C9;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	width: 226px;
+	width: 188px;
 	text-align: center;
     color: white;
     font-size: 19px;
     cursor: pointer;
+}
+
+.get-started-button{
+  width: 226px;
 }
 
 
@@ -96,7 +100,7 @@ input{
 
 
 input[type=checkbox] + label {
-    display: block;
+    display: inline-block;
     margin: 0.2em;
     cursor: pointer;
     padding: 0.2em;
@@ -137,7 +141,8 @@ input[type=checkbox] + label {
   .text-area{
     outline:none;
     padding:10px;
-    border: 1px solid #C6C9CA;
+    width:65%; 
+    border: 1px solid rgb(132, 140, 143);
   }
   
 
@@ -335,3 +340,44 @@ input[type=checkbox] + label {
 }
 
 
+  .finish-button{
+    background-color: #614767;
+  }
+  
+  .skipped-questions{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(132, 140, 143);
+  }
+
+  .question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    padding:10px 0px 10px 15px;
+    flex-wrap: wrap;
+  }
+
+.border-bottom{
+  border-bottom: 1px solid #C6C9CA;
+}
+
+.return-question-text{
+  font-size: 20px;
+  color:#191919;
+}
+
+.stake-holder-section{
+  background-color: #F6f6f6;
+  padding:30px;
+  width:68%;
+}
+
+.plus-stake-holder{
+  display:flex;  
+  padding-top: 10px;
+
+}
+.add-stake-holder{
+  padding-left:10px;
+}
