@@ -299,13 +299,18 @@ input[type=checkbox] + label {
 }
 .accordion-header {
     display: block;
-    padding: 25px 15px 25px 45px;
     text-decoration: none;
     color: #000;  
     border-top: 1px solid #979797;  
     background-color: #fff;
+    cursor: pointer;
 }
-.accordion-header {
+.accordion-heading {
+    padding: 25px 15px 25px 45px;
     display: flex;
     justify-content: space-between;
+}
+.ui-accordion-content {
+    // padding: 25px 15px 25px 45px;
+
 }
