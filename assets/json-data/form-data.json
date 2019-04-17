@@ -1,0 +1,105 @@
+{
+    "name": "HPE Call Guide",
+    "metadata": "HPE call guide project",
+    "data": [
+        {
+            "question": "Do you have money?",
+            "isViewed": false,
+            "isAnswered": false,
+            "isRequired": false,
+            "formData": {
+                "notesNeeded": true,
+                "data": [
+                    {
+                        "type": "text",
+                        "label": "No of services",
+                        "value": ""
+                    },
+                    {
+                        "type": "textArea",
+                        "label": "No of products",
+                        "value": ""
+                    }
+                ]
+            },
+            "matadata": {
+                "heading": "Help text comes here",
+                "data": [
+                    {
+                        "heading": "heaeding 1 of help text",
+                        "data": "data 1 of help text"
+                    },
+                    {
+                        "heading": "heaeding 2 of help text",
+                        "data": "data 2 of help text"
+                    }
+                ]
+            }
+        },
+        {
+            "question": "Do you have house?",
+            "isViewed": false,
+            "isAnswered": false,
+            "isRequired": false,
+            "formData": {
+                "notesNeeded": true,
+                "data": [
+                    {
+                        "type": "radio",
+                        "label": "No of houses",
+                        "value": "",
+                        "options": [
+                            {
+                                "label": "one",
+                                "value": 1,
+                                "name": "hse"
+                            },
+                            {
+                                "label": "two",
+                                "value": 2,
+                                "name": "hse"
+                            },
+                            {
+                                "label": "three",
+                                "value": 3,
+                                "name": "hse"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "checkbox",
+                        "label": "languages known",
+                        "value": "",
+                        "options": [
+                            {
+                                "label": "Telugu",
+                                "value": "telugu"
+                            },
+                            {
+                                "label": "Hindi",
+                                "value": "hindi"
+                            },
+                            {
+                                "label": "English",
+                                "value": "english"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "matadata": {
+                "heading": "Help text comes here",
+                "data": [
+                    {
+                        "heading": "heaeding 1 of help text",
+                        "data": "data 1 of help text"
+                    },
+                    {
+                        "heading": "heaeding 2 of help text",
+                        "data": "data 2 of help text"
+                    }
+                ]
+            }
+        }
+    ]
+}

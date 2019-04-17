@@ -1,0 +1,40 @@
+<section>
+    <form (submit)="getStarted()">
+      <div *ngFor="let dataGroup of userInfoForm.data">
+        <div *ngFor="let eachFormElem of dataGroup.formData">
+          
+          <div *ngIf="eachFormElem.type === 'text'">
+            <label [for]="eachFormElem.name">{{eachFormElem.label}}</label>
+            <input  [type]="eachFormElem.type" [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value" >
+          </div>
+          <div *ngIf="eachFormElem.type === 'textArea'">
+            <label [for]="eachFormElem.name">{{eachFormElem.label}}</label>
+            <textarea [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value" ></textarea>
+          </div>
+          <div *ngIf="eachFormElem.type === 'radio'">
+            <label [for]="eachFormElem.name">{{eachFormElem.label}}</label>
+            <div *ngFor="let eachOption of eachFormElem.options">
+              <input type="radio" [name]="eachFormElem.name" [value]="eachOption.value" [(ngModel)]="eachFormElem.value" >
+              <div *ngIf="eachOption.helpField">
+                <label>{{ eachOption.helpField.label }}</label>
+                <input [type]="eachOption.helpField.type" name="dummy" [(ngModel)]="eachOption.helpField.type">
+              </div>
+            </div>
+          </div>
+          <div *ngIf="eachFormElem.type === 'checkbox'">
+            <label [for]="eachFormElem.name">{{eachFormElem.label}}</label>
+            <div *ngFor="let eachOption of eachFormElem.options">
+              <input type="checkbox" name="cb" [value]="eachOption.value" [(ngModel)]="eachOption.isSelected" >
+              <div *ngIf="eachOption.helpField">
+                <label>{{ eachOption.helpField.label }}</label>
+                <input [type]="eachOption.helpField.type" name="dummy" [(ngModel)]="eachOption.helpField.type">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <input name="submit" value="Get Started" type="submit">
+      </div>
+    </form>
+  </section>
