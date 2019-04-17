@@ -65,12 +65,14 @@ export class FormDataService {
 							{
 								"label": "WS 2008",
 								"value": "WS 2008",
-								"name": "ws-imp"
+								"name": "ws-version-cb",
+								"isSelected": false
 							},
 							{
 								"label": "WS 2012 R2",
 								"value": "WS 2012 R2",
-								"name": "ws-imp"
+								"name": "ws-version-cb",
+								"isSelected": false
 							}
 						]
 					}
@@ -265,6 +267,7 @@ export class FormDataService {
 								"label": "Compute:",
 								"value": "Compute:",
 								"name": "infra-req-cb",
+								"isSelected": false,
 								"helpField": [
 									{
 										"type": "text",
@@ -277,6 +280,7 @@ export class FormDataService {
 								"label": "Storage:",
 								"value": "Storage:",
 								"name": "infra-req-cb",
+								"isSelected": false,
 								"helpField": [
 									{
 										"type": "text",

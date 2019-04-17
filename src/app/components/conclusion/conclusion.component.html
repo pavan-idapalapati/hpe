@@ -1,11 +1,25 @@
-<div *ngIf="unansweredQuestions.length">
-  unanswered questions
-  <div *ngFor="let question of unansweredQuestions">
-    <div >
-      {{question.question}}  <span (click)="takeQuestion(question)">Take Question</span>
+<section>
+  <div *ngIf="unansweredQuestions.length">
+    Skipped Questions
+    <div class='skipped-questions'>
+      <div class="question border-bottom" *ngFor="let question of unansweredQuestions">
+        <div class="return-question-text">
+          {{question.question}}
+        </div>
+        <div>
+          <div class="button-styling prev-arrow-button" (click)="takeQuestion(question)">Return to question<img
+              class="prev-arrow" src="../assets/images/icon_arrow.png"></div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div (click)="finishQuestionaire()">
-  Finish
-</div>
+  <div *ngIf="!unansweredQuestions.length">
+    Please finish the test...
+  </div>
+  <div class="common-button-styles">
+      <div class="button-styling finish-button" (click)="finishQuestionaire()">
+        Finish
+        <img class="next-arrow" src="../assets/images/icon_arrow.png">
+      </div>
+  </div>
+</section>
