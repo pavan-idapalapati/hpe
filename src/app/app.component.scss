@@ -148,24 +148,7 @@ input[type=checkbox] + label {
   }
   
 
-  .form-radio
-{
-     -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance: none;
-     display: inline-block;
-     position: relative;
-     background-color: white;
-     color: #666;
-     top: 5px;
-     height: 22px;
-     width: 22px;
-     border: 1px solid #c7cbcc;
-     border-radius: 50px;
-     cursor: pointer;     
-     margin-right: 7px;
-     outline: none;
-}
+
 
 .form-radio:hover
 {
