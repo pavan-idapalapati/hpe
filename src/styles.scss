@@ -195,7 +195,7 @@ input{
 	padding: 50px 50px 30px 50px;	
 	background-color: white;
     box-shadow: 1px 1px 5px -1px;
-    margin:30px 0px;
+    margin:30px;
     width:100%;
 }
 
@@ -208,7 +208,7 @@ input{
 }
 
 .common-block-padding {
-	padding-bottom: 45px;
+	padding-bottom: 43px;
 }
 
 .common-input-element-padding {
@@ -216,7 +216,10 @@ input{
 }
 
 .common-label-padding{
+    display: block;
     padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .common-button-styles {
@@ -282,7 +285,7 @@ input[type=checkbox] + label {
     width: 22px;
     height: 22px;
     text-align: center;
-    margin-right: 10px;
+    margin-right: 9px;
     vertical-align: bottom;
     color: #2AD2C9;
     transition: .1s;
@@ -404,7 +407,6 @@ input[type=checkbox] + label {
     // position: relative;
     width: 270px;
     height: auto;
-    margin-right:10px;
   }
   .set{
     position: relative;

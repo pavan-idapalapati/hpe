@@ -62,7 +62,7 @@
 					</div>
 					<div class="checkbox-input-section" *ngIf="eachOption.helpField">
 						<div *ngFor="let eachHelpFiled of eachOption.helpField" class="radio-button-padding">
-							<label [for]="eachHelpFiled.name" class="input-label-text common-label-padding">{{ eachHelpFiled.label }}</label>
+							<label [for]="eachHelpFiled.name" class="input-label-text common-label-padding input-field">{{ eachHelpFiled.label }}</label>
 							<input [type]="eachHelpFiled.type" name="dummy" [(ngModel)]="eachHelpFiled.value" class="input-element">
 						</div>
 					</div>
