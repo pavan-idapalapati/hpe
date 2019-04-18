@@ -68,5 +68,8 @@ export class AccordionComponent implements OnInit {
         }
     }
 
+    gotFinish() {
+        this.router.navigate(["/conclusion"]);
+    }
 
 }

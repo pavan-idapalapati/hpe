@@ -632,6 +632,7 @@ export class FormDataService {
 						"value": "",
 						"name": "confirm-next-steps-list",
 						"id": "",
+						"isConfirmStep": true,
 						"options": [
 							{
 								"label": "Information to be sent",

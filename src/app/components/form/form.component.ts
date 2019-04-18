@@ -81,7 +81,7 @@ export class FormComponent implements OnInit {
 
 	setIsAnswered(data) {
 		return data.formData.every((eachData) => {
-			if(eachData.isNotes) {
+			if(eachData.isNotes || eachData.isConfirmStep) {
 				return true;
 			}
 			if(eachData.type === 'text' || eachData.type === 'textArea') {
