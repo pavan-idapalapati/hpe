@@ -10,10 +10,10 @@
 			</div>
 
 
-			<!-- <div class="checkbox-input-section" *ngIf="eachFormElem.type === 'textArea'">
+			<div class="common-block-padding" *ngIf="eachFormElem.type === 'textArea'">
 				<label class="input-label-text common-label-padding d-block" [for]="eachFormElem.name">{{eachFormElem.label}}</label>
 				<textarea [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value" cols="40" rows="5" class="text-area"></textarea>
-			</div> -->
+			</div>
 
 
 			<div *ngIf="eachFormElem.type === 'list'">
