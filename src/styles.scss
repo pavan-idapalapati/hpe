@@ -179,12 +179,16 @@ input, textarea{
 }
 
 .header-section {
-	height: 100px;
-	background: white;
-	padding: 0px 30px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    height: 150px;
+    background: white;
+    padding: 0px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+    border-bottom: 1px solid #979797;
 }
 
 .header-content {
@@ -196,19 +200,27 @@ input, textarea{
 }
 
 .content-section {
-	padding: 50px 50px 30px 50px;	
-	background-color: white;
+    padding: 50px 50px 30px 50px;
+    background-color: white;
     box-shadow: 1px 1px 5px -1px;
-    margin:30px;
+    margin: 30px;
+    width: 908px;
     
 }
 
 .landing-section{
-  padding: 50px 50px 30px 50px;	
-	background-color: white;
+    padding: 50px 50px 30px 50px;
+    background-color: white;
     box-shadow: 1px 1px 5px -1px;
-    margin:30px;
-    width:908px;
+    margin: 30px;
+    width: 100%;
+}
+.content-wrapper {
+    position: relative;
+    top: 150px;
+    z-index: 1;
+    margin-left: 300px;
+    display: flex;
 }
 
 .common-heading-padding {
@@ -408,13 +420,28 @@ input[type=checkbox] + label {
 }
 
 .left-side-section{
-    // width: 270px;
+    position: fixed;
+    top: 150px;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    min-width: 260px;
+    background-color: #fff;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    overflow: auto;
 }
 
   .accordion-container{
     // position: relative;
     width: 270px;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    flex:auto;
+    overflow: auto;
   }
   .set{
     position: relative;
