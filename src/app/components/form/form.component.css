@@ -62,3 +62,6 @@ input[type=checkbox] + label:before {
     justify-content: center;
     padding-top:17px;;
 }
+.check-and-radio-heading {
+    padding-bottom: 38px;
+}

@@ -151,7 +151,7 @@ body, main, app-root {
     display: flex;
     flex-direction: column;
     flex:auto;
-    // overflow: auto;
+    overflow: auto;
 }
 .ui-accordion-content-wrapper-overflown {
     overflow: hidden;
@@ -170,6 +170,9 @@ body, main, app-root {
 
 .d-block {
   display: block;
+}
+.landing-section-wrapper {
+    padding-bottom: 30px;
 }
 
 
@@ -218,6 +221,7 @@ input, textarea{
     margin: 30px;   
     margin-left: 0;
     width: 100%;
+    padding-bottom: 37px;
     
 }
 
@@ -226,7 +230,7 @@ input, textarea{
     background-color: white;
     box-shadow: 1px 1px 5px -1px;
     margin: 30px;
-    
+    margin-bottom: 0;
     width: 908px;
 }
 .content-wrapper {
@@ -259,10 +263,11 @@ input, textarea{
 }
 
 .common-button-styles {
-    position: relative;
+
 	display: flex;
 	justify-content: flex-end;
     text-align: center;
+    margin-top:30px;
 }
 
 .button-styling {
@@ -427,9 +432,9 @@ input[type=checkbox] + label {
 .radio-input-section{
     padding-left: 42px;
 }
-.checkbox-input-section{
-    padding-left: 42px;
-}
+// .checkbox-input-section{
+//     padding-left: 42px;
+// }
 .form-question-text{
     font-size: 35px;
 }
