@@ -44,6 +44,12 @@ export class FormDataService {
 								"name": "ws-imp"
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				]
 			},
@@ -75,6 +81,12 @@ export class FormDataService {
 								"isSelected": false
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				]
 			},
@@ -99,6 +111,12 @@ export class FormDataService {
 						"value": "",
 						"name": "ws-infra-text",
 						"id": ""
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				]
 			},
@@ -153,6 +171,12 @@ export class FormDataService {
 								"name": "upgrade-migrate-radio"
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				],
 				"matadata": {
@@ -203,6 +227,12 @@ export class FormDataService {
 								"name": "upgrade-onprem-radio"
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				],
 				"matadata": {
@@ -245,6 +275,12 @@ export class FormDataService {
 								"name": "budget-allocate-radio"
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				]
 			},
@@ -312,6 +348,12 @@ export class FormDataService {
 								"name": "infra-req-cb"
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				],
 				"matadata": {
@@ -347,6 +389,12 @@ export class FormDataService {
 								"name": "gen10-upgrade-radio"
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				],
 				"matadata": {
@@ -389,6 +437,12 @@ export class FormDataService {
 								"name": "benefits-interest-radio"
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				],
 				"matadata": {
@@ -412,6 +466,12 @@ export class FormDataService {
 						"value": "",
 						"name": "next-steps-text",
 						"id": ""
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				]
 			},
@@ -473,6 +533,12 @@ export class FormDataService {
 								]
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				]
 			},
@@ -528,6 +594,12 @@ export class FormDataService {
 								"name": "ws-migration-strategy-radio"
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				]
 			},
@@ -563,6 +635,12 @@ export class FormDataService {
 								"name": "confirm-next-steps-list"
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				]
 			},
@@ -592,6 +670,12 @@ export class FormDataService {
 								"name": "additional-info-radio"
 							}
 						]
+					},
+					{
+						"type": "textArea",
+						"label": "Notes (optional): ",
+						"value": "",
+						"name": "optional-notes"
 					}
 				]
 			}
