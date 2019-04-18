@@ -39,7 +39,11 @@ export class AccordionComponent implements OnInit {
 
     takeQuestion(question) {
         this.formData.moveToParticularQuestion(question.id);
-        this.formData.triggerRouteChangeSubject();
+        if(this.router.url.indexOf("questionaire") >= 0) {
+            this.formData.triggerRouteChangeSubject();
+        } else {
+            this.router.navigate(["/questionaire"]);
+        }
     }
 
 

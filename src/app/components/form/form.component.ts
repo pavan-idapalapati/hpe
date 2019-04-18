@@ -46,7 +46,19 @@ export class FormComponent implements OnInit {
 	generateTemplate(formData) {
 		this.currentFormData = formData.data.data[formData.currentPage];
 		this.currentPage = formData.currentPage;
+		if(this.currentFormData.isConfirmStep) {
+			this.getConfirmStepData(formData.data.data);
+		}
 		console.log(this.currentFormData, "this currentFormDataaaaaaa")
+	}
+
+	getConfirmStepData(wholeData) {
+		this.currentFormData.formData[0].options.forEach((eachItem) => {
+			let data = wholeData.find((reqData) => {
+				return reqData.id === eachItem.valueIndex;
+			});
+			eachItem.value = data.formData;
+		});
 	}
 
 	previousQuestion() {
@@ -54,7 +66,9 @@ export class FormComponent implements OnInit {
 		if(currentPage <= 0) {
 			return;
 		}
-		this.utils.setItemInLocalStorage("currentPage", --currentPage, false);
+		this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
+		this.formData.setFormData(this.currentFormData, this.currentPage);
+		this.formData.moveToPreviousQuestion();
 		this.onInitOfPage();
 	}
 

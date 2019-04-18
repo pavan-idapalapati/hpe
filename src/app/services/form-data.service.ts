@@ -622,11 +622,12 @@ export class FormDataService {
 				"isViewed": false,
 				"isAnswered": false,
 				"isRequired": false,
+				"isConfirmStep": true,
 				"id": 12,
 				"formData": [
 					{
 						"//TODO:": "this needs to implement",
-						"type": "list",
+						"type": "reference",
 						"label": "",
 						"value": "",
 						"name": "confirm-next-steps-list",
@@ -634,16 +635,19 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Information to be sent",
+								"valueIndex": 9,
 								"value": "[captured info listed]",
 								"name": "confirm-next-steps-list"
 							},
 							{
 								"label": "Other stakeholder(s) to be contacted",
+								"valueIndex": 11,
 								"value": "[captured info listed]",
 								"name": "confirm-next-steps-list"
 							},
 							{
 								"label": "Meeting information: date and time, agenda topics, customer participants, and CDW participants",
+								"valueIndex": 10,
 								"value": "[captured info listed]",
 								"name": "confirm-next-steps-list"
 							}
@@ -748,6 +752,11 @@ export class FormDataService {
 	moveToNextQuestion() {
 		let currentPage = this.utils.getItemFromLocalStorage("currentPage", false);
 		this.utils.setItemInLocalStorage("currentPage", Number(currentPage) + 1, false);
+	}
+
+	moveToPreviousQuestion() {
+		let currentPage = this.utils.getItemFromLocalStorage("currentPage", false);
+		this.utils.setItemInLocalStorage("currentPage", Number(currentPage) - 1, false);
 	}
 
 	moveToParticularQuestion(questionId) {
