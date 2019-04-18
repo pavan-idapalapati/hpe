@@ -22,14 +22,14 @@ export class LandingComponent implements OnInit {
 				"formData": [
 						{
 							"type": "text",
-							"label": "Sales Rep Name: ",
+							"label": "Account Manager Name: ",
 							"value": "",
 							"name": "salesrepname"
 						}
 				]
 			},
 			{
-				"question": "Client Information",
+				"question": "Customer Information",
 				"isViewed": false,
 				"isAnswered": false,
 				"isRequired": false,
@@ -37,25 +37,25 @@ export class LandingComponent implements OnInit {
 				"formData": [
 						{
 							"type": "text",
-							"label": "Client Name: ",
+							"label": "Customer Name: ",
 							"value": "",
 							"name": "salesrepname"
 						},
 						{
 							"type": "text",
-							"label": "Client Company: ",
+							"label": "Customer Company: ",
 							"value": "",
 							"name": "salesrepname"
 						},
 						{
 							"type": "text",
-							"label": "Client Phone: ",
+							"label": "Customer Phone: ",
 							"value": "",
 							"name": "salesrepname"
 						},
 						{
 							"type": "text",
-							"label": "Client Email: ",
+							"label": "Customer Email: ",
 							"value": "",
 							"name": "salesrepname"
 						}
