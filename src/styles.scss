@@ -172,7 +172,7 @@ body {
 	height: 100%;
 }
 
-input{
+input, textarea{
     border: 1px solid #C6C9CA;
     outline: none;
     padding: 2px;
@@ -320,8 +320,7 @@ input[type=checkbox] + label {
   .text-area{
     outline:none;
     padding:10px;
-    width:65%; 
-    border: 1px solid rgb(132, 140, 143);
+    width:66%; 
   }
   
 
@@ -402,7 +401,7 @@ input[type=checkbox] + label {
     font-size: 35px;
 }
 .radio-input-section{
-    padding-left: 47px;
+    padding-left: 42px;
 }
 .checkbox-input-section{
     padding-left: 42px;

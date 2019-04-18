@@ -10,7 +10,8 @@
                 <div class="content-sections">
                     <div class="accodion-content-section" (click)="takeQuestion(eachQue)">
                         <input disabled type="checkbox" [id]="eachQue.formData[0].name" [name]="eachQue.formData[0].name"  [checked]="eachQue.isAnswered" [(ngModel)]="eachQue.isAnswered">
-                        <label [for]="eachQue.formData[0].name" class="input-label-text">{{ eachQue.question }}</label>
+                        <label [for]="eachQue.formData[0].name" class="input-label-text"></label>
+                        <div>{{ eachQue.question }}</div>
                     </div>
                 </div>
             </div>
