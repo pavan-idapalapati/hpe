@@ -278,42 +278,7 @@ input{
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
-.right-nav {
-    display: flex;
-}
 
-.right-nav-button-wrapper {
-    width: 42px;
-    background-color: #2AD2C9;
-}
-
-.right-nav-accordion {
-    width:0px;
-    overflow: hidden;
-}
-
-.side-nav-icon {
-    width: 11px;
-    height: 19px;
-    cursor: pointer;
-}
-.prev-side-nav-icon {
-    transform: rotate(180deg);
-}
-
-.right-nav-accordion-transition {
-    width: 400px;
-    transition: all .3s ease-in-out;
-}
-.remove-right-nav-accordion-transition {
-    width: 0px;
-    transition: all .3s ease-in-out;
-}
-.nav-button-wrapper {
-    display: flex;
-    justify-content: center;
-    padding-top:17px;;
-}
 
 
   .finish-button{

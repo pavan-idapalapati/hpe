@@ -1,107 +1,126 @@
-<div class="content-section">
-	<div>
-		<section>
-			<form>
-				<div class="section-heading-text common-heading-padding hpe-question">{{currentFormData.question}}</div>
-				<div *ngFor="let eachFormElem of currentFormData.formData; let outerIndex = index;">
 
-
-					<div class="common-block-padding" *ngIf="eachFormElem.type === 'text'">
-						<label [for]="eachFormElem.name"
-							class="input-label-text common-label-padding">{{eachFormElem.label}}</label>
-						<input type="text" [name]="eachFormElem.name+outerIndex" [(ngModel)]="eachFormElem.value"
-							class="input-element">
-					</div>
-
-
-					<div class="checkbox-input-section" *ngIf="eachFormElem.type === 'textArea'">
-						<label class="input-label-text common-label-padding d-block"
-							[for]="eachFormElem.name">{{eachFormElem.label}}</label>
-						<textarea [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value" cols="40" rows="5"
-							class="text-area"></textarea>
-					</div>
-
-
-					<div *ngIf="eachFormElem.type === 'list'">
-						<div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
-							<label>{{eachOption.label}}</label>
-							<div>{{eachOption.value}}</div>
-						</div>
-					</div>
-
-
-					<div class="radio-button-padding" *ngIf="eachFormElem.type === 'radio'">
-						<div class="">{{eachFormElem.label}}</div>
-						<div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
-							<div class="checkbox-padding">
-								<input type="radio" class="form-radio" [name]="eachFormElem.name"
-									[id]="eachFormElem.name+ind" [value]="eachOption.value"
-									[(ngModel)]="eachFormElem.value">
-								<label [for]="eachFormElem.name+ind"
-									class="input-label-text radio-label-text">{{eachOption.label}}</label>
-							</div>
-							<div class="checkbox-input-section" *ngIf="eachOption.helpField">
-								<div *ngFor="let eachHelpFiled of eachOption.helpField" class="radio-button-padding">
-									<label [for]="eachHelpFiled.name"
-										class="input-label-text common-label-padding">{{ eachHelpFiled.label }}</label>
-									<input [type]="eachHelpFiled.type" name="dummy" [(ngModel)]="eachHelpFiled.value"
-										class="input-element">
-								</div>
-							</div>
-							<div class="radio-input-section" *ngIf="eachOption.addDetailsData">
-								<div class="stake-holder-section add-details-section"
-									*ngFor="let eachHelpFiled of eachOption.addDetailsData; let formInd=index">
-									<div class="input-section"
-										*ngFor="let eachFiled of eachHelpFiled.fields; let fieldInd=index;">
-										<div class="input-label-text">{{ eachFiled.label }}</div>
-										<input class="input-element" [type]="eachFiled.type"
-											[name]="'addDetailsData'+formInd+fieldInd" [(ngModel)]="eachFiled.value">
-									</div>
-								</div>
-								<div class="plus-stake-holder" (click)="addNewDetails(eachFormElem, ind)">
-									<img src="../assets/images/icon_Plus.png" class="icon-plus">
-									<div class="add-stake-holder">Add stakeholder</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-					<div *ngIf="eachFormElem.type === 'checkbox'">
-						<div>{{eachFormElem.label}}</div>
-						<div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
-							<div class="checkbox-padding">
-								<input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind"
-									[value]="eachOption.value" [checked]="eachOption.isSelected"
-									[(ngModel)]="eachOption.isSelected">
-								<label [for]="eachOption.name+ind" class="input-label-text">{{eachOption.label}}</label>
-							</div>
-							<div class="checkbox-input-section" *ngIf="eachOption.helpField">
-								<div *ngFor="let eachHelpFiled of eachOption.helpField" class="radio-button-padding">
-									<label [for]="eachHelpFiled.name"
-										class="input-label-text common-label-padding input-field">{{ eachHelpFiled.label }}</label>
-									<input [type]="eachHelpFiled.type" name="dummy" [(ngModel)]="eachHelpFiled.value"
-										class="input-element">
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-				</div>
-
-
-				<div class="common-button-styles">
-					<div *ngIf="currentPage != 0" class="button-styling prev-arrow-button" (click)="previousQuestion()">
-						Previous
-						<img class="prev-arrow" src="../assets/images/icon_arrow.png">
-					</div>
-					<div class="button-styling" (click)="nextQuestion()">
-						Next
-						<img class="next-arrow" src="../assets/images/icon_arrow.png">
-					</div>
-				</div>
-			</form>
-		</section>
-	</div>
+<div class="content-wrapper">
+    <div class="content-section ">
+        <div>
+            <section>
+                <form>
+                    <div class="section-heading-text common-heading-padding hpe-question">{{currentFormData.question}}</div>
+                    <div *ngFor="let eachFormElem of currentFormData.formData; let outerIndex = index;">
+    
+    
+                        <div class="common-block-padding" *ngIf="eachFormElem.type === 'text'">
+                            <label [for]="eachFormElem.name"
+                                class="input-label-text common-label-padding">{{eachFormElem.label}}</label>
+                            <input type="text" [name]="eachFormElem.name+outerIndex" [(ngModel)]="eachFormElem.value"
+                                class="input-element">
+                        </div>
+    
+    
+                        <div class="checkbox-input-section" *ngIf="eachFormElem.type === 'textArea'">
+                            <label class="input-label-text common-label-padding d-block"
+                                [for]="eachFormElem.name">{{eachFormElem.label}}</label>
+                            <textarea [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value" cols="40" rows="5"
+                                class="text-area"></textarea>
+                        </div>
+    
+    
+                        <div *ngIf="eachFormElem.type === 'list'">
+                            <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
+                                <label>{{eachOption.label}}</label>
+                                <div>{{eachOption.value}}</div>
+                            </div>
+                        </div>
+    
+    
+                        <div class="radio-button-padding" *ngIf="eachFormElem.type === 'radio'">
+                            <div class="">{{eachFormElem.label}}</div>
+                            <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
+                                <div class="checkbox-padding">
+                                    <input type="radio" class="form-radio" [name]="eachFormElem.name"
+                                        [id]="eachFormElem.name+ind" [value]="eachOption.value"
+                                        [(ngModel)]="eachFormElem.value">
+                                    <label [for]="eachFormElem.name+ind"
+                                        class="input-label-text radio-label-text">{{eachOption.label}}</label>
+                                </div>
+                                <div class="checkbox-input-section" *ngIf="eachOption.helpField">
+                                    <div *ngFor="let eachHelpFiled of eachOption.helpField" class="radio-button-padding">
+                                        <label [for]="eachHelpFiled.name"
+                                            class="input-label-text common-label-padding">{{ eachHelpFiled.label }}</label>
+                                        <input [type]="eachHelpFiled.type" name="dummy" [(ngModel)]="eachHelpFiled.value"
+                                            class="input-element">
+                                    </div>
+                                </div>
+                                <div class="radio-input-section" *ngIf="eachOption.addDetailsData">
+                                    <div class="stake-holder-section add-details-section"
+                                        *ngFor="let eachHelpFiled of eachOption.addDetailsData; let formInd=index">
+                                        <div class="input-section"
+                                            *ngFor="let eachFiled of eachHelpFiled.fields; let fieldInd=index;">
+                                            <div class="input-label-text">{{ eachFiled.label }}</div>
+                                            <input class="input-element" [type]="eachFiled.type"
+                                                [name]="'addDetailsData'+formInd+fieldInd" [(ngModel)]="eachFiled.value">
+                                        </div>
+                                    </div>
+                                    <div class="plus-stake-holder" (click)="addNewDetails(eachFormElem, ind)">
+                                        <img src="../assets/images/icon_Plus.png" class="icon-plus">
+                                        <div class="add-stake-holder">Add stakeholder</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div *ngIf="eachFormElem.type === 'checkbox'">
+                            <div>{{eachFormElem.label}}</div>
+                            <div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
+                                <div class="checkbox-padding">
+                                    <input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind"
+                                        [value]="eachOption.value" [checked]="eachOption.isSelected"
+                                        [(ngModel)]="eachOption.isSelected">
+                                    <label [for]="eachOption.name+ind" class="input-label-text">{{eachOption.label}}</label>
+                                </div>
+                                <div class="checkbox-input-section" *ngIf="eachOption.helpField">
+                                    <div *ngFor="let eachHelpFiled of eachOption.helpField" class="radio-button-padding">
+                                        <label [for]="eachHelpFiled.name"
+                                            class="input-label-text common-label-padding input-field">{{ eachHelpFiled.label }}</label>
+                                        <input [type]="eachHelpFiled.type" name="dummy" [(ngModel)]="eachHelpFiled.value"
+                                            class="input-element">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                    </div>
+    
+    
+                    <div class="common-button-styles">
+                        <div *ngIf="currentPage != 0" class="button-styling prev-arrow-button" (click)="previousQuestion()">
+                            Previous
+                            <img class="prev-arrow" src="../assets/images/icon_arrow.png">
+                        </div>
+                        <div class="button-styling" (click)="nextQuestion()">
+                            Next
+                            <img class="next-arrow" src="../assets/images/icon_arrow.png">
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+        
+    </div>
+    <div class="right-nav">
+            <div class="right-nav-button-wrapper">
+                <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
+                    <img (click)="closeSideNav()" class="side-nav-icon" src="../assets/images/icon_arrow.png">
+                </div>
+                <div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
+                    <img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon"
+                        src="../assets/images/icon_arrow.png">
+    
+                </div>
+            </div>
+            <div class="right-nav-accordion" #rightNavAccordion>
+                <app-accordion></app-accordion>
+            </div>
+        </div>
 </div>

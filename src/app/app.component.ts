@@ -9,9 +9,8 @@ import { Router, NavigationStart } from '@angular/router';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-    openSideNavFlag;
+
     isLandingPage:boolean = true;
-    @ViewChild('rightNavAccordion') rightNavAccordion: any;
 
     constructor(private router: Router, private formData: FormDataService) { 
         router.events.subscribe(event => {
@@ -42,19 +41,6 @@ export class AppComponent implements OnInit {
         }
     }
 
-    openSideNav() {
-        this.openSideNavFlag = true;
-        this.rightNavAccordion.nativeElement.classList
-        .remove('remove-right-nav-accordion-transition')
-        this.rightNavAccordion.nativeElement.classList
-        .add('right-nav-accordion-transition');
 
-    }
-    closeSideNav() {
-        this.openSideNavFlag = false;
-        this.rightNavAccordion.nativeElement.classList.remove('right-nav-accordion-transition')
-        this.rightNavAccordion.nativeElement.classList.add('remove-right-nav-accordion-transition');
-
-    }
 
 }

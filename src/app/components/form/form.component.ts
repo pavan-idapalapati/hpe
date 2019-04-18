@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UtilService } from '../../services/util.service';
 import { FormDataService } from '../../services/form-data.service';
 import { Router } from '@angular/router';
@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 	styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+    openSideNavFlag;
+    @ViewChild('rightNavAccordion') rightNavAccordion: any;
 
 	currentFormData: any;
 	templates = {
@@ -84,6 +86,21 @@ export class FormComponent implements OnInit {
 			each.value = "";
 		});
 		eachFormElem.options[index].addDetailsData.push(mock);
-	}
+    }
+    
+    openSideNav() {
+        this.openSideNavFlag = true;
+        this.rightNavAccordion.nativeElement.classList
+        .remove('remove-right-nav-accordion-transition')
+        this.rightNavAccordion.nativeElement.classList
+        .add('right-nav-accordion-transition');
+
+    }
+    closeSideNav() {
+        this.openSideNavFlag = false;
+        this.rightNavAccordion.nativeElement.classList.remove('right-nav-accordion-transition')
+        this.rightNavAccordion.nativeElement.classList.add('remove-right-nav-accordion-transition');
+
+    }
 
 }
