@@ -136,7 +136,11 @@ video {
     resize: none;
 }
 
+html {
+    height: 100%;
+}
 body {
+    height: 100%;
     margin: 0 auto;
     color: #000000;
     font-family: "MetricHPE";
@@ -168,8 +172,10 @@ body {
 
 
 .main-section {
-	background: #3c1454;
-	height: 100%;
+    background: #3c1454;
+    height: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
 }
 
 input, textarea{
@@ -203,8 +209,9 @@ input, textarea{
     padding: 50px 50px 30px 50px;
     background-color: white;
     box-shadow: 1px 1px 5px -1px;
-    margin: 30px;
-    width: 908px;
+    margin: 30px;   
+    margin-left: 0;
+    width: 100%;
     
 }
 
@@ -213,11 +220,10 @@ input, textarea{
     background-color: white;
     box-shadow: 1px 1px 5px -1px;
     margin: 30px;
-    width: 100%;
+    
+    width: 908px;
 }
 .content-wrapper {
-    position: relative;
-    top: 150px;
     z-index: 1;
     margin-left: 300px;
     display: flex;
@@ -286,7 +292,10 @@ input, textarea{
 
 .information {
 	display: flex;
-	justify-content: center;
+    justify-content: center;
+    position: relative;
+    top: 150px;
+
 }
 
 
@@ -480,7 +489,6 @@ input[type=checkbox] + label {
   .content-sections{
       background-color: #ffffff;      
       padding-left:15px;
-      word-break: break-all;
       padding:10px 10px;
       border-bottom: 1px solid #2AD2C9;
       width:100%;
@@ -489,7 +497,6 @@ input[type=checkbox] + label {
 
   .right-content-text{
     background-color: #ffffff;     
-    word-break: break-all;
     padding:15px 35px 15px 15px;
   }
 
@@ -516,6 +523,7 @@ input[type=checkbox] + label {
 .right-nav-accordion {
     transition: all 2s ease-in-out;
     width:500px;
+    background: white;
 }
 
 
@@ -562,4 +570,8 @@ input[type=checkbox] + label {
 }
 .add-stake-holder{
   padding-left:10px;
+}
+app-form {
+    width: 100%;
+    background: #3c1454;
 }
