@@ -98,13 +98,13 @@ input{
 }
 
 
-input[type=checkbox] + label {
-    display: inline-block;
-    margin: 0.2em;
-    cursor: pointer;
-    padding: 0.2em;
+// input[type=checkbox] + label {
+//     display: inline-block;
+//     margin: 0.2em;
+//     cursor: pointer;
+//     padding: 0.2em;
     
-  }
+//   }
   
   input[type=checkbox] {
     display: none;
@@ -195,9 +195,9 @@ input[type=checkbox] + label {
     padding-bottom:35px;
 }
 
-.checkbox-padding{
-    padding-bottom: 20px;
-}
+// .checkbox-padding{
+//     padding-bottom: 20px;
+// }
 
 .prev-arrow-button{
     margin-right:15px;
@@ -209,9 +209,9 @@ input[type=checkbox] + label {
 .radio-input-section{
     padding-left: 47px;
 }
-.checkbox-input-section{
-    padding-left: 41px;
-}
+// .checkbox-input-section{
+//     padding-left: 41px;
+// }
 .form-question-text{
     font-size: 35px;
 }
@@ -254,14 +254,14 @@ input[type=checkbox] + label {
     color: #333;
   }
 
-  .content-sections{
-      background-color: #ffffff;      
-      padding-left:15px;
-      word-break: break-all;
-      padding:10px 10px;
-      border-bottom: 1px solid #2AD2C9;
-      width:100%;
-  }
+//   .content-sections{
+//       background-color: #ffffff;      
+//       padding-left:15px;
+//       word-break: break-all;
+//       padding:10px 10px;
+//       border-bottom: 1px solid #2AD2C9;
+//       width:100%;
+//   }
 
   .right-content-text{
     background-color: #ffffff;     
