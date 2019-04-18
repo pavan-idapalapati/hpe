@@ -280,10 +280,7 @@ input, textarea{
 
 input[type=checkbox] + label {
     display: inline-block;
-
-    cursor: pointer;
-
-    
+    cursor: pointer;    
   }
   
   input[type=checkbox] {
@@ -299,7 +296,7 @@ input[type=checkbox] + label {
     text-align: center;
     margin-right: 9px;
     vertical-align: bottom;
-    color: #2AD2C9;
+    color:transparent;
     transition: .1s;
   }
   
@@ -310,7 +307,7 @@ input[type=checkbox] + label {
   input[type=checkbox]:checked + label:before {
     background-color: white;
     border-color: #2AD2C9;
-    color: #fff;
+    color: #2AD2C9;
   }
 
   input[type=radio]{
