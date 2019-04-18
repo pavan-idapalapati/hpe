@@ -5,19 +5,14 @@
 	</header>
 
 	<!-- page1 html start here -->
-	<section class="information">
-		<div class="left-side-section">
+	<div class="information">
+		<div class="left-side-section" *ngIf=isLandingPage>
 			<div class="accordion-container">
 				<app-accordion></app-accordion>
 			</div>
 		</div>
-		<div class="content-section">
-			<div>
-				<!-- <app-questionnaire-nav></app-questionnaire-nav> -->
-				<router-outlet></router-outlet>
-			</div>
-		</div>
-		<div class="right-nav">
+		<router-outlet></router-outlet>		
+		<div class="right-nav" *ngIf=isLandingPage>
 			<div class="right-nav-button-wrapper">
 				<div *ngIf="openSideNavFlag" class="nav-button-wrapper">
 					<img (click)="closeSideNav()" class="side-nav-icon" src="../assets/images/icon_arrow.png">
@@ -33,5 +28,5 @@
 			</div>
 		</div>
 
-	</section>
+	</div>
 </main>

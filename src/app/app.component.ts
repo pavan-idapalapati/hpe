@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormDataService } from './services/form-data.service';
-import { Router } from '@angular/router';
+
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -9,11 +10,24 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
     openSideNavFlag;
+    isLandingPage:boolean = true;
     @ViewChild('rightNavAccordion') rightNavAccordion: any;
 
-    constructor(private router: Router, private formData: FormDataService) { }
+    constructor(private router: Router, private formData: FormDataService) { 
+        router.events.subscribe(event => {
+            if(event instanceof NavigationStart) {
+               if(event.url == '/'){
+                 this.isLandingPage = false;
+               }
+               else{
+                this.isLandingPage = true;
+               }
+            }
+            
+          });
+    }
 
-    ngOnInit() {
+    ngOnInit() {        
         this.init();
     }
 

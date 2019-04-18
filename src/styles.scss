@@ -196,7 +196,15 @@ input{
 	background-color: white;
     box-shadow: 1px 1px 5px -1px;
     margin:30px;
-    width:100%;
+    
+}
+
+.landing-section{
+  padding: 50px 50px 30px 50px;	
+	background-color: white;
+    box-shadow: 1px 1px 5px -1px;
+    margin:30px;
+    width:908px;
 }
 
 .common-heading-padding {
@@ -262,7 +270,7 @@ input{
 
 .information {
 	display: flex;
-	// justify-content: center;
+	justify-content: center;
 }
 
 
