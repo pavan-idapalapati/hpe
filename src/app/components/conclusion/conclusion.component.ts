@@ -34,4 +34,10 @@ export class ConclusionComponent implements OnInit {
     this.formData.resetWholeFormData();
     this.router.navigate(['/']);
   }
+
+  previousQuestion() {
+    this.formData.moveToPreviousQuestion();
+    this.router.navigate(["/questionaire"]);
+	}
+
 }
