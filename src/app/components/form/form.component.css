@@ -3,7 +3,6 @@
 }
 .radio-label-text {
     font-weight: 600;
-    font-size: 16px;
 }
 .form-text-field {
     padding-left: 42px;
@@ -13,4 +12,15 @@
     font-size:20px;
     font-weight: 600;
     line-height: 18px;
+}
+.checkbox-heading {
+    padding-bottom: 38px;
+}
+.checkbox-option-label {
+    font-weight: 600;
+    /* font-size: 20px; */
+    /* line-height: 18px; */
+}
+input[type=checkbox] + label:before {
+    margin-right: 20px;
 }

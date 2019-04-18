@@ -132,11 +132,15 @@ video {
     box-sizing: border-box;
     
 }
+.text-area {
+    resize: none;
+}
 
 body {
     margin: 0 auto;
     color: #000000;
     font-family: "MetricHPE";
+    font-size: 16px;
 
 }
 .ui-accordion-content-wrapper-overflown {
@@ -268,9 +272,9 @@ input{
 
 input[type=checkbox] + label {
     display: inline-block;
-    margin: 0.2em;
+
     cursor: pointer;
-    padding: 0.2em;
+
     
   }
   
@@ -379,7 +383,7 @@ input[type=checkbox] + label {
 }
 
 .checkbox-padding{
-    padding-bottom: 20px;
+    padding-bottom: 32px;
 }
 
 .prev-arrow-button{
@@ -393,7 +397,7 @@ input[type=checkbox] + label {
     padding-left: 47px;
 }
 .checkbox-input-section{
-    padding-left: 41px;
+    padding-left: 42px;
 }
 .form-question-text{
     font-size: 35px;
@@ -449,6 +453,7 @@ input[type=checkbox] + label {
       padding:10px 10px;
       border-bottom: 1px solid #2AD2C9;
       width:100%;
+      padding-right: 30px;
   }
 
   .right-content-text{
@@ -508,18 +513,21 @@ input[type=checkbox] + label {
 .return-question-text{
   font-size: 20px;
   color:#191919;
+  max-width: 75%;
 }
 
 .stake-holder-section{
   background-color: #F6f6f6;
   padding:30px;
-  width:68%;
+  width: 68%;
+  margin-bottom: 30px; 
 }
 
 .plus-stake-holder{
   display:flex;  
   padding-top: 10px;
-
+  margin:20px 0;
+  cursor: pointer;
 }
 .add-stake-holder{
   padding-left:10px;
