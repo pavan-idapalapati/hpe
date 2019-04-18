@@ -17,7 +17,11 @@ export class FormComponent implements OnInit {
 	};
 	currentPage: any;
 
-	constructor(private utils: UtilService, private formData: FormDataService, private router: Router) { }
+	constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
+		this.formData.getROuteChangeSubject().subscribe((data) => {
+			this.ngOnInit();
+		});
+	}
 
 	ngOnInit() {
 		var currentPage = this.utils.getItemFromLocalStorage("currentPage", false);
@@ -28,6 +32,7 @@ export class FormComponent implements OnInit {
 	}
 	
 	onInitOfPage() {
+		this.formData.triggerQuestionChangeSubject();
 		var formData = this.formData.getFormData();
 		if(formData.currentPage < formData.data.data.length) {
 			this.generateTemplate(formData);
@@ -60,6 +65,9 @@ export class FormComponent implements OnInit {
 
 	setIsAnswered(data) {
 		return data.formData.every((eachData) => {
+			if(eachData.isNotes) {
+				return true;
+			}
 			if(eachData.type === 'text' || eachData.type === 'textArea') {
 				return eachData.value.length;
 			} else if(eachData.type === 'radio') {

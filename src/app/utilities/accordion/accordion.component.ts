@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormDataService } from 'src/app/services/form-data.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-accordion',
@@ -11,16 +12,24 @@ export class AccordionComponent implements OnInit {
     questionnaireData: any;
     currentPage: any;
 
-    constructor(private formData: FormDataService) { }
+    constructor(private formData: FormDataService, private router: Router) {
+        this.formData.getQuestionChangeSubject().subscribe((data) =>{
+            this.onInitOfComponent();
+        })
+    }
 
     ngOnInit() {
+        this.onInitOfComponent();
+    }
+    
+    onInitOfComponent() {
         let questionnaireData = this.formData.getFormData();
         if(questionnaireData && questionnaireData.data && questionnaireData.currentPage) {
             this.questionnaireData = questionnaireData.data.data;
             this.currentPage = questionnaireData.currentPage;
         }
     }
-    
+
     onTabOpen(event) {
         this.openAccordionIndex = event.index;
     }
@@ -28,7 +37,10 @@ export class AccordionComponent implements OnInit {
         this.openAccordionIndex = undefined;
     }
 
-
+    takeQuestion(question) {
+        this.formData.moveToParticularQuestion(question.id);
+        this.formData.triggerRouteChangeSubject();
+    }
 
 
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UtilService } from "./util.service";
+import { Subject } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root'
@@ -48,6 +49,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -85,6 +87,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -115,6 +118,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -175,6 +179,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -231,6 +236,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -279,6 +285,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -352,6 +359,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -393,6 +401,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -441,6 +450,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -470,6 +480,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -537,6 +548,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -598,6 +610,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -639,6 +652,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -674,6 +688,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -683,6 +698,25 @@ export class FormDataService {
 	}
 
 	constructor(private utils: UtilService) { }
+
+	routeChange = new Subject<boolean>();
+	questionChange = new Subject<boolean>();
+
+	getROuteChangeSubject() {
+		return this.routeChange;
+	}
+
+	triggerRouteChangeSubject() {
+		this.routeChange.next(true);
+	}
+
+	getQuestionChangeSubject() {
+		return this.questionChange;
+	}
+
+	triggerQuestionChangeSubject() {
+		this.questionChange.next(true);
+	}
 
 	getWholeFormData() {
 		return this.wholeFormData;
