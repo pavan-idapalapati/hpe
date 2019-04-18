@@ -1,6 +1,7 @@
-<section>
+<section class="conclusion-section">
   <div *ngIf="unansweredQuestions.length">
-    Skipped Questions
+      <div class="thankyou-msg">Thank you for taking the time to speak with me today.</div>
+    <div class="skipped-questions-heading">Skipped Questions</div>
     <div class='skipped-questions'>
       <div class="question border-bottom" *ngFor="let question of unansweredQuestions">
         <div class="return-question-text">
@@ -16,10 +17,15 @@
   <div *ngIf="!unansweredQuestions.length">
     Please finish the test...
   </div>
-  <div class="common-button-styles">
+
+<div class="common-button-styles">
+              <div class="button-styling prev-arrow-button" >
+                  Previous
+                  <img class="prev-arrow" src="../../../assets/images/icon_arrow.png">
+              </div>
       <div class="button-styling finish-button" (click)="finishQuestionaire()">
         Finish
-        <img class="next-arrow" src="../assets/images/icon_arrow.png">
+        <img class="next-arrow" src="../../../assets/images/icon_arrow.png">
       </div>
   </div>
 </section>
