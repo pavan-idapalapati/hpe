@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 })
 export class AccordionComponent implements OnInit {
     openAccordionIndex;
-    questionnaireData: any;
+    questionnaireData = [];
     currentPage: any;
+    massagesQuestionnaireData: any;
 
     constructor(private formData: FormDataService, private router: Router) {
         this.formData.getQuestionChangeSubject().subscribe((data) =>{
@@ -28,6 +29,27 @@ export class AccordionComponent implements OnInit {
             this.questionnaireData = questionnaireData.data.data;
             this.currentPage = questionnaireData.currentPage;
         }
+        this.massageQuestionnaireData();
+    }
+
+    massageQuestionnaireData() {
+        this.massagesQuestionnaireData = {
+            kickOffQuestions: {
+                name: "Kick-off questions",
+                data: []
+            },
+            nextSteps: {
+                name: "Next steps",
+                data: []
+            }
+        }
+        this.questionnaireData.forEach(eachQue => {
+            if(eachQue.stepName === "Next steps") {
+                this.massagesQuestionnaireData.nextSteps.data.push(eachQue);
+            } else {
+                this.massagesQuestionnaireData.kickOffQuestions.data.push(eachQue);
+            }
+        });
     }
 
     onTabOpen(event) {

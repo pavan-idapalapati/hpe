@@ -70,8 +70,8 @@
                                 </div>
                                 <div class="checkbox-input-section" *ngIf="eachOption.helpField">
                                     <div *ngFor="let eachHelpFiled of eachOption.helpField;let hfInd = index" class="radio-button-padding">
-                                        <label [for]="eachHelpFiled.name+ind+hfInd" class="input-label-text common-label-padding input-field">{{ eachHelpFiled.label }}</label>
-                                        <input [type]="eachHelpFiled.type" [name]="eachHelpFiled.name+ind+hfInd" [(ngModel)]="eachHelpFiled.value" class="input-element">
+                                        <label [for]="eachOption.name + ind + hfInd" class="input-label-text common-label-padding input-field">{{ eachHelpFiled.label }}</label>
+                                        <input [type]="eachHelpFiled.type" [name]="eachOption.name + ind + hfInd" [(ngModel)]="eachHelpFiled.value" class="input-element">
                                     </div>
                                 </div>
                             </div>
