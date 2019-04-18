@@ -11,7 +11,7 @@ export class FormDataService {
 	wholeFormData = {
 		"name": "HPE Call Guide",
 		"metadata": "HPE call guide project",
-		"data":  [
+		"data": [
 			{
 				"question": "Do you have a few minutes to talk about your WS implementation?",
 				"stepName": "Kick-off questions",
@@ -184,12 +184,96 @@ export class FormDataService {
 						"name": "optional-notes"
 					}
 				],
-				"matadata": {
-					"heading": "Don’t know / Not planning to upgrade (from WS 2008):",
-					"data": [
-
-					]
-				}
+				"matadata": [
+					{
+						"heading": "Don’t know / Not planning to upgrade (from WS 2008):",
+						"data": [
+							{
+								"subHeading": "Support",
+								"content": `Are you aware that ALL types of support for end on 1/14/20, including extended support? Microsoft is
+							offering a "security updates” contract, but it costs 100% of
+							the original license cost EVERY YEAR, for a mandatory 3
+							years.`
+							},
+							{
+								"subHeading": "Security",
+								"content": `WS 2008 was built without sophisticated cyber-
+								attacks in mind and provides little protection, leaving you vulnerable to these threats.`
+							},
+							{
+								"subHeading": "Efficiency",
+								"content": `WS 2008 was built before containers
+								technology. Containers support more apps on a single
+								machine than VMs do, which means you reduce your
+								overall server count. WS 2016 takes full advantage of this
+								technology.`
+							},
+							{
+								"subHeading": "Flexibility",
+								"content": `WS 2008 is not cloud-enabled, so hybrid cloud
+								isn’t an option.`
+							},
+							{
+								"subHeading": "SQL Server 2008",
+								"content": `SQL Server 2008 runs on WS 2008 and
+								will reach end of life even sooner – on 7/19.`
+							}
+						]
+					},
+					{
+						"heading": "Don’t know / Not planning to upgrade (from WS 2012):",
+						"data": [
+							{
+								"subHeading": "Support",
+								"content": `Are you aware that Mainstream Support for WS
+								2012 R2 has already ended?`
+							}
+						]
+					},
+					{
+						"heading": "Azure: WS 2008:",
+						"data": [
+							{
+								"subHeading": "",
+								"content": `If you’re moving to Azure just to keep WS 2008, you’re just
+								delaying the inevitable – and missing out on advanced
+								security and efficiency features.`
+							},
+							{
+								"subHeading": "",
+								"content": `Application vendors may also be dropping support for 2008.`
+							},
+							{
+								"subHeading": "",
+								"content": `While there’s no charge to upload data to Azure, there IS
+								an “Egress” charge to pull data out. It may be expensive to use it as temp storage for apps and data.`
+							},							
+						]
+					},
+					{
+						"heading": "Azure: WS 20012/2016:",
+						"data": [
+							{
+								"subHeading": "",
+								"content": `CDW is one of Microsoft’s leading partners for Azure. We
+								have experience with both Azure Public and Axure Stack
+								for on-prem cloud deployments, offering exclusive Azure
+								services to accelerate your deployment.`
+							}													
+						]
+					},
+					{
+						"heading": "Waiting for WS 2019:",
+						"data": [
+							{
+								"subHeading": "",
+								"content": `You have the option now to deploy WS 2019 then
+								downgrade to 2016. This option lets you to test your apps
+								on WS 2016 before making the leap to 2019.`
+							}													
+						]
+					}					
+				]
 			},
 			{
 				"question": "If upgrading on-prem, when are you planning to upgrade?",
@@ -241,12 +325,31 @@ export class FormDataService {
 						"name": "optional-notes"
 					}
 				],
-				"matadata": {
-					"heading": "No / late upgrade start date:",
-					"data": [
+				"matadata": [
+					{
+						"heading": "No / late upgrade start date:",
+						"data": [
+							{
+								"subHeading": "",
+								"content": `Upgrading now will ensure you avoid IT problems from
+								running a system that is no longer supported.`
+							},
+							{
+								"subHeading": "",
+								"content": `Upgrading now means you can enjoy the benefits of WS
+								2016 sooner rather than later.`
+							},
+							{
+								"subHeading": "",
+								"content": `Most of our customers plan to upgrade 3-6 months before
+								EOS so they can validate the new environment before
+								support officially ends.`
+							},
 
-					]
-				}
+						]
+					},
+
+				]
 			},
 			{
 				"question": "Do you have budget allocated for use in that timeframe?",
@@ -364,18 +467,39 @@ export class FormDataService {
 						"name": "optional-notes"
 					}
 				],
-				"matadata": {
-					"heading": "Already working with another vendor:",
-					"data": [
-
-					]
-				}
+				"matadata": [
+					{
+						"heading": "Already working with another vendor:",
+						"data": [
+							{
+								"subHeading": "",
+								"content": `There are many benefits to working with HPE and CDW.
+								Input from HPE and CDW can enhance your final plan. And
+								the power of CDW and HPE working together may provide
+								the most cost-effective proposal.`
+							},							
+						]
+					},
+					{
+						"heading": "All other responses:",
+						"data": [
+							{
+								"subHeading": "",
+								"content": `CDW has a lot of experience helping customers modernize
+								the MSFT environments. It’s important to understand the
+								many options you have today, and to match your workloads
+								to the right server.`
+							},							
+						]
+					}
+				]				
+				
 			},
 			{
 				"question": "Customers have upgraded via Gen10 servers. Want to hear their feedback?",
 				"stepName": "Kick-off questions",
 				"isViewed": false,
-				"isAnswered": false,
+				"isAnswered": false,	
 				"isRequired": true,
 				"id": 7,
 				"formData": [
@@ -455,12 +579,35 @@ export class FormDataService {
 						"name": "optional-notes"
 					}
 				],
-				"matadata": {
-					"heading": "Yes:",
-					"data": [
-
-					]
-				}
+				"matadata": [
+					{
+						"heading": "Yes:",
+						"data": [
+							{
+								"subHeading": "Security",
+								"content": `HPE Gen10 servers have built-in security
+								features that reduce cybersecurity threats, including
+								malware detection and firmware protection and recovery .`
+							},
+							{
+								"subHeading": "Efficiency",
+								"content": `HPE Gen10 servers provide higher
+								performance, so you need fewer servers and cores. Since
+								licenses and support are based on the number of cores in
+								the server, more efficient servers mean both lower
+								hardware costs and lower software license and support
+								costs.`
+							},
+							{
+								"subHeading": "Cloud-readiness",
+								"content": `HPE Gen10 servers deliver cloud-readiness, whether public, private, or hybrid. The public
+								cloud is perfect for many different apps and workloads, but
+								an on-prem solution, or even a private cloud, is the best
+								alternative in certain situations.`
+							}
+						]
+					},
+				]				
 			},
 			{
 				"question": "What are the next steps? What do you need help with?",

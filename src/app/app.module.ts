@@ -11,6 +11,7 @@ import { FormComponent } from './components/form/form.component';
 import { ConclusionComponent } from './components/conclusion/conclusion.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { QuestionnaireNavComponent } from './components/questionnaire-nav/questionnaire-nav.component';
+import { RightAccordianComponent } from './utilities/right-accordian/right-accordian.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingComponent },
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     FormComponent,
     ConclusionComponent,
     LandingComponent,
-    QuestionnaireNavComponent
+    QuestionnaireNavComponent,
+    RightAccordianComponent
   ],
   imports: [
     BrowserModule,
