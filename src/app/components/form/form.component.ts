@@ -49,6 +49,12 @@ export class FormComponent implements OnInit {
 			this.metaData = formData.data.data;
 			this.currentPage = formData.currentPage;			        
 			this.metaData = this.metaData[this.currentPage];
+			if(this.metaData.matadata){
+				this.openSideNav();
+			}
+			else{
+				this.closeSideNav();
+			}
 		}
 	}
 	
