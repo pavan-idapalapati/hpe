@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormDataService } from './services/form-data.service';
 
-import { Router, NavigationStart } from '@angular/router';
+import { Router, NavigationStart, NavigationExtras } from '@angular/router';
+import { UtilService } from './services/util.service';
 
 @Component({
     selector: 'app-root',
@@ -12,35 +13,46 @@ export class AppComponent implements OnInit {
 
     isLandingPage:boolean = true;
 
-    constructor(private router: Router, private formData: FormDataService) { 
+    constructor(private router: Router, private formData: FormDataService, private utils: UtilService) {
         router.events.subscribe(event => {
             if(event instanceof NavigationStart) {
-               if(event.url == '/'){
-                 this.isLandingPage = false;
-               }
-               else{
-                this.isLandingPage = true;
-               }
+                let url = event.url.substring(0, (event.url.indexOf("?")> -1 ? event.url.indexOf("?"): event.url.length-1) ).trim();
+               if(url == '/' || url == ''){
+                    this.isLandingPage = false;
+                }
+                else{
+                    this.isLandingPage = true;
+                }
             }
-            
-          });
+        });
     }
 
-    ngOnInit() {        
+    ngOnInit() {
         this.init();
     }
 
     init() {
-        var formData = this.formData.getFormData();
-        if (!formData || !formData.currentPage || !formData.data) {
-            this.router.navigate(['/']);
-        } else if (formData && formData.currentPage && formData.data && formData.currentPage < formData.data.data.length) {
-            this.router.navigate(['/questionaire']);
-        } else {
-            this.router.navigate(['/conclusion']);
+        let hasSession = this.utils.getSessionStatusFromCookies();
+        if(hasSession) {
+            var formData = this.formData.getFormData();
+            if (!formData || !formData.currentPage || !formData.data) {
+                let navigationExtras: NavigationExtras = {
+                    queryParams: {
+                        "new": true
+                    }
+                };
+                this.router.navigate(['/'], navigationExtras);
+            } else {
+                this.router.navigate(['/']);
+            }
+        } else  {
+            let navigationExtras: NavigationExtras = {
+                queryParams: {
+                    "new": true
+                }
+            };
+            this.router.navigate(['/'], navigationExtras);
         }
     }
-
-
 
 }

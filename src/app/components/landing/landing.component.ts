@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormDataService } from 'src/app/services/form-data.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UtilService } from 'src/app/services/util.service';
 
 @Component({
@@ -63,16 +63,52 @@ export class LandingComponent implements OnInit {
 			}
 		]
 	};
+	showSessionResumePopup: boolean;
+	companyName: string;
+	customerName: string;
+	saleRepName: string;
 
-  constructor(private utils: UtilService, private router: Router) { }
+  constructor(private formData: FormDataService, private utils: UtilService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.utils.clearStorage();
-  }
+		this.activatedRoute.queryParams.subscribe(
+			(queryParams: any) => {
+				console.log(queryParams['new']);
+				if(queryParams['new']) {
+					this.showSessionResumePopup = false;
+					this.createNewSession();
+				} else {	
+					this.showSessionResumeSection();
+				}
+			}
+		);
+	}
+	
+	createNewSession() {
+		this.utils.clearStorage();
+		this.utils.clearCookies();
+		this.utils.setSessionInCookies();
+		this.formData.setInitialDataToLocalStorage();
+	}
 
   getStarted() {
+		this.createNewSession();
     this.utils.setItemInLocalStorage("userInfo", this.userInfoForm, true);
     this.router.navigate(['/questionaire']);
-  }
+	}
+	
+	resumeSession() {
+		this.router.navigate(['/questionaire']);
+	}
+
+	showSessionResumeSection() {
+		let userData = this.utils.getItemFromLocalStorage("userInfo", true);
+		if(userData && userData.data) {
+			this.saleRepName = userData.data[0].formData[0].value;
+			this.customerName = userData.data[1].formData[0].value;
+			this.companyName = userData.data[1].formData[1].value;
+		}
+		this.showSessionResumePopup = true;
+	}
 
 }

@@ -557,13 +557,34 @@ export class FormDataService {
 						"name": "optional-notes"
 					}
 				],
-				"matadata": {
+				"matadata": [{
                     "heading": "Yes:",
                     "uid": 1,
 					"data": [
-
+						{
+							"subHeading": "Security",
+							"content": `HPE Gen10 servers have built-in security
+							features that reduce cybersecurity threats, including
+							malware detection and firmware protection and recovery .`
+						},
+						{
+							"subHeading": "Efficiency",
+							"content": `HPE Gen10 servers provide higher
+							performance, so you need fewer servers and cores. Since
+							licenses and support are based on the number of cores in
+							the server, more efficient servers mean both lower
+							hardware costs and lower software license and support
+							costs.`
+						},
+						{
+							"subHeading": "Cloud-readiness",
+							"content": `HPE Gen10 servers deliver cloud-readiness, whether public, private, or hybrid. The public
+							cloud is perfect for many different apps and workloads, but
+							an on-prem solution, or even a private cloud, is the best
+							alternative in certain situations.`
+						}
 					]
-				}
+				},]
 			},
 			{
 				"question": "Which of those benefits are of particular interest to you? Can I send you some additional information",
@@ -607,37 +628,7 @@ export class FormDataService {
 						"value": "",
 						"name": "optional-notes"
 					}
-				],
-				"matadata": [
-					{
-                        "heading": "Yes:",
-                        "uid": 1,
-						"data": [
-							{
-								"subHeading": "Security",
-								"content": `HPE Gen10 servers have built-in security
-								features that reduce cybersecurity threats, including
-								malware detection and firmware protection and recovery .`
-							},
-							{
-								"subHeading": "Efficiency",
-								"content": `HPE Gen10 servers provide higher
-								performance, so you need fewer servers and cores. Since
-								licenses and support are based on the number of cores in
-								the server, more efficient servers mean both lower
-								hardware costs and lower software license and support
-								costs.`
-							},
-							{
-								"subHeading": "Cloud-readiness",
-								"content": `HPE Gen10 servers deliver cloud-readiness, whether public, private, or hybrid. The public
-								cloud is perfect for many different apps and workloads, but
-								an on-prem solution, or even a private cloud, is the best
-								alternative in certain situations.`
-							}
-						]
-					},
-				]				
+				]			
 			},
 			{
 				"question": "What are the next steps? What do you need help with?",
@@ -649,7 +640,7 @@ export class FormDataService {
 				"formData": [
 					{
 						"type": "text",
-						"label": "",
+						"label": "Information to be sent: ",
 						"value": "",
 						"name": "next-steps-text",
 						"id": ""
@@ -673,7 +664,7 @@ export class FormDataService {
 				"formData": [
 					{
 						"type": "radio",
-						"label": "",
+						"label": "Meeting information: ",
 						"value": "",
 						"name": "gen10-upgrade-radio",
 						"id": "radio1",
@@ -741,7 +732,7 @@ export class FormDataService {
 				"formData": [
 					{
 						"type": "radio",
-						"label": "",
+						"label": "Other stakeholder(s) to be contacted: ",
 						"value": "",
 						"name": "ws-migration-strategy-radio",
 						"id": "radio1",
