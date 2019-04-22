@@ -69,10 +69,14 @@ input[type=checkbox] + label:before {
     pointer-events: none;
 }
 
+.font-regular{
+    font-weight: 400;
+}
+
 .changeColor{
     /* background-color: #ffffff; */
 }
 
 .checkbox-helpfield-section{
-    padding-left:40px;
+    padding-left:45px;
 }

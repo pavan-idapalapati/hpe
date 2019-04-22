@@ -4,22 +4,22 @@
             <div>
                 <section>
                     <div class="section-heading">Resume session:</div>
-                    <form>
-                        <div>
+                    <form class="resume-form">
+                        <div class="resume-form-wrapper">
                             <div class="question-title"></div>
                             <div>
-                                <div class="">
+                                <div class="customer-details">
                                     <div class="resume-session-properties">
-                                        <label class="input-label-text">Sales Rep Name: </label>
-                                        <label class="input-label-text">{{saleRepName}}</label>
+                                        <label class="input-label-text resume-session-text">Sales Rep Name: </label>
+                                        <label class="input-label-text resume-session-text">{{saleRepName || '-'}}</label>
                                     </div>
                                     <div class="resume-session-properties">
-                                        <label class="input-label-text">Customer Name: </label>
-                                        <label class="input-label-text">{{customerName}}</label>
+                                        <label class="input-label-text resume-session-text">Customer Name: </label>
+                                        <label class="input-label-text resume-session-text">{{customerName || '-'}}</label>
                                     </div>
                                     <div class="resume-session-properties">
-                                        <label class="input-label-text">Customer Company: </label>
-                                        <label class="input-label-text">{{companyName}}</label>
+                                        <label class="input-label-text resume-session-text">Customer Company: </label>
+                                        <label class="input-label-text resume-session-text">{{companyName  || '-'}}</label>
                                     </div>
     
                                 </div>
@@ -42,7 +42,7 @@
                 <section>
                     <div class="section-heading main-heading">Start a new session:</div>
                     <form>
-                        <div *ngFor="let dataGroup of userInfoForm.data">
+                        <div *ngFor="let dataGroup of userInfoForm.data" class="common-block-padding">
                             <div class="question-title">{{dataGroup.question}}</div>
                             <div *ngFor="let eachFormElem of dataGroup.formData">
                                 <div class="input-section">
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="common-button-styles margin-0">
+                        <div class="common-button-styles">
                             <div (click)="getStarted()" class="button-styling">
                                 Get Started
                                 <img class="next-arrow" src="/assets/images/icon_arrow.png">

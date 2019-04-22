@@ -434,7 +434,7 @@ export class FormDataService {
 						"id": "",
 						"options": [
 							{
-								"label": "Compute:",
+								"label": "Compute",
 								"value": "Compute:",
 								"name": "infra-req-cb",
                                 "isSelected": false,
@@ -442,13 +442,13 @@ export class FormDataService {
 								"helpField": [
 									{
 										"type": "text",
-										"label": "details:",
+										"label": "Details:",
 										"value": ""
 									}
 								]
 							},
 							{
-								"label": "Storage:",
+								"label": "Storage",
 								"value": "Storage:",
 								"name": "infra-req-cb",
                                 "isSelected": false,
@@ -456,20 +456,20 @@ export class FormDataService {
 								"helpField": [
 									{
 										"type": "text",
-										"label": "details:",
+										"label": "Details:",
 										"value": ""
 									}
 								]
 							},
 							{
-								"label": "Networking:",
+								"label": "Networking",
 								"value": "Networking:",
                                 "name": "infra-req-cb",
                                 "uid": 1,
 								"helpField": [
 									{
 										"type": "text",
-										"label": "details:",
+										"label": "Details:",
 										"value": ""
 									}
 								]
@@ -697,19 +697,7 @@ export class FormDataService {
 								"helpField": [
 									{
 										"//TODO:": "this needs to integrate",
-										"label": "Offer to send specific resources",
-										"url": "www.www.com",
-										"value": ""
-									},
-									{
-										"type": "link",
-										"label": "Offer to send specific resources",
-										"url": "www.www.com",
-										"value": ""
-									},
-									{
-										"type": "link",
-										"label": "Offer to send specific resources",
+										"label": "Offer to send specific resources:",
 										"url": "www.www.com",
 										"value": ""
 									},
