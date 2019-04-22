@@ -72,3 +72,7 @@ input[type=checkbox] + label:before {
 .changeColor{
     /* background-color: #ffffff; */
 }
+
+.checkbox-helpfield-section{
+    padding-left:40px;
+}

@@ -16,7 +16,7 @@
                         </div>
     
     
-                        <div class="checkbox-input-section" *ngIf="eachFormElem.type === 'textArea'">
+                        <div class="checkbox-input-section" *ngIf="eachFormElem.type === 'textArea'" [ngClass]="{'checkbox-helpfield-section':eachFormElem.isHelpField}">
                             <label class="input-label-text common-label-padding d-block"
                                 [for]="eachFormElem.name">{{eachFormElem.label}}</label>
                             <textarea [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value" cols="40" rows="5"
@@ -29,17 +29,17 @@
                                 <label>{{eachOption.label}}</label>
                                 <div>{{eachOption.value}}</div>
                             </div>
-                        </div>
+                        </div>    
     
-    
-                        <div class="radio-button-padding" *ngIf="eachFormElem.type === 'radio'">
-                            <div class="check-and-radio-heading">{{eachFormElem.label}}</div>
+                        <div *ngIf="eachFormElem.type === 'radio'">
+                            <div class="check-and-radio-heading">
+                                {{eachFormElem.label}}</div>
                             <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
                                 <div class="checkbox-padding">
                                     <input type="radio" class="form-radio" [name]="eachFormElem.name" [id]="eachFormElem.name+ind" [value]="eachOption.value" [(ngModel)]="eachFormElem.value" (change)="onRadioButtonValueChange(eachOption)">
                                     <label [for]="eachFormElem.name+ind" [innerHtml]="eachOption.label" class="input-label-text radio-label-text"></label>
                                 </div>
-                                <div class="checkbox-input-section" *ngIf="eachOption.helpField">
+                                <div class="checkbox-input-section checkbox-helpfield-section" *ngIf="eachOption.helpField">
                                     <div *ngFor="let eachHelpFiled of eachOption.helpField; let hfInd = index;" class="radio-button-padding">
                                         <label [for]="eachHelpFiled.name" class="input-label-text common-label-padding">{{ eachHelpFiled.label }}</label>
                                         <input [type]="eachHelpFiled.type" [name]="eachOption.name + ind + hfInd" [(ngModel)]="eachHelpFiled.value" class="input-element">
@@ -53,7 +53,7 @@
                                         </div>
                                     </div>
                                     <div class="plus-stake-holder" (click)="addNewDetails(eachFormElem, ind)">
-                                        <img src="../assets/images/icon_Plus.png" class="icon-plus">
+                                        <img src="/assets/images/icon_Plus.png" class="icon-plus">
                                         <div class="add-stake-holder">Add stakeholder</div>
                                     </div>
                                 </div>
@@ -68,8 +68,8 @@
                                     <input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind" [value]="eachOption.value" [checked]="eachOption.isSelected" [(ngModel)]="eachOption.isSelected" (change)="onRadioButtonValueChange(eachOption)" >
                                     <label [for]="eachOption.name+ind" class="input-label-text">{{eachOption.label}}</label>
                                 </div>
-                                <div class="checkbox-input-section" *ngIf="eachOption.helpField">
-                                    <div *ngFor="let eachHelpFiled of eachOption.helpField; let hfInd = index" class="radio-button-padding">
+                                <div class="checkbox-input-section checkbox-helpfield-section" *ngIf="eachOption.helpField">
+                                    <div *ngFor="let eachHelpFiled of eachOption.helpField;let hfInd = index" class="radio-button-padding">
                                         <label [for]="eachOption.name + ind + hfInd" class="input-label-text common-label-padding input-field">{{ eachHelpFiled.label }}</label>
                                         <input [type]="eachHelpFiled.type" [name]="eachOption.name + ind + hfInd" [(ngModel)]="eachHelpFiled.value" class="input-element">
                                     </div>
@@ -88,7 +88,7 @@
                                     </div>
                                     <div *ngFor="let eachOptionI of eachOption.value[0].options; let indi=index;">
                                         <div *ngIf="eachOption.value[0].value == eachOptionI.value">
-                                            <div class="checkbox-padding">
+                                            <div class="checkbox-padding checkbox-helpfield-section" *ngIf="eachOptionI.helpField">
                                                 <!-- <input disabled type="radio" class="form-radio" [name]="eachOptionI.name+indi" [id]="eachOptionI.name+indi" [value]="eachOptionI.value" [(ngModel)]="eachOption.value[0].value"> -->
                                                 <label [for]="eachOptionI.name+indi" class="input-label-text radio-label-text">{{eachOptionI.label}}</label>
                                             </div>
@@ -118,20 +118,18 @@
                                     <div class="input-element">{{eachOption.value[0].value || '--'}}</div>
                                 </div>
                             </div>
-                        </div>
+                        </div>   
     
-    
-                    </div>
-    
+                    </div>    
     
                     <div class="common-button-styles">
                         <div *ngIf="currentPage != 0" class="button-styling prev-arrow-button" (click)="previousQuestion()">
                             Previous
-                            <img class="prev-arrow" src="../assets/images/icon_arrow.png">
+                            <img class="prev-arrow" src="/assets/images/icon_arrow.png">
                         </div>
                         <div class="button-styling" (click)="nextQuestion()">
                             Next
-                            <img class="next-arrow" src="../assets/images/icon_arrow.png">
+                            <img class="next-arrow" src="/assets/images/icon_arrow.png">
                         </div>
                     </div>
                 </form>
@@ -142,11 +140,11 @@
     <div class="right-nav" [ngClass]="{'disable':!metaData.matadata}">
         <div class="right-nav-button-wrapper" [ngClass]="{'changeColor':!metaData.matadata}">
             <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
-                <img (click)="closeSideNav()" class="side-nav-icon" src="../assets/images/icon_arrow.png">
+                <img (click)="closeSideNav()" class="side-nav-icon" src="/assets/images/icon_arrow.png">
             </div>
             <div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
                 <img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon"
-                    src="../assets/images/icon_arrow.png">
+                    src="/assets/images/icon_arrow.png">
 
             </div>
         </div>

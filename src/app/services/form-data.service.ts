@@ -30,6 +30,11 @@ export class FormDataService {
 							{
 								"label": "Yes",
 								"value": "Yes",
+								"name": "ws-imp"							
+							},
+							{
+								"label": "No",
+								"value": "No",
 								"name": "ws-imp",
 								"helpField": [
 									{
@@ -38,11 +43,6 @@ export class FormDataService {
 										"value": ""
 									}
 								]
-							},
-							{
-								"label": "No",
-								"value": "No",
-								"name": "ws-imp"
 							}
 						]
 					},
@@ -50,6 +50,7 @@ export class FormDataService {
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
+						"isHelpField":true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -88,6 +89,7 @@ export class FormDataService {
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
+						"isHelpField":true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -119,6 +121,7 @@ export class FormDataService {
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
+						"helpField":false,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -186,6 +189,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isHelpField":true,
 						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
@@ -337,6 +341,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isHelpField":true,
 						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
@@ -391,7 +396,7 @@ export class FormDataService {
 								"helpField": [
 									{
 										"type": "text",
-										"label": "amount:",
+										"label": "Amount:",
 										"value": ""
 									}
 								]
@@ -407,6 +412,7 @@ export class FormDataService {
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
+						"isHelpField":true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -486,6 +492,7 @@ export class FormDataService {
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
+						"isHelpField":true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -553,6 +560,7 @@ export class FormDataService {
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
+						"isHelpField":true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -624,6 +632,7 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
+						"isHelpField":true,
 						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
@@ -717,6 +726,7 @@ export class FormDataService {
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
+						"isHelpField":true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -779,6 +789,7 @@ export class FormDataService {
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
+						"isHelpField":true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -862,6 +873,7 @@ export class FormDataService {
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
+						"isHelpField":true,
 						"value": "",
 						"name": "optional-notes"
 					}
