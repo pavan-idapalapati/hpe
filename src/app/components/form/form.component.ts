@@ -11,12 +11,7 @@ import { Router } from '@angular/router';
 export class FormComponent implements OnInit {
     openSideNavFlag;
     @ViewChild('rightNavAccordion') rightNavAccordion: any;
-
 	currentFormData: any;
-	templates = {
-		"formTemplate": "form-template",
-		"reviewTemplate": "review-template"
-	};
 	currentPage: any;
 	metaData:any;
 
@@ -28,14 +23,14 @@ export class FormComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		var currentPage = this.utils.getItemFromLocalStorage("currentPage", false);
-		if(!currentPage) {
+		var formData = this.formData.getFormData();
+		if(!formData || !formData.currentPage || !formData.data) {
 			this.formData.setInitialDataToLocalStorage();
 		}
-		this.onInitOfPage();
+		this.init();
 	}
 	
-	onInitOfPage() {
+	init() {
 		this.formData.triggerQuestionChangeSubject();
 		var formData = this.formData.getFormData();
 		if(formData.currentPage < formData.data.data.length) {
@@ -84,17 +79,16 @@ export class FormComponent implements OnInit {
 		this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
 		this.formData.setFormData(this.currentFormData, this.currentPage);
 		this.formData.moveToPreviousQuestion();
-        this.onInitOfPage();
-        this.utils.scrolltoTop();        
+		this.init();
+        this.utils.scrolltoTop(); 
 	}
 
 	nextQuestion() {
 		this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
 		this.formData.setFormData(this.currentFormData, this.currentPage);
 		this.formData.moveToNextQuestion();
-        this.onInitOfPage();
+		this.init();
         this.utils.scrolltoTop();
-        
 	}
 
 	setIsAnswered(data) {

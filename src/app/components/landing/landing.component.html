@@ -1,40 +1,42 @@
-<!-- <div class="landing-section-wrapper">
-    <div class="landing-section">
-        <div>
-            <section>
-                <div class="section-heading">Resume session:</div>
-                <form>
-                    <div>
-                        <div class="question-title"></div>
+<section>
+    <div class="landing-section-wrapper session-resume-section" *ngIf="showSessionResumePopup">
+        <div class="landing-section">
+            <div>
+                <section>
+                    <div class="section-heading">Resume session:</div>
+                    <form>
                         <div>
-                            <div class="">
-                                <div class="resume-session-properties">
-                                    <label class="input-label-text">Sales Rep Name:</label>
-                                    <label class="input-label-text">Gareth Rabb</label>
+                            <div class="question-title"></div>
+                            <div>
+                                <div class="">
+                                    <div class="resume-session-properties">
+                                        <label class="input-label-text">Sales Rep Name: </label>
+                                        <label class="input-label-text">{{saleRepName}}</label>
+                                    </div>
+                                    <div class="resume-session-properties">
+                                        <label class="input-label-text">Customer Name: </label>
+                                        <label class="input-label-text">{{customerName}}</label>
+                                    </div>
+                                    <div class="resume-session-properties">
+                                        <label class="input-label-text">Customer Company: </label>
+                                        <label class="input-label-text">{{companyName}}</label>
+                                    </div>
+    
                                 </div>
-                                <div class="resume-session-properties">
-                                    <label class="input-label-text">Customer Name:</label>
-                                    <label class="input-label-text">Pam</label>
-                                </div>
-                                <div class="resume-session-properties">
-                                    <label class="input-label-text">Customer Company</label>
-                                    <label class="input-label-text">Hospice</label>
-                                </div>
-
                             </div>
                         </div>
-                    </div>
-                    <div class="common-button-styles">
-                        <div class="button-styling">
-                            Resume
-                            <img class="next-arrow" src="../assets/images/icon_arrow.png">
+                        <div class="common-button-styles" (click)="resumeSession()">
+                            <div class="button-styling">
+                                Resume
+                                <img class="next-arrow" src="../assets/images/icon_arrow.png">
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </section>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
-</div> -->
+</div>
 
 
 <div class="landing-section-wrapper">
@@ -58,9 +60,9 @@
                         Get Started
                             <img class="next-arrow" src="../assets/images/icon_arrow.png">
                         </div>
-                    </div>
-                </form>
-            </section>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
-</div>
+</section>
