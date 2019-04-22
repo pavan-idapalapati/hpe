@@ -80,3 +80,15 @@ input[type=checkbox] + label:before {
 .checkbox-helpfield-section{
     padding-left:45px;
 }
+.disabled-nav{
+    background-color: #468c98;
+}
+
+.checkbox-helpfield-section{
+    padding-left:40px;
+}
+.close-add-details {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}

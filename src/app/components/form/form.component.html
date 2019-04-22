@@ -30,8 +30,7 @@
                         </div>
 
                         <div *ngIf="eachFormElem.type === 'radio'">
-                            <div class="check-and-radio-heading">
-                                {{eachFormElem.label}}</div>
+                            <!-- <div class="check-and-radio-heading">{{eachFormElem.label}}</div> -->
                             <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
                                 <div class="checkbox-padding">
                                     <input type="radio" class="form-radio" [name]="eachFormElem.name"
@@ -70,7 +69,7 @@
                             </div>
                         </div>
                         <div *ngIf="eachFormElem.type === 'checkbox'">
-                            <div class="check-and-radio-heading">{{eachFormElem.label}}</div>
+                            <!-- <div class="check-and-radio-heading">{{eachFormElem.label}}</div> -->
                             <div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
                                 <div class="checkbox-padding">
                                     <input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind"
@@ -104,11 +103,9 @@
                                     </div>
                                     <div *ngFor="let eachOptionI of eachOption.value[0].options; let indi=index;">
                                         <div *ngIf="eachOption.value[0].value == eachOptionI.value">
-                                            <div class="checkbox-padding checkbox-helpfield-section"
-                                                *ngIf="eachOptionI.helpField">
+                                            <div class="checkbox-padding checkbox-helpfield-section" *ngIf="eachOptionI.helpField || eachOptionI.addDetailsData">
                                                 <!-- <input disabled type="radio" class="form-radio" [name]="eachOptionI.name+indi" [id]="eachOptionI.name+indi" [value]="eachOptionI.value" [(ngModel)]="eachOption.value[0].value"> -->
-                                                <label [for]="eachOptionI.name+indi"
-                                                    class="input-label-text radio-label-text font-regular">{{eachOptionI.label}}</label>
+                                                <label [for]="eachOptionI.name+indi" class="input-label-text radio-label-text pl-0 font-regular">{{eachOptionI.label}}</label>
                                             </div>
                                             <div class="checkbox-input-section pl-20" *ngIf="eachOptionI.helpField">
                                                 <div *ngFor="let eachHelpFiled of eachOptionI.helpField; let hfInd = index;"
@@ -161,7 +158,7 @@
 
     </div>
     <div class="right-nav" [ngClass]="{'disable':!metaData.matadata}">
-        <div class="right-nav-button-wrapper" [ngClass]="{'changeColor':!metaData.matadata}">
+        <div class="right-nav-button-wrapper" [ngClass]="{'disabled-nav':!metaData.matadata}">
             <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
                 <img (click)="closeSideNav()" class="side-nav-icon" src="/assets/images/icon_arrow.png">
             </div>

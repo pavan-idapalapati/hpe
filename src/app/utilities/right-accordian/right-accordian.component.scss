@@ -23,6 +23,7 @@
 .accodion-content-section {
     display: flex;
     align-items: center;
+
 }
 
 .subheading-label-text{
@@ -39,5 +40,21 @@
     cursor: pointer;
     border-top: 1px solid #614767;
     border-bottom: 1px solid #614767;
+}
+
+ul li{
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-left: 45px;
+    font-size: 23px;
+}
+
+li:last-child {
+    padding-bottom: 50px;
+}
+
+.accordion-item {
+    padding: 10px 50px 0px 10px;
+    font-size: 16px;
 }
 

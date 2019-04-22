@@ -7,7 +7,9 @@ import { Subject } from 'rxjs';
 })
 export class FormDataService {
 	formData: any;
-	formCurrentPage: any;
+    formCurrentPage: any;
+    openAccordionIndex;
+
 	wholeFormData = {
 		"name": "HPE Call Guide",
 		"metadata": "HPE call guide project",
@@ -198,7 +200,7 @@ export class FormDataService {
 				"matadata": [
 					{
                         "uid": 1,
-						"heading": "Don’t know / Not planning to upgrade (from WS 2008):",
+						"heading": "Don’t know / Not planning to upgrade (from WS 2008)",
 						"data": [
 							{
 								"subHeading": "Support",
@@ -234,7 +236,7 @@ export class FormDataService {
 					},
 					{
                         "uid": 2,
-						"heading": "Don’t know / Not planning to upgrade (from WS 2012):",
+						"heading": "Don’t know / Not planning to upgrade (from WS 2012)",
 						"data": [
 							{
 								"subHeading": "Support",
@@ -245,7 +247,7 @@ export class FormDataService {
 					},
 					{
                         "uid": 4,
-						"heading": "Azure: WS 2008:",
+						"heading": "Azure: WS 2008",
 						"data": [
 							{
 								"subHeading": "",
@@ -266,7 +268,7 @@ export class FormDataService {
 					},
 					{
                         "uid":5,
-						"heading": "Azure: WS 20012/2016:",
+						"heading": "Azure: WS 20012/2016",
 						"data": [
 							{
 								"subHeading": "",
@@ -279,7 +281,7 @@ export class FormDataService {
 					},
 					{
                         "uid": 6,
-						"heading": "Waiting for WS 2019:",
+						"heading": "Waiting for WS 2019",
 						"data": [
 							{
 								"subHeading": "",
@@ -349,7 +351,7 @@ export class FormDataService {
 				],
 				"matadata": [
 					{
-                        "heading": "No / late upgrade start date:",
+                        "heading": "No / late upgrade start date",
                         "uid": 1,
 						"data": [
 							{
@@ -500,7 +502,7 @@ export class FormDataService {
 				"matadata": [
 					{
                         "uid": 2,
-						"heading": "Already working with another vendor:",
+						"heading": "Already working with another vendor",
 						"data": [
 							{
 								"subHeading": "",
@@ -513,7 +515,7 @@ export class FormDataService {
 					},
 					{
                         "uid": 1,
-						"heading": "All other responses:",
+						"heading": "All other responses",
 						"data": [
 							{
 								"subHeading": "",
@@ -566,7 +568,7 @@ export class FormDataService {
 					}
 				],
 				"matadata": [{
-                    "heading": "Yes:",
+                    "heading": "Yes",
                     "uid": 1,
 					"data": [
 						{
@@ -648,13 +650,6 @@ export class FormDataService {
 				"id": 9,
 				"formData": [
 					{
-						"type": "text",
-						"label": "Information to be sent: ",
-						"value": "",
-						"name": "next-steps-text",
-						"id": ""
-					},
-					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
@@ -697,7 +692,7 @@ export class FormDataService {
 								"helpField": [
 									{
 										"//TODO:": "this needs to integrate",
-										"label": "Offer to send specific resources:",
+										"label": "Offer to send specific resources (literature, video links)",
 										"url": "www.www.com",
 										"value": ""
 									},

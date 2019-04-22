@@ -129,7 +129,13 @@ export class FormComponent implements OnInit {
         this.openSideNavFlag = false;
         this.rightNavAccordion.nativeElement.classList.remove('right-nav-accordion-transition')
         this.rightNavAccordion.nativeElement.classList.add('remove-right-nav-accordion-transition');
-    }
+	}
+	
+	removeDetailsData(data, index) {
+		if(data.length > 1) {
+			data.splice(index, 1);
+		}
+	}
 
     onRadioButtonValueChange(eachOption) {
        this.rightAccordion.openAccordion(eachOption);
