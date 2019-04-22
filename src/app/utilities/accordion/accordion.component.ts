@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormDataService } from 'src/app/services/form-data.service';
 import { Router } from '@angular/router';
 
@@ -12,6 +12,8 @@ export class AccordionComponent implements OnInit {
     questionnaireData = [];
     currentPage: any;
     massagesQuestionnaireData: any;
+    @ViewChild('kickoffQuestions') kickoffQuestions: any;
+    @ViewChild('nextsteps') nextsteps: any;
 
     constructor(private formData: FormDataService, private router: Router) {
         this.formData.getQuestionChangeSubject().subscribe((data) =>{
@@ -48,6 +50,20 @@ export class AccordionComponent implements OnInit {
                 this.massagesQuestionnaireData.nextSteps.data.push(eachQue);
             } else {
                 this.massagesQuestionnaireData.kickOffQuestions.data.push(eachQue);
+            }
+        });
+
+        // open left side accordion based on navigation
+        setTimeout(() => {     
+            if(this.currentPage >= 9) {
+                this.kickoffQuestions.selected = false;
+                this.nextsteps.selected = true;
+            } else if(this.currentPage < 9) {
+                this.kickoffQuestions.selected = true;
+                this.nextsteps.selected = false;  
+            } else if(this.currentPage == 14) {
+                this.kickoffQuestions.selected = false;
+                this.nextsteps.selected = false;
             }
         });
     }
