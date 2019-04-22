@@ -28,3 +28,15 @@
 .subheading-label-text{
     font-weight: 600;
 }
+
+.accordion-header {
+    display: block;
+    text-decoration: none;
+    outline: none;
+    color: #000;  
+    // border-top: 1px solid #979797;  
+    background-color: #fff;
+    cursor: pointer;
+    border-top: 1px solid #614767;
+    border-bottom: 1px solid #614767;
+}
