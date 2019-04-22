@@ -54,11 +54,11 @@
           {
             "type": "radio",
             "label": "",
-            "value": "yes", // selected value of radio button options
+            "value": "Yes", // selected value of radio button options
             "options": [
               {
-                "label": "yes",
-                "value": "yes",
+                "label": "Yes",
+                "value": "Yes",
                 "name": "ws-imp",
                 "helpField": [ // help data at the bottom of radio button
                   {
@@ -290,11 +290,11 @@
           {
             "type": "radio",
             "label": "Select one:",
-            "value": "yes",
+            "value": "Yes",
             "options": [
               {
-                "label": "yes",
-                "value": "yes"
+                "label": "Yes",
+                "value": "Yes"
               },
               {
                 "label": "No",
@@ -312,11 +312,11 @@
           {
             "type": "radio",
             "label": "Select one:",
-            "value": "yes",
+            "value": "Yes",
             "options": [
               {
-                "label": "yes",
-                "value": "yes",
+                "label": "Yes",
+                "value": "Yes",
                 "helpField": [
                   {
                     "type": "text",
@@ -353,11 +353,11 @@
           {
             "type": "radio",
             "label": "",
-            "value": "yes",
+            "value": "Yes",
             "options": [
               {
-                "label": "yes",
-                "value": "yes",
+                "label": "Yes",
+                "value": "Yes",
                 "helpField": [
                   {
                     "type": "text",
@@ -407,11 +407,11 @@
           {
             "type": "radio",
             "label": "",
-            "value": "yes",
+            "value": "Yes",
             "options": [
               {
-                "label": "yes",
-                "value": "yes",
+                "label": "Yes",
+                "value": "Yes",
                 "addDetailsData": [
                   {
                     "fields": [
@@ -504,11 +504,11 @@
           {
             "type": "radio",
             "label": "",
-            "value": "yes",
+            "value": "Yes",
             "options": [
               {
-                "label": "yes",
-                "value": "yes"
+                "label": "Yes",
+                "value": "Yes"
               },
               {
                 "label": "No",

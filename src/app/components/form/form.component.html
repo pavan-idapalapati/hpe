@@ -37,7 +37,7 @@
                             <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
                                 <div class="checkbox-padding">
                                     <input type="radio" class="form-radio" [name]="eachFormElem.name" [id]="eachFormElem.name+ind" [value]="eachOption.value" [(ngModel)]="eachFormElem.value">
-                                    <label [for]="eachFormElem.name+ind" class="input-label-text radio-label-text">{{eachOption.label}}</label>
+                                    <label [for]="eachFormElem.name+ind" [innerHtml]="eachOption.label" class="input-label-text radio-label-text"></label>
                                 </div>
                                 <div class="checkbox-input-section" *ngIf="eachOption.helpField">
                                     <div *ngFor="let eachHelpFiled of eachOption.helpField; let hfInd = index;" class="radio-button-padding">
