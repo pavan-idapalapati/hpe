@@ -22,7 +22,7 @@ export class ConclusionComponent implements OnInit {
     let data = this.formData.getFormData().data;
     this.unansweredQuestions = data.data.filter((eachData) => {
       return (eachData.isRequired && !eachData.isAnswered);
-    })
+    });
   }
 
   takeQuestion(question) {
@@ -32,6 +32,7 @@ export class ConclusionComponent implements OnInit {
 
   finishQuestionaire() {
     this.formData.resetWholeFormData();
+    this.utils.clearCookies();
     this.router.navigate(['/']);
   }
 

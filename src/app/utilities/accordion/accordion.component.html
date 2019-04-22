@@ -1,5 +1,5 @@
 <p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)">
-    <p-accordionTab header="Godfather I" class="accordion-header" #kickoffQuestions [cache]=false>
+    <p-accordionTab header="Accordion-header" class="accordion-header" #kickoffQuestions [cache]=false>
         <p-header class="accordion-heading">
             <div class="accordion-title">{{massagesQuestionnaireData.kickOffQuestions.name}}</div>
             <img src="/assets/images/icon_Plus.png" class="icon-plus" *ngIf="openAccordionIndex != 0">
@@ -20,7 +20,7 @@
             </div>
         </ng-template>
     </p-accordionTab>
-    <p-accordionTab header="Godfather I" class="accordion-header" #nextsteps [cache]=false>
+    <p-accordionTab header="Accordion-header" class="accordion-header" #nextsteps [cache]=false>
         <p-header class="accordion-heading">
             <div class="accordion-title">{{massagesQuestionnaireData.nextSteps.name}}</div>
             <img src="/assets/images/icon_Plus.png" class="icon-plus" *ngIf="openAccordionIndex != 1">
