@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                     <div class="plus-stake-holder" (click)="addNewDetails(eachFormElem, ind)">
-                                        <img src="/assets/images/icon_Plus.png" class="icon-plus">
+                                        <img src="./assets/images/icon_Plus.png" class="icon-plus">
                                         <div class="add-stake-holder">Add stakeholder</div>
                                     </div>
                                 </div>
@@ -145,11 +145,11 @@
                         <div *ngIf="currentPage != 0" class="button-styling prev-arrow-button"
                             (click)="previousQuestion()">
                             Previous
-                            <img class="prev-arrow" src="/assets/images/icon_arrow.png">
+                            <img class="prev-arrow" src="./assets/images/icon_arrow.png">
                         </div>
                         <div class="button-styling" (click)="nextQuestion()">
                             Next
-                            <img class="next-arrow" src="/assets/images/icon_arrow.png">
+                            <img class="next-arrow" src="./assets/images/icon_arrow.png">
                         </div>
                     </div>
                 </form>
@@ -160,11 +160,11 @@
     <div class="right-nav" [ngClass]="{'disable':!metaData.matadata}">
         <div class="right-nav-button-wrapper" [ngClass]="{'disabled-nav':!metaData.matadata}">
             <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
-                <img (click)="closeSideNav()" class="side-nav-icon" src="/assets/images/icon_arrow.png">
+                <img (click)="closeSideNav()" class="side-nav-icon" src="./assets/images/icon_arrow.png">
             </div>
             <div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
                 <img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon"
-                    src="/assets/images/icon_arrow.png">
+                    src="./assets/images/icon_arrow.png">
 
             </div>
         </div>
