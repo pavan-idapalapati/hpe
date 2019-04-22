@@ -90,9 +90,9 @@
                                     </div>
                                     <div *ngFor="let eachOptionI of eachOption.value[0].options; let indi=index;">
                                         <div *ngIf="eachOption.value[0].value == eachOptionI.value">
-                                            <div class="checkbox-padding checkbox-helpfield-section" *ngIf="eachOptionI.helpField">
+                                            <div class="checkbox-padding checkbox-helpfield-section" *ngIf="eachOptionI.helpField || eachOptionI.addDetailsData">
                                                 <!-- <input disabled type="radio" class="form-radio" [name]="eachOptionI.name+indi" [id]="eachOptionI.name+indi" [value]="eachOptionI.value" [(ngModel)]="eachOption.value[0].value"> -->
-                                                <label [for]="eachOptionI.name+indi" class="input-label-text radio-label-text">{{eachOptionI.label}}</label>
+                                                <label [for]="eachOptionI.name+indi" class="input-label-text radio-label-text pl-0">{{eachOptionI.label}}</label>
                                             </div>
                                             <div class="checkbox-input-section pl-20" *ngIf="eachOptionI.helpField">
                                                 <div *ngFor="let eachHelpFiled of eachOptionI.helpField; let hfInd = index;" class="radio-button-padding">
