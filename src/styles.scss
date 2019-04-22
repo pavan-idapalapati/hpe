@@ -194,7 +194,7 @@ input, textarea{
 }
 
 .header-section {
-    height: 150px;
+    height: 100px;
     background: white;
     padding: 0px 35px;
     display: flex;
@@ -305,7 +305,7 @@ input, textarea{
 	display: flex;
     justify-content: center;
     position: relative;
-    top: 150px;
+    top: 100px;
 
 }
 
@@ -342,9 +342,66 @@ input[type=checkbox] + label {
     color: #2AD2C9;
   }
 
-  input[type=radio]{
-      margin:0 auto;
+  [type="radio"]:checked,
+  [type="radio"]:not(:checked) {
+      position: absolute;
+      left: -9999px;
   }
+  [type="radio"]:checked + label,
+  [type="radio"]:not(:checked) + label
+  {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      line-height: 20px;
+      display: inline-block;
+      color: #666;
+  }
+  [type="radio"]:checked + label:before,
+  [type="radio"]:not(:checked) + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #ddd;
+      border-radius: 100%;
+      background: #fff;
+  }
+  [type="radio"]:checked + label:after,
+  [type="radio"]:not(:checked) + label:after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #2AD2C9;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border-radius: 100%;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+  }
+  [type="radio"]:not(:checked) + label:after {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+  }
+  [type="radio"]:checked + label:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+  }
+
+
+
+
+
+
+
+//   input[type=radio]{
+//       margin:0 auto;
+//   }
 
   .text-area{
     outline:none;
@@ -353,33 +410,33 @@ input[type=checkbox] + label {
   }
   
 
-  .form-radio
-{
-     -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance: none;
-     display: inline-block;
-     position: relative;
-     background-color: white;
-     color: #666;
-     top: 5px;
-     height: 22px;
-     width: 22px;
-     border: 1px solid #c7cbcc;
-     border-radius: 50px;
-     cursor: pointer;     
-     margin-right: 7px;
-     outline: none;
-}
+//   .form-radio
+// {
+//      -webkit-appearance: none;
+//      -moz-appearance: none;
+//      appearance: none;
+//      display: inline-block;
+//      position: relative;
+//      background-color: white;
+//      color: #666;
+//      top: 5px;
+//      height: 22px;
+//      width: 22px;
+//      border: 1px solid #c7cbcc;
+//      border-radius: 50px;
+//      cursor: pointer;     
+//      margin-right: 7px;
+//      outline: none;
+// }
 
-.form-radio:hover
-{
-     background-color: #f7f7f7;
-}
-.form-radio:checked
-{
-     background-color: #2AD2C9;
-}
+// .form-radio:hover
+// {
+//      background-color: #f7f7f7;
+// }
+// .form-radio:checked
+// {
+//      background-color: #2AD2C9;
+// }
 
 .input-label-text{
     font-size: 16px;
@@ -441,7 +498,7 @@ input[type=checkbox] + label {
 
 .left-side-section{
     position: fixed;
-    top: 150px;
+    top: 100px;
     bottom: 0;
     left: 0;
     padding: 0;

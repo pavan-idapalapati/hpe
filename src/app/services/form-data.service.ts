@@ -28,8 +28,8 @@ export class FormDataService {
 						"id": "radio1",
 						"options": [
 							{
-								"label": "yes",
-								"value": "yes",
+								"label": "Yes",
+								"value": "Yes",
 								"name": "ws-imp",
 								"helpField": [
 									{
@@ -40,8 +40,8 @@ export class FormDataService {
 								]
 							},
 							{
-								"label": "no",
-								"value": "no",
+								"label": "No",
+								"value": "No",
 								"name": "ws-imp"
 							}
 						]
@@ -511,13 +511,13 @@ export class FormDataService {
 						"id": "radio1",
 						"options": [
 							{
-								"label": "yes",
-								"value": "yes",
+								"label": "Yes",
+								"value": "Yes",
 								"name": "gen10-upgrade-radio"
 							},
 							{
-								"label": "no",
-								"value": "no",
+								"label": "No",
+								"value": "No",
 								"name": "gen10-upgrade-radio"
 							}
 						]
@@ -553,8 +553,8 @@ export class FormDataService {
 						"id": "radio1",
 						"options": [
 							{
-								"label": "yes",
-								"value": "yes",
+								"label": "Yes",
+								"value": "Yes",
 								"name": "benefits-interest-radio",
 								"helpField": [
 									{
@@ -565,8 +565,8 @@ export class FormDataService {
 								]
 							},
 							{
-								"label": "no",
-								"value": "no",
+								"label": "No",
+								"value": "No",
 								"name": "benefits-interest-radio"
 							}
 						]
@@ -649,8 +649,8 @@ export class FormDataService {
 						"id": "radio1",
 						"options": [
 							{
-								"label": "yes",
-								"value": "yes",
+								"label": "Yes",
+								"value": "Yes",
 								"name": "gen10-upgrade-radio",
 								"helpField": [
 									{
@@ -661,8 +661,8 @@ export class FormDataService {
 								]
 							},
 							{
-								"label": "no",
-								"value": "no",
+								"label": "No",
+								"value": "No",
 								"name": "gen10-upgrade-radio",
 								"helpField": [
 									{
@@ -717,8 +717,8 @@ export class FormDataService {
 						"id": "radio1",
 						"options": [
 							{
-								"label": "yes",
-								"value": "yes",
+								"label": "Yes",
+								"value": "Yes",
 								"name": "ws-migration-strategy-radio",
 								"addDetailsData": [
 									{
@@ -748,8 +748,8 @@ export class FormDataService {
 								]
 							},
 							{
-								"label": "no",
-								"value": "no",
+								"label": "No",
+								"value": "No",
 								"name": "ws-migration-strategy-radio"
 							}
 						]
@@ -826,13 +826,13 @@ export class FormDataService {
 						"id": "radio1",
 						"options": [
 							{
-								"label": "yes",
-								"value": "yes",
+								"label": "Yes",
+								"value": "Yes",
 								"name": "additional-info-radio"
 							},
 							{
-								"label": "no",
-								"value": "no",
+								"label": "No",
+								"value": "No",
 								"name": "additional-info-radio"
 							}
 						]

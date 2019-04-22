@@ -69,8 +69,8 @@
                 ]
               },
               {
-                "label": "no",
-                "value": "no",
+                "label": "No",
+                "value": "No",
               }
             ]
           }
@@ -297,8 +297,8 @@
                 "value": "yes"
               },
               {
-                "label": "no",
-                "value": "no"
+                "label": "No",
+                "value": "No"
               }
             ]
           }
@@ -326,8 +326,8 @@
                 ]
               },
               {
-                "label": "no",
-                "value": "no"
+                "label": "No",
+                "value": "No"
               }
             ]
           }
@@ -367,8 +367,8 @@
                 ]
               },
               {
-                "label": "no",
-                "value": "no",
+                "label": "No",
+                "value": "No",
                 "helpField": [
                   {
                     "type": "link",
@@ -464,8 +464,8 @@
                 ]
               },
               {
-                "label": "no",
-                "value": "no"
+                "label": "No",
+                "value": "No"
               }
             ]
           }
@@ -511,8 +511,8 @@
                 "value": "yes"
               },
               {
-                "label": "no",
-                "value": "no"
+                "label": "No",
+                "value": "No"
               }
             ]
           }

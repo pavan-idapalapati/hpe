@@ -8,14 +8,7 @@ input{
     padding: 2px;
 }
 
-.header-section {
-	height: 150px;
-	background: white;
-	padding: 0px 35px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
+
 
 .header-content {
 	background: red;
@@ -75,10 +68,6 @@ input{
     display: flex;
 }
 
-.information {
-	display: flex;
-	justify-content: center;
-}
 
 
 // input[type=checkbox] + label {
@@ -197,9 +186,7 @@ input{
     font-size: 35px;
 }
 
-.left-side-section{
-    // width: 270px;
-}
+
 
   .set{
     position: relative;
