@@ -1,0 +1,45 @@
+<p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)">
+    <p-accordionTab header="Accordion-header" class="accordion-header" #kickoffQuestions [cache]=false>
+        <p-header class="accordion-heading">
+            <div class="accordion-title">{{massagesQuestionnaireData.kickOffQuestions.name}}</div>
+            <img src="/assets/images/icon_Plus.png" class="icon-plus" *ngIf="openAccordionIndex != 0">
+            <img src="/assets/images/icon_Minus.png" class="icon-minus" *ngIf="openAccordionIndex == 0">
+        </p-header>
+        <ng-template pTemplate="content">
+            <div *ngFor="let eachQue of massagesQuestionnaireData.kickOffQuestions.data; let ind= index">
+                <div class="content-sections">
+                    <div class="accodion-content-section" [ngClass]="{'active-que': (currentPage == eachQue.id)}"
+                        (click)="takeQuestion(eachQue)">
+                        <input disabled type="checkbox" [id]="eachQue.formData[0].name"
+                            [name]="eachQue.formData[0].name" [checked]="eachQue.isAnswered"
+                            [(ngModel)]="eachQue.isAnswered">
+                        <label [for]="eachQue.formData[0].name" class="input-label-text"></label>
+                        <div>{{ eachQue.question }}</div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-accordionTab>
+    <p-accordionTab header="Accordion-header" class="accordion-header" #nextsteps [cache]=false>
+        <p-header class="accordion-heading">
+            <div class="accordion-title">{{massagesQuestionnaireData.nextSteps.name}}</div>
+            <img src="/assets/images/icon_Plus.png" class="icon-plus" *ngIf="openAccordionIndex != 1">
+            <img src="/assets/images/icon_Minus.png" class="icon-minus" *ngIf="openAccordionIndex == 1">
+        </p-header>
+        <ng-template pTemplate="content">
+            <div *ngFor="let eachQue of massagesQuestionnaireData.nextSteps.data; let ind= index">
+                <div class="content-sections">
+                    <div class="accodion-content-section" [ngClass]="{'active-que': (currentPage == eachQue.id)}"
+                        (click)="takeQuestion(eachQue)">
+                        <input disabled type="checkbox" [id]="eachQue.formData[0].name"
+                            [name]="eachQue.formData[0].name" [checked]="eachQue.isAnswered"
+                            [(ngModel)]="eachQue.isAnswered">
+                        <label [for]="eachQue.formData[0].name" class="input-label-text"></label>
+                        <div>{{ eachQue.question }}</div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-accordionTab>
+    <div class="accordion-title accordion-heading accordion-header" (click)="gotFinish()">Finish</div>
+</p-accordion>

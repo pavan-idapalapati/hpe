@@ -1,0 +1,523 @@
+{
+  "userInfo": {  // user who is taking test data
+    "name": "HPE Call Guide",
+    "metadata": "HPE Call Guide Landing Page",
+    "data": [
+      {
+        "question": "Your Information",
+        "id": 0,
+        "formData": [
+          {
+            "type": "text",
+            "label": "Sales Rep Name: ",
+            "value": "sai"
+          }
+        ]
+      },
+      {
+        "question": "Client Information",
+        "id": 1,
+        "formData": [
+          {
+            "type": "text",
+            "label": "Client Name: ",
+            "value": "navin"
+          },
+          {
+            "type": "text",
+            "label": "Client Company: ",
+            "value": "divami"
+          },
+          {
+            "type": "text",
+            "label": "Client Phone: ",
+            "value": "87654456778"
+          },
+          {
+            "type": "text",
+            "label": "Client Email: ",
+            "value": "sai@divami.com"
+          }
+        ]
+      }
+    ]
+  },
+  "questionnaireData": {  // questions data
+    "name": "HPE Call Guide",
+    "metadata": "HPE call guide project",
+    "data": [
+      {
+        "question": "Do you have a few minutes to talk about your WS implementation?",
+        "stepName": "Kick-off questions",
+        "id": 0,
+        "formData": [
+          {
+            "type": "radio",
+            "label": "",
+            "value": "Yes", // selected value of radio button options
+            "options": [
+              {
+                "label": "Yes",
+                "value": "Yes",
+                "name": "ws-imp",
+                "helpField": [ // help data at the bottom of radio button
+                  {
+                    "type": "text",
+                    "label": "When is a good time to talk?",
+                    "value": "9 o' clock"
+                  }
+                ]
+              },
+              {
+                "label": "No",
+                "value": "No",
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "What WS versions are you currently running?",
+        "stepName": "Kick-off questions",
+        "id": 1,
+        "formData": [
+          {
+            "type": "checkbox",
+            "label": "Select all that apply:",
+            "options": [
+              {
+                "label": "WS 2008",
+                "value": "WS 2008",
+                "name": "ws-version-cb",
+                "isSelected": true // selected values of checkbox
+              },
+              {
+                "label": "WS 2012 R2",
+                "value": "WS 2012 R2",
+                "name": "ws-version-cb",
+                "isSelected": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "What does your current WS infrastructure look like?",
+        "stepName": "Kick-off questions",
+        "id": 2,
+        "formData": [
+          {
+            "type": "text",
+            "label": "Number of servers:",
+            "value": "4" // value of text field
+          },
+          {
+            "type": "text",
+            "label": "Vendors / server generation:",
+            "value": "vendor"
+          }
+        ]
+      },
+      {
+        "question": "Are you planning to upgrade on-prem or to migrate to Azure?",
+        "stepName": "Kick-off questions",
+        "id": 3,
+        "formData": [
+          {
+            "type": "radio",
+            "label": "Select one:",
+            "value": "Not planning to upgrade",
+            "options": [
+              {
+                "label": "Don’t know",
+                "value": "Don’t know"
+              },
+              {
+                "label": "Not planning to upgrade",
+                "value": "Not planning to upgrade"
+              },
+              {
+                "label": "On-prem",
+                "value": "On-prem"
+              },
+              {
+                "label": "Azure: WS 2008",
+                "value": "Azure: WS 2008"
+              },
+              {
+                "label": "Azure: WS 2012 / 2016",
+                "value": "Azure: WS 2012 / 2016"
+              },
+              {
+                "label": "Waiting for WS 2019",
+                "value": "Waiting for WS 2019"
+              },
+              {
+                "label": "Combination on-prem/Azure",
+                "value": "Combination on-prem/Azure"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "If upgrading on-prem, when are you planning to upgrade?",
+        "stepName": "Kick-off questions",
+        "id": 4,
+        "formData": [
+          {
+            "type": "radio",
+            "label": "Select one:",
+            "value": "< 3 mo.",
+            "options": [
+              {
+                "label": "Haven’t made a plan",
+                "value": "Haven’t made a plan"
+              },
+              {
+                "label": "< 3 mo.",
+                "value": "< 3 mo."
+              },
+              {
+                "label": "4-6 mo.",
+                "value": "4-6 mo."
+              },
+              {
+                "label": "7-12 mo.",
+                "value": "7-12 mo."
+              },
+              {
+                "label": "> 12 mo.",
+                "value": "> 12 mo."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "Do you have budget allocated for use in that timeframe?",
+        "stepName": "Kick-off questions",
+        "id": 5,
+        "formData": [
+          {
+            "type": "radio",
+            "label": "Select one:",
+            "value": "Yes and amt.:",
+            "options": [
+              {
+                "label": "Yes and amt.:",
+                "value": "Yes and amt.:",
+                "helpField": [
+                  {
+                    "type": "text",
+                    "label": "amount:",
+                    "value": "12345"
+                  }
+                ]
+              },
+              {
+                "label": "No / not sure",
+                "value": "No / not sure",
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "What are your infrastructure requirements going to be?",
+        "stepName": "Kick-off questions",
+        "id": 6,
+        "formData": [
+          {
+            "type": "checkbox",
+            "label": "Select all that apply and enter:",
+            "options": [
+              {
+                "label": "Compute:",
+                "value": "Compute:",
+                "isSelected": true,
+                "helpField": [
+                  {
+                    "type": "text",
+                    "label": "details:",
+                    "value": "super computers"
+                  }
+                ]
+              },
+              {
+                "label": "Storage:",
+                "value": "Storage:",
+                "isSelected": false,
+                "helpField": [
+                  {
+                    "type": "text",
+                    "label": "details:",
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "label": "Networking:",
+                "value": "Networking:",
+                "isSelected": false,
+                "helpField": [
+                  {
+                    "type": "text",
+                    "label": "details:",
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "label": "None",
+                "value": "None",
+                "isSelected": false
+              },
+              {
+                "label": "Already working with another hardware vendor on this",
+                "value": "Already working with another hardware vendor on this",
+                "isSelected": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "Customers have upgraded via Gen10 servers. Want to hear their feedback?",
+        "stepName": "Kick-off questions",
+        "id": 7,
+        "formData": [
+          {
+            "type": "radio",
+            "label": "Select one:",
+            "value": "Yes",
+            "options": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "Which of those benefits are of particular interest to you? Can I send you some additional information",
+        "stepName": "Kick-off questions",
+        "id": 8,
+        "formData": [
+          {
+            "type": "radio",
+            "label": "Select one:",
+            "value": "Yes",
+            "options": [
+              {
+                "label": "Yes",
+                "value": "Yes",
+                "helpField": [
+                  {
+                    "type": "text",
+                    "label": "Resources to be sent:",
+                    "value": "security info"
+                  }
+                ]
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "What are the next steps? What do you need help with?",
+        "stepName": "Next steps",
+        "id": 9,
+        "formData": [
+          {
+            "type": "text",
+            "label": "",
+            "value": "buy new anti virus"
+          }
+        ]
+      },
+      {
+        "question": "Can I set up a meeting with one of our specialists?",
+        "stepName": "Next steps",
+        "id": 10,
+        "formData": [
+          {
+            "type": "radio",
+            "label": "",
+            "value": "Yes",
+            "options": [
+              {
+                "label": "Yes",
+                "value": "Yes",
+                "helpField": [
+                  {
+                    "type": "text",
+                    "label": "Best date/time for a meeting:",
+                    "value": "morning"
+                  }
+                ]
+              },
+              {
+                "label": "No",
+                "value": "No",
+                "helpField": [
+                  {
+                    "type": "link",
+                    "label": "Offer to send specific resources",
+                    "url": "www.www.com",
+                    "value": ""
+                  },
+                  {
+                    "type": "link",
+                    "label": "Offer to send specific resources",
+                    "url": "www.www.com",
+                    "value": ""
+                  },
+                  {
+                    "type": "link",
+                    "label": "Offer to send specific resources",
+                    "url": "www.www.com",
+                    "value": ""
+                  },
+                  {
+                    "type": "text",
+                    "label": "Resources to be sent:",
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "Are there other stakeholders involved in the WS migration strategy that I should contact or that should be included in the meeting?",
+        "stepName": "Next steps",
+        "id": 11,
+        "formData": [
+          {
+            "type": "radio",
+            "label": "",
+            "value": "Yes",
+            "options": [
+              {
+                "label": "Yes",
+                "value": "Yes",
+                "addDetailsData": [
+                  {
+                    "fields": [
+                      {
+                        "type": "text",
+                        "label": "Name:",
+                        "value": "pavan"
+                      },
+                      {
+                        "type": "text",
+                        "label": "Phone:",
+                        "value": "765434567"
+                      },
+                      {
+                        "type": "text",
+                        "label": "Email:",
+                        "value": "pavan@divami.com"
+                      },
+                      {
+                        "type": "text",
+                        "label": "Title:",
+                        "value": "ux engineer"
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "type": "text",
+                        "label": "Name:",
+                        "value": "sarath"
+                      },
+                      {
+                        "type": "text",
+                        "label": "Phone:",
+                        "value": "876543456"
+                      },
+                      {
+                        "type": "text",
+                        "label": "Email:",
+                        "value": "sarath@divami.com"
+                      },
+                      {
+                        "type": "text",
+                        "label": "Title:",
+                        "value": "ux engineer"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "Confirm the next steps",
+        "stepName": "Next steps",
+        "id": 12,
+        "formData": [
+          {
+            "type": "list",
+            "label": "",
+            "options": [
+              {
+                "label": "Information to be sent",
+                "value": "[captured info listed]"
+              },
+              {
+                "label": "Other stakeholder(s) to be contacted",
+                "value": "[captured info listed]"
+              },
+              {
+                "label": "Meeting information: date and time, agenda topics, customer participants, and CDW participants",
+                "value": "[captured info listed]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "question": "Do you have questions or is there any additional info I can provide?",
+        "stepName": "Next steps",
+        "id": 13,
+        "formData": [
+          {
+            "type": "radio",
+            "label": "",
+            "value": "Yes",
+            "options": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

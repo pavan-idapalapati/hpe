@@ -1,0 +1,33 @@
+.accordion-header {
+    display: block;
+    text-decoration: none;
+    color: #000;  
+    // border-top: 1px solid #979797;  
+    background-color: #fff;
+    cursor: pointer;
+}
+.accordion-heading {
+    padding: 25px 15px 25px 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.accordion-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+.input-label-text {
+    // line-height: 18px;
+    // font-size: 16px;
+}
+.accodion-content-section {
+    display: flex;
+    align-items: center;
+}
+.active-que {
+    font-weight: 600;
+}
+.accordion-header {
+    border-top: 1px solid #614767;
+    border-bottom: 1px solid #614767;
+}

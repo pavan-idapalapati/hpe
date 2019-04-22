@@ -1,0 +1,66 @@
+<section>
+    <div class="landing-section-wrapper session-resume-section" *ngIf="showSessionResumePopup">
+        <div class="landing-section">
+            <div>
+                <section>
+                    <div class="section-heading">Resume session:</div>
+                    <form>
+                        <div>
+                            <div class="question-title"></div>
+                            <div>
+                                <div class="">
+                                    <div class="resume-session-properties">
+                                        <label class="input-label-text">Sales Rep Name: </label>
+                                        <label class="input-label-text">{{saleRepName}}</label>
+                                    </div>
+                                    <div class="resume-session-properties">
+                                        <label class="input-label-text">Customer Name: </label>
+                                        <label class="input-label-text">{{customerName}}</label>
+                                    </div>
+                                    <div class="resume-session-properties">
+                                        <label class="input-label-text">Customer Company: </label>
+                                        <label class="input-label-text">{{companyName}}</label>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="common-button-styles" (click)="resumeSession()">
+                            <div class="button-styling">
+                                Resume
+                                <img class="next-arrow" src="/assets/images/icon_arrow.png">
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="landing-section-wrapper">
+        <div class="landing-section">
+            <div>
+                <section>
+                    <div class="section-heading main-heading">Start a new session:</div>
+                    <form>
+                        <div *ngFor="let dataGroup of userInfoForm.data">
+                            <div class="question-title">{{dataGroup.question}}</div>
+                            <div *ngFor="let eachFormElem of dataGroup.formData">
+                                <div class="input-section">
+                                    <label [for]="eachFormElem.name" class="input-label-text">{{eachFormElem.label}}</label>
+                                    <input type="text" [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value"
+                                        class="input-element">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="common-button-styles margin-0">
+                            <div (click)="getStarted()" class="button-styling">
+                                Get Started
+                                <img class="next-arrow" src="/assets/images/icon_arrow.png">
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>

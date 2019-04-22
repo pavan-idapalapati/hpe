@@ -1,0 +1,286 @@
+
+
+
+
+input{
+    border: 1px solid #C6C9CA;
+    outline: none;
+    padding: 2px;
+}
+
+
+
+.header-content {
+	background: red;
+}
+
+.logo-image{
+    height: 60px;
+}
+
+
+
+.common-heading-padding {
+	padding-bottom: 22px;
+}
+
+.common-subheading-padding{
+    padding-bottom: 20px;
+}
+
+
+.common-input-element-padding {
+	padding-bottom: 5px;
+}
+
+.common-label-padding{
+    padding-bottom: 10px;
+}
+
+
+.button-styling {
+  position: relative;
+	background: #2AD2C9;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 188px;
+	text-align: center;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.get-started-button{
+  width: 226px;
+}
+
+
+.input-section {
+	display: flex;
+	align-items: center;
+    color: black;   
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.input-element {
+	height: 40px;
+    display: flex;
+}
+
+
+
+// input[type=checkbox] + label {
+//     display: inline-block;
+//     margin: 0.2em;
+//     cursor: pointer;
+//     padding: 0.2em;
+    
+//   }
+  
+  input[type=checkbox] {
+    display: none;
+  }
+  
+  input[type=checkbox] + label:before {
+    content: "\2714";
+    border: 0.1em solid #2AD2C9;  
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    margin-right: 10px;
+    vertical-align: bottom;
+    color: #2AD2C9;
+    transition: .1s;
+  }
+  
+  input[type=checkbox] + label:active:before {
+    transform: scale(0);
+  }
+  
+  input[type=checkbox]:checked + label:before {
+    background-color: white;
+    border-color: #2AD2C9;
+    color: #fff;
+  }
+
+  input[type=radio]{
+      margin:0 auto;
+  }
+
+  .text-area{
+    outline:none;
+    padding:10px;
+    width:65%; 
+    border: 1px solid rgb(132, 140, 143);
+  }
+  
+
+
+
+.form-radio:hover
+{
+     background-color: #f7f7f7;
+}
+.form-radio:checked
+{
+     background-color: #2AD2C9;
+}
+
+.input-label-text{
+    font-size: 16px;
+    color:#191919;
+}
+
+.section-heading-text{
+    font-style: normal;
+    font-size: 33px;
+    line-height: 29px;
+    font-weight: 500;
+}
+
+.section-subheading-text{
+    font-size: 24px;
+}
+
+.next-arrow{
+    position: absolute;
+    height: 18px;
+    top: 11px;
+    right: 12px;
+}
+  
+.prev-arrow{
+    position: absolute;
+    height: 18px;
+    top: 11px;
+    left: 12px;
+    transform: rotate(180deg);
+}
+
+.radio-label-text{
+    padding-left: 20px;
+}
+  
+.radio-button-padding{
+    padding-bottom:35px;
+}
+
+// .checkbox-padding{
+//     padding-bottom: 20px;
+// }
+
+.prev-arrow-button{
+    margin-right:15px;
+}
+
+.form-question-text{
+    font-size: 35px;
+}
+
+// .checkbox-input-section{
+//     padding-left: 41px;
+// }
+.form-question-text{
+    font-size: 35px;
+}
+
+
+
+  .set{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color:#fff;
+  }
+  .set > a{
+    display: block;
+    padding: 25px 15px 25px 45px;
+    text-decoration: none;
+    color: #000;  
+    border-top: 1px solid #979797;  
+    -webkit-transition:all 0.2s linear;
+    -moz-transition:all 0.2s linear;
+    transition:all 0.2s linear;
+  }
+  .set > a img{
+    float: right;
+    margin-top: 2px;
+  }
+  .set > a.active{
+    border-bottom: 1px solid #979797;
+  }
+  .content{
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    display:none;
+  }
+  .content p{
+    padding: 10px 15px;
+    margin: 0;
+    color: #333;
+  }
+
+
+
+  .right-content-text{
+    background-color: #ffffff;     
+    padding:15px 35px 15px 15px;
+  }
+
+  .right-side-text{
+      display: flex;
+  }
+
+  div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+
+
+  .finish-button{
+    background-color: #614767;
+  }
+  
+  .skipped-questions{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(132, 140, 143);
+  }
+
+  .question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    padding:10px 0px 10px 15px;
+    flex-wrap: wrap;
+  }
+
+.border-bottom{
+  border-bottom: 1px solid #C6C9CA;
+}
+
+.return-question-text{
+  font-size: 20px;
+  color:#191919;
+}
+
+.stake-holder-section{
+  background-color: #F6f6f6;
+  padding:30px;
+  width:68%;
+}
+
+.plus-stake-holder{
+  display:flex;  
+  padding-top: 10px;
+
+}
+.add-stake-holder{
+  padding-left:10px;
+}

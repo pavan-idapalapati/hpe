@@ -1,0 +1,23 @@
+.conclusion-section {
+    background: white;
+    padding:0 69px;
+    margin: 30px;
+    margin-left: 300px;
+    padding-top:51px;
+    padding-bottom: 41px;
+}
+.thankyou-msg {
+    font-size: 35px;
+    line-height: 38px;
+}
+.skipped-questions-heading {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+    padding-top: 45px;
+    padding-bottom: 25px;    
+}
+.submit-text{
+    font-size: 20px;
+    color:#191919;
+}
