@@ -32,8 +32,7 @@
                         </div>    
     
                         <div *ngIf="eachFormElem.type === 'radio'">
-                            <div class="check-and-radio-heading">
-                                {{eachFormElem.label}}</div>
+                            <!-- <div class="check-and-radio-heading">{{eachFormElem.label}}</div> -->
                             <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
                                 <div class="checkbox-padding">
                                     <input type="radio" class="form-radio" [name]="eachFormElem.name" [id]="eachFormElem.name+ind" [value]="eachOption.value" [(ngModel)]="eachFormElem.value" (change)="onRadioButtonValueChange(eachOption)">
@@ -47,6 +46,9 @@
                                 </div>
                                 <div class="radio-input-section" *ngIf="eachOption.addDetailsData">
                                     <div class="stake-holder-section add-details-section" *ngFor="let eachHelpFiled of eachOption.addDetailsData; let formInd=index">
+                                        <div class="close-add-details" (click)="removeDetailsData(eachOption.addDetailsData, formInd)">
+                                            <img src="../assets/images/icon_Plus.png" class="icon-plus rotate-45 cursor-pointer">
+                                        </div>
                                         <div class="input-section" *ngFor="let eachFiled of eachHelpFiled.fields; let fieldInd=index;">
                                             <div class="input-label-text">{{ eachFiled.label }}</div>
                                             <input class="input-element" [type]="eachFiled.type" [name]="'addDetailsData'+formInd+fieldInd" [(ngModel)]="eachFiled.value">
@@ -62,7 +64,7 @@
     
     
                         <div *ngIf="eachFormElem.type === 'checkbox'">
-                            <div class="check-and-radio-heading">{{eachFormElem.label}}</div>
+                            <!-- <div class="check-and-radio-heading">{{eachFormElem.label}}</div> -->
                             <div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
                                 <div class="checkbox-padding">
                                     <input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind" [value]="eachOption.value" [checked]="eachOption.isSelected" [(ngModel)]="eachOption.isSelected" (change)="onRadioButtonValueChange(eachOption)" >
