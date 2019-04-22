@@ -25,14 +25,14 @@ export class FormComponent implements OnInit {
     }
 
     ngOnInit() {
-		var formData = this.formData.getFormData();
-		if(!formData || !formData.currentPage || !formData.data) {
+        var formData = this.formData.getFormData();
+        if (!formData || !formData.currentPage || !formData.data) {
             this.formData.setInitialDataToLocalStorage();
         }
-		this.init();
+        this.init();
     }
 
-	init() {
+    init() {
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();
         if (formData.currentPage < formData.data.data.length) {
@@ -48,6 +48,8 @@ export class FormComponent implements OnInit {
             this.metaData = this.metaData[this.currentPage];
             if (this.metaData.matadata) {
                 this.openSideNav();
+                this.rightAccordion.openAccordion({});
+
             }
             else {
                 this.closeSideNav();
@@ -81,17 +83,20 @@ export class FormComponent implements OnInit {
         this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
         this.formData.setFormData(this.currentFormData, this.currentPage);
         this.formData.moveToPreviousQuestion();
-		this.init();
-        this.utils.scrolltoTop();        
+        this.init();
+        this.utils.scrolltoTop();
+        this.rightAccordion.openAccordion({});
+
     }
 
     nextQuestion() {
         this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
         this.formData.setFormData(this.currentFormData, this.currentPage);
         this.formData.moveToNextQuestion();
-		this.init();
+        this.init();
         this.utils.scrolltoTop();
-        
+        this.rightAccordion.openAccordion({});
+
     }
 
     setIsAnswered(data) {
@@ -129,16 +134,16 @@ export class FormComponent implements OnInit {
         this.openSideNavFlag = false;
         this.rightNavAccordion.nativeElement.classList.remove('right-nav-accordion-transition')
         this.rightNavAccordion.nativeElement.classList.add('remove-right-nav-accordion-transition');
-	}
-	
-	removeDetailsData(data, index) {
-		if(data.length > 1) {
-			data.splice(index, 1);
-		}
-	}
+    }
+
+    removeDetailsData(data, index) {
+        if (data.length > 1) {
+            data.splice(index, 1);
+        }
+    }
 
     onRadioButtonValueChange(eachOption) {
-       this.rightAccordion.openAccordion(eachOption);
+        this.rightAccordion.openAccordion(eachOption);
     }
 
 }

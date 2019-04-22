@@ -650,6 +650,12 @@ export class FormDataService {
 				"id": 9,
 				"formData": [
 					{
+						"type": "text",
+						"label": "",
+						"value": "",
+						"name": "optional-notes"
+					},
+					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
