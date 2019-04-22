@@ -16,7 +16,7 @@
                         </div>
     
     
-                        <div class="checkbox-input-section" *ngIf="eachFormElem.type === 'textArea'">
+                        <div class="checkbox-input-section" *ngIf="eachFormElem.type === 'textArea'" [ngClass]="{'checkbox-helpfield-section':eachFormElem.isHelpField}">
                             <label class="input-label-text common-label-padding d-block"
                                 [for]="eachFormElem.name">{{eachFormElem.label}}</label>
                             <textarea [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value" cols="40" rows="5"
@@ -29,11 +29,11 @@
                                 <label>{{eachOption.label}}</label>
                                 <div>{{eachOption.value}}</div>
                             </div>
-                        </div>
+                        </div>    
     
-    
-                        <div class="radio-button-padding" *ngIf="eachFormElem.type === 'radio'">
-                            <div class="check-and-radio-heading">{{eachFormElem.label}}</div>
+                        <div *ngIf="eachFormElem.type === 'radio'">
+                            <div class="check-and-radio-heading">
+                                {{eachFormElem.label}}</div>
                             <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
                                 <div class="checkbox-padding">
                                     <input type="radio" class="form-radio" [name]="eachFormElem.name" [id]="eachFormElem.name+ind" [value]="eachOption.value" [(ngModel)]="eachFormElem.value">
