@@ -4,7 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>HPECallguideWS2008EOL</title>
-    <base href="./">
+    <script type="text/javascript">
+        if (document.location.origin.indexOf('localhost') > -1) {
+            document.write("<base href='/'/>");
+        } else if (document.location.pathname.indexOf('service.labs') > -1) {
+            document.write("<base href='https://" + document.location.host + "/service.labs/" + document.location.pathname.split('/')[ document.location.pathname.split('/').indexOf('service.labs') + 1 ] + "/' />");
+        } else {
+            document.write("<base href='https://" + document.location.host + "/" + document.location.pathname.split('/')[ 1 ] + "/' />");
+        }
+    </script>
+    <base href="/">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
