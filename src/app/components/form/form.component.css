@@ -76,3 +76,8 @@ input[type=checkbox] + label:before {
 .checkbox-helpfield-section{
     padding-left:40px;
 }
+.close-add-details {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}

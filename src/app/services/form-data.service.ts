@@ -697,19 +697,7 @@ export class FormDataService {
 								"helpField": [
 									{
 										"//TODO:": "this needs to integrate",
-										"label": "Offer to send specific resources",
-										"url": "www.www.com",
-										"value": ""
-									},
-									{
-										"type": "link",
-										"label": "Offer to send specific resources",
-										"url": "www.www.com",
-										"value": ""
-									},
-									{
-										"type": "link",
-										"label": "Offer to send specific resources",
+										"label": "Offer to send specific resources (literature, video links)",
 										"url": "www.www.com",
 										"value": ""
 									},
