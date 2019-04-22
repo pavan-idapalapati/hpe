@@ -158,8 +158,8 @@ body, main, app-root {
     overflow: hidden;
 }
 .ui-accordion-content {
-    padding-top:15px;
-    border-top: 1px solid #979797;  
+    padding-top:15px !important;
+    border-top: 1px solid #979797 !important;  
 }
 .icon-minus {
     height: 2px;
