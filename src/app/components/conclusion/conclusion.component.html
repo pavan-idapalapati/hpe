@@ -1,7 +1,7 @@
 <section class="conclusion-section">
   <div *ngIf="unansweredQuestions.length">
       <div class="thankyou-msg">Thank you for taking the time to speak with me today.</div>
-    <div class="skipped-questions-heading">Skipped Questions</div>
+    <div class="skipped-questions-heading">Skipped Questions:</div>
     <div class='skipped-questions'>
       <div class="question border-bottom" *ngFor="let question of unansweredQuestions">
         <div class="return-question-text">
