@@ -18,3 +18,7 @@ line-height: 29px;
 .resume-session-properties {
     display: flex;
 }
+
+.main-heading{
+ font-weight: 500;
+}

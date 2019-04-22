@@ -22,7 +22,7 @@ export class LandingComponent implements OnInit {
 				"formData": [
 						{
 							"type": "text",
-							"label": "Account Manager Name: ",
+							"label": "Account Manager: ",
 							"value": "",
 							"name": "salesrepname"
 						}
