@@ -648,13 +648,6 @@ export class FormDataService {
 				"id": 9,
 				"formData": [
 					{
-						"type": "text",
-						"label": "Information to be sent: ",
-						"value": "",
-						"name": "next-steps-text",
-						"id": ""
-					},
-					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
