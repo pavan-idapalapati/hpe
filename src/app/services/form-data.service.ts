@@ -30,6 +30,11 @@ export class FormDataService {
 							{
 								"label": "Yes",
 								"value": "Yes",
+								"name": "ws-imp"							
+							},
+							{
+								"label": "No",
+								"value": "No",
 								"name": "ws-imp",
 								"helpField": [
 									{
@@ -38,11 +43,6 @@ export class FormDataService {
 										"value": ""
 									}
 								]
-							},
-							{
-								"label": "No",
-								"value": "No",
-								"name": "ws-imp"
 							}
 						]
 					},
