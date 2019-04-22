@@ -57,13 +57,16 @@ export class AppComponent implements OnInit {
 
 
     @HostListener('scroll', ['$event']) private onScroll($event: Event): void {
-        let top;
-        if($event.srcElement.scrollTop <= 100) {
-             top = 100-$event.srcElement.scrollTop
-        } else if ($event.srcElement.scrollTop > 100) {
-            top = 0;
+        let leftSideNav = document.getElementById('left-side-section');
+        if(leftSideNav) {
+            let top;
+            if($event.srcElement.scrollTop <= 100) {
+                 top = 100-$event.srcElement.scrollTop
+            } else if ($event.srcElement.scrollTop > 100) {
+                top = 0;
+            }
+            leftSideNav.style.top = `${top}px`;
         }
-        document.getElementById('left-side-section').style.top = `${top}px`;
     };
 
 }

@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
     styleUrls: ['./accordion.component.scss']
 })
 export class AccordionComponent implements OnInit {
-    openAccordionIndex;
+    // openAccordionIndex;
     questionnaireData = [];
     currentPage: any;
     massagesQuestionnaireData: any;
     @ViewChild('kickoffQuestions') kickoffQuestions: any;
     @ViewChild('nextsteps') nextsteps: any;
 
-    constructor(private formData: FormDataService, private router: Router) {
+    constructor(public formData: FormDataService, private router: Router) {
         this.formData.getQuestionChangeSubject().subscribe((data) =>{
             this.onInitOfComponent();
         })
@@ -55,24 +55,27 @@ export class AccordionComponent implements OnInit {
 
         // open left side accordion based on navigation
         setTimeout(() => {     
-            if(this.currentPage >= 9) {
-                this.kickoffQuestions.selected = false;
-                this.nextsteps.selected = true;
-            } else if(this.currentPage < 9) {
-                this.kickoffQuestions.selected = true;
-                this.nextsteps.selected = false;  
-            } else if(this.currentPage == 14) {
+            if(this.currentPage == 14) {
                 this.kickoffQuestions.selected = false;
                 this.nextsteps.selected = false;
-            }
+                this.formData.openAccordionIndex = undefined;
+            } else if(this.currentPage >= 9) {
+                this.kickoffQuestions.selected = false;
+                this.nextsteps.selected = true;
+                this.formData.openAccordionIndex = 1;
+            } else if(this.currentPage < 9) {
+                this.kickoffQuestions.selected = true;
+                this.nextsteps.selected = false; 
+                this.formData.openAccordionIndex = 0;                 
+            } 
         });
     }
 
     onTabOpen(event) {
-        this.openAccordionIndex = event.index;
+        this.formData.openAccordionIndex = event.index;
     }
     onTabClose(event) {
-        this.openAccordionIndex = undefined;
+        this.formData.openAccordionIndex = undefined;
     }
 
     takeQuestion(question) {

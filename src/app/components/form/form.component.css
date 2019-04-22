@@ -69,10 +69,38 @@ input[type=checkbox] + label:before {
     pointer-events: none;
 }
 
+.font-regular{
+    font-weight: 400;
+}
+
 .changeColor{
     /* background-color: #ffffff; */
 }
 
 .checkbox-helpfield-section{
+    padding-left:45px;
+}
+.disabled-nav{
+    background-color: #468c98;
+}
+
+.checkbox-helpfield-section{
     padding-left:40px;
+}
+.close-add-details {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.confirm-text{
+    font-size: 24px;
+}
+
+.confirm-radio-text{
+    font-size: 20px;    
+}
+
+.pt-10{
+    padding-top: 10px;
 }

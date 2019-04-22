@@ -17,8 +17,24 @@ line-height: 29px;
 }
 .resume-session-properties {
     display: flex;
+    justify-content: space-between;
 }
 
 .main-heading{
  font-weight: 500;
+}
+
+.resume-session-text{
+    padding-bottom: 15px;
+}
+
+.customer-details{
+    width: 50%;
+}
+.resume-form {
+    display: flex;
+    justify-content: space-between;
+}
+.resume-form-wrapper {
+    flex: 1;
 }

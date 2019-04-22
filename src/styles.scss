@@ -130,6 +130,7 @@ video {
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
+    outline: none;
     
 }
 .text-area {
@@ -157,8 +158,8 @@ body, main, app-root {
     overflow: hidden;
 }
 .ui-accordion-content {
-    padding-top:15px;
-    border-top: 1px solid #979797;  
+    padding-top:15px !important;
+    border-top: 1px solid #979797 !important;  
 }
 .icon-minus {
     height: 2px;
@@ -178,7 +179,15 @@ body, main, app-root {
   padding-left: 20px;
 }
 
-
+.pl-0 {
+  padding-left: 0 !important;
+}
+input, textarea {
+  font-family: "MetricHPE";
+}
+.rotate-45 {
+  transform: rotate(45deg);
+}
 
 
 
@@ -194,6 +203,7 @@ input, textarea{
     border: 1px solid #C6C9CA;
     outline: none;
     padding: 2px;
+    padding-left:10px;
 }
 
 .header-section {
@@ -224,6 +234,7 @@ input, textarea{
     margin-left: 0;
     width: 100%;
     padding-bottom: 37px;
+    min-height: 100vh;
     
 }
 
@@ -258,8 +269,7 @@ input, textarea{
 }
 
 .common-label-padding{
-    display: block;
-    padding-bottom: 10px;
+    display: block;    
     font-size: 20px;
     font-weight: 600;
 }
@@ -270,6 +280,7 @@ input, textarea{
 	justify-content: flex-end;
     text-align: center;
     margin-top:30px;
+    align-self: flex-end;
 }
 
 .button-styling {
@@ -646,4 +657,7 @@ app-form {
 .margin-0{
   margin:0 auto;
   
+}
+.cursor-pointer {
+    cursor: pointer;
 }
