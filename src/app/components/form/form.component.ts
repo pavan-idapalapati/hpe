@@ -48,6 +48,8 @@ export class FormComponent implements OnInit {
             this.metaData = this.metaData[this.currentPage];
             if (this.metaData.matadata) {
                 this.openSideNav();
+        this.rightAccordion.openAccordion({});
+
             }
             else {
                 this.closeSideNav();
@@ -82,7 +84,9 @@ export class FormComponent implements OnInit {
         this.formData.setFormData(this.currentFormData, this.currentPage);
         this.formData.moveToPreviousQuestion();
 		this.init();
-        this.utils.scrolltoTop();        
+        this.utils.scrolltoTop();
+        this.rightAccordion.openAccordion({});
+
     }
 
     nextQuestion() {
@@ -91,6 +95,7 @@ export class FormComponent implements OnInit {
         this.formData.moveToNextQuestion();
 		this.init();
         this.utils.scrolltoTop();
+        this.rightAccordion.openAccordion({});
         
     }
 
