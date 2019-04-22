@@ -21,7 +21,8 @@ export class FormComponent implements OnInit {
 
 	constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
 		this.formData.getROuteChangeSubject().subscribe((data) => {
-			this.ngOnInit();
+            this.ngOnInit();
+            this.utils.scrolltoTop();
 		});
 	}
 
@@ -69,14 +70,17 @@ export class FormComponent implements OnInit {
 		this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
 		this.formData.setFormData(this.currentFormData, this.currentPage);
 		this.formData.moveToPreviousQuestion();
-		this.onInitOfPage();
+        this.onInitOfPage();
+        this.utils.scrolltoTop();        
 	}
 
 	nextQuestion() {
 		this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
 		this.formData.setFormData(this.currentFormData, this.currentPage);
 		this.formData.moveToNextQuestion();
-		this.onInitOfPage();
+        this.onInitOfPage();
+        this.utils.scrolltoTop();
+        
 	}
 
 	setIsAnswered(data) {

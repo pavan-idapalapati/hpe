@@ -38,6 +38,7 @@ export class ConclusionComponent implements OnInit {
   previousQuestion() {
     this.formData.moveToPreviousQuestion();
     this.router.navigate(["/questionaire"]);
+    this.utils.scrolltoTop();
 	}
 
 }
