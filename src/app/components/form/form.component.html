@@ -36,7 +36,7 @@
                             <div class="check-and-radio-heading">{{eachFormElem.label}}</div>
                             <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
                                 <div class="checkbox-padding">
-                                    <input type="radio" class="form-radio" [name]="eachFormElem.name" [id]="eachFormElem.name+ind" [value]="eachOption.value" [(ngModel)]="eachFormElem.value">
+                                    <input type="radio" class="form-radio" [name]="eachFormElem.name" [id]="eachFormElem.name+ind" [value]="eachOption.value" [(ngModel)]="eachFormElem.value" (change)="onRadioButtonValueChange(eachOption)">
                                     <label [for]="eachFormElem.name+ind" [innerHtml]="eachOption.label" class="input-label-text radio-label-text"></label>
                                 </div>
                                 <div class="checkbox-input-section" *ngIf="eachOption.helpField">
@@ -65,11 +65,11 @@
                             <div class="check-and-radio-heading">{{eachFormElem.label}}</div>
                             <div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
                                 <div class="checkbox-padding">
-                                    <input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind" [value]="eachOption.value" [checked]="eachOption.isSelected" [(ngModel)]="eachOption.isSelected" >
+                                    <input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind" [value]="eachOption.value" [checked]="eachOption.isSelected" [(ngModel)]="eachOption.isSelected" (change)="onRadioButtonValueChange(eachOption)" >
                                     <label [for]="eachOption.name+ind" class="input-label-text">{{eachOption.label}}</label>
                                 </div>
                                 <div class="checkbox-input-section" *ngIf="eachOption.helpField">
-                                    <div *ngFor="let eachHelpFiled of eachOption.helpField;let hfInd = index" class="radio-button-padding">
+                                    <div *ngFor="let eachHelpFiled of eachOption.helpField; let hfInd = index" class="radio-button-padding">
                                         <label [for]="eachOption.name + ind + hfInd" class="input-label-text common-label-padding input-field">{{ eachHelpFiled.label }}</label>
                                         <input [type]="eachHelpFiled.type" [name]="eachOption.name + ind + hfInd" [(ngModel)]="eachHelpFiled.value" class="input-element">
                                     </div>
@@ -85,7 +85,7 @@
                                     <div class="">{{eachFormElem.label}}</div>
                                     <div *ngFor="let eachOptionI of eachOption.value[0].options; let indi=index;">
                                         <div class="checkbox-padding">
-                                            <input disabled type="radio" class="form-radio" [name]="eachOptionI.name+indi" [id]="eachOptionI.name+indi" [value]="eachOptionI.value" [(ngModel)]="eachOption.value[0].value">
+                                            <input disabled type="radio" class="form-radio" [name]="eachOptionI.name+indi" [id]="eachOptionI.name+indi" [value]="eachOptionI.value" [(ngModel)]="eachOption.value[0].value" >
                                             <label [for]="eachOptionI.name+indi" class="input-label-text radio-label-text">{{eachOptionI.label}}</label>
                                         </div>
                                         <div class="checkbox-input-section" *ngIf="eachOptionI.helpField">
@@ -146,7 +146,7 @@
             </div>
         </div>
         <div class="right-nav-accordion" #rightNavAccordion>
-           <app-right-accordian [metaData]=metaData></app-right-accordian>
+           <app-right-accordian [metaData]=metaData #rightAccordion></app-right-accordian>
         </div>
     </div>
 </div>

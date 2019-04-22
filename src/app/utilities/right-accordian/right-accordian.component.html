@@ -1,6 +1,6 @@
 <p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)" *ngIf="metaData && metaData.matadata" class="accordion-header">
-    <p-accordionTab header="Godfather I" class="accordion-header"
-        *ngFor="let eachMetaData of metaData.matadata;let i =index">
+    <p-accordionTab header="header" class="accordion-header" [header]="eachMetaData.uid" #accordionElements
+        *ngFor="let eachMetaData of metaData.matadata;let i =index"  [cache]=false>
         <p-header class="accordion-heading">
             <div class="accordion-title">{{eachMetaData.heading}}</div>
             <img src="../assets/images/icon_Plus.png" class="icon-plus" *ngIf="openAccordionIndex !== i">
