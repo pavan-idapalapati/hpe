@@ -28,7 +28,7 @@
                         <div class="common-button-styles" (click)="resumeSession()">
                             <div class="button-styling">
                                 Resume
-                                <img class="next-arrow" src="../assets/images/icon_arrow.png">
+                                <img class="next-arrow" src="/assets/images/icon_arrow.png">
                             </div>
                         </div>
                     </form>
@@ -36,29 +36,27 @@
             </div>
         </div>
     </div>
-</div>
-
-
-<div class="landing-section-wrapper">
-    <div class="landing-section">
-        <div>
-            <section>
-                <div class="section-heading main-heading">Start a new session:</div>
-                <form>
-                    <div *ngFor="let dataGroup of userInfoForm.data" class="common-block-padding">
-                        <div class="question-title">{{dataGroup.question}}</div>
-                        <div *ngFor="let eachFormElem of dataGroup.formData">
-                            <div class="input-section">
-                                <label [for]="eachFormElem.name" class="input-label-text">{{eachFormElem.label}}</label>
-                                <input type="text" [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value"
-                                    class="input-element">
+    <div class="landing-section-wrapper">
+        <div class="landing-section">
+            <div>
+                <section>
+                    <div class="section-heading main-heading">Start a new session:</div>
+                    <form>
+                        <div *ngFor="let dataGroup of userInfoForm.data">
+                            <div class="question-title">{{dataGroup.question}}</div>
+                            <div *ngFor="let eachFormElem of dataGroup.formData">
+                                <div class="input-section">
+                                    <label [for]="eachFormElem.name" class="input-label-text">{{eachFormElem.label}}</label>
+                                    <input type="text" [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value"
+                                        class="input-element">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="common-button-styles margin-0">
-                        <div (click)="getStarted()" class="button-styling">
-                        Get Started
-                            <img class="next-arrow" src="../assets/images/icon_arrow.png">
+                        <div class="common-button-styles margin-0">
+                            <div (click)="getStarted()" class="button-styling">
+                                Get Started
+                                <img class="next-arrow" src="/assets/images/icon_arrow.png">
+                            </div>
                         </div>
                     </form>
                 </section>
