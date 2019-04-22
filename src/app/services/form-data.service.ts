@@ -198,7 +198,7 @@ export class FormDataService {
 				"matadata": [
 					{
                         "uid": 1,
-						"heading": "Don’t know / Not planning to upgrade (from WS 2008):",
+						"heading": "Don’t know / Not planning to upgrade (from WS 2008)",
 						"data": [
 							{
 								"subHeading": "Support",
@@ -234,7 +234,7 @@ export class FormDataService {
 					},
 					{
                         "uid": 2,
-						"heading": "Don’t know / Not planning to upgrade (from WS 2012):",
+						"heading": "Don’t know / Not planning to upgrade (from WS 2012)",
 						"data": [
 							{
 								"subHeading": "Support",
@@ -245,7 +245,7 @@ export class FormDataService {
 					},
 					{
                         "uid": 4,
-						"heading": "Azure: WS 2008:",
+						"heading": "Azure: WS 2008",
 						"data": [
 							{
 								"subHeading": "",
@@ -266,7 +266,7 @@ export class FormDataService {
 					},
 					{
                         "uid":5,
-						"heading": "Azure: WS 20012/2016:",
+						"heading": "Azure: WS 20012/2016",
 						"data": [
 							{
 								"subHeading": "",
@@ -279,7 +279,7 @@ export class FormDataService {
 					},
 					{
                         "uid": 6,
-						"heading": "Waiting for WS 2019:",
+						"heading": "Waiting for WS 2019",
 						"data": [
 							{
 								"subHeading": "",
@@ -349,7 +349,7 @@ export class FormDataService {
 				],
 				"matadata": [
 					{
-                        "heading": "No / late upgrade start date:",
+                        "heading": "No / late upgrade start date",
                         "uid": 1,
 						"data": [
 							{
@@ -500,7 +500,7 @@ export class FormDataService {
 				"matadata": [
 					{
                         "uid": 2,
-						"heading": "Already working with another vendor:",
+						"heading": "Already working with another vendor",
 						"data": [
 							{
 								"subHeading": "",
@@ -513,7 +513,7 @@ export class FormDataService {
 					},
 					{
                         "uid": 1,
-						"heading": "All other responses:",
+						"heading": "All other responses",
 						"data": [
 							{
 								"subHeading": "",
@@ -566,7 +566,7 @@ export class FormDataService {
 					}
 				],
 				"matadata": [{
-                    "heading": "Yes:",
+                    "heading": "Yes",
                     "uid": 1,
 					"data": [
 						{
