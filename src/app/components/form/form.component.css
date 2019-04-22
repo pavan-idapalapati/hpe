@@ -65,3 +65,10 @@ input[type=checkbox] + label:before {
 .check-and-radio-heading {
     padding-bottom: 38px;
 }
+.disable{
+    pointer-events: none;
+}
+
+.changeColor{
+    /* background-color: #ffffff; */
+}

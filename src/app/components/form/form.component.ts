@@ -18,6 +18,7 @@ export class FormComponent implements OnInit {
 		"reviewTemplate": "review-template"
 	};
 	currentPage: any;
+	metaData:any;
 
 	constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
 		this.formData.getROuteChangeSubject().subscribe((data) => {
@@ -41,6 +42,13 @@ export class FormComponent implements OnInit {
 			this.generateTemplate(formData);
 		} else {
 			this.router.navigate(['/conclusion']);
+		}
+
+		//right nav section meta data.
+		if(formData && formData.data && formData.currentPage) {
+			this.metaData = formData.data.data;
+			this.currentPage = formData.currentPage;			        
+			this.metaData = this.metaData[this.currentPage];
 		}
 	}
 	
@@ -118,7 +126,6 @@ export class FormComponent implements OnInit {
         this.openSideNavFlag = false;
         this.rightNavAccordion.nativeElement.classList.remove('right-nav-accordion-transition')
         this.rightNavAccordion.nativeElement.classList.add('remove-right-nav-accordion-transition');
-
     }
 
 }

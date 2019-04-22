@@ -134,8 +134,8 @@
         </div>
         
     </div>
-    <div class="right-nav">
-        <div class="right-nav-button-wrapper">
+    <div class="right-nav" [ngClass]="{'disable':!metaData.matadata}">
+        <div class="right-nav-button-wrapper" [ngClass]="{'changeColor':!metaData.matadata}">
             <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
                 <img (click)="closeSideNav()" class="side-nav-icon" src="../assets/images/icon_arrow.png">
             </div>
@@ -146,7 +146,7 @@
             </div>
         </div>
         <div class="right-nav-accordion" #rightNavAccordion>
-           <app-right-accordian></app-right-accordian>
+           <app-right-accordian [metaData]=metaData></app-right-accordian>
         </div>
     </div>
 </div>
