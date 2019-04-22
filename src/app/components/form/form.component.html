@@ -97,15 +97,15 @@
                             <div>{{eachFormElem.label}}</div>
                             <div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
                                 <div class="radio-button-padding" *ngIf="eachOption.value[0].type === 'radio'">
-                                    <div class="input-label-text common-label-padding">{{eachOption.label }}</div>
+                                    <div class="input-label-text common-label-padding confirm-text">{{eachOption.label }}</div>
                                     <div *ngIf="!eachOption.value[0].value">
                                         --
                                     </div>
                                     <div *ngFor="let eachOptionI of eachOption.value[0].options; let indi=index;">
                                         <div *ngIf="eachOption.value[0].value == eachOptionI.value">
-                                            <div class="checkbox-padding checkbox-helpfield-section" *ngIf="eachOptionI.helpField || eachOptionI.addDetailsData">
+                                            <div class="checkbox-padding pl-20 pt-10" *ngIf="eachOptionI.helpField || eachOptionI.addDetailsData">
                                                 <!-- <input disabled type="radio" class="form-radio" [name]="eachOptionI.name+indi" [id]="eachOptionI.name+indi" [value]="eachOptionI.value" [(ngModel)]="eachOption.value[0].value"> -->
-                                                <label [for]="eachOptionI.name+indi" class="input-label-text radio-label-text pl-0 font-regular">{{eachOptionI.label}}</label>
+                                                <label [for]="eachOptionI.name+indi" class="input-label-text radio-label-text pl-0 font-regular confirm-radio-text">{{eachOptionI.label}}</label>
                                             </div>
                                             <div class="checkbox-input-section pl-20" *ngIf="eachOptionI.helpField">
                                                 <div *ngFor="let eachHelpFiled of eachOptionI.helpField; let hfInd = index;"
