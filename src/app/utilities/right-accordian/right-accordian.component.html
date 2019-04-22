@@ -10,7 +10,7 @@
         <ng-template pTemplate="content">
             <ul>
                 <li *ngFor="let content of eachMetaData.data">
-                    <div class="d-flex accordion-heading">
+                    <div class="d-flex accordion-heading accordion-item">
                         <div>
                             <span class="input-label-text subheading-label-text"
                                 *ngIf="content.subHeading">{{content.subHeading}}:</span>{{content.content}}
