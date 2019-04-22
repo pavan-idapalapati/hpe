@@ -55,7 +55,11 @@ export class AccordionComponent implements OnInit {
 
         // open left side accordion based on navigation
         setTimeout(() => {     
-            if(this.currentPage >= 9) {
+            if(this.currentPage == 14) {
+                this.kickoffQuestions.selected = false;
+                this.nextsteps.selected = false;
+                this.formData.openAccordionIndex = undefined;
+            } else if(this.currentPage >= 9) {
                 this.kickoffQuestions.selected = false;
                 this.nextsteps.selected = true;
                 this.formData.openAccordionIndex = 1;
@@ -63,10 +67,7 @@ export class AccordionComponent implements OnInit {
                 this.kickoffQuestions.selected = true;
                 this.nextsteps.selected = false; 
                 this.formData.openAccordionIndex = 0;                 
-            } else if(this.currentPage == 14) {
-                this.kickoffQuestions.selected = false;
-                this.nextsteps.selected = false;
-            }
+            } 
         });
     }
 
