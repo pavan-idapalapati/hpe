@@ -248,7 +248,7 @@ input, textarea{
 }
 
 .common-block-padding {
-	padding-bottom: 43px;
+	padding-bottom: 35px;
 }
 
 .common-input-element-padding {
@@ -641,4 +641,8 @@ input[type=checkbox] + label {
 app-form {
     width: 100%;
     background: #3c1454;
+}
+
+.margin-0{
+  margin:0 auto;
 }
