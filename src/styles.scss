@@ -130,6 +130,7 @@ video {
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
+    outline: none;
     
 }
 .text-area {
@@ -177,12 +178,7 @@ body, main, app-root {
 .pl-20 {
   padding-left: 20px;
 }
-.rotate-45 {
-  transform: rotate(50deg);
-}
-.cursor-pointer {
-  cursor: pointer;
-}
+
 
 
 
@@ -199,6 +195,7 @@ input, textarea{
     border: 1px solid #C6C9CA;
     outline: none;
     padding: 2px;
+    padding-left:10px;
 }
 
 .header-section {
@@ -652,4 +649,7 @@ app-form {
 .margin-0{
   margin:0 auto;
   
+}
+.cursor-pointer {
+    cursor: pointer;
 }

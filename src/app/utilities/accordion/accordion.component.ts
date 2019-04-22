@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
     styleUrls: ['./accordion.component.scss']
 })
 export class AccordionComponent implements OnInit {
-    openAccordionIndex;
+    // openAccordionIndex;
     questionnaireData = [];
     currentPage: any;
     massagesQuestionnaireData: any;
     @ViewChild('kickoffQuestions') kickoffQuestions: any;
     @ViewChild('nextsteps') nextsteps: any;
 
-    constructor(private formData: FormDataService, private router: Router) {
+    constructor(public formData: FormDataService, private router: Router) {
         this.formData.getQuestionChangeSubject().subscribe((data) =>{
             this.onInitOfComponent();
         })
@@ -58,9 +58,11 @@ export class AccordionComponent implements OnInit {
             if(this.currentPage >= 9) {
                 this.kickoffQuestions.selected = false;
                 this.nextsteps.selected = true;
+                this.formData.openAccordionIndex = 1;
             } else if(this.currentPage < 9) {
                 this.kickoffQuestions.selected = true;
-                this.nextsteps.selected = false;  
+                this.nextsteps.selected = false; 
+                this.formData.openAccordionIndex = 0;                 
             } else if(this.currentPage == 14) {
                 this.kickoffQuestions.selected = false;
                 this.nextsteps.selected = false;
@@ -69,10 +71,10 @@ export class AccordionComponent implements OnInit {
     }
 
     onTabOpen(event) {
-        this.openAccordionIndex = event.index;
+        this.formData.openAccordionIndex = event.index;
     }
     onTabClose(event) {
-        this.openAccordionIndex = undefined;
+        this.formData.openAccordionIndex = undefined;
     }
 
     takeQuestion(question) {

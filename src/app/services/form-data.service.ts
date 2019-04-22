@@ -7,7 +7,9 @@ import { Subject } from 'rxjs';
 })
 export class FormDataService {
 	formData: any;
-	formCurrentPage: any;
+    formCurrentPage: any;
+    openAccordionIndex;
+
 	wholeFormData = {
 		"name": "HPE Call Guide",
 		"metadata": "HPE call guide project",
