@@ -79,7 +79,8 @@ export class LandingComponent implements OnInit {
 					this.createNewSession();
 				} else {	
 					this.showSessionResumeSection();
-				}
+                }
+                this.utils.scrolltoTop();
 			}
 		);
 	}
