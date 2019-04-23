@@ -2,11 +2,11 @@
     <p-accordionTab header="Accordion-header1" class="accordion-header" #kickoffQuestions >
         <p-header class="accordion-heading">
             <div class="accordion-title">{{massagesQuestionnaireData.kickOffQuestions.name}}</div>
-            <img src="./assets/images/icon_Plus.png" class="icon-plus" *ngIf="formData.openAccordionIndex != 0">
-            <img src="./assets/images/icon_Minus.png" class="icon-minus" *ngIf="formData.openAccordionIndex == 0">
+            <img src="{{'assets/images/icon_Plus.png' | assetspipe}}" class="icon-plus" *ngIf="formData.openAccordionIndex != 0">
+            <img src="{{'assets/images/icon_Minus.png' | assetspipe}}" class="icon-minus" *ngIf="formData.openAccordionIndex == 0">
         </p-header>
         <div>
-            <div *ngFor="let eachQue of massagesQuestionnaireData.kickOffQuestions.data; let ind= index">
+            <div class="accordion-content-items" *ngFor="let eachQue of massagesQuestionnaireData.kickOffQuestions.data; let ind= index">
                 <div class="content-sections">
                     <div class="accodion-content-section" [ngClass]="{'active-que': (currentPage == eachQue.id)}"
                         (click)="takeQuestion(eachQue)">
@@ -23,11 +23,11 @@
     <p-accordionTab header="Accordion-header2" class="accordion-header" #nextsteps >
         <p-header class="accordion-heading">
             <div class="accordion-title">{{massagesQuestionnaireData.nextSteps.name}}</div>
-            <img src="./assets/images/icon_Plus.png" class="icon-plus" *ngIf="formData.openAccordionIndex != 1">
-            <img src="./assets/images/icon_Minus.png" class="icon-minus" *ngIf="formData.openAccordionIndex == 1">
+            <img src="{{'assets/images/icon_Plus.png' | assetspipe}}" class="icon-plus" *ngIf="formData.openAccordionIndex != 1">
+            <img src="{{'assets/images/icon_Minus.png' | assetspipe}}" class="icon-minus" *ngIf="formData.openAccordionIndex == 1">
         </p-header>
         <div>
-            <div *ngFor="let eachQue of massagesQuestionnaireData.nextSteps.data; let ind= index">
+            <div class="accordion-content-items" *ngFor="let eachQue of massagesQuestionnaireData.nextSteps.data; let ind= index">
                 <div class="content-sections">
                     <div class="accodion-content-section" [ngClass]="{'active-que': (currentPage == eachQue.id)}"
                         (click)="takeQuestion(eachQue)">

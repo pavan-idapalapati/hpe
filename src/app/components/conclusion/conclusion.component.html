@@ -14,7 +14,7 @@
         </div>
         <div>
           <div class="button-styling prev-arrow-button" (click)="takeQuestion(question)">Return to question<img
-              class="conclusion-prev-arrow" src="./assets/images/icon_arrow.png"></div>
+              class="conclusion-prev-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}"></div>
         </div>
       </div>
     </div>
@@ -26,11 +26,11 @@
   <div class="common-button-styles">
     <div class="button-styling prev-arrow-button" (click)="previousQuestion()">
       Previous
-      <img class="prev-arrow" src="./assets/images/icon_arrow.png">
+      <img class="prev-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
     </div>
     <div class="button-styling finish-button" (click)="finishQuestionaire()">
       Finish
-      <img class="next-arrow" src="./assets/images/icon_arrow.png">
+      <img class="next-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
     </div>
   </div>
 </section>

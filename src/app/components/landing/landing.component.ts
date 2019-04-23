@@ -9,6 +9,7 @@ import { UtilService } from 'src/app/services/util.service';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+	pageView="/1-landing";
   userInfoForm = {
 		"name": "HPE Call Guide",
 		"metadata": "HPE Call Guide Landing Page",
@@ -83,6 +84,9 @@ export class LandingComponent implements OnInit {
                 this.utils.scrolltoTop();
 			}
 		);
+		//google analytics pageview triggering
+		this.utils.sendPageView(this.pageView);
+		
 	}
 	
 	createNewSession() {
@@ -95,7 +99,10 @@ export class LandingComponent implements OnInit {
   getStarted() {
 		this.createNewSession();
     this.utils.setItemInLocalStorage("userInfo", this.userInfoForm, true);
-    this.router.navigate(['/questionaire']);
+		this.router.navigate(['/questionaire']);
+		
+		//call event for google analytics
+		this.utils.sendEvent('Click','{Account Manager}-callstart','Call Event')
 	}
 	
 	resumeSession() {

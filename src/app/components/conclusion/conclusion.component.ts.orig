@@ -11,19 +11,23 @@ import { BackendService } from 'src/app/backend.service';
 })
 export class ConclusionComponent implements OnInit {
 
+<<<<<<< HEAD
     unansweredQuestions = [];
     showErrorPopup: boolean = false;
-    pageView = "/16-thank-you";
 
     constructor(private formData: FormDataService, private router: Router, private utils: UtilService,
         private backendService: BackendService) { }
 
     ngOnInit() {
         this.getUnansweredQuestions();
-        //google analytics pageview triggering
-        this.utils.sendPageView(this.pageView);
+=======
+  unansweredQuestions = [];
+  pageView="/16-thank-you";
+>>>>>>> fac29a00284695c687a70d51ea85156f71cb3ec0
+
     }
 
+<<<<<<< HEAD
     getUnansweredQuestions() {
         let data = this.formData.getFormData().data;
         this.unansweredQuestions = data.data.filter((eachData) => {
@@ -36,16 +40,21 @@ export class ConclusionComponent implements OnInit {
         this.formData.moveToParticularQuestion(question.id);
         this.router.navigate(["/questionaire"]);
     }
+=======
+  ngOnInit() {
+    this.getUnansweredQuestions();
+    //google analytics pageview triggering
+    this.utils.sendPageView(this.pageView);
+  }
+>>>>>>> fac29a00284695c687a70d51ea85156f71cb3ec0
 
     finishQuestionaire() {
-
+      
         this.backendService.doCall({
             type: "POST",
             data: this.formData.getFormData().data,
             url: "https://spiceworks.cvtr.io/webhook/campaign/46324/form/2576/leads?apikey=cd77dd36c500eb23579532f710125b02&campaignLinkId=10342&publisherId=11007"
         }).subscribe(res => {
-            //google analytics submit event
-            this.utils.sendEvent('Click', '{Account Manager}-form-submit', 'Submit Event');
             this.formData.showSuccessMessage = true;
             this.router.navigate(['/']);
             this.formData.resetWholeFormData();
@@ -61,7 +70,7 @@ export class ConclusionComponent implements OnInit {
         //     data: this.formData.getFormData().data,
         //     contentType: "application/x-www-form-urlencoded",
         //     success: function () {
-
+                
         //     },
         //     error: function (e) {
         //         console.log(e.responseText)
@@ -69,6 +78,16 @@ export class ConclusionComponent implements OnInit {
         // })
     }
 
+<<<<<<< HEAD
+=======
+  finishQuestionaire() {
+    this.formData.resetWholeFormData();
+    this.utils.clearCookies();
+    this.router.navigate(['/']);  
+    //google analytics submit event
+    this.utils.sendEvent('Click','{Account Manager}-form-submit','Submit Event');
+  }
+>>>>>>> fac29a00284695c687a70d51ea85156f71cb3ec0
 
     previousQuestion() {
         this.formData.moveToPreviousQuestion();

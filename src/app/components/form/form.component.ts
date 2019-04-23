@@ -32,7 +32,7 @@ export class FormComponent implements OnInit {
         this.init();
     }
 
-    init() {
+    init() {        
         this.utils.scrolltoTop();
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();
@@ -56,6 +56,8 @@ export class FormComponent implements OnInit {
                 this.closeSideNav();
             }
         }
+        //google analytics pageview triggering
+        this.utils.sendPageView(this.currentFormData.pageView);
     }
 
     generateTemplate(formData) {
@@ -63,8 +65,7 @@ export class FormComponent implements OnInit {
         this.currentPage = formData.currentPage;
         if (this.currentFormData.isConfirmStep) {
             this.getConfirmStepData(formData.data.data);
-        }
-        console.log(this.currentFormData, "this currentFormDataaaaaaa")
+        }       
     }
 
     getConfirmStepData(wholeData) {

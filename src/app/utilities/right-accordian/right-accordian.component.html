@@ -1,18 +1,18 @@
-<p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)" *ngIf="metaData && metaData.matadata" class="accordion-header">
+<p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)" *ngIf="metaData && metaData.matadata" class="accordion-header no-border">
     <p-accordionTab header="header" class="accordion-header" [header]="eachMetaData.uid" #accordionElements
         *ngFor="let eachMetaData of metaData.matadata;let i =index"  >
         <p-header class="accordion-heading">
             <div class="accordion-title">{{eachMetaData.heading}}</div>
-            <img src="./assets/images/icon_Plus.png" class="icon-plus" *ngIf="openAccordionIndex !== i">
-            <img src="./assets/images/icon_Minus.png" class="icon-minus" *ngIf="openAccordionIndex == i">
+            <img src="{{'assets/images/icon_Plus.png' | assetspipe}}" class="icon-plus" *ngIf="openAccordionIndex !== i">
+            <img src="{{'assets/images/icon_Minus.png' | assetspipe}}" class="icon-minus" *ngIf="openAccordionIndex == i">
         </p-header>
         <div>
             <ul>
-                <li *ngFor="let content of eachMetaData.data">
+                <li *ngFor="let content of eachMetaData.data" [ngClass]="{'bullets':eachMetaData.data.length > 1 }">
                     <div class="d-flex accordion-heading accordion-item">
                         <div>
                             <span class="input-label-text subheading-label-text"
-                                *ngIf="content.subHeading">{{content.subHeading}}:</span>{{content.content}}
+                                *ngIf="content.subHeading">{{content.subHeading}}: </span>{{content.content}}
                         </div>
                     </div>
                 </li>

@@ -15,6 +15,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { QuestionnaireNavComponent } from './components/questionnaire-nav/questionnaire-nav.component';
 import { RightAccordianComponent } from './utilities/right-accordian/right-accordian.component';
 import { BackendService } from './backend.service';
+import { AssetsPipe } from './pipe/assets.pipe';
 
 
 const appRoutes: Routes = [
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     ConclusionComponent,
     LandingComponent,
     QuestionnaireNavComponent,
-    RightAccordianComponent
+    RightAccordianComponent,
+    AssetsPipe
   ],
   imports: [
     BrowserModule,

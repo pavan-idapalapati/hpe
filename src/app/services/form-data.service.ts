@@ -18,6 +18,7 @@ export class FormDataService {
 			{
 				"question": "Do you have a few minutes to talk about your WS implementation?",
 				"stepName": "Kick-off questions",
+				"pageView":"/2-few-minutes-to-talk",
 				"isViewed": false,
 				"isAnswered": false,
 				"isRequired": true,
@@ -62,6 +63,7 @@ export class FormDataService {
 			{
 				"question": "What WS versions are you currently running?",
 				"stepName": "Kick-off questions",
+				"pageView":"/3-version-of-WS",
 				"isViewed": false,
 				"isAnswered": false,
 				"isRequired": true,
@@ -102,6 +104,7 @@ export class FormDataService {
 				"question": "What does your current WS infrastructure look like?",
 				"stepName": "Kick-off questions",
 				"isViewed": false,
+				"pageView":"/4-what-does-infra-look-like",
 				"isAnswered": false,
 				"isRequired": true,
 				"id": 2,
@@ -115,7 +118,7 @@ export class FormDataService {
 					},
 					{
 						"type": "text",
-						"label": "Vendors / server generation:",
+						"label": "Brands / server generations:",
 						"value": "",
 						"name": "ws-infra-text",
 						"id": ""
@@ -131,8 +134,9 @@ export class FormDataService {
 				]
 			},
 			{
-				"question": "Are you planning to upgrade on-prem or to migrate to Azure?",
+				"question": "Are you planning to upgrade to WS-2016 on-prem or to migrate to Azure?",
 				"stepName": "Kick-off questions",
+				"pageView":"/5-planning-to-upgrade-onprem-or-azure",
 				"isViewed": false,
 				"isAnswered": false,
 				"isRequired": true,
@@ -205,19 +209,18 @@ export class FormDataService {
 						"data": [
 							{
 								"subHeading": "Support",
-								"content": `Are you aware that ALL types of support for end on 1/14/20, including extended support? Microsoft is
+								"content": `Are you aware that ALL types of support for WS 2008 end on 1/14/20, including extended support? Microsoft is
 							offering a "security updates” contract, but it costs 100% of
 							the original license cost EVERY YEAR, for a mandatory 3
 							years.`
 							},
 							{
 								"subHeading": "Security",
-								"content": `WS 2008 was built without sophisticated cyber-
-								attacks in mind and provides little protection, leaving you vulnerable to these threats.`
+								"content": `WS 2008 was built without sophisticated cyber-attacks in mind and provides little protection, leaving you vulnerable to these threats.`
 							},
 							{
 								"subHeading": "Efficiency",
-								"content": `WS 2008 was built before containers
+								"content": `WS 2008 was built before container
 								technology. Containers support more apps on a single
 								machine than VMs do, which means you reduce your
 								overall server count. WS 2016 takes full advantage of this
@@ -274,7 +277,7 @@ export class FormDataService {
 							{
 								"subHeading": "",
 								"content": `CDW is one of Microsoft’s leading partners for Azure. We
-								have experience with both Azure Public and Axure Stack
+								have experience with both Azure Public and Azure Stack
 								for on-prem cloud deployments, offering exclusive Azure
 								services to accelerate your deployment.`
 							}													
@@ -298,6 +301,7 @@ export class FormDataService {
 				"question": "If upgrading on-prem, when are you planning to upgrade?",
 				"stepName": "Kick-off questions",
 				"isViewed": false,
+				"pageView":"/6-onprem-upgrade-time",
 				"isAnswered": false,
 				"isRequired": true,
 				"id": 4,
@@ -381,6 +385,7 @@ export class FormDataService {
 				"question": "Do you have budget allocated for use in that timeframe?",
 				"stepName": "Kick-off questions",
 				"isViewed": false,
+				"pageView":"/7-budget-allocated",
 				"isAnswered": false,
 				"isRequired": true,
 				"id": 5,
@@ -425,6 +430,7 @@ export class FormDataService {
 				"question": "What are your infrastructure requirements going to be?",
 				"stepName": "Kick-off questions",
 				"isViewed": false,
+				"pageView":"/8-infra-reqs",
 				"isAnswered": false,
 				"isRequired": true,
 				"id": 6,
@@ -534,6 +540,7 @@ export class FormDataService {
 				"question": "Customers have upgraded via Gen10 servers. Want to hear their feedback?",
 				"stepName": "Kick-off questions",
 				"isViewed": false,
+				"pageView":"/9-feedback-from-gen10-customers",
 				"isAnswered": false,	
 				"isRequired": true,
 				"id": 7,
@@ -601,6 +608,7 @@ export class FormDataService {
 				"question": "Which of those benefits are of particular interest to you? Can I send you some additional information",
 				"stepName": "Kick-off questions",
 				"isViewed": false,
+				"pageView":"/10-benefits-of-interest",
 				"isAnswered": false,
 				"isRequired": true,
 				"id": 8,
@@ -646,6 +654,7 @@ export class FormDataService {
 				"question": "What are the next steps? What do you need help with?",
 				"stepName": "Next steps",
 				"isViewed": false,
+				"pageView":"/11-next-steps",
 				"isAnswered": false,
 				"isRequired": true,
 				"id": 9,
@@ -669,6 +678,7 @@ export class FormDataService {
 				"question": "Can I set up a meeting with one of our specialists?",
 				"stepName": "Next steps",
 				"isViewed": false,
+				"pageView":"/12-meeting-w-specialist",
 				"isAnswered": false,
 				"isRequired": true,
 				"id": 10,
@@ -726,6 +736,7 @@ export class FormDataService {
 				"question": "Are there other stakeholders involved in the WS migration strategy that I should contact or that should be included in the meeting?",
 				"stepName": "Next steps",
 				"isViewed": false,
+				"pageView":"/13-other-stakeholders",
 				"isAnswered": false,
 				"isRequired": true,
 				"id": 11,
@@ -789,6 +800,7 @@ export class FormDataService {
 				"question": "Confirm the next steps",
 				"stepName": "Next steps",
 				"isViewed": false,
+				"pageView":"/14-confirm-next-steps",
 				"isAnswered": false,
 				"isRequired": false,
 				"isConfirmStep": true,
@@ -836,6 +848,7 @@ export class FormDataService {
 				"question": "Do you have questions or is there any additional info I can provide?",
 				"stepName": "Next steps",
 				"isViewed": false,
+				"pageView":"/15-questions-or-more-info",
 				"isAnswered": false,
 				"isRequired": true,
 				"id": 13,
