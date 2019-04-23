@@ -168,20 +168,22 @@
         </div>
 
     </div>
-    <div class="right-nav" [ngClass]="{'disable':!metaData.matadata}">
-        <div class="right-nav-button-wrapper" [ngClass]="{'disabled-nav':!metaData.matadata}">
-            <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
-                <img (click)="closeSideNav()" class="side-nav-icon"
-                    src="{{'assets/images/icon_arrow.png' | assetspipe}}">
+    <div>
+        <div class="right-nav" [ngClass]="{'disable':!metaData.matadata}">
+            <div class="right-nav-button-wrapper" [ngClass]="{'disabled-nav':!metaData.matadata}">
+                <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
+                    <img (click)="closeSideNav()" class="side-nav-icon"
+                        src="{{'assets/images/icon_arrow.png' | assetspipe}}">
+                </div>
+                <div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
+                    <img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon"
+                        src="{{'assets/images/icon_arrow.png' | assetspipe}}">
+    
+                </div>
             </div>
-            <div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
-                <img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon"
-                    src="{{'assets/images/icon_arrow.png' | assetspipe}}">
-
+            <div class="right-nav-accordion" #rightNavAccordion>
+                <app-right-accordian [metaData]=metaData #rightAccordion></app-right-accordian>
             </div>
-        </div>
-        <div class="right-nav-accordion" #rightNavAccordion>
-            <app-right-accordian [metaData]=metaData #rightAccordion></app-right-accordian>
         </div>
     </div>
 </div>

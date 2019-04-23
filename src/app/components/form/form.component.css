@@ -27,6 +27,7 @@ input[type=checkbox] + label:before {
 
 .right-nav {
     display: flex;
+    height: 100%;
 }
 
 .right-nav-button-wrapper {
@@ -36,7 +37,7 @@ input[type=checkbox] + label:before {
 
 .right-nav-accordion {
     width:0px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .side-nav-icon {
