@@ -3,8 +3,8 @@
         *ngFor="let eachMetaData of metaData.matadata;let i =index"  >
         <p-header class="accordion-heading">
             <div class="accordion-title">{{eachMetaData.heading}}</div>
-            <img src="./assets/images/icon_Plus.png" class="icon-plus" *ngIf="openAccordionIndex !== i">
-            <img src="./assets/images/icon_Minus.png" class="icon-minus" *ngIf="openAccordionIndex == i">
+            <img src="{{'assets/images/icon_Plus.png' | assetspipe}}" class="icon-plus" *ngIf="openAccordionIndex !== i">
+            <img src="{{'assets/images/icon_Minus.png' | assetspipe}}" class="icon-minus" *ngIf="openAccordionIndex == i">
         </p-header>
         <div>
             <ul>

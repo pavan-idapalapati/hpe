@@ -54,7 +54,7 @@
                                     <div class="stake-holder-section add-details-section"
                                         *ngFor="let eachHelpFiled of eachOption.addDetailsData; let formInd=index">
                                         <div *ngIf="eachOption.addDetailsData.length > 1" class="remove-details-data-icon" (click)="removeDetailsData(eachOption.addDetailsData, formInd)">
-                                            <img class="icon-plus rotate-45" src="/assets/images/icon_Plus.png">
+                                            <img class="icon-plus rotate-45" src="{{'assets/images/icon_Plus.png' | assetspipe}}" >
                                         </div>
                                         <div class="input-section"
                                             *ngFor="let eachFiled of eachHelpFiled.fields; let fieldInd=index;">
@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
                                     <div class="plus-stake-holder" (click)="addNewDetails(eachFormElem, ind)">
-                                        <img src="./assets/images/icon_Plus.png" class="icon-plus">
+                                        <img src="{{'assets/images/icon_Plus.png' | assetspipe}}" class="icon-plus">
                                         <div class="add-stake-holder">Add stakeholder</div>
                                     </div>
                                 </div>
@@ -148,11 +148,11 @@
                         <div *ngIf="currentPage != 0" class="button-styling prev-arrow-button"
                             (click)="previousQuestion()">
                             Previous
-                            <img class="prev-arrow" src="./assets/images/icon_arrow.png">
+                            <img class="prev-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
                         </div>
                         <div class="button-styling" (click)="nextQuestion()">
                             Next
-                            <img class="next-arrow" src="./assets/images/icon_arrow.png">
+                            <img class="next-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
                         </div>
                     </div>
                 </form>
@@ -163,11 +163,11 @@
     <div class="right-nav" [ngClass]="{'disable':!metaData.matadata}">
         <div class="right-nav-button-wrapper" [ngClass]="{'disabled-nav':!metaData.matadata}">
             <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
-                <img (click)="closeSideNav()" class="side-nav-icon" src="./assets/images/icon_arrow.png">
+                <img (click)="closeSideNav()" class="side-nav-icon" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
             </div>
             <div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
                 <img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon"
-                    src="./assets/images/icon_arrow.png">
+                src="{{'assets/images/icon_arrow.png' | assetspipe}}">
 
             </div>
         </div>

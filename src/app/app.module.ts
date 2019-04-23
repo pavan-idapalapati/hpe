@@ -12,6 +12,7 @@ import { ConclusionComponent } from './components/conclusion/conclusion.componen
 import { LandingComponent } from './components/landing/landing.component';
 import { QuestionnaireNavComponent } from './components/questionnaire-nav/questionnaire-nav.component';
 import { RightAccordianComponent } from './utilities/right-accordian/right-accordian.component';
+import { AssetsPipe } from './pipe/assets.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: LandingComponent },
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     ConclusionComponent,
     LandingComponent,
     QuestionnaireNavComponent,
-    RightAccordianComponent
+    RightAccordianComponent,
+    AssetsPipe
   ],
   imports: [
     BrowserModule,
