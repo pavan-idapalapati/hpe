@@ -92,6 +92,7 @@ input[type=checkbox] + label:before {
 
 .confirm-text{
     font-size: 24px;
+    padding-bottom: 20px;
 }
 
 .confirm-radio-text{
@@ -100,6 +101,10 @@ input[type=checkbox] + label:before {
 
 .pt-10{
     padding-top: 10px;
+}
+
+.pb-30{
+    padding-bottom: 30px;
 }
 .remove-details-data-icon {
     position: absolute;
