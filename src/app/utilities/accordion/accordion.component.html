@@ -1,11 +1,11 @@
-<p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)">
-    <p-accordionTab header="Accordion-header" class="accordion-header" #kickoffQuestions [cache]=false>
+<p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)" [activeIndex]="index">
+    <p-accordionTab header="Accordion-header1" class="accordion-header" #kickoffQuestions >
         <p-header class="accordion-heading">
             <div class="accordion-title">{{massagesQuestionnaireData.kickOffQuestions.name}}</div>
             <img src="./assets/images/icon_Plus.png" class="icon-plus" *ngIf="formData.openAccordionIndex != 0">
             <img src="./assets/images/icon_Minus.png" class="icon-minus" *ngIf="formData.openAccordionIndex == 0">
         </p-header>
-        <ng-template pTemplate="content">
+        <div>
             <div *ngFor="let eachQue of massagesQuestionnaireData.kickOffQuestions.data; let ind= index">
                 <div class="content-sections">
                     <div class="accodion-content-section" [ngClass]="{'active-que': (currentPage == eachQue.id)}"
@@ -18,15 +18,15 @@
                     </div>
                 </div>
             </div>
-        </ng-template>
+        </div>
     </p-accordionTab>
-    <p-accordionTab header="Accordion-header" class="accordion-header" #nextsteps [cache]=false>
+    <p-accordionTab header="Accordion-header2" class="accordion-header" #nextsteps >
         <p-header class="accordion-heading">
             <div class="accordion-title">{{massagesQuestionnaireData.nextSteps.name}}</div>
             <img src="./assets/images/icon_Plus.png" class="icon-plus" *ngIf="formData.openAccordionIndex != 1">
             <img src="./assets/images/icon_Minus.png" class="icon-minus" *ngIf="formData.openAccordionIndex == 1">
         </p-header>
-        <ng-template pTemplate="content">
+        <div>
             <div *ngFor="let eachQue of massagesQuestionnaireData.nextSteps.data; let ind= index">
                 <div class="content-sections">
                     <div class="accodion-content-section" [ngClass]="{'active-que': (currentPage == eachQue.id)}"
@@ -39,7 +39,8 @@
                     </div>
                 </div>
             </div>
-        </ng-template>
+        </div>
+    
     </p-accordionTab>
     <div class="accordion-title accordion-heading accordion-header" (click)="gotFinish()">Finish</div>
 </p-accordion>

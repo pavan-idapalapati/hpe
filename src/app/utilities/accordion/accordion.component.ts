@@ -11,9 +11,12 @@ export class AccordionComponent implements OnInit {
     // openAccordionIndex;
     questionnaireData = [];
     currentPage: any;
+    index = undefined;
     massagesQuestionnaireData: any;
     @ViewChild('kickoffQuestions') kickoffQuestions: any;
     @ViewChild('nextsteps') nextsteps: any;
+    @ViewChild('kickoffQuestionsButton') kickoffQuestionsButton: any;
+    @ViewChild('nextstepsButton') nextstepsButton: any;
 
     constructor(public formData: FormDataService, private router: Router) {
         this.formData.getQuestionChangeSubject().subscribe((data) =>{
@@ -53,28 +56,26 @@ export class AccordionComponent implements OnInit {
             }
         });
 
-        // open left side accordion based on navigation
-        setTimeout(() => {     
+        // open left side accordion based on navigation   
             if(this.currentPage == 14) {
-                this.kickoffQuestions.selected = false;
-                this.nextsteps.selected = false;
                 this.formData.openAccordionIndex = undefined;
+                this.index = 0;
             } else if(this.currentPage >= 9) {
-                this.kickoffQuestions.selected = false;
-                this.nextsteps.selected = true;
                 this.formData.openAccordionIndex = 1;
+                this.index = 1;
             } else if(this.currentPage < 9) {
-                this.kickoffQuestions.selected = true;
-                this.nextsteps.selected = false; 
-                this.formData.openAccordionIndex = 0;                 
+                this.formData.openAccordionIndex = 0; 
+                this.index = 0;
             } 
-        });
+          
     }
 
     onTabOpen(event) {
+        // this.cache = true;
         this.formData.openAccordionIndex = event.index;
     }
     onTabClose(event) {
+        // this.cache  =true;
         this.formData.openAccordionIndex = undefined;
     }
 
