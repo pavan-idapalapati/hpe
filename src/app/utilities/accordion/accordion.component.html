@@ -6,7 +6,7 @@
             <img src="./assets/images/icon_Minus.png" class="icon-minus" *ngIf="formData.openAccordionIndex == 0">
         </p-header>
         <div>
-            <div *ngFor="let eachQue of massagesQuestionnaireData.kickOffQuestions.data; let ind= index">
+            <div class="accordion-content-items" *ngFor="let eachQue of massagesQuestionnaireData.kickOffQuestions.data; let ind= index">
                 <div class="content-sections">
                     <div class="accodion-content-section" [ngClass]="{'active-que': (currentPage == eachQue.id)}"
                         (click)="takeQuestion(eachQue)">
