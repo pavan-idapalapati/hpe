@@ -25,6 +25,7 @@ export class ConclusionComponent implements OnInit {
     this.unansweredQuestions = data.data.filter((eachData) => {
       return (eachData.isRequired && !eachData.isAnswered);
     });
+    this.utils.scrolltoTop();
   }
 
   takeQuestion(question) {

@@ -167,6 +167,7 @@ body, main, app-root {
 }
 .icon-plus{
     height: 16px;
+    cursor: pointer;
 }
 
 .d-block {
@@ -699,4 +700,11 @@ app-form {
 }
 .cursor-pointer {
     cursor: pointer;
+}
+
+.message-section {
+    background-color: #fff;
+    border: 4px solid #2AD2C9;
+    padding: 40px 20px 40px 80px;
+    margin: 25px 30px;
 }

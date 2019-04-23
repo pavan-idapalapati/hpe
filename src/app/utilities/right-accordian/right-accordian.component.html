@@ -1,13 +1,12 @@
 <p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)" *ngIf="metaData && metaData.matadata" class="accordion-header">
     <p-accordionTab header="header" class="accordion-header" [header]="eachMetaData.uid" #accordionElements
-        *ngFor="let eachMetaData of metaData.matadata;let i =index"  [cache]=false>
+        *ngFor="let eachMetaData of metaData.matadata;let i =index"  >
         <p-header class="accordion-heading">
             <div class="accordion-title">{{eachMetaData.heading}}</div>
             <img src="./assets/images/icon_Plus.png" class="icon-plus" *ngIf="openAccordionIndex !== i">
             <img src="./assets/images/icon_Minus.png" class="icon-minus" *ngIf="openAccordionIndex == i">
         </p-header>
-
-        <ng-template pTemplate="content">
+        <div>
             <ul>
                 <li *ngFor="let content of eachMetaData.data">
                     <div class="d-flex accordion-heading accordion-item">
@@ -18,6 +17,6 @@
                     </div>
                 </li>
             </ul>            
-        </ng-template>
+        </div>
     </p-accordionTab>
 </p-accordion>
