@@ -33,6 +33,7 @@ export class FormComponent implements OnInit {
     }
 
     init() {
+        this.utils.scrolltoTop();
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();
         if (formData.currentPage < formData.data.data.length) {
