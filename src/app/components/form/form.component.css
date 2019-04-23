@@ -84,9 +84,6 @@ input[type=checkbox] + label:before {
     background-color: #468c98;
 }
 
-.checkbox-helpfield-section{
-    padding-left:40px;
-}
 .close-add-details {
     display: flex;
     justify-content: flex-end;
@@ -103,4 +100,12 @@ input[type=checkbox] + label:before {
 
 .pt-10{
     padding-top: 10px;
+}
+.remove-details-data-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.add-details-section {
+    position: relative;
 }

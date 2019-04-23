@@ -24,3 +24,11 @@
 .button-styling {
     width: 190px !important;
 }
+
+.conclusion-prev-arrow{
+    position: absolute;
+    height: 18px;
+    top: 14px;
+    left: 8px;
+    transform: rotate(180deg);
+}
