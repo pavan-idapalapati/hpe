@@ -398,8 +398,8 @@ export class FormDataService {
 						"id": "radio1",
 						"options": [
 							{
-								"label": "Yes and amt.:",
-								"value": "Yes and amt.:",
+								"label": "Yes:",
+								"value": "Yes:",
 								"name": "budget-allocate-radio",
 								"helpField": [
 									{
@@ -440,7 +440,8 @@ export class FormDataService {
 						"label": "Select all that apply and enter:",
 						"value": "",
 						"name": "infra-req-cb",
-						"id": "",
+                        "id": "",
+                        "isRequirements": true,
 						"options": [
 							{
 								"label": "Compute",
@@ -583,7 +584,7 @@ export class FormDataService {
 							"subHeading": "Security",
 							"content": `HPE Gen10 servers have built-in security
 							features that reduce cybersecurity threats, including
-							malware detection and firmware protection and recovery .`
+							malware detection and firmware protection and recovery.`
 						},
 						{
 							"subHeading": "Efficiency",
@@ -605,7 +606,7 @@ export class FormDataService {
 				},]
 			},
 			{
-				"question": "Which of those benefits are of particular interest to you? Can I send you some additional information",
+				"question": "Which of those benefits are of particular interest to you? Can I send you some additional information?",
 				"stepName": "Kick-off questions",
 				"isViewed": false,
 				"pageView":"/10-benefits-of-interest",
@@ -623,7 +624,8 @@ export class FormDataService {
 							{
 								"label": "Yes",
 								"value": "Yes",
-								"name": "benefits-interest-radio",
+                                "name": "benefits-interest-radio",
+                                "hasHelpField": true,
 								"helpField": [
 									{
 										"type": "text",
@@ -660,12 +662,6 @@ export class FormDataService {
 				"id": 9,
 				"formData": [
 					{
-						"type": "text",
-						"label": "",
-						"value": "",
-						"name": "optional-notes"
-					},
-					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
 						"isNotes": true,
@@ -694,6 +690,7 @@ export class FormDataService {
 								"label": "Yes",
 								"value": "Yes",
 								"name": "gen10-upgrade-radio",
+                                "hasHelpField": true,
 								"helpField": [
 									{
 										"type": "text",
@@ -706,6 +703,7 @@ export class FormDataService {
 								"label": "No",
 								"value": "No",
 								"name": "gen10-upgrade-radio",
+                                "hasHelpField": true,
 								"helpField": [
 									{
 										"//TODO:": "this needs to integrate",
@@ -751,6 +749,7 @@ export class FormDataService {
 							{
 								"label": "Yes",
 								"value": "Yes",
+                                "hasHelpField": true,
 								"name": "ws-migration-strategy-radio",
 								"addDetailsData": [
 									{
