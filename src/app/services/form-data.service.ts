@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UtilService } from "./util.service";
-import { Subject } from 'rxjs';
+import { Subject, ReplaySubject } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root'
@@ -874,7 +874,7 @@ export class FormDataService {
 	constructor(private utils: UtilService) { }
 
 	routeChange = new Subject<boolean>();
-	questionChange = new Subject<boolean>();
+	questionChange = new ReplaySubject<boolean>(1);
 
 	getROuteChangeSubject() {
 		return this.routeChange;
