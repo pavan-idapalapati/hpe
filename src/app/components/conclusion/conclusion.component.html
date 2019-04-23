@@ -1,4 +1,4 @@
-<section class="conclusion-section">
+<section class="conclusion-section" [attr.pageView]="/16-thank-you">
   <div *ngIf="unansweredQuestions.length">
       <div class="thankyou-msg">Thank you for taking the time to speak with me today.</div>
     <div class="skipped-questions-heading">Skipped Questions:</div>
@@ -9,7 +9,7 @@
         </div>
         <div>
           <div class="button-styling prev-arrow-button" (click)="takeQuestion(question)">Return to question<img
-              class="prev-arrow" src="./assets/images/icon_arrow.png"></div>
+              class="conclusion-prev-arrow" src="./assets/images/icon_arrow.png"></div>
         </div>
       </div>
     </div>
