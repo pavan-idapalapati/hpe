@@ -9,6 +9,7 @@ export class FormDataService {
 	formData: any;
     formCurrentPage: any;
     openAccordionIndex;
+    showSuccessMessage;
 
 	wholeFormData = {
 		"name": "HPE Call Guide",

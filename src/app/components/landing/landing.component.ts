@@ -68,7 +68,7 @@ export class LandingComponent implements OnInit {
 	customerName: string;
 	saleRepName: string;
 
-  constructor(private formData: FormDataService, private utils: UtilService, private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(public formData: FormDataService, private utils: UtilService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
 		this.activatedRoute.queryParams.subscribe(

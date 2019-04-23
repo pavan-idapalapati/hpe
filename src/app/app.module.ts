@@ -3,6 +3,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {AccordionModule} from 'primeng/accordion';
@@ -12,6 +14,8 @@ import { ConclusionComponent } from './components/conclusion/conclusion.componen
 import { LandingComponent } from './components/landing/landing.component';
 import { QuestionnaireNavComponent } from './components/questionnaire-nav/questionnaire-nav.component';
 import { RightAccordianComponent } from './utilities/right-accordian/right-accordian.component';
+import { BackendService } from './backend.service';
+
 
 const appRoutes: Routes = [
   { path: '', component: LandingComponent },
@@ -33,13 +37,15 @@ const appRoutes: Routes = [
     BrowserModule,
     AccordionModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    HttpModule,
      FormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
     )
   ],
-  providers: [],
+  providers: [BackendService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
