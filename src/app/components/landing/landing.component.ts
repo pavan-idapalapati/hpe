@@ -84,6 +84,7 @@ export class LandingComponent implements OnInit {
                 this.utils.scrolltoTop();
 			}
 		);
+		//google analytics pageview triggering
 		this.utils.sendPageView(this.pageView);
 		
 	}

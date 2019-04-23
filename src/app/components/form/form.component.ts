@@ -56,6 +56,7 @@ export class FormComponent implements OnInit {
                 this.closeSideNav();
             }
         }
+        //google analytics pageview triggering
         this.utils.sendPageView(this.currentFormData.pageView);
     }
 

@@ -17,6 +17,7 @@ export class ConclusionComponent implements OnInit {
 
   ngOnInit() {
     this.getUnansweredQuestions();
+    //google analytics pageview triggering
     this.utils.sendPageView(this.pageView);
   }
 
