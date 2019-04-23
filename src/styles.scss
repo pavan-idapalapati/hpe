@@ -134,7 +134,8 @@ video {
     
 }
 .text-area {
-    resize: none;
+  resize: none;
+  overflow: auto;
 }
 
 html {
@@ -185,6 +186,7 @@ body, main, app-root {
 }
 input, textarea {
   font-family: "MetricHPE";
+  font-size: 16px;
 }
 .rotate-45 {
   transform: rotate(45deg);
