@@ -664,7 +664,6 @@ export class FormDataService {
 					{
 						"type": "textArea",
 						"label": "Notes (optional): ",
-						"isNotes": true,
 						"value": "",
 						"name": "optional-notes"
 					}
@@ -944,6 +943,12 @@ export class FormDataService {
 
 	moveToParticularQuestion(questionId) {
 		this.utils.setItemInLocalStorage("currentPage", Number(questionId), false);
+	}
+
+	massageFormData(formData) {
+		formData.data.map(eachData => {
+			
+		});
 	}
 
 }

@@ -39,8 +39,6 @@
   
   
   
-  
-  
 
 /* You can add global styles to this file, and also import other style files */
 html,
@@ -134,7 +132,8 @@ video {
     
 }
 .text-area {
-    resize: none;
+  resize: none;
+  overflow: auto;
 }
 
 html {
@@ -185,6 +184,7 @@ body, main, app-root {
 }
 input, textarea {
   font-family: "MetricHPE";
+  font-size: 16px;
 }
 .rotate-45 {
   transform: rotate(45deg);
@@ -512,7 +512,7 @@ input, textarea{
 .prev-arrow{
     position: absolute;
     height: 18px;
-    top: 16px;
+    top: 14px;
     left: 12px;
     transform: rotate(180deg);
 }
