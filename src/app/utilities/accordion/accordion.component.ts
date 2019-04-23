@@ -59,7 +59,7 @@ export class AccordionComponent implements OnInit {
         // open left side accordion based on navigation   
             if(this.currentPage == 14) {
                 this.formData.openAccordionIndex = undefined;
-                this.index = 0;
+                this.index = undefined;
             } else if(this.currentPage >= 9) {
                 this.formData.openAccordionIndex = 1;
                 this.index = 1;
@@ -89,6 +89,10 @@ export class AccordionComponent implements OnInit {
     }
 
     gotFinish() {
+        this.formData.openAccordionIndex = undefined;
+        this.index = undefined;
+        this.kickoffQuestions.selected = false;
+        this.nextsteps.selected = false;
         this.router.navigate(["/conclusion"]);
     }
 
