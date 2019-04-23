@@ -133,7 +133,7 @@ export class FormDataService {
 				]
 			},
 			{
-				"question": "Are you planning to upgrade on-prem or to migrate to Azure?",
+				"question": "Are you planning to upgrade to WS-2016 on-prem or to migrate to Azure?",
 				"stepName": "Kick-off questions",
 				"pageView":"/5-planning-to-upgrade-onprem-or-azure",
 				"isViewed": false,
@@ -208,19 +208,18 @@ export class FormDataService {
 						"data": [
 							{
 								"subHeading": "Support",
-								"content": `Are you aware that ALL types of support for end on 1/14/20, including extended support? Microsoft is
+								"content": `Are you aware that ALL types of support for WS 2008 end on 1/14/20, including extended support? Microsoft is
 							offering a "security updates” contract, but it costs 100% of
 							the original license cost EVERY YEAR, for a mandatory 3
 							years.`
 							},
 							{
 								"subHeading": "Security",
-								"content": `WS 2008 was built without sophisticated cyber-
-								attacks in mind and provides little protection, leaving you vulnerable to these threats.`
+								"content": `WS 2008 was built without sophisticated cyber-attacks in mind and provides little protection, leaving you vulnerable to these threats.`
 							},
 							{
 								"subHeading": "Efficiency",
-								"content": `WS 2008 was built before containers
+								"content": `WS 2008 was built before container
 								technology. Containers support more apps on a single
 								machine than VMs do, which means you reduce your
 								overall server count. WS 2016 takes full advantage of this
@@ -277,7 +276,7 @@ export class FormDataService {
 							{
 								"subHeading": "",
 								"content": `CDW is one of Microsoft’s leading partners for Azure. We
-								have experience with both Azure Public and Axure Stack
+								have experience with both Azure Public and Azure Stack
 								for on-prem cloud deployments, offering exclusive Azure
 								services to accelerate your deployment.`
 							}													
