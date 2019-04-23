@@ -132,7 +132,8 @@ video {
     
 }
 .text-area {
-    resize: none;
+  resize: none;
+  overflow: auto;
 }
 
 html {
@@ -183,6 +184,7 @@ body, main, app-root {
 }
 input, textarea {
   font-family: "MetricHPE";
+  font-size: 16px;
 }
 .rotate-45 {
   transform: rotate(45deg);
@@ -696,7 +698,7 @@ input, textarea{
 .add-stake-holder{
   padding-left:10px;
 }
-app-form {
+app-form, app-conclusion {
     width: 100%;
     background: #3c1454;
 }
