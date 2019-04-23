@@ -117,7 +117,7 @@ export class FormDataService {
 					},
 					{
 						"type": "text",
-						"label": "Vendors / server generation:",
+						"label": "Brands / server generations:",
 						"value": "",
 						"name": "ws-infra-text",
 						"id": ""
@@ -605,7 +605,7 @@ export class FormDataService {
 				},]
 			},
 			{
-				"question": "Which of those benefits are of particular interest to you? Can I send you some additional information?",
+				"question": "Which of those benefits are of particular interest to you? Can I send you some additional information",
 				"stepName": "Kick-off questions",
 				"isViewed": false,
 				"pageView":"/10-benefits-of-interest",

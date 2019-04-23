@@ -15,7 +15,7 @@
                         </div>
                         <div class="checkbox-input-section" *ngIf="eachFormElem.type === 'textArea'"
                             [ngClass]="{'checkbox-helpfield-section':eachFormElem.isHelpField}">
-                            <label class="input-label-text common-label-padding d-block" [ngClass]="{'font-regular':eachFormElem.isHelpField}"
+                            <label class="input-label-text common-label-padding d-block" [ngClass]="{'font-regular':eachFormElem.isNotes}"
                                 [for]="eachFormElem.name">{{eachFormElem.label}}</label>
                             <textarea [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value" cols="40" rows="5"
                                 class="text-area"></textarea>
