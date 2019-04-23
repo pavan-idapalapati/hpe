@@ -11,11 +11,13 @@ import { UtilService } from 'src/app/services/util.service';
 export class ConclusionComponent implements OnInit {
 
   unansweredQuestions = [];
+  pageView="/16-thank-you";
 
   constructor(private formData: FormDataService, private router: Router, private utils: UtilService) { }
 
   ngOnInit() {
     this.getUnansweredQuestions();
+    this.utils.sendPageView(this.pageView);
   }
 
   getUnansweredQuestions() {
@@ -33,7 +35,9 @@ export class ConclusionComponent implements OnInit {
   finishQuestionaire() {
     this.formData.resetWholeFormData();
     this.utils.clearCookies();
-    this.router.navigate(['/']);
+    this.router.navigate(['/']);  
+    //google analytics submit event
+    this.utils.sendEvent('Click','{Account Manager}-form-submit','Submit Event');
   }
 
   previousQuestion() {
