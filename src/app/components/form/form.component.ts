@@ -122,6 +122,7 @@ export class FormComponent implements OnInit {
             each.value = "";
         });
         eachFormElem.options[index].addDetailsData.push(mock);
+        eachFormElem.options[index].addDetailsData = JSON.parse(JSON.stringify(eachFormElem.options[index].addDetailsData));
     }
 
     openSideNav() {
