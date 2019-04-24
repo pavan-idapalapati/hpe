@@ -41,3 +41,13 @@
 .question-text {
     padding-top: 3px;
 }
+
+.next-question-text {
+    padding-top: 4px;
+}
+
+.next-steps:nth-child(4) {
+    input[type=checkbox] + label::before {
+        top: calc(50% - 0px);
+    }
+}
