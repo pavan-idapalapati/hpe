@@ -39,9 +39,11 @@ export class ConclusionComponent implements OnInit {
 
     finishQuestionaire() {
 
+        let data = this.formData.massageFormData(this.formData.getFormData().data);
+
         this.backendService.doCall({
             type: "POST",
-            data: this.formData.getFormData().data,
+            data: data,
             url: "https://spiceworks.cvtr.io/webhook/campaign/46324/form/2576/leads?apikey=cd77dd36c500eb23579532f710125b02&campaignLinkId=10342&publisherId=11007"
         }).subscribe(res => {
             //google analytics submit event
