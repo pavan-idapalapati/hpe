@@ -1,4 +1,4 @@
-<p-accordion (onOpen)="onTabOpen($event)" #accordion [activeIndex]="index" (onClose)="onTabClose($event)" *ngIf="metaData && metaData.matadata" class="accordion-header no-border">
+<p-accordion (onOpen)="onTabOpen($event)" #accordion  (onClose)="onTabClose($event)" *ngIf="metaData && metaData.matadata" class="accordion-header no-border">
     <p-accordionTab header="header" class="accordion-header" [header]="eachMetaData.uid" #accordionElements
         *ngFor="let eachMetaData of metaData.matadata;let i =index"  >
         <p-header class="accordion-heading">

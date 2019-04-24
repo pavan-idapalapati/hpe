@@ -1,4 +1,4 @@
-<p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)" [activeIndex]="index">
+<p-accordion (onOpen)="onTabOpen($event)" (onClose)="onTabClose($event)" #accordion>
     <p-accordionTab header="Accordion-header1" class="accordion-header" #kickoffQuestions >
         <p-header class="accordion-heading">
             <div class="accordion-title">{{massagesQuestionnaireData.kickOffQuestions.name}}</div>

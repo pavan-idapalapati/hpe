@@ -47,7 +47,7 @@ export class FormComponent implements OnInit {
             this.metaData = formData.data.data;
             this.currentPage = formData.currentPage;
             this.metaData = this.metaData[this.currentPage];
-            if (this.metaData.matadata) {
+            if (this.metaData && this.metaData.matadata) {
                 this.openSideNav();
                 this.rightAccordion.openAccordion({});
 

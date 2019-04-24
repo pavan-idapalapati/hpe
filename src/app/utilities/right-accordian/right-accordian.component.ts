@@ -14,7 +14,7 @@ export class RightAccordianComponent implements OnInit {
     openAccordionIndex;
     currentPage;
     index;
-    constructor(private formData: FormDataService, private router: Router) {
+    constructor() {
 
     }
 
@@ -35,7 +35,8 @@ export class RightAccordianComponent implements OnInit {
             this.accordionElements && this.accordionElements.map((ae, index) => {
                 if (option.uid == ae.header) {
                     selectedIndex = index;
-                    this.index = index;
+                    // this.index = index;
+                    this.accordion.activeIndex = index;
                 } else {
                     ae.selected = false;
                 }

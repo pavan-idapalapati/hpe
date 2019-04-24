@@ -15,6 +15,7 @@ export class AccordionComponent implements OnInit {
     massagesQuestionnaireData: any;
     @ViewChild('kickoffQuestions') kickoffQuestions: any;
     @ViewChild('nextsteps') nextsteps: any;
+    @ViewChild('accordion') accordion:any;
 
     constructor(public formData: FormDataService, private router: Router) {
         this.formData.getQuestionChangeSubject().subscribe((data) => {
@@ -57,15 +58,15 @@ export class AccordionComponent implements OnInit {
         // open left side accordion based on navigation   
         if (this.currentPage == 14) {
             this.formData.openAccordionIndex = undefined;
-            this.index = undefined;
+            this.accordion.activeIndex = undefined;
             this.kickoffQuestions.selected = false;
             this.nextsteps.selected = false;
         } else if (this.currentPage >= 9) {
             this.formData.openAccordionIndex = 1;
-            this.index = 1;
+            this.accordion.activeIndex = 1;
         } else if (this.currentPage < 9) {
             this.formData.openAccordionIndex = 0;
-            this.index = 0;
+            this.accordion.activeIndex = 0;
         }
 
     }
