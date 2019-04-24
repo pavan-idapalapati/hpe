@@ -32,7 +32,7 @@ export class UtilService {
 
     scrolltoTop() {
         setTimeout(() => {
-            document.getElementsByTagName('app-root')[0].scrollTop = 0;
+            document.getElementsByTagName('html')[0].scrollTop = 0;
         })
     }
 
