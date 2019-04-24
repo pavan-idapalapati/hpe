@@ -398,8 +398,8 @@ export class FormDataService {
 						"id": "radio1",
 						"options": [
 							{
-								"label": "Yes:",
-								"value": "Yes:",
+								"label": "Yes",
+								"value": "Yes",
 								"name": "budget-allocate-radio",
 								"helpField": [
 									{
@@ -814,13 +814,13 @@ export class FormDataService {
 						"isConfirmStep": true,
 						"options": [
 							{
-								"label": "Information to be sent",
+								"label": "Information to be sent: ",
 								"valueIndex": 9,
 								"value": "[captured info listed]",
 								"name": "confirm-next-steps-list"
 							},
 							{
-								"label": "Other stakeholder(s) to be contacted",
+								"label": "Other stakeholder(s) to be contacted: ",
 								"valueIndex": 11,
 								"value": "[captured info listed]",
 								"name": "confirm-next-steps-list"
@@ -946,9 +946,34 @@ export class FormDataService {
 	}
 
 	massageFormData(formData) {
-		formData.data.map(eachData => {
-			
+		try {
+			return formData.data.map(eachData => {
+				let formFields = eachData;
+				delete formFields.isViewed;
+				delete formFields.isAnswered;
+				delete formFields.isRequired;
+				delete formFields.pageView;
+				delete formFields.matadata;
+				formFields.formData = formFields.formData.map((formField) => {
+					let formFieldData = formField;
+					delete formFieldData.isNotes;
+					delete formFieldData.isHelpField;
+					delete formFieldData.isNotes;
+					delete formFieldData.name;
+					if(formFieldData.type === 'checkbox' || formFieldData.type === 'radio') {
+						formFieldData.options = formFieldData.options.map((option) => {
+							delete option.uid;
+							delete option.name;
+							return option;
+						});
+					};
+					return formFieldData;
+				});
+				return formFields;
 		});
+		} catch(err) {
+			return formData;
+		}
 	}
 
 }
