@@ -16,6 +16,7 @@ import { QuestionnaireNavComponent } from './components/questionnaire-nav/questi
 import { RightAccordianComponent } from './utilities/right-accordian/right-accordian.component';
 import { BackendService } from './backend.service';
 import { AssetsPipe } from './pipe/assets.pipe';
+import { ValidationService } from './validation.service';
 
 
 const appRoutes: Routes = [
@@ -47,7 +48,7 @@ const appRoutes: Routes = [
       { enableTracing: true }
     )
   ],
-  providers: [BackendService],
+  providers: [BackendService, ValidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

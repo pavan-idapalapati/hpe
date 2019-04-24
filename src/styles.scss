@@ -720,3 +720,9 @@ app-right-accordian {
     padding: 40px 20px 40px 80px;
     margin: 25px 30px;
 }
+.error-msg {
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+    padding-top: 5px;
+}

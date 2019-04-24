@@ -48,10 +48,13 @@
                         <div *ngFor="let dataGroup of userInfoForm.data" class="common-block-padding">
                             <div class="question-title">{{dataGroup.question}}</div>
                             <div *ngFor="let eachFormElem of dataGroup.formData">
-                                <div class="input-section">
-                                    <label [for]="eachFormElem.name" class="input-label-text">{{eachFormElem.label}}</label>
-                                    <input type="text" [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value"
-                                        class="input-element">
+                                <div>
+                                    <div class="input-section">
+                                        <label [for]="eachFormElem.name" class="input-label-text">{{eachFormElem.label}}</label>
+                                        <input type="text" [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value"
+                                            class="input-element">
+                                            <div class="error-msg" *ngIf="submitted && !eachFormElem.isValid">{{eachFormElem.errorMessage}}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
