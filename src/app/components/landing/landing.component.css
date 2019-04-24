@@ -46,5 +46,8 @@ line-height: 29px;
     position: absolute;
     right: 5px;
     bottom: -15px;
-
+    color: red;
+}
+.landing-input-section{
+    position: relative;
 }

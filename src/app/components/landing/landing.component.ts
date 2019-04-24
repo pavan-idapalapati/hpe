@@ -11,7 +11,7 @@ import { ValidationService } from 'src/app/validation.service';
 })
 export class LandingComponent implements OnInit {
     pageView = "/1-landing";
-    submitted:boolean = false;
+    submitted: boolean = false;
     userInfoForm = {
         "name": "HPE Call Guide",
         "metadata": "HPE Call Guide Landing Page",
@@ -80,10 +80,10 @@ export class LandingComponent implements OnInit {
     saleRepName: string;
 
     constructor(public formData: FormDataService,
-                private utils: UtilService,
-                private router: Router,
-                private activatedRoute: ActivatedRoute,
-                private validationService: ValidationService) { }
+        private utils: UtilService,
+        private router: Router,
+        private activatedRoute: ActivatedRoute,
+        private validationService: ValidationService) { }
 
     ngOnInit() {
         this.activatedRoute.queryParams.subscribe(
@@ -114,18 +114,18 @@ export class LandingComponent implements OnInit {
         this.submitted = true;
         let valid;
         this.userInfoForm.data.forEach(ff => {
-            ff.formData.filter(formControl=> {
-                if(this.validationService.validateFormControl(formControl)) {
-                   valid = true;
+            ff.formData.filter(formControl => {
+                if (this.validationService.validateFormControl(formControl)) {
+                    valid = true;
                 }
             })
         });
-        if(valid) {
+        if (valid) {
             this.formData.showSuccessMessage = false;
             this.createNewSession();
             this.utils.setItemInLocalStorage("userInfo", this.userInfoForm, true);
             this.router.navigate(['/questionaire']);
-    
+
             //call event for google analytics
             this.utils.sendEvent('Click', '{Account Manager}-callstart', 'Call Event')
         }
