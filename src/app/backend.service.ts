@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class BackendService {
 
-    cformid = '902';
-    clinkid = '10253';
+    cformid = '1806';
+    clinkid = '10299';
     cpubid = '11007';
 
     constructor(private http: HttpClient) { }
