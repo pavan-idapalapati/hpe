@@ -162,7 +162,11 @@
                             Previous
                             <img class="prev-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
                         </div>
-                        <div class="button-styling" (click)="nextQuestion()">
+                        <div class="button-styling finish-button" (click)="finishQuestionaire()" *ngIf="finishButton">
+                                Finish
+                                <img class="next-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
+                              </div>
+                        <div class="button-styling" (click)="nextQuestion()" *ngIf="!finishButton">
                             Next
                             <img class="next-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
                         </div>
