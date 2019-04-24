@@ -973,7 +973,8 @@ export class FormDataService {
 	getFormData() {
 		return {
 			data: this.utils.getItemFromLocalStorage('submittedFormData', true),
-			currentPage: this.utils.getItemFromLocalStorage("currentPage", false)
+            currentPage: this.utils.getItemFromLocalStorage("currentPage", false),
+            userInfo: this.utils.getItemFromLocalStorage('userInfo', true)
 		}
 	}
 
