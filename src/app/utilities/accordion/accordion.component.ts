@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormDataService } from 'src/app/services/form-data.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
     templateUrl: './accordion.component.html',
     styleUrls: ['./accordion.component.scss']
 })
-export class AccordionComponent implements OnInit {
+export class AccordionComponent implements OnInit, AfterViewInit {
     // openAccordionIndex;
     questionnaireData = [];
     currentPage: any;
@@ -15,7 +15,7 @@ export class AccordionComponent implements OnInit {
     massagesQuestionnaireData: any;
     @ViewChild('kickoffQuestions') kickoffQuestions: any;
     @ViewChild('nextsteps') nextsteps: any;
-    @ViewChild('accordion') accordion:any;
+    @ViewChild('accordion') accordion: any;
 
     constructor(public formData: FormDataService, private router: Router) {
         this.formData.getQuestionChangeSubject().subscribe((data) => {
@@ -25,6 +25,9 @@ export class AccordionComponent implements OnInit {
 
     ngOnInit() {
         this.onInitOfComponent();
+    }
+    ngAfterViewInit() {
+        this.openAccordion();
     }
 
     onInitOfComponent() {
@@ -54,9 +57,14 @@ export class AccordionComponent implements OnInit {
                 this.massagesQuestionnaireData.kickOffQuestions.data.push(eachQue);
             }
         });
+        this.openAccordion();
 
+
+
+    }
+    openAccordion() {
         // open left side accordion based on navigation   
-        if(this.accordion && this.accordion.activeIndex){
+        if (this.accordion) {
             if (this.currentPage == 14) {
                 this.formData.openAccordionIndex = undefined;
                 this.accordion.activeIndex = undefined;
@@ -69,8 +77,7 @@ export class AccordionComponent implements OnInit {
                 this.formData.openAccordionIndex = 0;
                 this.accordion.activeIndex = 0;
             }
-        }        
-
+        }
     }
 
     onTabOpen(event) {
