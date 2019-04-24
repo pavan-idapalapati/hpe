@@ -91,7 +91,7 @@ export class LandingComponent implements OnInit {
                 console.log(queryParams['new']);
                 if (queryParams['new']) {
                     this.showSessionResumePopup = false;
-                    this.createNewSession();
+                    // this.createNewSession();
                 } else {
                     this.showSessionResumeSection();
                 }
@@ -120,8 +120,8 @@ export class LandingComponent implements OnInit {
                 }
             })
         });
-
         if (valid) {
+            this.formData.showSuccessMessage = false;
             this.createNewSession();
             this.utils.setItemInLocalStorage("userInfo", this.userInfoForm, true);
             this.router.navigate(['/questionaire']);
