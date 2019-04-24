@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
     }
 
     init() {
+        debugger;
         let hasSession = this.utils.getSessionStatusFromCookies();
         if (hasSession) {
             var formData = this.formData.getFormData();

@@ -49,13 +49,11 @@ export class ConclusionComponent implements OnInit {
             //google analytics submit event
             this.utils.sendEvent('Click', '{Account Manager}-form-submit', 'Submit Event');
             this.formData.showSuccessMessage = true;
-            this.router.navigate(['/']);
             this.formData.resetWholeFormData();
             this.utils.clearCookies();
+            this.router.navigate(['/'], { queryParams: { "new": true }});
+            
         }, e => {
-            this.showErrorPopup = true;
-            this.utils.scrolltoTop();
-
         })
         // jQuery.ajax({
         //     url: 'https://spiceworks.cvtr.io/webhook/campaign/46324/form/2576/leads?apikey=cd77dd36c500eb23579532f710125b02&campaignLinkId=10342&publisherId=11007',
