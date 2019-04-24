@@ -147,11 +147,16 @@ body {
     font-size: 16px;
 
 }
-body, main, app-root {
+body, app-root {
     display: flex;
     flex-direction: column;
     flex:auto;
     overflow: auto;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    flex:auto;
 }
 .ui-accordion-content-wrapper-overflown {
     overflow: hidden;
@@ -195,7 +200,7 @@ input, textarea {
 
 .main-section {
     background: #3c1454;
-    height: 100%;
+    // height: 100%;
     // max-width: 1366px;
     // margin: 0 auto;
 }
