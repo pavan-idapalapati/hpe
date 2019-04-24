@@ -38,7 +38,7 @@ export class AccordionComponent implements OnInit {
     massageQuestionnaireData() {
         this.massagesQuestionnaireData = {
             kickOffQuestions: {
-                name: "Kick-off questions",
+                name: "Questions",
                 data: []
             },
             nextSteps: {

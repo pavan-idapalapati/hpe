@@ -32,7 +32,7 @@
 
                         <div *ngIf="eachFormElem.type === 'radio'">
                             <!-- <div class="check-and-radio-heading">{{eachFormElem.label}}</div> -->
-                            <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
+                            <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">                                
                                 <div class="checkbox-padding" [ngClass]="{'pb-10': eachOption.hasHelpField }">
                                     <input type="radio" class="form-radio" [name]="eachFormElem.name"
                                         [id]="eachFormElem.name+ind" [value]="eachOption.value"
@@ -78,7 +78,7 @@
                         <div *ngIf="eachFormElem.type === 'checkbox'">
                             <!-- <div class="check-and-radio-heading">{{eachFormElem.label}}</div> -->
                             <div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
-                                <div class="checkbox-padding" [ngClass]="{'no-padding': eachFormElem.isRequirements }">
+                                <div class="checkbox-padding" [ngClass]="{'no-padding': eachFormElem.isRequirements  && eachOption.helpField }">
                                     <input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind"
                                         [value]="eachOption.value" [checked]="eachOption.isSelected"
                                         [(ngModel)]="eachOption.isSelected"

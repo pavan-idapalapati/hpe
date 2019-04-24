@@ -17,7 +17,7 @@ export class FormDataService {
 		"data": [
 			{
 				"question": "Do you have a few minutes to talk about your WS implementation?",
-				"stepName": "Kick-off questions",
+				"stepName": "Questions",
 				"pageView":"/2-few-minutes-to-talk",
 				"isViewed": false,
 				"isAnswered": false,
@@ -39,6 +39,7 @@ export class FormDataService {
 							{
 								"label": "No",
 								"value": "No",
+								"hasHelpField":true,
 								"name": "ws-imp",
 								"helpField": [
 									{
@@ -62,7 +63,7 @@ export class FormDataService {
 			},
 			{
 				"question": "What WS versions are you currently running?",
-				"stepName": "Kick-off questions",
+				"stepName": "Questions",
 				"pageView":"/3-version-of-WS",
 				"isViewed": false,
 				"isAnswered": false,
@@ -103,7 +104,7 @@ export class FormDataService {
 			},
 			{
 				"question": "What does your current WS infrastructure look like?",
-				"stepName": "Kick-off questions",
+				"stepName": "Questions",
 				"isViewed": false,
 				"pageView":"/4-what-does-infra-look-like",
 				"isAnswered": false,
@@ -136,7 +137,7 @@ export class FormDataService {
 			},
 			{
 				"question": "Are you planning to upgrade to WS-2016 on-prem or to migrate to Azure?",
-				"stepName": "Kick-off questions",
+				"stepName": "Questions",
 				"pageView":"/5-planning-to-upgrade-onprem-or-azure",
 				"isViewed": false,
 				"isAnswered": false,
@@ -300,7 +301,7 @@ export class FormDataService {
 			},
 			{
 				"question": "If upgrading on-prem, when are you planning to upgrade?",
-				"stepName": "Kick-off questions",
+				"stepName": "Questions",
 				"isViewed": false,
 				"pageView":"/6-onprem-upgrade-time",
 				"isAnswered": false,
@@ -384,7 +385,7 @@ export class FormDataService {
 			},
 			{
 				"question": "Do you have budget allocated for use in that timeframe?",
-				"stepName": "Kick-off questions",
+				"stepName": "Questions",
 				"isViewed": false,
 				"pageView":"/7-budget-allocated",
 				"isAnswered": false,
@@ -401,6 +402,7 @@ export class FormDataService {
 							{
 								"label": "Yes",
 								"value": "Yes",
+								"hasHelpField":true,
 								"name": "budget-allocate-radio",
 								"helpField": [
 									{
@@ -429,7 +431,7 @@ export class FormDataService {
 			},
 			{
 				"question": "What are your infrastructure requirements going to be?",
-				"stepName": "Kick-off questions",
+				"stepName": "Questions",
 				"isViewed": false,
 				"pageView":"/8-infra-reqs",
 				"isAnswered": false,
@@ -487,7 +489,7 @@ export class FormDataService {
 							},
 							{
 								"label": "None",
-								"value": "None",
+								"value": "None",								
                                 "name": "infra-req-cb",
                                 "uid": 1
 							},
@@ -540,7 +542,7 @@ export class FormDataService {
 			},
 			{
 				"question": "Customers have upgraded via Gen10 servers. Want to hear their feedback?",
-				"stepName": "Kick-off questions",
+				"stepName": "Questions",
 				"isViewed": false,
 				"pageView":"/9-feedback-from-gen10-customers",
 				"isAnswered": false,	
@@ -608,7 +610,7 @@ export class FormDataService {
 			},
 			{
 				"question": "Which of those benefits are of particular interest to you? Can I send you some additional information?",
-				"stepName": "Kick-off questions",
+				"stepName": "Questions",
 				"isViewed": false,
 				"pageView":"/10-benefits-of-interest",
 				"isAnswered": false,
@@ -701,16 +703,17 @@ export class FormDataService {
 							},
 							{
 								"label": "No",
+								"uid":"1",
 								"value": "No",
 								"name": "gen10-upgrade-radio",
                                 "hasHelpField": true,
 								"helpField": [
-									{
-										"//TODO:": "this needs to integrate",
-										"label": "Offer to send specific resources (literature, video links)",
-										"url": "www.www.com",
-										"value": ""
-									},
+									// {
+									// 	"//TODO:": "this needs to integrate",
+									// 	"label": "Offer to send specific resources (literature, video links)",
+									// 	"url": "www.www.com",
+									// 	"value": ""
+									// },
 									{
 										"type": "text",
 										"label": "Resources to be sent:",
@@ -727,6 +730,26 @@ export class FormDataService {
 						"isHelpField":true,
 						"value": "",
 						"name": "optional-notes"
+					}
+				],
+				"matadata": [
+					{
+                        "uid": 1,
+						"heading": "NO",
+						"data": [
+							{
+								"subHeading": "",
+								"content": `Offer to send specific resources:`
+							},
+							{
+								"subHeading": "",
+								"content": `Literature`
+							},
+							{
+								"subHeading": "",
+								"content": `Video links`
+							},
+						]
 					}
 				]
 			},
