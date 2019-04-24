@@ -10,6 +10,9 @@ export class AssetsPipe implements PipeTransform {
             return './' + value;
         } else if (document.location.pathname.indexOf('hpe') > -1) {
             return 'http://demo.divami.com/hpe/' + value;
+        } 
+        else if (document.location.pathname.indexOf('service.labs') === -1) {
+            return 'https://edge.spiceworksstatic.com/service.labs/' + document.location.pathname.split('/')[1] + '/' + value;
         } else {
             return './' + value;
         }
