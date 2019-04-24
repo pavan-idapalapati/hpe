@@ -42,6 +42,9 @@ export class RightAccordianComponent implements OnInit {
                 }
             });
             this.openAccordionIndex = selectedIndex;
+            if(this.accordion && selectedIndex == undefined) {
+                this.accordion.activeIndex= undefined;
+            }
         }
     }
 
