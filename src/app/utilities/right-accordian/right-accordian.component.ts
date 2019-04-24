@@ -30,7 +30,7 @@ export class RightAccordianComponent implements OnInit {
     openAccordion(option) {
         let selectedIndex;
         if(option.isSelected  == undefined || option.isSelected == true) {
-            this.accordionElements.map((ae, index) => {
+            this.accordionElements && this.accordionElements.map((ae, index) => {
                 if(option.uid == ae.header) {
                     ae.selected = true;
                     selectedIndex = index; 
