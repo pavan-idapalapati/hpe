@@ -700,16 +700,17 @@ export class FormDataService {
 							},
 							{
 								"label": "No",
+								"uid":"1",
 								"value": "No",
 								"name": "gen10-upgrade-radio",
                                 "hasHelpField": true,
 								"helpField": [
-									{
-										"//TODO:": "this needs to integrate",
-										"label": "Offer to send specific resources (literature, video links)",
-										"url": "www.www.com",
-										"value": ""
-									},
+									// {
+									// 	"//TODO:": "this needs to integrate",
+									// 	"label": "Offer to send specific resources (literature, video links)",
+									// 	"url": "www.www.com",
+									// 	"value": ""
+									// },
 									{
 										"type": "text",
 										"label": "Resources to be sent:",
@@ -726,6 +727,26 @@ export class FormDataService {
 						"isHelpField":true,
 						"value": "",
 						"name": "optional-notes"
+					}
+				],
+				"matadata": [
+					{
+                        "uid": 1,
+						"heading": "NO",
+						"data": [
+							{
+								"subHeading": "",
+								"content": `Offer to send specific resources:`
+							},
+							{
+								"subHeading": "",
+								"content": `Literature`
+							},
+							{
+								"subHeading": "",
+								"content": `Video links`
+							},
+						]
 					}
 				]
 			},
