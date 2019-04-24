@@ -54,7 +54,7 @@ export class ConclusionComponent implements OnInit {
             this.router.navigate(['/'], { queryParams: { "new": true }});
             
         }, e => {
-            this.formData.showSuccessMessage = true;
+            // this.formData.showSuccessMessage = true;
             this.showErrorPopup = true;
         })
         // jQuery.ajax({
