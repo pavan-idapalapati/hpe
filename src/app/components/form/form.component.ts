@@ -68,6 +68,28 @@ export class FormComponent implements OnInit {
         if (this.currentFormData.isConfirmStep) {
             this.getConfirmStepData(formData.data.data);
         }
+        this.currentFormData.formData.forEach(formField => {
+            if(formField.mapNeeded) {
+                try {
+                    formField.options.forEach(element => {
+                        if(element.mapTo) {
+                            let question = formData.data.data[element.mapTo.question];
+                            let data = question.formData[0];
+                            if(data.type === 'checkbox') {
+                                let selectedOption = data.options.find((option) => {
+                                    return option.isSelected;
+                                });
+                                if(selectedOption) {
+                                    element.uid = element.mapTo.value[selectedOption.value]
+                                }
+                            }
+                        }
+                    });
+                } catch(err) {
+                    console.log(err);
+                }
+            }
+        });
     }
 
     getConfirmStepData(wholeData) {
@@ -147,7 +169,7 @@ export class FormComponent implements OnInit {
         }
     }
 
-    onRadioButtonValueChange(eachOption) {
+    onRadioButtonValueChange(eachOption, options?: any) {
         if (eachOption && eachOption.hasFinishButton) {
             this.finishButton = true;
         }
@@ -155,6 +177,20 @@ export class FormComponent implements OnInit {
             this.finishButton = false;
         }
         this.rightAccordion.openAccordion(eachOption);
+        if(options.disabilityCheckNeeded) {
+            if(eachOption.disabilityCheck) {
+                eachOption.disabilityCheck.items.forEach((item) => {
+                    return options.options[item].isSelected = false;
+                });
+            } else {
+                let checkButton = options.options.find((option) => {
+                    return option.disabilityCheck;
+                })
+                if(checkButton) {
+                    checkButton.isSelected = false;
+                }
+            }
+        }
     }
 
     finishQuestionaire() {

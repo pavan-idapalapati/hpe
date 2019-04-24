@@ -151,18 +151,35 @@ export class FormDataService {
 						"value": "",
 						"name": "upgrade-migrate-radio",
 						"id": "radio1",
+						"mapNeeded": true,
 						"options": [
 							{
 								"label": "Don’t know",
 								"value": "Don’t know",
-                                "name": "upgrade-migrate-radio",
+								"name": "upgrade-migrate-radio",
+								"mapTo": {
+									"question": 1,
+									"type": "checkbox",
+									"value": {
+										"WS 2008": 1,
+										"WS 2012 R2": 2
+									}
+								},
                                 "uid": 1
 							},
 							{
 								"label": "Not planning to upgrade",
 								"value": "Not planning to upgrade",
-                                "name": "upgrade-migrate-radio",
-                                "uid":2,
+								"name": "upgrade-migrate-radio",
+								"mapTo": {
+									"question": 1,
+									"type": "checkbox",
+									"value": {
+										"WS 2008": 1,
+										"WS 2012 R2": 2
+									}
+								},
+                                "uid":1,
 							},
 							{
 								"label": "On-prem",
@@ -192,7 +209,7 @@ export class FormDataService {
 								"label": "Combination on-prem/Azure",
 								"value": "Combination on-prem/Azure",
                                 "name": "upgrade-migrate-radio",
-                                "uid": 7
+                                "uid": 5
 							}
 						]
 					},
@@ -317,6 +334,11 @@ export class FormDataService {
 						"id": "radio1",
 						"options": [
 							{
+								"label": "Not applicable",
+								"value": "Not applicable",
+                                "name": "upgrade-onprem-radio"
+							},
+							{
 								"label": "Haven’t made a plan",
 								"value": "Haven’t made a plan",
                                 "name": "upgrade-onprem-radio",
@@ -325,14 +347,12 @@ export class FormDataService {
 							{
 								"label": "< 3 mo.",
 								"value": "< 3 mo.",
-                                "name": "upgrade-onprem-radio",
-                                "uid": 1
+                                "name": "upgrade-onprem-radio"
 							},
 							{
 								"label": "4-6 mo.",
 								"value": "4-6 mo.",
-                                "name": "upgrade-onprem-radio",
-                                "uid": 1
+                                "name": "upgrade-onprem-radio"
 							},
 							{
 								"label": "7-12 mo.",
@@ -341,8 +361,8 @@ export class FormDataService {
                                 "uid": 1
 							},
 							{
-								"label": "&gt; 12 mo.",
-								"value": "&gt; 12 mo.",
+								"label": "> 12 mo.",
+								"value": "> 12 mo.",
                                 "name": "upgrade-onprem-radio",
                                 "uid": 1
 							}
@@ -445,13 +465,14 @@ export class FormDataService {
 						"value": "",
 						"name": "infra-req-cb",
                         "id": "",
-                        "isRequirements": true,
+						"isRequirements": true,
+						"disabilityCheckNeeded": true,
 						"options": [
 							{
 								"label": "Compute",
 								"value": "Compute:",
 								"name": "infra-req-cb",
-                                "isSelected": false,
+								"isSelected": false,
                                 "uid": 1,
 								"helpField": [
 									{
@@ -479,6 +500,7 @@ export class FormDataService {
 								"label": "Networking",
 								"value": "Networking:",
                                 "name": "infra-req-cb",
+                                "isSelected": false,
                                 "uid": 1,
 								"helpField": [
 									{
@@ -492,12 +514,17 @@ export class FormDataService {
 								"label": "None",
 								"value": "None",								
                                 "name": "infra-req-cb",
-                                "uid": 1
+								"isSelected": false,
+								"isDisabled": false,
+								"disabilityCheck": {
+									"items": [0, 1, 2, 4]
+								}
 							},
 							{
 								"label": "Already working with another hardware vendor on this",
 								"value": "Already working with another hardware vendor on this",
                                 "name": "infra-req-cb",
+                                "isSelected": false,
                                 "uid": 2
 							}
 						]

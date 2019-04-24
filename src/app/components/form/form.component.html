@@ -82,7 +82,8 @@
                                     <input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind"
                                         [value]="eachOption.value" [checked]="eachOption.isSelected"
                                         [(ngModel)]="eachOption.isSelected"
-                                        (change)="onRadioButtonValueChange(eachOption)">
+                                        [disabled]="eachOption.isDisabled"
+                                        (change)="onRadioButtonValueChange(eachOption, eachFormElem)">
                                     <label [for]="eachOption.name+ind"
                                         class="input-label-text common-label-padding">{{eachOption.label}}</label>
                                 </div>
