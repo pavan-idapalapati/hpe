@@ -32,7 +32,7 @@
 
                         <div *ngIf="eachFormElem.type === 'radio'">
                             <!-- <div class="check-and-radio-heading">{{eachFormElem.label}}</div> -->
-                            <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
+                            <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">                                
                                 <div class="checkbox-padding" [ngClass]="{'pb-10': eachOption.hasHelpField }">
                                     <input type="radio" class="form-radio" [name]="eachFormElem.name"
                                         [id]="eachFormElem.name+ind" [value]="eachOption.value"
