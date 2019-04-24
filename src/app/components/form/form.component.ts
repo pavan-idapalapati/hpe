@@ -11,6 +11,7 @@ import { unescapeIdentifier } from '@angular/compiler';
 })
 export class FormComponent implements OnInit {
     openSideNavFlag;
+    finishButton = false;
     @ViewChild('rightNavAccordion') rightNavAccordion: any;
     @ViewChild('rightAccordion') rightAccordion: any;
     currentFormData: any;
@@ -32,7 +33,8 @@ export class FormComponent implements OnInit {
         this.init();
     }
 
-    init() {        
+    init() {
+        this.finishButton = false;
         this.utils.scrolltoTop();
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();
@@ -65,7 +67,7 @@ export class FormComponent implements OnInit {
         this.currentPage = formData.currentPage;
         if (this.currentFormData.isConfirmStep) {
             this.getConfirmStepData(formData.data.data);
-        }       
+        }
     }
 
     getConfirmStepData(wholeData) {
@@ -122,6 +124,7 @@ export class FormComponent implements OnInit {
             each.value = "";
         });
         eachFormElem.options[index].addDetailsData.push(mock);
+        eachFormElem.options[index].addDetailsData = JSON.parse(JSON.stringify(eachFormElem.options[index].addDetailsData));
     }
 
     openSideNav() {
@@ -145,7 +148,20 @@ export class FormComponent implements OnInit {
     }
 
     onRadioButtonValueChange(eachOption) {
+        if (eachOption && eachOption.hasFinishButton) {
+            this.finishButton = true;
+        }
+        else {
+            this.finishButton = false;
+        }
         this.rightAccordion.openAccordion(eachOption);
     }
+
+    finishQuestionaire() {
+        this.formData.resetWholeFormData();
+        this.utils.clearCookies();
+        this.router.navigate(['/'], { queryParams: { "new": true } });
+    }
+
 
 }

@@ -20,7 +20,7 @@ export class FormDataService {
 				"stepName": "Questions",
 				"pageView":"/2-few-minutes-to-talk",
 				"isViewed": false,
-				"isAnswered": false,
+				"isAnswered": false,				
 				"isRequired": true,
 				"id": 0,
 				"formData": [
@@ -39,6 +39,7 @@ export class FormDataService {
 							{
 								"label": "No",
 								"value": "No",
+								"hasFinishButton":true,
 								"hasHelpField":true,
 								"name": "ws-imp",
 								"helpField": [
