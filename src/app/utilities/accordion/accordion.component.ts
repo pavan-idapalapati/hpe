@@ -15,11 +15,9 @@ export class AccordionComponent implements OnInit {
     massagesQuestionnaireData: any;
     @ViewChild('kickoffQuestions') kickoffQuestions: any;
     @ViewChild('nextsteps') nextsteps: any;
-    @ViewChild('kickoffQuestionsButton') kickoffQuestionsButton: any;
-    @ViewChild('nextstepsButton') nextstepsButton: any;
 
     constructor(public formData: FormDataService, private router: Router) {
-        this.formData.getQuestionChangeSubject().subscribe((data) =>{
+        this.formData.getQuestionChangeSubject().subscribe((data) => {
             this.onInitOfComponent();
         })
     }
@@ -27,10 +25,10 @@ export class AccordionComponent implements OnInit {
     ngOnInit() {
         this.onInitOfComponent();
     }
-    
+
     onInitOfComponent() {
         let questionnaireData = this.formData.getFormData();
-        if(questionnaireData && questionnaireData.data && questionnaireData.currentPage) {
+        if (questionnaireData && questionnaireData.data && questionnaireData.currentPage) {
             this.questionnaireData = questionnaireData.data.data;
             this.currentPage = questionnaireData.currentPage;
         }
@@ -49,7 +47,7 @@ export class AccordionComponent implements OnInit {
             }
         }
         this.questionnaireData.forEach(eachQue => {
-            if(eachQue.stepName === "Next steps") {
+            if (eachQue.stepName === "Next steps") {
                 this.massagesQuestionnaireData.nextSteps.data.push(eachQue);
             } else {
                 this.massagesQuestionnaireData.kickOffQuestions.data.push(eachQue);
@@ -57,17 +55,19 @@ export class AccordionComponent implements OnInit {
         });
 
         // open left side accordion based on navigation   
-            if(this.currentPage == 14) {
-                this.formData.openAccordionIndex = undefined;
-                this.index = undefined;
-            } else if(this.currentPage >= 9) {
-                this.formData.openAccordionIndex = 1;
-                this.index = 1;
-            } else if(this.currentPage < 9) {
-                this.formData.openAccordionIndex = 0; 
-                this.index = 0;
-            } 
-          
+        if (this.currentPage == 14) {
+            this.formData.openAccordionIndex = undefined;
+            this.index = undefined;
+            this.kickoffQuestions.selected = false;
+            this.nextsteps.selected = false;
+        } else if (this.currentPage >= 9) {
+            this.formData.openAccordionIndex = 1;
+            this.index = 1;
+        } else if (this.currentPage < 9) {
+            this.formData.openAccordionIndex = 0;
+            this.index = 0;
+        }
+
     }
 
     onTabOpen(event) {
@@ -81,7 +81,7 @@ export class AccordionComponent implements OnInit {
 
     takeQuestion(question) {
         this.formData.moveToParticularQuestion(question.id);
-        if(this.router.url.indexOf("questionaire") >= 0) {
+        if (this.router.url.indexOf("questionaire") >= 0) {
             this.formData.triggerRouteChangeSubject();
         } else {
             this.router.navigate(["/questionaire"]);
