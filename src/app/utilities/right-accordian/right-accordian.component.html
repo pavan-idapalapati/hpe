@@ -9,7 +9,7 @@
         <div>
             <ul>
                 <li *ngFor="let content of eachMetaData.data" [ngClass]="{'bullets':eachMetaData.data.length > 1 }">
-                    <div class="d-flex accordion-heading accordion-item">
+                    <div class="d-flex accordion-heading accordion-item d-block">
                         <div>
                             <span class="input-label-text subheading-label-text"
                                 *ngIf="content.subHeading">{{content.subHeading}}: </span>{{content.content}}
