@@ -27,7 +27,7 @@
             <img src="{{'assets/images/icon_Minus.png' | assetspipe}}" class="icon-minus" *ngIf="formData.openAccordionIndex == 1">
         </p-header>
         <div>
-            <div class="accordion-content-items" *ngFor="let eachQue of massagesQuestionnaireData.nextSteps.data; let ind= index">
+            <div class="next-steps accordion-content-items" *ngFor="let eachQue of massagesQuestionnaireData.nextSteps.data; let ind= index">
                 <div class="content-sections">
                     <div class="accodion-content-section" [ngClass]="{'active-que': (currentPage == eachQue.id)}"
                         (click)="takeQuestion(eachQue)">
@@ -35,12 +35,12 @@
                             [name]="eachQue.formData[0].name" [checked]="eachQue.isAnswered"
                             [(ngModel)]="eachQue.isAnswered">
                         <label [for]="eachQue.formData[0].name" class="input-label-text"></label>
-                        <div class="cursor-pointer">{{ eachQue.question }}</div>
+                        <div class="cursor-pointer next-question-text">{{ eachQue.question }}</div>
                     </div>
                 </div>
             </div>
         </div>
     
     </p-accordionTab>
-    <div class="accordion-title accordion-heading accordion-header" (click)="gotFinish()">Finish</div>
+    <div class="accordion-title accordion-heading accordion-header finish-text" (click)="gotFinish()">Finish</div>
 </p-accordion>

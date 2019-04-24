@@ -7,7 +7,7 @@
     cursor: pointer;
 }
 .accordion-heading {
-    padding: 25px 15px 25px 45px;
+    padding: 25px 15px 25px 33px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,6 +38,20 @@
     }
 }
 
+.finish-text {
+    padding-left: 40px;
+}
+
 .question-text {
     padding-top: 3px;
+}
+
+.next-question-text {
+    padding-top: 4px;
+}
+
+.next-steps:nth-child(4) {
+    input[type=checkbox] + label::before {
+        top: calc(50% - 0px);
+    }
 }
