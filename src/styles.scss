@@ -157,7 +157,7 @@ body, main, app-root {
     overflow: hidden;
 }
 .ui-accordion-content {
-    padding-top:15px !important;
+    padding: 0 !important;
     border-top: 1px solid #979797 !important;  
 }
 .icon-minus {
@@ -356,6 +356,7 @@ input, textarea{
   input[type=checkbox] {
     position: relative;
     z-index: -9999;
+    display: none;
   }
   input[type=checkbox]+label {
     position: relative;
@@ -371,7 +372,8 @@ input, textarea{
     width: 22px;
     height: 22px;
     position: absolute;
-    top: -5px;
+    top: calc(50% - 3px);
+    transform: translateY(-50%);
     left: 0;
 }
 .accodion-content-section {
