@@ -54,6 +54,8 @@ export class ConclusionComponent implements OnInit {
             this.router.navigate(['/'], { queryParams: { "new": true }});
             
         }, e => {
+            this.formData.showSuccessMessage = true;
+            this.showErrorPopup = true;
         })
         // jQuery.ajax({
         //     url: 'https://spiceworks.cvtr.io/webhook/campaign/46324/form/2576/leads?apikey=cd77dd36c500eb23579532f710125b02&campaignLinkId=10342&publisherId=11007',
