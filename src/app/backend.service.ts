@@ -52,12 +52,14 @@ export class BackendService {
     }
 
     convertoPaload(data) {
+        let userformData = data.userInfo.data[1].formData;
+
         let obj = {
-        "form[salesrep_name]": "",
-        "form[client_name]": "",
-        "form[client_company]": "",
-        "form[client_phone]": "",
-        "form[client_email]": "",
+        "form[salesrep_name]": data.userInfo.data[0].formData[0].value,
+        "form[client_name]": userformData[0].value,
+        "form[client_company]": userformData[1].value,
+        "form[client_phone]": userformData[2].value,
+        "form[client_email]": userformData[3].value,
         "form[ws_imp]": "",
         "form[ws_imp]": "",
         "form[ws_timetotalk]": "",
