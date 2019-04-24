@@ -38,8 +38,8 @@ export class ConclusionComponent implements OnInit {
     }
 
     finishQuestionaire() {
-
-        let data = this.formData.massageFormData(this.formData.getFormData().data);
+        console.log(this.formData.getFormData());
+        let data = this.formData.massageFormData(this.formData.getFormData());
 
         this.backendService.doCall({
             type: "POST",
