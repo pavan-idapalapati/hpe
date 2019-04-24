@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, ViewChild } from '@angular/core';
 import { FormDataService } from 'src/app/services/form-data.service';
 import { Router } from '@angular/router';
 
@@ -10,8 +10,10 @@ import { Router } from '@angular/router';
 export class RightAccordianComponent implements OnInit {
     @Input() metaData;
     @ViewChildren('accordionElements') accordionElements: QueryList<any>;
+    @ViewChild('accordion') accordion: any;
     openAccordionIndex;
     currentPage;
+    index;
     constructor(private formData: FormDataService, private router: Router) {
 
     }
@@ -29,17 +31,18 @@ export class RightAccordianComponent implements OnInit {
 
     openAccordion(option) {
         let selectedIndex;
-        if(option.isSelected  == undefined || option.isSelected == true) {
-            this.accordionElements.map((ae, index) => {
-                if(option.uid == ae.header) {
-                    ae.selected = true;
-                    selectedIndex = index; 
+        if (option.isSelected == undefined || option.isSelected == true) {
+            this.accordionElements && this.accordionElements.map((ae, index) => {
+                if (option.uid == ae.header) {
+                    selectedIndex = index;
+                    this.index = index;
                 } else {
+                    this.index = undefined;
                     ae.selected = false;
                 }
             })
-            
-            this.openAccordionIndex =  selectedIndex;
+
+            this.openAccordionIndex = selectedIndex;
         }
     }
 
