@@ -56,18 +56,20 @@ export class AccordionComponent implements OnInit {
         });
 
         // open left side accordion based on navigation   
-        if (this.currentPage == 14) {
-            this.formData.openAccordionIndex = undefined;
-            this.accordion.activeIndex = undefined;
-            this.kickoffQuestions.selected = false;
-            this.nextsteps.selected = false;
-        } else if (this.currentPage >= 9) {
-            this.formData.openAccordionIndex = 1;
-            this.accordion.activeIndex = 1;
-        } else if (this.currentPage < 9) {
-            this.formData.openAccordionIndex = 0;
-            this.accordion.activeIndex = 0;
-        }
+        if(this.accordion && this.accordion.activeIndex){
+            if (this.currentPage == 14) {
+                this.formData.openAccordionIndex = undefined;
+                this.accordion.activeIndex = undefined;
+                this.kickoffQuestions.selected = false;
+                this.nextsteps.selected = false;
+            } else if (this.currentPage >= 9) {
+                this.formData.openAccordionIndex = 1;
+                this.accordion.activeIndex = 1;
+            } else if (this.currentPage < 9) {
+                this.formData.openAccordionIndex = 0;
+                this.accordion.activeIndex = 0;
+            }
+        }        
 
     }
 
