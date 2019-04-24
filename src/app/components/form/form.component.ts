@@ -177,7 +177,7 @@ export class FormComponent implements OnInit {
             this.finishButton = false;
         }
         this.rightAccordion.openAccordion(eachOption);
-        if(options.disabilityCheckNeeded) {
+        if(options && options.disabilityCheckNeeded) {
             if(eachOption.disabilityCheck) {
                 eachOption.disabilityCheck.items.forEach((item) => {
                     return options.options[item].isSelected = false;
