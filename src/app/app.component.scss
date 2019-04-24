@@ -134,8 +134,17 @@ input{
 .section-heading-text{
     font-style: normal;
     font-size: 33px;
-    line-height: 29px;
+    line-height: 20px;
     font-weight: 500;
+    display: inline;
+
+    &::before {
+        content: "A";
+        display: inline-block;
+        vertical-align: baseline;
+        font-family: initial;
+        color: transparent;
+    }
 }
 
 .section-subheading-text{

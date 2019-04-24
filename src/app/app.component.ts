@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, HostListener, } from '@angular/core';
+import { Component, OnInit, HostListener, } from '@angular/core';
 import { FormDataService } from './services/form-data.service';
 
 import { Router, NavigationStart, NavigationExtras } from '@angular/router';
@@ -56,13 +56,13 @@ export class AppComponent implements OnInit {
     }
 
 
-    @HostListener('scroll', ['$event']) private onScroll($event: Event): void {
+    @HostListener('window:scroll', ['$event']) private onScroll($event: any): void {
         let leftSideNav = document.getElementById('left-side-section');
         if(leftSideNav) {
             let top;
-            if($event.srcElement.scrollTop <= 100) {
-                 top = 100-$event.srcElement.scrollTop
-            } else if ($event.srcElement.scrollTop > 100) {
+            if(window.pageYOffset <= 100) {
+                 top = 100-window.pageYOffset
+            } else if (window.pageYOffset > 100) {
                 top = 0;
             }
             leftSideNav.style.top = `${top}px`;

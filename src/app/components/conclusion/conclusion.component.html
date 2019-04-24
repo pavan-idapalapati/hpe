@@ -1,6 +1,11 @@
+<section class="conclusion-section error-message-section" *ngIf="showErrorPopup">
+    <div class="message-section">
+        <span class="error-message-text">There was an error with your submission, please try again</span>
+    </div>
+</section>
 <section class="conclusion-section">
   <div *ngIf="unansweredQuestions.length">
-      <div class="thankyou-msg">Thank you for taking the time to speak with me today.</div>
+    <div class="thankyou-msg">Thank you for taking the time to speak with me today.</div>
     <div class="skipped-questions-heading">Skipped Questions:</div>
     <div class='skipped-questions'>
       <div class="question border-bottom" *ngFor="let question of unansweredQuestions">
@@ -9,7 +14,7 @@
         </div>
         <div>
           <div class="button-styling prev-arrow-button" (click)="takeQuestion(question)">Return to question<img
-              class="prev-arrow" src="./assets/images/icon_arrow.png"></div>
+              class="conclusion-prev-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}"></div>
         </div>
       </div>
     </div>
@@ -18,14 +23,14 @@
     You answered all the questions. Click finish button to complete the test.
   </div>
 
-<div class="common-button-styles">
-              <div class="button-styling prev-arrow-button" (click)="previousQuestion()">
-                  Previous
-                  <img class="prev-arrow" src="./assets/images/icon_arrow.png">
-              </div>
-      <div class="button-styling finish-button" (click)="finishQuestionaire()">
-        Finish
-        <img class="next-arrow" src="./assets/images/icon_arrow.png">
-      </div>
+  <div class="common-button-styles">
+    <div class="button-styling prev-arrow-button" (click)="previousQuestion()">
+      Previous
+      <img class="prev-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
+    </div>
+    <div class="button-styling finish-button" (click)="finishQuestionaire()">
+      Finish
+      <img class="next-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
+    </div>
   </div>
 </section>

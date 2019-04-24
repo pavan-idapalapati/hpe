@@ -15,7 +15,8 @@
                         </div>
                         <div class="checkbox-input-section" *ngIf="eachFormElem.type === 'textArea'"
                             [ngClass]="{'checkbox-helpfield-section':eachFormElem.isHelpField}">
-                            <label class="input-label-text common-label-padding d-block" [ngClass]="{'font-regular':eachFormElem.isHelpField}"
+                            <label class="input-label-text common-label-padding d-block"
+                                [ngClass]="{'font-regular':eachFormElem.isNotes}"
                                 [for]="eachFormElem.name">{{eachFormElem.label}}</label>
                             <textarea [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value" cols="40" rows="5"
                                 class="text-area"></textarea>
@@ -31,8 +32,8 @@
 
                         <div *ngIf="eachFormElem.type === 'radio'">
                             <!-- <div class="check-and-radio-heading">{{eachFormElem.label}}</div> -->
-                            <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">
-                                <div class="checkbox-padding">
+                            <div *ngFor="let eachOption of eachFormElem.options; let ind=index;">                                
+                                <div class="checkbox-padding" [ngClass]="{'pb-10': eachOption.hasHelpField }">
                                     <input type="radio" class="form-radio" [name]="eachFormElem.name"
                                         [id]="eachFormElem.name+ind" [value]="eachOption.value"
                                         [(ngModel)]="eachFormElem.value"
@@ -53,6 +54,12 @@
                                 <div class="radio-input-section" *ngIf="eachOption.addDetailsData">
                                     <div class="stake-holder-section add-details-section"
                                         *ngFor="let eachHelpFiled of eachOption.addDetailsData; let formInd=index">
+                                        <div *ngIf="eachOption.addDetailsData.length > 1"
+                                            class="remove-details-data-icon"
+                                            (click)="removeDetailsData(eachOption.addDetailsData, formInd)">
+                                            <img class="icon-plus rotate-45"
+                                                src="{{'assets/images/icon_Plus.png' | assetspipe}}">
+                                        </div>
                                         <div class="input-section"
                                             *ngFor="let eachFiled of eachHelpFiled.fields; let fieldInd=index;">
                                             <div class="input-label-text font-regular ">{{ eachFiled.label }}</div>
@@ -62,7 +69,7 @@
                                         </div>
                                     </div>
                                     <div class="plus-stake-holder" (click)="addNewDetails(eachFormElem, ind)">
-                                        <img src="./assets/images/icon_Plus.png" class="icon-plus">
+                                        <img src="{{'assets/images/icon_Plus.png' | assetspipe}}" class="icon-plus">
                                         <div class="add-stake-holder">Add stakeholder</div>
                                     </div>
                                 </div>
@@ -71,11 +78,12 @@
                         <div *ngIf="eachFormElem.type === 'checkbox'">
                             <!-- <div class="check-and-radio-heading">{{eachFormElem.label}}</div> -->
                             <div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
-                                <div class="checkbox-padding">
+                                <div class="checkbox-padding" [ngClass]="{'no-padding': eachFormElem.isRequirements  && eachOption.helpField }">
                                     <input type="checkbox" [id]="eachOption.name+ind" [name]="eachOption.name+ind"
                                         [value]="eachOption.value" [checked]="eachOption.isSelected"
                                         [(ngModel)]="eachOption.isSelected"
-                                        (change)="onRadioButtonValueChange(eachOption)">
+                                        [disabled]="eachOption.isDisabled"
+                                        (change)="onRadioButtonValueChange(eachOption, eachFormElem)">
                                     <label [for]="eachOption.name+ind"
                                         class="input-label-text common-label-padding">{{eachOption.label}}</label>
                                 </div>
@@ -96,18 +104,21 @@
                         <div *ngIf="eachFormElem.type === 'reference'">
                             <div>{{eachFormElem.label}}</div>
                             <div *ngFor="let eachOption of eachFormElem.options; let ind = index;">
-                                <div class="radio-button-padding" *ngIf="eachOption.value[0].type === 'radio'">
-                                    <div class="input-label-text common-label-padding confirm-text">{{eachOption.label }}</div>
+                                <div *ngIf="eachOption.value[0].type === 'radio'" class="common-block-padding">
+                                    <div class="input-label-text common-label-padding confirm-text">
+                                        {{eachOption.label }}</div>
                                     <div *ngIf="!eachOption.value[0].value">
                                         --
                                     </div>
                                     <div *ngFor="let eachOptionI of eachOption.value[0].options; let indi=index;">
                                         <div *ngIf="eachOption.value[0].value == eachOptionI.value">
-                                            <div class="checkbox-padding pl-20 pt-10" *ngIf="eachOptionI.helpField || eachOptionI.addDetailsData">
+                                            <div class="pb-30"
+                                                *ngIf="eachOptionI.helpField || eachOptionI.addDetailsData">
                                                 <!-- <input disabled type="radio" class="form-radio" [name]="eachOptionI.name+indi" [id]="eachOptionI.name+indi" [value]="eachOptionI.value" [(ngModel)]="eachOption.value[0].value"> -->
-                                                <label [for]="eachOptionI.name+indi" class="input-label-text radio-label-text pl-0 font-regular confirm-radio-text">{{eachOptionI.label}}</label>
+                                                <label [for]="eachOptionI.name+indi"
+                                                    class="input-label-text radio-label-text pl-0 font-regular confirm-radio-text">{{eachOptionI.label}}</label>
                                             </div>
-                                            <div class="checkbox-input-section pl-20" *ngIf="eachOptionI.helpField">
+                                            <div *ngIf="eachOptionI.helpField">
                                                 <div *ngFor="let eachHelpFiled of eachOptionI.helpField; let hfInd = index;"
                                                     class="radio-button-padding">
                                                     <label
@@ -115,12 +126,13 @@
                                                     <div class="">{{eachHelpFiled.value || '--'}}</div>
                                                 </div>
                                             </div>
-                                            <div class="radio-input-section" *ngIf="eachOptionI.addDetailsData">
+                                            <div *ngIf="eachOptionI.addDetailsData">
                                                 <div class="stake-holder-section add-details-section"
                                                     *ngFor="let eachHelpFiled of eachOptionI.addDetailsData; let formInd=index">
                                                     <div class="input-section"
                                                         *ngFor="let eachFiled of eachHelpFiled.fields; let fieldInd=index;">
-                                                        <div class="input-label-text font-regular">{{ eachFiled.label }}</div>
+                                                        <div class="input-label-text font-regular">{{ eachFiled.label }}
+                                                        </div>
                                                         <div class="">{{eachFiled.value || '--'}}</div>
                                                     </div>
                                                 </div>
@@ -133,43 +145,54 @@
                                     </div>
                                 </div>
                                 <div class="common-block-padding" *ngIf="eachOption.value[0].type === 'text'">
-                                    <label
-                                        class="input-label-text common-label-padding">Information to be sent: </label>
-                                    <div class="input-element">{{eachOption.value[0].value || '--'}}</div>
+                                    <label class="input-label-text common-label-padding confirm-text">Information to be sent:
+                                    </label>
+                                    <div>{{eachOption.value[0].value || '--'}}</div>
+                                </div>
+                                <div class="common-block-padding" *ngIf="eachOption.value[0].type === 'textArea'">
+                                    <label class="input-label-text common-label-padding confirm-text">Information to be sent: </label>
+                                    <div>{{eachOption.value[0].value || '--'}}</div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="common-button-styles">
-                        <div *ngIf="currentPage != 0" class="button-styling prev-arrow-button"
-                            (click)="previousQuestion()">
-                            Previous
-                            <img class="prev-arrow" src="./assets/images/icon_arrow.png">
-                        </div>
-                        <div class="button-styling" (click)="nextQuestion()">
-                            Next
-                            <img class="next-arrow" src="./assets/images/icon_arrow.png">
                         </div>
                     </div>
                 </form>
             </section>
         </div>
 
-    </div>
-    <div class="right-nav" [ngClass]="{'disable':!metaData.matadata}">
-        <div class="right-nav-button-wrapper" [ngClass]="{'disabled-nav':!metaData.matadata}">
-            <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
-                <img (click)="closeSideNav()" class="side-nav-icon" src="./assets/images/icon_arrow.png">
+        <div class="common-button-styles">
+            <div *ngIf="currentPage != 0" class="button-styling prev-arrow-button"
+                (click)="previousQuestion()">
+                Previous
+                <img class="prev-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
             </div>
-            <div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
-                <img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon"
-                    src="./assets/images/icon_arrow.png">
-
+            <div class="button-styling finish-button" (click)="finishQuestionaire()" *ngIf="finishButton">
+                    Finish
+                    <img class="next-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
+                    </div>
+            <div class="button-styling" (click)="nextQuestion()" *ngIf="!finishButton">
+                Next
+                <img class="next-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
             </div>
         </div>
-        <div class="right-nav-accordion" #rightNavAccordion>
-            <app-right-accordian [metaData]=metaData #rightAccordion></app-right-accordian>
+
+    </div>
+    <div>
+        <div class="right-nav" [ngClass]="{'disable':!metaData.matadata}">
+            <div class="right-nav-button-wrapper" [ngClass]="{'disabled-nav':!metaData.matadata}">
+                <div *ngIf="openSideNavFlag" class="nav-button-wrapper">
+                    <img (click)="closeSideNav()" class="side-nav-icon"
+                        src="{{'assets/images/icon_arrow.png' | assetspipe}}">
+                </div>
+                <div *ngIf="!openSideNavFlag " class="nav-button-wrapper">
+                    <img (click)="openSideNav()" class="side-nav-icon prev-side-nav-icon"
+                        src="{{'assets/images/back-icon.svg' | assetspipe}}">
+    
+                </div>
+            </div>
+            <div class="right-nav-accordion" #rightNavAccordion>
+                <app-right-accordian [metaData]=metaData #rightAccordion></app-right-accordian>
+            </div>
         </div>
     </div>
 </div>

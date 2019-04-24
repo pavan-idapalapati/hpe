@@ -1,9 +1,12 @@
 <section>
+    <div class="message-section" *ngIf="formData.showSuccessMessage">
+        <span class="section-heading main-heading">Your session has been recorded!</span>
+    </div>
     <div class="landing-section-wrapper session-resume-section" *ngIf="showSessionResumePopup">
         <div class="landing-section">
             <div>
                 <section>
-                    <div class="section-heading">Resume session:</div>
+                    <div class="section-heading main-heading">Resume session:</div>
                     <form class="resume-form">
                         <div class="resume-form-wrapper">
                             <div class="question-title"></div>
@@ -11,24 +14,27 @@
                                 <div class="customer-details">
                                     <div class="resume-session-properties">
                                         <label class="input-label-text resume-session-text">Sales Rep Name: </label>
-                                        <label class="input-label-text resume-session-text">{{saleRepName || '-'}}</label>
+                                        <label
+                                            class="input-label-text resume-session-text">{{saleRepName || '-'}}</label>
                                     </div>
                                     <div class="resume-session-properties">
                                         <label class="input-label-text resume-session-text">Customer Name: </label>
-                                        <label class="input-label-text resume-session-text">{{customerName || '-'}}</label>
+                                        <label
+                                            class="input-label-text resume-session-text">{{customerName || '-'}}</label>
                                     </div>
                                     <div class="resume-session-properties">
                                         <label class="input-label-text resume-session-text">Customer Company: </label>
-                                        <label class="input-label-text resume-session-text">{{companyName  || '-'}}</label>
+                                        <label
+                                            class="input-label-text resume-session-text">{{companyName  || '-'}}</label>
                                     </div>
-    
+
                                 </div>
                             </div>
                         </div>
                         <div class="common-button-styles" (click)="resumeSession()">
                             <div class="button-styling">
                                 Resume
-                                <img class="next-arrow" src="./assets/images/icon_arrow.png">
+                                <img class="next-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
                             </div>
                         </div>
                     </form>
@@ -45,17 +51,23 @@
                         <div *ngFor="let dataGroup of userInfoForm.data" class="common-block-padding">
                             <div class="question-title">{{dataGroup.question}}</div>
                             <div *ngFor="let eachFormElem of dataGroup.formData">
-                                <div class="input-section">
-                                    <label [for]="eachFormElem.name" class="input-label-text">{{eachFormElem.label}}</label>
-                                    <input type="text" [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value"
-                                        class="input-element">
+                                <div class="landing-input-section">
+                                    <div class="input-section">
+                                        <label [for]="eachFormElem.name"
+                                            class="input-label-text">{{eachFormElem.label}}</label>
+                                        <input type="text" [name]="eachFormElem.name" [(ngModel)]="eachFormElem.value"
+                                            class="input-element">                                        
+                                    </div>
+                                    <div class="error-msg" *ngIf="submitted && !eachFormElem.isValid">
+                                            <div>{{eachFormElem.errorMessage}}</div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
                         <div class="common-button-styles">
                             <div (click)="getStarted()" class="button-styling">
                                 Get Started
-                                <img class="next-arrow" src="./assets/images/icon_arrow.png">
+                                <img class="next-arrow" src="{{'assets/images/icon_arrow.png' | assetspipe}}">
                             </div>
                         </div>
                     </form>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormDataService } from 'src/app/services/form-data.service';
 import { Router } from '@angular/router';
 
@@ -7,16 +7,18 @@ import { Router } from '@angular/router';
     templateUrl: './accordion.component.html',
     styleUrls: ['./accordion.component.scss']
 })
-export class AccordionComponent implements OnInit {
+export class AccordionComponent implements OnInit, AfterViewInit {
     // openAccordionIndex;
     questionnaireData = [];
     currentPage: any;
+    index = undefined;
     massagesQuestionnaireData: any;
     @ViewChild('kickoffQuestions') kickoffQuestions: any;
     @ViewChild('nextsteps') nextsteps: any;
+    @ViewChild('accordion') accordion: any;
 
     constructor(public formData: FormDataService, private router: Router) {
-        this.formData.getQuestionChangeSubject().subscribe((data) =>{
+        this.formData.getQuestionChangeSubject().subscribe((data) => {
             this.onInitOfComponent();
         })
     }
@@ -24,10 +26,13 @@ export class AccordionComponent implements OnInit {
     ngOnInit() {
         this.onInitOfComponent();
     }
-    
+    ngAfterViewInit() {
+        this.openAccordion();
+    }
+
     onInitOfComponent() {
         let questionnaireData = this.formData.getFormData();
-        if(questionnaireData && questionnaireData.data && questionnaireData.currentPage) {
+        if (questionnaireData && questionnaireData.data && questionnaireData.currentPage) {
             this.questionnaireData = questionnaireData.data.data;
             this.currentPage = questionnaireData.currentPage;
         }
@@ -37,7 +42,7 @@ export class AccordionComponent implements OnInit {
     massageQuestionnaireData() {
         this.massagesQuestionnaireData = {
             kickOffQuestions: {
-                name: "Kick-off questions",
+                name: "Questions",
                 data: []
             },
             nextSteps: {
@@ -46,41 +51,47 @@ export class AccordionComponent implements OnInit {
             }
         }
         this.questionnaireData.forEach(eachQue => {
-            if(eachQue.stepName === "Next steps") {
+            if (eachQue.stepName === "Next steps") {
                 this.massagesQuestionnaireData.nextSteps.data.push(eachQue);
             } else {
                 this.massagesQuestionnaireData.kickOffQuestions.data.push(eachQue);
             }
         });
+        this.openAccordion();
 
-        // open left side accordion based on navigation
-        setTimeout(() => {     
-            if(this.currentPage == 14) {
+
+
+    }
+    openAccordion() {
+        // open left side accordion based on navigation   
+        if (this.accordion) {
+            if (this.currentPage == 14) {
+                this.formData.openAccordionIndex = undefined;
+                this.accordion.activeIndex = undefined;
                 this.kickoffQuestions.selected = false;
                 this.nextsteps.selected = false;
-                this.formData.openAccordionIndex = undefined;
-            } else if(this.currentPage >= 9) {
-                this.kickoffQuestions.selected = false;
-                this.nextsteps.selected = true;
+            } else if (this.currentPage >= 9) {
                 this.formData.openAccordionIndex = 1;
-            } else if(this.currentPage < 9) {
-                this.kickoffQuestions.selected = true;
-                this.nextsteps.selected = false; 
-                this.formData.openAccordionIndex = 0;                 
-            } 
-        });
+                this.accordion.activeIndex = 1;
+            } else if (this.currentPage < 9) {
+                this.formData.openAccordionIndex = 0;
+                this.accordion.activeIndex = 0;
+            }
+        }
     }
 
     onTabOpen(event) {
+        // this.cache = true;
         this.formData.openAccordionIndex = event.index;
     }
     onTabClose(event) {
+        // this.cache  =true;
         this.formData.openAccordionIndex = undefined;
     }
 
     takeQuestion(question) {
         this.formData.moveToParticularQuestion(question.id);
-        if(this.router.url.indexOf("questionaire") >= 0) {
+        if (this.router.url.indexOf("questionaire") >= 0) {
             this.formData.triggerRouteChangeSubject();
         } else {
             this.router.navigate(["/questionaire"]);
@@ -88,6 +99,10 @@ export class AccordionComponent implements OnInit {
     }
 
     gotFinish() {
+        this.formData.openAccordionIndex = undefined;
+        this.index = undefined;
+        this.kickoffQuestions.selected = false;
+        this.nextsteps.selected = false;
         this.router.navigate(["/conclusion"]);
     }
 

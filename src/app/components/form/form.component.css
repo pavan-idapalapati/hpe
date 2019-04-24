@@ -27,6 +27,7 @@ input[type=checkbox] + label:before {
 
 .right-nav {
     display: flex;
+    height: 100%;
 }
 
 .right-nav-button-wrapper {
@@ -36,7 +37,7 @@ input[type=checkbox] + label:before {
 
 .right-nav-accordion {
     width:0px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .side-nav-icon {
@@ -55,6 +56,7 @@ input[type=checkbox] + label:before {
 .remove-right-nav-accordion-transition {
     width: 0px;
     transition: all .3s ease-in-out;
+    overflow: hidden;
 }
 
 .nav-button-wrapper {
@@ -84,9 +86,6 @@ input[type=checkbox] + label:before {
     background-color: #468c98;
 }
 
-.checkbox-helpfield-section{
-    padding-left:40px;
-}
 .close-add-details {
     display: flex;
     justify-content: flex-end;
@@ -95,6 +94,7 @@ input[type=checkbox] + label:before {
 
 .confirm-text{
     font-size: 24px;
+    padding-bottom: 20px;
 }
 
 .confirm-radio-text{
@@ -103,4 +103,16 @@ input[type=checkbox] + label:before {
 
 .pt-10{
     padding-top: 10px;
+}
+
+.pb-30{
+    padding-bottom: 30px;
+}
+.remove-details-data-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.add-details-section {
+    position: relative;
 }

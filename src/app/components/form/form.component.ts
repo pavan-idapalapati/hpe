@@ -11,6 +11,7 @@ import { unescapeIdentifier } from '@angular/compiler';
 })
 export class FormComponent implements OnInit {
     openSideNavFlag;
+    finishButton = false;
     @ViewChild('rightNavAccordion') rightNavAccordion: any;
     @ViewChild('rightAccordion') rightAccordion: any;
     currentFormData: any;
@@ -33,6 +34,8 @@ export class FormComponent implements OnInit {
     }
 
     init() {
+        this.finishButton = false;
+        this.utils.scrolltoTop();
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();
         if (formData.currentPage < formData.data.data.length) {
@@ -46,7 +49,7 @@ export class FormComponent implements OnInit {
             this.metaData = formData.data.data;
             this.currentPage = formData.currentPage;
             this.metaData = this.metaData[this.currentPage];
-            if (this.metaData.matadata) {
+            if (this.metaData && this.metaData.matadata) {
                 this.openSideNav();
                 this.rightAccordion.openAccordion({});
 
@@ -55,6 +58,8 @@ export class FormComponent implements OnInit {
                 this.closeSideNav();
             }
         }
+        //google analytics pageview triggering
+        this.utils.sendPageView(this.currentFormData.pageView);
     }
 
     generateTemplate(formData) {
@@ -63,7 +68,28 @@ export class FormComponent implements OnInit {
         if (this.currentFormData.isConfirmStep) {
             this.getConfirmStepData(formData.data.data);
         }
-        console.log(this.currentFormData, "this currentFormDataaaaaaa")
+        this.currentFormData.formData.forEach(formField => {
+            if(formField.mapNeeded) {
+                try {
+                    formField.options.forEach(element => {
+                        if(element.mapTo) {
+                            let question = formData.data.data[element.mapTo.question];
+                            let data = question.formData[0];
+                            if(data.type === 'checkbox') {
+                                let selectedOption = data.options.find((option) => {
+                                    return option.isSelected;
+                                });
+                                if(selectedOption) {
+                                    element.uid = element.mapTo.value[selectedOption.value]
+                                }
+                            }
+                        }
+                    });
+                } catch(err) {
+                    console.log(err);
+                }
+            }
+        });
     }
 
     getConfirmStepData(wholeData) {
@@ -120,6 +146,7 @@ export class FormComponent implements OnInit {
             each.value = "";
         });
         eachFormElem.options[index].addDetailsData.push(mock);
+        eachFormElem.options[index].addDetailsData = JSON.parse(JSON.stringify(eachFormElem.options[index].addDetailsData));
     }
 
     openSideNav() {
@@ -142,8 +169,35 @@ export class FormComponent implements OnInit {
         }
     }
 
-    onRadioButtonValueChange(eachOption) {
+    onRadioButtonValueChange(eachOption, options?: any) {
+        if (eachOption && eachOption.hasFinishButton) {
+            this.finishButton = true;
+        }
+        else {
+            this.finishButton = false;
+        }
         this.rightAccordion.openAccordion(eachOption);
+        if(options && options.disabilityCheckNeeded) {
+            if(eachOption.disabilityCheck) {
+                eachOption.disabilityCheck.items.forEach((item) => {
+                    return options.options[item].isSelected = false;
+                });
+            } else {
+                let checkButton = options.options.find((option) => {
+                    return option.disabilityCheck;
+                })
+                if(checkButton) {
+                    checkButton.isSelected = false;
+                }
+            }
+        }
     }
+
+    finishQuestionaire() {
+        this.formData.resetWholeFormData();
+        this.utils.clearCookies();
+        this.router.navigate(['/'], { queryParams: { "new": true } });
+    }
+
 
 }

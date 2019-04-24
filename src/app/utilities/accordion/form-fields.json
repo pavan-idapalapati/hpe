@@ -1,5 +1,5 @@
 {
-  "userInfo": {  // user who is taking test data
+  "userInfo": {  
     "name": "HPE Call Guide",
     "metadata": "HPE Call Guide Landing Page",
     "data": [
@@ -42,7 +42,7 @@
       }
     ]
   },
-  "questionnaireData": {  // questions data
+  "questionnaireData": {  
     "name": "HPE Call Guide",
     "metadata": "HPE call guide project",
     "data": [
@@ -54,13 +54,13 @@
           {
             "type": "radio",
             "label": "",
-            "value": "Yes", // selected value of radio button options
+            "value": "Yes", 
             "options": [
               {
                 "label": "Yes",
                 "value": "Yes",
                 "name": "ws-imp",
-                "helpField": [ // help data at the bottom of radio button
+                "helpField": [ 
                   {
                     "type": "text",
                     "label": "When is a good time to talk?",
@@ -70,7 +70,7 @@
               },
               {
                 "label": "No",
-                "value": "No",
+                "value": "No"
               }
             ]
           }
@@ -89,7 +89,7 @@
                 "label": "WS 2008",
                 "value": "WS 2008",
                 "name": "ws-version-cb",
-                "isSelected": true // selected values of checkbox
+                "isSelected": true 
               },
               {
                 "label": "WS 2012 R2",
@@ -109,7 +109,7 @@
           {
             "type": "text",
             "label": "Number of servers:",
-            "value": "4" // value of text field
+            "value": "4" 
           },
           {
             "type": "text",
@@ -217,7 +217,7 @@
               },
               {
                 "label": "No / not sure",
-                "value": "No / not sure",
+                "value": "No / not sure"
               }
             ]
           }

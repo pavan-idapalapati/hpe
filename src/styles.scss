@@ -39,8 +39,6 @@
   
   
   
-  
-  
 
 /* You can add global styles to this file, and also import other style files */
 html,
@@ -134,7 +132,8 @@ video {
     
 }
 .text-area {
-    resize: none;
+  resize: none;
+  overflow: auto;
 }
 
 html {
@@ -148,17 +147,22 @@ body {
     font-size: 16px;
 
 }
-body, main, app-root {
+body, app-root {
     display: flex;
     flex-direction: column;
     flex:auto;
     overflow: auto;
 }
+main {
+    display: flex;
+    flex-direction: column;
+    flex:auto;
+}
 .ui-accordion-content-wrapper-overflown {
     overflow: hidden;
 }
 .ui-accordion-content {
-    padding-top:15px !important;
+    padding: 0 !important;
     border-top: 1px solid #979797 !important;  
 }
 .icon-minus {
@@ -167,6 +171,7 @@ body, main, app-root {
 }
 .icon-plus{
     height: 16px;
+    cursor: pointer;
 }
 
 .d-block {
@@ -184,6 +189,7 @@ body, main, app-root {
 }
 input, textarea {
   font-family: "MetricHPE";
+  font-size: 16px;
 }
 .rotate-45 {
   transform: rotate(45deg);
@@ -194,7 +200,7 @@ input, textarea {
 
 .main-section {
     background: #3c1454;
-    height: 100%;
+    // height: 100%;
     // max-width: 1366px;
     // margin: 0 auto;
 }
@@ -214,7 +220,7 @@ input, textarea{
     align-items: center;
     z-index: 2;
     // position: fixed;
-    width: 100%;
+    // width: 100%;
     border-bottom: 1px solid #979797;
 }
 
@@ -234,8 +240,10 @@ input, textarea{
     margin-left: 0;
     width: 100%;
     padding-bottom: 37px;
-    min-height: 100vh;
-    
+    min-height: calc(100vh - 165px);
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
 }
 
 .landing-section{
@@ -321,37 +329,77 @@ input, textarea{
 }
 
 
-input[type=checkbox] + label {
-    display: inline-block;
-    cursor: pointer;    
-  }
+// input[type=checkbox] + label {
+//     display: inline-block;
+//     cursor: pointer;    
+//   }
   
+//   input[type=checkbox] {
+//     display: none;
+//   }
+  
+  // input[type=checkbox] + label:before {
+  //   content: "\2714";
+  //   border: 0.1em solid #2AD2C9;  
+  //   display: inline-block;
+  //   width: 22px;
+  //   height: 22px;
+  //   text-align: center;
+  //   margin-right: 9px;
+  //   vertical-align: bottom;
+  //   color:transparent;
+  //   transition: .1s;
+  // }
+  
+  // input[type=checkbox] + label:active:before {
+  //   transform: scale(0);
+  // }
+  
+  // input[type=checkbox]:checked + label:before {
+  //   background-color: white;
+  //   border-color: #2AD2C9;
+  //   color: #2AD2C9;
+  // }
   input[type=checkbox] {
+    position: relative;
+    z-index: -9999;
     display: none;
   }
-  
-  input[type=checkbox] + label:before {
-    content: "\2714";
-    border: 0.1em solid #2AD2C9;  
+  input[type=checkbox]+label {
+    position: relative;
+    padding-left: 45px; 
+    min-height: 22px;
+    cursor: pointer;
+  }
+  input[type=checkbox]+label::before {
     display: inline-block;
+    content: "";
+    background: url("../src/assets/images/icon_Box.png");
+    background-size: cover;
     width: 22px;
     height: 22px;
-    text-align: center;
-    margin-right: 9px;
-    vertical-align: bottom;
-    color:transparent;
-    transition: .1s;
+    position: absolute;
+    top: calc(50% - 3px);
+    transform: translateY(-50%);
+    left: 0;
+}
+.accodion-content-section {
+  input[type=checkbox]+label {
+    padding-left: 30px;
   }
+}
+  input[type=checkbox]:checked+label::before {
+    // display: none;
+    // Better than display: none for accessibility reasons
+    background: url("../src/assets/images/icon_CheckmarkBox.png");
+    background-size: cover;
+  }
+
   
-  input[type=checkbox] + label:active:before {
-    transform: scale(0);
-  }
-  
-  input[type=checkbox]:checked + label:before {
-    background-color: white;
-    border-color: #2AD2C9;
-    color: #2AD2C9;
-  }
+
+// input[type=checkbox]:checked::before {
+//     background: url("/src/assets/images/icon_Plus.png");
+// }
 
   [type="radio"]:checked,
   [type="radio"]:not(:checked) {
@@ -372,7 +420,7 @@ input[type=checkbox] + label {
       content: '';
       position: absolute;
       left: 0;
-      top: 0;
+      top: -6px;
       width: 22px;
       height: 22px;
       border: 1px solid #ddd;
@@ -386,7 +434,7 @@ input[type=checkbox] + label {
       height: 14px;
       background: #2AD2C9;
       position: absolute;
-      top: 5px;
+      top: -1px;
       left: 5px;
       border-radius: 100%;
       -webkit-transition: all 0.2s ease;
@@ -416,7 +464,7 @@ input[type=checkbox] + label {
   .text-area{
     outline:none;
     padding:10px;
-    width:66%; 
+    width:67%; 
   }
   
 
@@ -465,14 +513,15 @@ input[type=checkbox] + label {
 .next-arrow{
     position: absolute;
     height: 18px;
-    top: 16px;
     right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
 }
   
 .prev-arrow{
     position: absolute;
     height: 18px;
-    top: 16px;
+    top: 14px;
     left: 12px;
     transform: rotate(180deg);
 }
@@ -487,6 +536,14 @@ input[type=checkbox] + label {
 
 .checkbox-padding{
     padding-bottom: 32px;
+}
+
+.no-padding {
+    padding-bottom: 0;
+}
+
+.pb-10 {
+    padding-bottom: 10px;
 }
 
 .prev-arrow-button{
@@ -628,14 +685,14 @@ input[type=checkbox] + label {
 }
 
 .return-question-text{
-  font-size: 20px;
+//   font-size: 20px;
   color:#191919;
   max-width: 75%;
 }
 
 .stake-holder-section{
   background-color: #F6f6f6;
-  padding:30px;
+  padding:36px;
   width: 68%;
   margin-bottom: 30px; 
 }
@@ -643,15 +700,19 @@ input[type=checkbox] + label {
 .plus-stake-holder{
   display:flex;  
   padding-top: 10px;
-  margin:20px 0;
+//   margin:20px 0;
+  margin-bottom: 30px;
   cursor: pointer;
 }
 .add-stake-holder{
   padding-left:10px;
 }
-app-form {
+app-form, app-conclusion {
     width: 100%;
     background: #3c1454;
+}
+app-right-accordian {
+    display: block;
 }
 
 .margin-0{
@@ -660,4 +721,17 @@ app-form {
 }
 .cursor-pointer {
     cursor: pointer;
+}
+
+.message-section {
+    background-color: #fff;
+    border: 4px solid #2AD2C9;
+    padding: 40px 20px 40px 80px;
+    margin: 25px 30px;
+}
+.error-msg {
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+    padding-top: 5px;
 }

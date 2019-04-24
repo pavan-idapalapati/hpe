@@ -7,7 +7,7 @@
     cursor: pointer;
 }
 .accordion-heading {
-    padding: 25px 15px 25px 45px;
+    padding: 25px 15px 25px 27px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,6 +15,8 @@
 .accordion-title {
     font-size: 16px;
     font-weight: 600;
+    margin-right: 25px;
+    padding-top: 3px;
 }
 .input-label-text {
     // line-height: 18px;
@@ -38,23 +40,35 @@
     // border-top: 1px solid #979797;  
     background-color: #fff;
     cursor: pointer;
-    border-top: 1px solid #614767;
-    border-bottom: 1px solid #614767;
+    // border-top: 1px solid #614767;
+    border-bottom: 1px solid #2AD2C9;
 }
 
-ul li{
+.bullets{
     list-style-type: disc;
     list-style-position: outside;
     margin-left: 45px;
     font-size: 23px;
 }
 
+li {
+    margin-left: 25px;
+    list-style-type: none;
+}
+
 li:last-child {
-    padding-bottom: 50px;
+    padding-bottom: 15px;
 }
 
 .accordion-item {
-    padding: 10px 50px 0px 10px;
+    padding: 15px 50px 0px 10px;
     font-size: 16px;
 }
 
+.no-border {
+    border-bottom: none;
+}
+
+.d-block{
+    display: block;
+}

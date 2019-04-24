@@ -38,3 +38,16 @@ line-height: 29px;
 .resume-form-wrapper {
     flex: 1;
 }
+.input-section {
+    position: relative;
+    
+}
+.error-msg {
+    position: absolute;
+    right: 5px;
+    bottom: -15px;
+    color: red;
+}
+.landing-input-section{
+    position: relative;
+}
