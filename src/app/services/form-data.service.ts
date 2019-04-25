@@ -33,12 +33,12 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Yes",
-								"value": "Yes",
+								"value": "yes",
 								"name": "ws-imp"							
 							},
 							{
 								"label": "No",
-								"value": "No",
+								"value": "no",
 								"hasFinishButton":true,
 								"hasHelpField":true,
 								"name": "ws-imp",
@@ -155,7 +155,7 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Don’t know",
-								"value": "Don’t know",
+								"value": "dont know",
 								"name": "upgrade-migrate-radio",
 								"mapTo": {
 									"question": 1,
@@ -169,7 +169,7 @@ export class FormDataService {
 							},
 							{
 								"label": "Not planning to upgrade",
-								"value": "Not planning to upgrade",
+								"value": "not planning to upgrade",
 								"name": "upgrade-migrate-radio",
 								"mapTo": {
 									"question": 1,
@@ -183,31 +183,31 @@ export class FormDataService {
 							},
 							{
 								"label": "On-prem",
-								"value": "On-prem",
+								"value": "on-prem",
                                 "name": "upgrade-migrate-radio",
                                 "uid": 3
 							},
 							{
 								"label": "Azure: WS 2008",
-								"value": "Azure: WS 2008",
+								"value": "azure2008",
                                 "name": "upgrade-migrate-radio",
                                 "uid": 4
 							},
 							{
 								"label": "Azure: WS 2012 / 2016",
-								"value": "Azure: WS 2012 / 2016",
+								"value": "azure2012-2016",
                                 "name": "upgrade-migrate-radio",
                                 "uid": 5
 							},
 							{
 								"label": "Waiting for WS 2019",
-								"value": "Waiting for WS 2019",
+								"value": "waiting for ws2019",
                                 "name": "upgrade-migrate-radio",
                                 "uid": 6
 							},
 							{
 								"label": "Combination on-prem/Azure",
-								"value": "Combination on-prem/Azure",
+								"value": "combo-on-prem-azure",
                                 "name": "upgrade-migrate-radio",
                                 "uid": 5
 							}
@@ -335,33 +335,33 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Not applicable",
-								"value": "Not applicable",
+								"value": "not applicable",
                                 "name": "upgrade-onprem-radio"
 							},
 							{
 								"label": "Haven’t made a plan",
-								"value": "Haven’t made a plan",
+								"value": "havent made plan",
                                 "name": "upgrade-onprem-radio"
 							},
 							{
 								"label": "< 3 mo.",
-								"value": "< 3 mo.",
+								"value": "less than 3 mo",
                                 "name": "upgrade-onprem-radio"
 							},
 							{
 								"label": "4-6 mo.",
-								"value": "4-6 mo.",
+								"value": "4-6 mo",
                                 "name": "upgrade-onprem-radio"
 							},
 							{
 								"label": "7-12 mo.",
-								"value": "7-12 mo.",
+								"value": "7-12 mo",
                                 "name": "upgrade-onprem-radio",
                                 "uid": 1
 							},
 							{
 								"label": "> 12 mo.",
-								"value": "> 12 mo.",
+								"value": "more than 12 mo",
                                 "name": "upgrade-onprem-radio",
                                 "uid": 1
 							}
@@ -421,7 +421,7 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Yes",
-								"value": "Yes",
+								"value": "yes",
 								"hasHelpField":true,
 								"name": "budget-allocate-radio",
 								"helpField": [
@@ -434,7 +434,7 @@ export class FormDataService {
 							},
 							{
 								"label": "No / not sure",
-								"value": "No / not sure",
+								"value": "no",
 								"name": "budget-allocate-radio"
 							}
 						]
@@ -586,13 +586,13 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Yes",
-								"value": "Yes",
+								"value": "yes",
                                 "name": "gen10-upgrade-radio",
                                 "uid": 1
 							},
 							{
 								"label": "No",
-								"value": "No",
+								"value": "no",
                                 "name": "gen10-upgrade-radio"
                                 
 							}
@@ -719,7 +719,7 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Yes",
-								"value": "Yes",
+								"value": "yes",
 								"name": "gen10-upgrade-radio",
                                 "hasHelpField": true,
 								"helpField": [
@@ -733,7 +733,7 @@ export class FormDataService {
 							{
 								"label": "No",
 								"uid": 1,
-								"value": "No",
+								"value": "no",
 								"name": "gen10-upgrade-radio",
                                 "hasHelpField": true,
 								"helpField": [
@@ -801,7 +801,7 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Yes",
-								"value": "Yes",
+								"value": "yes",
                                 "hasHelpField": true,
 								"name": "ws-migration-strategy-radio",
 								"addDetailsData": [
@@ -833,7 +833,7 @@ export class FormDataService {
 							},
 							{
 								"label": "No",
-								"value": "No",
+								"value": "no",
 								"name": "ws-migration-strategy-radio"
 							}
 						]
@@ -914,12 +914,12 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Yes",
-								"value": "Yes",
+								"value": "yes",
 								"name": "additional-info-radio"
 							},
 							{
 								"label": "No",
-								"value": "No",
+								"value": "no",
 								"name": "additional-info-radio"
 							}
 						]
