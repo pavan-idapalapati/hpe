@@ -637,7 +637,7 @@ export class FormDataService {
 				},]
 			},
 			{
-				"question": "Which of those benefits are of particular interest to you? Can I send you some additional information?",
+				"question": "Which of those benefits (security, efficiency, and cloud-readiness) are of particular interest to you? Can I send you some additional information?",
 				"stepName": "Questions",
 				"isViewed": false,
 				"pageView":"/10-benefits-of-interest",
