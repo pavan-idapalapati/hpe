@@ -92,9 +92,11 @@ export class BackendService {
         "form[resource_to_send]": questionsData[8].formData[0].options[0].helpField[0].value,
         "form[resource_notes]": questionsData[8].formData[1].value,
         "form[next_steps]": questionsData[9].formData[0].value,
-        // "form[meet_with_specialist]": "",
-        // "form[meet_with_specialist]": "",
-        // "form[specialist_meeting_datetime]": "",
+        "form[meet_with_specialist]": questionsData[10].formData[0].value,
+        "form[specialist_meeting_datetime]": questionsData[10].formData[0].options[0].helpField[0].value,
+        "form[specialist_meeting_resources]": questionsData[10].formData[0].options[1].helpField[0].value,
+        "form[specialist_notes]": questionsData[10].formData[1].value,
+
         // "form[other_stakeholders]": "",
         // "form[other_stakeholders]": "",
         // "form[other_stakeholders_details]": "",
@@ -107,6 +109,9 @@ export class BackendService {
         // "form[optin][contactTypes][]": "",
         // "form[submit]": "",
         // "form[_trans]": "",
+        "form[confirm_nextsteps_notes]": questionsData[12].formData[1].value,
+        "form[other_questions]":  questionsData[13].formData[0].value,
+        "form[other_questions_notes]": questionsData[13].formData[1].value
         }
         return obj;
     }
