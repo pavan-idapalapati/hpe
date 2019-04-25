@@ -9,7 +9,7 @@
             </p-header>
             <div>
                 <ul>
-                    <li *ngFor="let content of eachMetaData.data" [ngClass]="{'bullets':eachMetaData.data.length > 1 }">
+                    <li *ngFor="let content of eachMetaData.data" [ngClass]="{'bullets':eachMetaData.data.length > 1 && !content.dontShowBullets, 'bullet-content-header': content.dontShowBullets }">
                         <div class="d-flex accordion-heading accordion-item d-block">
                             <div>
                                 <span class="input-label-text subheading-label-text"

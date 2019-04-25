@@ -768,7 +768,8 @@ export class FormDataService {
 						"data": [
 							{
 								"subHeading": "",
-								"content": `Offer to send specific resources:`
+                                "content": `Offer to send specific resources:`,
+                                "dontShowBullets": true
 							},
 							{
 								"subHeading": "",
