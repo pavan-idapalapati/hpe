@@ -44,7 +44,7 @@ export class ConclusionComponent implements OnInit {
         this.backendService.doCall({
             type: "POST",
             data: data,
-            url: "https://spiceworks.cvtr.io/webhook/campaign/46324/form/2576/leads?apikey=cd77dd36c500eb23579532f710125b02&campaignLinkId=10342&publisherId=11007"
+            url: "https://4d5cy2i133.execute-api.us-west-2.amazonaws.com/prod/convertr_request"
         }).subscribe(res => {
             //google analytics submit event
             this.utils.sendEvent('Click', '{Account Manager}-form-submit', 'Submit Event');
