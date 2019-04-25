@@ -52,10 +52,34 @@ export class FormComponent implements OnInit {
             this.metaData = this.metaData[this.currentPage];
             if (this.metaData && this.metaData.matadata) {
                 this.openSideNav();
-                setTimeout(()=> {
-                    this.rightAccordion.openAccordion({ showallAccordions: this.metaData.showAllAccordionOnPageload});
-                })
 
+                setTimeout(() => {
+                    if (this.currentFormData.isAnswered) {
+
+                        // open the right side accordion based on the following conditions
+                        //  1) if current question is already answered by end user.
+                        //  2) if current question is having metadata.
+                        //  3) if current question is having radiobutton or  checkbox controls
+
+                        let radioCheckboxControl = this.currentFormData.formData.
+                            find(formElement => {
+                                return ((formElement.type === 'radio' || formElement.type === "checkbox") &&
+                                    formElement.value)
+                            });
+
+                        if (
+                            this.currentFormData.matadata &&
+                            radioCheckboxControl
+                        ) {
+                            let option = radioCheckboxControl.options.find(option => option.value === radioCheckboxControl.value)
+                            this.rightAccordion.openAccordion(option);
+                        }
+
+
+                    } else {
+                        this.rightAccordion.openAccordion({ showallAccordions: this.metaData.showAllAccordionOnPageload });
+                    }
+                });
             }
             else {
                 this.closeSideNav();
@@ -78,16 +102,17 @@ export class FormComponent implements OnInit {
                         if (element.mapTo) {
                             let question = formData.data.data[element.mapTo.question];
                             let data = question.formData[0];
-                            if(data.type === 'checkbox') {
+                            if (data.type === 'checkbox') {
                                 let selectedOptions = data.options.filter((option) => {
                                     return option.isSelected;
                                 });
-                                if(selectedOptions.length) {
+                                if (selectedOptions.length) {
                                     element.uid = selectedOptions.map((selectedOption) => element.mapTo.value[selectedOption.value]);
                                 }
                             }
                         }
                     });
+
                 } catch (err) {
                     console.log(err);
                 }

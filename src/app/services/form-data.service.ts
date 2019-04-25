@@ -939,7 +939,7 @@ export class FormDataService {
 
 	constructor(private utils: UtilService) { }
 
-	routeChange = new Subject<boolean>();
+	routeChange = new ReplaySubject<boolean>(1);
 	questionChange = new ReplaySubject<boolean>(1);
 
 	getROuteChangeSubject() {
