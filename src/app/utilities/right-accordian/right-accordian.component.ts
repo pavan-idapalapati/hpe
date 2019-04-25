@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ViewChildren, QueryList, ViewChild } from '@angular/core';
-import { FormDataService } from 'src/app/services/form-data.service';
-import { Router } from '@angular/router';
+import { isArray } from 'util';
 
 @Component({
     selector: 'app-right-accordian',
@@ -12,6 +11,7 @@ export class RightAccordianComponent implements OnInit {
     @ViewChildren('accordionElements') accordionElements: QueryList<any>;
     @ViewChild('accordion') accordion: any;
     openAccordionIndex;
+    showAll: boolean = false;
     currentPage;
     index;
     constructor() {
@@ -22,29 +22,28 @@ export class RightAccordianComponent implements OnInit {
 
     }
 
-    onTabOpen(event) {
-        this.openAccordionIndex = event.index;
-    }
-    onTabClose(event) {
-        this.openAccordionIndex = undefined;
-    }
-
+    /***
+     * will open the accordion tab based on uid's.
+     */
     openAccordion(option) {
-        let selectedIndex;
+
+        let accordionIndexes = [];
+        //check option.uid is aan array or not if it is not an array, converting to array.
+        if (!isArray(option.uid)) {
+            option.uid = [option.uid];
+        }
+        //  if uid's more then one or showAllaccordions flag is true. then setting accordion property to open multiple accordions. 
+        this.accordion.multiple = option.showallAccordions || option.uid.length > 1;
         if (option.isSelected == undefined || option.isSelected == true) {
             this.accordionElements && this.accordionElements.map((ae, index) => {
-                if (option.uid == ae.header) {
-                    selectedIndex = index;
-                    // this.index = index;
-                    this.accordion.activeIndex = index;
-                } else {
+                if (!option.uid.includes(ae.header)) {
                     ae.selected = false;
+                } 
+                if(option.uid.includes(ae.header) || option.showallAccordions) {
+                    accordionIndexes.push(index);
                 }
             });
-            this.openAccordionIndex = selectedIndex;
-            if(this.accordion && selectedIndex == undefined) {
-                this.accordion.activeIndex= undefined;
-            }
+            this.accordion.activeIndex = this.accordion.multiple ? accordionIndexes : accordionIndexes[0];
         }
     }
 

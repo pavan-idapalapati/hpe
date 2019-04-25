@@ -3,6 +3,7 @@ import { UtilService } from '../../services/util.service';
 import { FormDataService } from '../../services/form-data.service';
 import { Router } from '@angular/router';
 import { unescapeIdentifier } from '@angular/compiler';
+import { shouldCallLifecycleInitHook } from '@angular/core/src/view';
 
 @Component({
     selector: 'app-form',
@@ -51,7 +52,9 @@ export class FormComponent implements OnInit {
             this.metaData = this.metaData[this.currentPage];
             if (this.metaData && this.metaData.matadata) {
                 this.openSideNav();
-                this.rightAccordion.openAccordion({});
+                setTimeout(()=> {
+                    this.rightAccordion.openAccordion({ showallAccordions: this.metaData.showAllAccordionOnPageload});
+                })
 
             }
             else {
@@ -69,23 +72,23 @@ export class FormComponent implements OnInit {
             this.getConfirmStepData(formData.data.data);
         }
         this.currentFormData.formData.forEach(formField => {
-            if(formField.mapNeeded) {
+            if (formField.mapNeeded) {
                 try {
                     formField.options.forEach(element => {
-                        if(element.mapTo) {
+                        if (element.mapTo) {
                             let question = formData.data.data[element.mapTo.question];
                             let data = question.formData[0];
-                            if(data.type === 'checkbox') {
+                            if (data.type === 'checkbox') {
                                 let selectedOption = data.options.find((option) => {
                                     return option.isSelected;
                                 });
-                                if(selectedOption) {
+                                if (selectedOption) {
                                     element.uid = element.mapTo.value[selectedOption.value]
                                 }
                             }
                         }
                     });
-                } catch(err) {
+                } catch (err) {
                     console.log(err);
                 }
             }
@@ -176,9 +179,11 @@ export class FormComponent implements OnInit {
         else {
             this.finishButton = false;
         }
+        let obj = eachOption;
         this.rightAccordion.openAccordion(eachOption);
-        if(options && options.disabilityCheckNeeded) {
-            if(eachOption.disabilityCheck) {
+
+        if (options && options.disabilityCheckNeeded) {
+            if (eachOption.disabilityCheck) {
                 eachOption.disabilityCheck.items.forEach((item) => {
                     return options.options[item].isSelected = false;
                 });
@@ -186,11 +191,12 @@ export class FormComponent implements OnInit {
                 let checkButton = options.options.find((option) => {
                     return option.disabilityCheck;
                 })
-                if(checkButton) {
+                if (checkButton) {
                     checkButton.isSelected = false;
                 }
             }
         }
+
     }
 
     finishQuestionaire() {

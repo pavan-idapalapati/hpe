@@ -342,7 +342,7 @@ export class FormDataService {
 								"label": "Haven’t made a plan",
 								"value": "Haven’t made a plan",
                                 "name": "upgrade-onprem-radio",
-                                "uid": 1
+                                "uid": [1,2]
 							},
 							{
 								"label": "< 3 mo.",
@@ -457,7 +457,8 @@ export class FormDataService {
 				"pageView":"/8-infra-reqs",
 				"isAnswered": false,
 				"isRequired": true,
-				"id": 6,
+                "id": 6,
+                "showAllAccordionOnPageload": true,
 				"formData": [
 					{
 						"type": "checkbox",
@@ -473,7 +474,7 @@ export class FormDataService {
 								"value": "compute",
 								"name": "infra-req-cb",
 								"isSelected": false,
-                                "uid": 1,
+                                "uid": [1,2],
 								"helpField": [
 									{
 										"type": "text",
@@ -487,7 +488,7 @@ export class FormDataService {
 								"value": "storage",
 								"name": "infra-req-cb",
                                 "isSelected": false,
-                                "uid": 1,
+                                "uid": [1,2],
 								"helpField": [
 									{
 										"type": "text",
@@ -501,7 +502,7 @@ export class FormDataService {
 								"value": "networking",
                                 "name": "infra-req-cb",
                                 "isSelected": false,
-                                "uid": 1,
+                                "uid": [1,2],
 								"helpField": [
 									{
 										"type": "text",
@@ -515,7 +516,7 @@ export class FormDataService {
 								"value": "none",								
                                 "name": "infra-req-cb",
 								"isSelected": false,
-								"isDisabled": false,
+                                "isDisabled": false,
 								"disabilityCheck": {
 									"items": [0, 1, 2, 4]
 								}
@@ -525,7 +526,7 @@ export class FormDataService {
 								"value": "already_working_vendor",
                                 "name": "infra-req-cb",
                                 "isSelected": false,
-                                "uid": 2
+                                "uid": [1, 2],
 							}
 						]
 					},

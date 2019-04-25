@@ -88,7 +88,7 @@ export class LandingComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.queryParams.subscribe(
             (queryParams: any) => {
-                console.log(queryParams['new']);
+                // console.log(queryParams['new']);
                 if (queryParams['new']) {
                     this.showSessionResumePopup = false;
                     // this.createNewSession();
