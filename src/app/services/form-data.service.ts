@@ -470,7 +470,7 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Compute",
-								"value": "Compute:",
+								"value": "compute",
 								"name": "infra-req-cb",
 								"isSelected": false,
                                 "uid": 1,
@@ -484,7 +484,7 @@ export class FormDataService {
 							},
 							{
 								"label": "Storage",
-								"value": "Storage:",
+								"value": "storage",
 								"name": "infra-req-cb",
                                 "isSelected": false,
                                 "uid": 1,
@@ -498,7 +498,7 @@ export class FormDataService {
 							},
 							{
 								"label": "Networking",
-								"value": "Networking:",
+								"value": "networking",
                                 "name": "infra-req-cb",
                                 "isSelected": false,
                                 "uid": 1,
@@ -512,7 +512,7 @@ export class FormDataService {
 							},
 							{
 								"label": "None",
-								"value": "None",								
+								"value": "none",								
                                 "name": "infra-req-cb",
 								"isSelected": false,
 								"isDisabled": false,
@@ -522,7 +522,7 @@ export class FormDataService {
 							},
 							{
 								"label": "Already working with another hardware vendor on this",
-								"value": "Already working with another hardware vendor on this",
+								"value": "already_working_vendor",
                                 "name": "infra-req-cb",
                                 "isSelected": false,
                                 "uid": 2

@@ -64,8 +64,8 @@ export class BackendService {
         "form[ws_imp]": questionsData[0].formData[0].value,
         "form[ws_timetotalk]": questionsData[0].formData[0].options[1].helpField[0].value,
         "form[ws_timetotalk_notes]":  questionsData[0].formData[1].value,
-        "form[ws_version_cb][0]": questionsData[1].formData[0].options[0].isSelected ? questionsData[1].formData[0].options[0].value: "",
-        "form[ws_version_cb][1]": questionsData[1].formData[0].options[1].isSelected ? questionsData[1].formData[0].options[1].value: "",
+        
+        
         "form[ws_version_cb_notes]": questionsData[1].formData[1].value,
         "form[number_of_servers]": questionsData[2].formData[0].value,
         "form[vendors_server_gen]": questionsData[2].formData[1].value,
@@ -78,12 +78,8 @@ export class BackendService {
         "form[budget_allocated]": questionsData[5].formData[0].value,
         "form[budget_allocated_amt]": questionsData[5].formData[0].options[0].helpField[0].value,
         "form[budget_allocated_notes]": questionsData[5].formData[1].value,
-        "form[infra_req][0]": questionsData[6].formData[0].options[0].isSelected ? questionsData[6].formData[0].options[0].value : "",
-        "form[infra_req][1]":  questionsData[6].formData[0].options[1].isSelected ? questionsData[6].formData[1].options[0].value : "",
-        "form[infra_req][2]":  questionsData[6].formData[0].options[2].isSelected ? questionsData[6].formData[2].options[0].value : "",
-        "form[infra_req][3]": questionsData[6].formData[0].options[3].isSelected ? questionsData[6].formData[3].options[0].value : "",
-        "form[infra_req][4]": questionsData[6].formData[0].options[4].isSelected ? questionsData[6].formData[4].options[0].value : "",
-        "form[infra_notes]": questionsData[6].formData[1].value, 
+        
+        "form[infra_req_notes]": questionsData[6].formData[1].value, 
         "form[infra_req_compute]": questionsData[6].formData[0].options[0].helpField[0].value,
         "form[infra_req_storage]":questionsData[6].formData[0].options[1].helpField[0].value,
         "form[infra_req_networking]": questionsData[6].formData[0].options[2].helpField[0].value,
@@ -95,7 +91,7 @@ export class BackendService {
         "form[meet_with_specialist]": questionsData[10].formData[0].value,
         "form[specialist_meeting_datetime]": questionsData[10].formData[0].options[0].helpField[0].value,
         "form[specialist_meeting_resources]": questionsData[10].formData[0].options[1].helpField[0].value,
-        "form[specialist_notes]": questionsData[10].formData[1].value,
+        "form[meet_with_specialist_notes]": questionsData[10].formData[1].value,
 
         "form[other_stakeholders]":  questionsData[11].formData[0].value,
         "form[other_stakeholders_notes]": questionsData[11].formData[1].value,
@@ -111,6 +107,27 @@ export class BackendService {
             string+=";";
         });
         obj["form[other_stakeholders_details]"] = string;
+        
+        let infra_req_string ='';
+        questionsData[6].formData[0].options.forEach(opt =>{
+            if(opt.isSelected && opt.value!==undefined){
+                infra_req_string += opt.value + ",";
+            }
+        });
+        // "form[infra_req][]": questionsData[6].formData[0].options[0].isSelected ? questionsData[6].formData[0].options[0].value : '', questionsData[6].formData[0].options[1].isSelected ? questionsData[6].formData[1].options[0].value : '', questionsData[6].formData[0].options[2].isSelected ? questionsData[6].formData[2].options[0].value : '',questionsData[6].formData[0].options[3].isSelected ? questionsData[6].formData[3].options[0].value : '',questionsData[6].formData[0].options[4].isSelected ? questionsData[6].formData[4].options[0].value : ''`,
+        obj["form[infra_req]"] = infra_req_string;
+
+        let ws_ver_string='';
+        questionsData[1].formData[0].options.forEach(opt=>{
+            if(opt.isSelected && opt.value!==undefined){
+                ws_ver_string += opt.value + ",";
+            }
+        });
+
+        obj["form[ws_version_cb]"] = ws_ver_string;
+        
+        // "form[ws_version_cb][]": "questionsData[1].formData[0].options[0].isSelected ? questionsData[1].formData[0].options[0].value: '',questionsData[1].formData[0].options[1].isSelected ? questionsData[1].formData[0].options[1].value: ''",
+
         console.log("OBJ:", obj);
 
         return obj;
