@@ -370,6 +370,7 @@ input, textarea{
     padding-left: 45px; 
     min-height: 22px;
     cursor: pointer;
+    display: inline;
   }
   input[type=checkbox]+label::before {
     display: inline-block;
