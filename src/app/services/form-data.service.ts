@@ -654,7 +654,7 @@ export class FormDataService {
 						"options": [
 							{
 								"label": "Yes",
-								"value": "Yes",
+								"value": "yes",
                                 "name": "benefits-interest-radio",
                                 "hasHelpField": true,
 								"helpField": [
@@ -668,7 +668,7 @@ export class FormDataService {
 							},
 							{
 								"label": "No",
-								"value": "No",
+								"value": "no",
 								"name": "benefits-interest-radio"
 							}
 						]
@@ -799,6 +799,11 @@ export class FormDataService {
 						"name": "ws-migration-strategy-radio",
 						"id": "radio1",
 						"options": [
+                            {
+								"label": "Not Applicable",
+								"value": "not applicable",
+                                "name": "ws-migration-strategy-radio",
+                            },
 							{
 								"label": "Yes",
 								"value": "yes",
