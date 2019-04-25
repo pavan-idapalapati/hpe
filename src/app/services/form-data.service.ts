@@ -292,7 +292,7 @@ export class FormDataService {
 					},
 					{
                         "uid":5,
-						"heading": "Azure: WS 20012/2016",
+						"heading": "Azure: WS 2012/2016",
 						"data": [
 							{
 								"subHeading": "",
@@ -341,8 +341,7 @@ export class FormDataService {
 							{
 								"label": "Haven’t made a plan",
 								"value": "Haven’t made a plan",
-                                "name": "upgrade-onprem-radio",
-                                "uid": [1,2]
+                                "name": "upgrade-onprem-radio"
 							},
 							{
 								"label": "< 3 mo.",
