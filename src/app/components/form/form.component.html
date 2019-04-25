@@ -112,8 +112,7 @@
                                     </div>
                                     <div *ngFor="let eachOptionI of eachOption.value[0].options; let indi=index;">
                                         <div *ngIf="eachOption.value[0].value == eachOptionI.value">
-                                            <div class="pb-30"
-                                                *ngIf="eachOptionI.helpField || eachOptionI.addDetailsData">
+                                            <div class="pb-30">
                                                 <!-- <input disabled type="radio" class="form-radio" [name]="eachOptionI.name+indi" [id]="eachOptionI.name+indi" [value]="eachOptionI.value" [(ngModel)]="eachOption.value[0].value"> -->
                                                 <label [for]="eachOptionI.name+indi"
                                                     class="input-label-text radio-label-text pl-0 font-regular confirm-radio-text">{{eachOptionI.label}}</label>
