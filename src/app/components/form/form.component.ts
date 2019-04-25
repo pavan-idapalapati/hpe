@@ -185,16 +185,20 @@ export class FormComponent implements OnInit {
 
     openSideNav() {
         this.openSideNavFlag = true;
-        this.rightNavAccordion.nativeElement.classList
-            .remove('remove-right-nav-accordion-transition')
-        this.rightNavAccordion.nativeElement.classList
-            .add('right-nav-accordion-transition');
+        if(this.rightNavAccordion && this.rightNavAccordion.nativeElement) {
+            this.rightNavAccordion.nativeElement.classList
+                .remove('remove-right-nav-accordion-transition')
+            this.rightNavAccordion.nativeElement.classList
+                .add('right-nav-accordion-transition');
+        }
 
     }
     closeSideNav() {
         this.openSideNavFlag = false;
-        this.rightNavAccordion.nativeElement.classList.remove('right-nav-accordion-transition')
-        this.rightNavAccordion.nativeElement.classList.add('remove-right-nav-accordion-transition');
+        if(this.rightNavAccordion && this.rightNavAccordion.nativeElement) {
+            this.rightNavAccordion.nativeElement.classList.remove('right-nav-accordion-transition')
+            this.rightNavAccordion.nativeElement.classList.add('remove-right-nav-accordion-transition');
+        }
     }
 
     removeDetailsData(data, index) {
