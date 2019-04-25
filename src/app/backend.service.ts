@@ -63,16 +63,17 @@ export class BackendService {
         "form[client_email]": userformData[3].value,
         "form[ws_imp]": questionsData[0].formData[0].value,
         "form[ws_timetotalk]": questionsData[0].formData[0].options[1].helpField[0].value,
+        "form[ws_timetotalk_notes":  questionsData[0].formData[1].value,
         "form[ws_version_cb][0]": questionsData[1].formData[0].options[0].isSelected ? questionsData[1].formData[0].options[0].value: "",
         "form[ws_version_cb][1]": questionsData[1].formData[0].options[1].isSelected ? questionsData[1].formData[0].options[1].value: "",
-        "form[ws_version_note]": questionsData[1].formData[1].value,
+        "form[ws_version_cb_notes]": questionsData[1].formData[1].value,
         "form[number_of_servers]": questionsData[2].formData[0].value,
         "form[vendors_server_gen]": questionsData[2].formData[1].value,
-        "form[ws_server_note]": questionsData[2].formData[2].value,
+        "form[number_of_servers_notes]": questionsData[2].formData[2].value,
         "form[onprem_or_azure]": questionsData[3].formData[0].value,
-        "form[pnprem__or_azure_note]": questionsData[3].formData[1].value,
+        "form[onprem_or_azure_notes]": questionsData[3].formData[1].value,
         "form[onprem_plan]": questionsData[4].formData[0].value,
-        "form[onprem_plan_note]": questionsData[4].formData[1].value,
+        "form[onprem_plan_notes]": questionsData[4].formData[1].value,
 
         "form[budget_allocated]": questionsData[5].formData[0].value,
         "form[budget_allocated_amt]": questionsData[5].formData[0].helpField[0].value,
@@ -90,29 +91,29 @@ export class BackendService {
         "form[feedback_gen10_server_notes]": questionsData[7].formData[1].value,
         "form[send_resource]": questionsData[8].formData[0].value,
         "form[resource_to_send]": questionsData[8].formData[0].options[0].helpField[0].value,
-        "form[resource_notes]": questionsData[8].formData[1].value,
+        "form[budget_allocated_notes]": questionsData[8].formData[1].value,
         "form[next_steps]": questionsData[9].formData[0].value,
         "form[meet_with_specialist]": questionsData[10].formData[0].value,
         "form[specialist_meeting_datetime]": questionsData[10].formData[0].options[0].helpField[0].value,
         "form[specialist_meeting_resources]": questionsData[10].formData[0].options[1].helpField[0].value,
         "form[specialist_notes]": questionsData[10].formData[1].value,
 
-        // "form[other_stakeholders]": "",
-        // "form[other_stakeholders]": "",
-        // "form[other_stakeholders_details]": "",
-        // "form[other_questions]": "",
-        // "form[other_questions]": "",
-        // "form[optin][terms]": "",
-        // "form[optin][contactTypes][]": "",
-        // "form[optin][contactTypes][]": "",
-        // "form[optin][contactTypes][]": "",
-        // "form[optin][contactTypes][]": "",
-        // "form[submit]": "",
-        // "form[_trans]": "",
+        "form[other_stakeholders]":  questionsData[11].formData[0].value,
+        "form[other_stakeholders_notes]": questionsData[11].formData[1].value,
         "form[confirm_nextsteps_notes]": questionsData[12].formData[1].value,
         "form[other_questions]":  questionsData[13].formData[0].value,
         "form[other_questions_notes]": questionsData[13].formData[1].value
         }
+        let string;
+        questionsData[11].formData[0].options.addDetailsData.forEach(group => {
+            group.fields.forEach(field => {
+                string =`${string},${field.label}:${field.value}`
+            })
+            string+=";";
+        });
+        obj["form[other_stakeholders_details]"] = string;
+
+
         return obj;
     }
 }
