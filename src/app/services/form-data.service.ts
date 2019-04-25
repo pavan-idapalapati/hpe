@@ -733,7 +733,7 @@ export class FormDataService {
 							},
 							{
 								"label": "No",
-								"uid":"1",
+								"uid": 1,
 								"value": "No",
 								"name": "gen10-upgrade-radio",
                                 "hasHelpField": true,

@@ -63,16 +63,22 @@ export class FormComponent implements OnInit {
 
                         let radioCheckboxControl = this.currentFormData.formData.
                             find(formElement => {
-                                return ((formElement.type === 'radio' || formElement.type === "checkbox") &&
-                                    formElement.value)
+                                return (formElement.type === 'radio' || formElement.type === "checkbox")
                             });
 
                         if (
                             this.currentFormData.matadata &&
                             radioCheckboxControl
                         ) {
-                            let option = radioCheckboxControl.options.find(option => option.value === radioCheckboxControl.value)
-                            this.rightAccordion.openAccordion(option);
+                            let option;
+                            if (radioCheckboxControl.type === "radio" && radioCheckboxControl.value) {
+                                option = radioCheckboxControl.options.find(option => option.value === radioCheckboxControl.value)
+                            } else {
+                                option = radioCheckboxControl.options.find(o => o.isSelected);
+                            }
+                            if(option) {
+                                this.rightAccordion.openAccordion(option);
+                            }
                         }
 
 
