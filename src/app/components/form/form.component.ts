@@ -78,12 +78,12 @@ export class FormComponent implements OnInit {
                         if (element.mapTo) {
                             let question = formData.data.data[element.mapTo.question];
                             let data = question.formData[0];
-                            if (data.type === 'checkbox') {
-                                let selectedOption = data.options.find((option) => {
+                            if(data.type === 'checkbox') {
+                                let selectedOptions = data.options.filter((option) => {
                                     return option.isSelected;
                                 });
-                                if (selectedOption) {
-                                    element.uid = element.mapTo.value[selectedOption.value]
+                                if(selectedOptions.length) {
+                                    element.uid = selectedOptions.map((selectedOption) => element.mapTo.value[selectedOption.value]);
                                 }
                             }
                         }
