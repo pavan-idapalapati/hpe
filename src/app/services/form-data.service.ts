@@ -137,7 +137,7 @@ export class FormDataService {
 				]
 			},
 			{
-				"question": "Are you planning to upgrade to WS-2016 on-prem or to migrate to Azure?",
+				"question": "Are you planning to upgrade to WS 2016 on-prem or to migrate to Azure?",
 				"stepName": "Questions",
 				"pageView":"/5-planning-to-upgrade-onprem-or-azure",
 				"isViewed": false,
