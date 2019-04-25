@@ -76,7 +76,7 @@ export class BackendService {
         "form[onprem_plan_notes]": questionsData[4].formData[1].value,
 
         "form[budget_allocated]": questionsData[5].formData[0].value,
-        "form[budget_allocated_amt]": questionsData[5].formData[0].helpField[0].value,
+        "form[budget_allocated_amt]": questionsData[5].formData[0].options[0].helpField[0].value,
         "form[budget_note]": questionsData[5].formData[1].value,
         "form[infra_req][0]": questionsData[6].formData[0].options[0].isSelected ? questionsData[6].formData[0].options[0].value : "",
         "form[infra_req][1]":  questionsData[6].formData[0].options[1].isSelected ? questionsData[6].formData[1].options[0].value : "",
@@ -105,7 +105,7 @@ export class BackendService {
         "form[other_questions_notes]": questionsData[13].formData[1].value
         }
         let string;
-        questionsData[11].formData[0].options.addDetailsData.forEach(group => {
+        questionsData[11].formData[0].options[0].addDetailsData.forEach(group => {
             group.fields.forEach(field => {
                 string =`${string},${field.label}:${field.value}`
             })
