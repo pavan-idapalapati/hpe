@@ -694,9 +694,8 @@ export class FormDataService {
 				"formData": [
 					{
 						"type": "textArea",
-						"label": "Notes (optional): ",
+						"label": "",
                         "value": "",
-                        "isNotes": true,
 						"name": "optional-notes"
 					}
 				]
