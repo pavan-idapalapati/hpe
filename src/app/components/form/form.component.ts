@@ -21,7 +21,7 @@ export class FormComponent implements OnInit, OnDestroy {
     routeChangeSubscription:Subscription;
     getquestionjumpSubscription: Subscription;
     finishAccordionSubscription: Subscription;
-    conclusionPreviousbuttonSubscription: Subscription;
+    // conclusionPreviousbuttonSubscription: Subscription;
 
     constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
     }
@@ -39,16 +39,16 @@ export class FormComponent implements OnInit, OnDestroy {
             
         })
         var formData = this.formData.getFormData();
-        this.conclusionPreviousbuttonSubscription =this.formData.conclusionPreviousButton.subscribe(data => {
-            let submittedData = this.utils.getItemFromLocalStorage("submittedFormData", true);
-            if(formData.currentPage == 0 && submittedData.data[0].formData[0].value == "no" ) {
-                this.showFinishButton = true;
-               this.finishButton = true;
-            } else {
-                this.finishButton = false;
-            }
+        // let submittedData = this.utils.getItemFromLocalStorage("submittedFormData", true);
+        // this.conclusionPreviousbuttonSubscription =this.formData.conclusionPreviousButton.subscribe(data => {
+        //     if(formData.currentPage == 0 && submittedData.data[0].formData[0].value == "no" ) {
+        //         this.showFinishButton = true;
+        //        this.finishButton = true;
+        //     } else {
+        //         this.finishButton = false;
+        //     }
             
-        });
+        // });
         if (!formData || !formData.currentPage || !formData.data) {
             this.formData.setInitialDataToLocalStorage();
         }
@@ -64,12 +64,18 @@ export class FormComponent implements OnInit, OnDestroy {
         if(this.finishAccordionSubscription) {
             this.finishAccordionSubscription.unsubscribe();
         }
-        if(this.conclusionPreviousbuttonSubscription) {
-            this.conclusionPreviousbuttonSubscription.unsubscribe();
-        }
+        // if(this.conclusionPreviousbuttonSubscription) {
+        //     this.conclusionPreviousbuttonSubscription.unsubscribe();
+        // }
     }
 
     init() {
+        var formData = this.formData.getFormData();
+        let submittedData = this.utils.getItemFromLocalStorage("submittedFormData", true);
+        if(formData.currentPage == 0 && submittedData.data[0].formData[0].value == "no" ) {
+            this.showFinishButton = true;
+           this.finishButton = true;
+        } 
         if(!this.showFinishButton) {
             this.finishButton = false;
         }
