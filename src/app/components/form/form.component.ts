@@ -40,8 +40,8 @@ export class FormComponent implements OnInit {
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();
         if (formData.currentPage < formData.data.data.length) {
-            this.router.navigate(['/questionaire']);
             this.generateTemplate(formData);
+            this.router.navigate(['/questionaire']);
         } else {
             this.router.navigate(['/conclusion']);
         }
