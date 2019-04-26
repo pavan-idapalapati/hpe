@@ -943,6 +943,7 @@ export class FormDataService {
     questionJump = new Subject<any>();
     // conclusionPreviousButton = new ReplaySubject<any>(1);
     finishAccordionTab = new Subject<any>();
+    closeAccordionSubject = new Subject<any>();
 
 	getROuteChangeSubject() {
 		return this.routeChange;
@@ -966,6 +967,10 @@ export class FormDataService {
     // previousButton() {
     //     this.conclusionPreviousButton.next(true);
     // }
+
+    closeAccordion() {
+        this.closeAccordionSubject.next(true);
+    }
 
     finishAccordionSubscription() {
         this.finishAccordionTab.next(true);

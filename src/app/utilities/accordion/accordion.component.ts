@@ -21,6 +21,14 @@ export class AccordionComponent implements OnInit, AfterViewInit {
         this.formData.getQuestionChangeSubject().subscribe((data) => {
             this.init();
         })
+        this.formData.closeAccordionSubject.subscribe(data => {
+            if(this.accordion) {
+                this.formData.openAccordionIndex = undefined;
+                this.accordion.activeIndex = undefined;
+                this.kickoffQuestions.selected = false;
+                this.nextsteps.selected = false;
+            }
+        })
     }
 
     ngOnInit() {
@@ -98,7 +106,6 @@ export class AccordionComponent implements OnInit, AfterViewInit {
     }
 
     gotFinish() {
-        this.formData.finishAccordionSubscription();
         this.formData.openAccordionIndex = undefined;
         this.kickoffQuestions.selected = false;
         this.nextsteps.selected = false;

@@ -290,6 +290,7 @@ export class FormComponent implements OnInit, OnDestroy {
     }
 
     finishQuestionaire() {
+        this.formData.closeAccordion();
         this.answerQuestion();
         this.router.navigate(['/conclusion']);
     }
