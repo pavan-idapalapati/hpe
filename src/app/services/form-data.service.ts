@@ -941,7 +941,7 @@ export class FormDataService {
 	routeChange = new Subject<boolean>();
 	questionChange = new Subject<boolean>();
     questionJump = new Subject<any>();
-    conclusionPreviousButton = new Subject<any>();
+    conclusionPreviousButton = new ReplaySubject<any>(1);
     finishAccordionTab = new Subject<any>();
 
 	getROuteChangeSubject() {

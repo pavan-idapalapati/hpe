@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class FormComponent implements OnInit, OnDestroy {
     openSideNavFlag;
     finishButton = false;
+    showFinishButton;
     @ViewChild('rightNavAccordion') rightNavAccordion: any;
     @ViewChild('rightAccordion') rightAccordion: any;
     currentFormData: any;
@@ -19,7 +20,8 @@ export class FormComponent implements OnInit, OnDestroy {
     metaData: any;
     routeChangeSubscription:Subscription;
     getquestionjumpSubscription: Subscription;
-    finishAccordionSubscription: Subscription
+    finishAccordionSubscription: Subscription;
+    conclusionPreviousbuttonSubscription: Subscription;
 
     constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
     }
@@ -31,15 +33,16 @@ export class FormComponent implements OnInit, OnDestroy {
         this.getquestionjumpSubscription  =this.formData.getQuestionJumpSubject().subscribe((data) => {
             this.moveToParticularQuestion(data);
         });
-
+        
         this.finishAccordionSubscription =this.formData.finishAccordionTab.subscribe(data => {
             this.answerQuestion();
-
+            
         })
         var formData = this.formData.getFormData();
-        this.formData.conclusionPreviousButton.subscribe(data => {
+        this.conclusionPreviousbuttonSubscription =this.formData.conclusionPreviousButton.subscribe(data => {
             let submittedData = this.utils.getItemFromLocalStorage("submittedFormData", true);
-            if(formData.currentPage == 0 && submittedData.data[0].formData[0].valuue == "no" ) {
+            if(formData.currentPage == 0 && submittedData.data[0].formData[0].value == "no" ) {
+                this.showFinishButton = true;
                this.finishButton = true;
             } else {
                 this.finishButton = false;
@@ -61,10 +64,16 @@ export class FormComponent implements OnInit, OnDestroy {
         if(this.finishAccordionSubscription) {
             this.finishAccordionSubscription.unsubscribe();
         }
+        if(this.conclusionPreviousbuttonSubscription) {
+            this.conclusionPreviousbuttonSubscription.unsubscribe();
+        }
     }
 
     init() {
-        this.finishButton = false;
+        if(!this.showFinishButton) {
+            this.finishButton = false;
+        }
+        this.showFinishButton = false;
         this.utils.scrolltoTop();
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();
