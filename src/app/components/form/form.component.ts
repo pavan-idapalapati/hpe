@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { UtilService } from '../../services/util.service';
 import { FormDataService } from '../../services/form-data.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-form',
     templateUrl: './form.component.html',
     styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnDestroy {
     openSideNavFlag;
     finishButton = false;
     @ViewChild('rightNavAccordion') rightNavAccordion: any;
@@ -16,22 +17,32 @@ export class FormComponent implements OnInit {
     currentFormData: any;
     currentPage: any;
     metaData: any;
+    routeChangeSubscription:Subscription;
+    getquestionjumpSubscription: Subscription;
 
     constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
-        this.formData.getROuteChangeSubject().subscribe((data) => {
+    }
+    
+    ngOnInit() {
+        this.routeChangeSubscription=this.formData.getROuteChangeSubject().subscribe((data) => {
             this.ngOnInit();
         });
-        this.formData.getQuestionJumpSubject().subscribe((data) => {
+        this.getquestionjumpSubscription  =this.formData.getQuestionJumpSubject().subscribe((data) => {
             this.moveToParticularQuestion(data);
         });
-    }
-
-    ngOnInit() {
         var formData = this.formData.getFormData();
         if (!formData || !formData.currentPage || !formData.data) {
             this.formData.setInitialDataToLocalStorage();
         }
         this.init();
+    }
+    ngOnDestroy() {
+        if(this.routeChangeSubscription) {
+            this.routeChangeSubscription.unsubscribe();
+        }
+        if(this.getquestionjumpSubscription) {
+            this.getquestionjumpSubscription.unsubscribe();
+        }
     }
 
     init() {
@@ -40,8 +51,8 @@ export class FormComponent implements OnInit {
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();
         if (formData.currentPage < formData.data.data.length) {
+            // this.router.navigate(['/questionaire']);
             this.generateTemplate(formData);
-            this.router.navigate(['/questionaire']);
         } else {
             this.router.navigate(['/conclusion']);
         }

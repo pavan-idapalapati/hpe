@@ -123,6 +123,7 @@ export class LandingComponent implements OnInit {
         if (valid) {
             this.formData.showSuccessMessage = false;
             this.createNewSession();
+            this.formData.moveToParticularQuestion(0)
             this.utils.setItemInLocalStorage("userInfo", this.userInfoForm, true);
             this.router.navigate(['/questionaire']);
 

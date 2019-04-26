@@ -88,11 +88,13 @@ export class AccordionComponent implements OnInit, AfterViewInit {
     }
 
     takeQuestion(question) {
-        // if(question.id != 14 && this.router.url === 'conclusion') {
-        //     this.formData.moveToParticularQuestion(question.id);
-        //     this.router.navigate(['/questionaire']);
-        // } else 
-        this.formData.triggerQuestionJumpSubject(question.id);
+        if(question.id != 14 && this.router.url === '/conclusion') {
+            this.formData.moveToParticularQuestion(question.id);
+            this.router.navigate(['/questionaire']);
+        } else {
+
+            this.formData.triggerQuestionJumpSubject(question.id);
+        }
     }
 
     gotFinish() {
