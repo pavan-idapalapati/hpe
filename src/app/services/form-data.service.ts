@@ -1000,8 +1000,10 @@ export class FormDataService {
 	}
 
 	moveToPreviousQuestion() {
-		let currentPage = this.utils.getItemFromLocalStorage("currentPage", false);
-		this.utils.setItemInLocalStorage("currentPage", Number(currentPage) - 1, false);
+        let currentPage = this.utils.getItemFromLocalStorage("currentPage", false);
+        if(currentPage != 0) {
+            this.utils.setItemInLocalStorage("currentPage", Number(currentPage) - 1, false);
+        }
 	}
 
 	moveToParticularQuestion(questionId) {

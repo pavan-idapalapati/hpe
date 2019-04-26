@@ -257,9 +257,7 @@ export class FormComponent implements OnInit, OnDestroy {
     }
 
     finishQuestionaire() {
-        // this.formData.resetWholeFormData();
-        // this.utils.clearCookies();
-        // this.router.navigate(['/'], { queryParams: { "new": true } });
+        this.answerQuestion();
         this.router.navigate(['/conclusion']);
     }
 
