@@ -143,15 +143,14 @@ export class FormComponent implements OnInit {
             return;
         }
         this.answerQuestion();
-        this.formData.moveToPreviousQuestion();
+        this.checkForSkip("prev");
         this.init();
         this.rightAccordion.openAccordion({});
-
     }
 
     nextQuestion() {
         this.answerQuestion();
-        this.formData.moveToNextQuestion();
+        this.checkForSkip("next");
         this.init();
         this.rightAccordion.openAccordion({});
     }
@@ -161,6 +160,25 @@ export class FormComponent implements OnInit {
         this.formData.moveToParticularQuestion(questionId);
         this.init();
         this.rightAccordion.openAccordion({});
+    }
+
+    // TODO: Change this hardcoded data to dynamic one.
+    checkForSkip(direction?) {
+        if(direction == "next") {
+            if(this.currentFormData.id == 10 && this.currentFormData.formData[0].value == "no") {
+                this.formData.moveToParticularQuestion(12);
+            } else {
+                this.formData.moveToNextQuestion();
+            }
+        } else if(direction == "prev") {
+            let formData = this.formData.getFormData();
+            let enteredData = formData.data.data[10];
+            if(this.currentFormData.id == 12 && enteredData.formData[0].value == "no") {
+                this.formData.moveToParticularQuestion(10);
+            } else {
+                this.formData.moveToPreviousQuestion();
+            }
+        }
     }
 
     answerQuestion() {
