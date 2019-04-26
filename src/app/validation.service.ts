@@ -8,9 +8,9 @@ export class ValidationService {
     constructor() { }
 
     public validateFormControl(formContol) {
- 
+
         formContol.validators.forEach(validator => {
-            if(this[validator](formContol.value)) {
+            if (this[validator](formContol.value)) {
                 formContol.valid = true;
             } else {
                 formContol.valid = false;

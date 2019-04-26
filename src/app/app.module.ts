@@ -44,8 +44,7 @@ const appRoutes: Routes = [
     HttpModule,
      FormsModule,
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }
+      appRoutes
     )
   ],
   providers: [BackendService, ValidationService],
