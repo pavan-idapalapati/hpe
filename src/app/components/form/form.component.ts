@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UtilService } from '../../services/util.service';
 import { FormDataService } from '../../services/form-data.service';
 import { Router } from '@angular/router';
-import { unescapeIdentifier } from '@angular/compiler';
-import { shouldCallLifecycleInitHook } from '@angular/core/src/view';
 
 @Component({
     selector: 'app-form',
@@ -42,6 +40,7 @@ export class FormComponent implements OnInit {
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();
         if (formData.currentPage < formData.data.data.length) {
+            this.router.navigate(['/questionaire']);
             this.generateTemplate(formData);
         } else {
             this.router.navigate(['/conclusion']);
@@ -160,7 +159,7 @@ export class FormComponent implements OnInit {
         this.answerQuestion();
         this.formData.moveToParticularQuestion(questionId);
         this.init();
-        this.rightAccordion.openAccordion({});
+        this.rightAccordion && this.rightAccordion.openAccordion({});
     }
 
     answerQuestion() {

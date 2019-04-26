@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormDataService } from 'src/app/services/form-data.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-accordion',
@@ -15,7 +15,9 @@ export class AccordionComponent implements OnInit, AfterViewInit {
     @ViewChild('nextsteps') nextsteps: any;
     @ViewChild('accordion') accordion: any;
 
-    constructor(public formData: FormDataService, private router: Router) {
+    constructor(public formData: FormDataService,
+         private router: Router,
+         private route: ActivatedRoute) {
         this.formData.getQuestionChangeSubject().subscribe((data) => {
             this.init();
         })
@@ -86,6 +88,10 @@ export class AccordionComponent implements OnInit, AfterViewInit {
     }
 
     takeQuestion(question) {
+        // if(question.id != 14 && this.router.url === 'conclusion') {
+        //     this.formData.moveToParticularQuestion(question.id);
+        //     this.router.navigate(['/questionaire']);
+        // } else 
         this.formData.triggerQuestionJumpSubject(question.id);
     }
 

@@ -1014,19 +1014,21 @@ export class FormDataService {
 	}
 
 	setIsAnswered(data) {
-        let isAnswered = data.formData.every((eachData) => {
-            if (eachData.isNotes || eachData.isConfirmStep) {
-                return true;
-            }
-            if (eachData.type === 'text' || eachData.type === 'textArea') {
-                return eachData.value.length;
-            } else if (eachData.type === 'radio') {
-                return eachData.value;
-            } else if (eachData.type === 'checkbox') {
-                return (eachData.options.some((eachData) => eachData.isSelected));
-            }
-        });
-        data.isAnswered = isAnswered;
+        if(data) {
+            let isAnswered = data.formData.every((eachData) => {
+                if (eachData.isNotes || eachData.isConfirmStep) {
+                    return true;
+                }
+                if (eachData.type === 'text' || eachData.type === 'textArea') {
+                    return eachData.value.length;
+                } else if (eachData.type === 'radio') {
+                    return eachData.value;
+                } else if (eachData.type === 'checkbox') {
+                    return (eachData.options.some((eachData) => eachData.isSelected));
+                }
+            });
+            data.isAnswered = isAnswered;
+        }
     }
 
 	massageFormData(formData) {
