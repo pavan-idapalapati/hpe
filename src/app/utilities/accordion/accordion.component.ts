@@ -98,6 +98,7 @@ export class AccordionComponent implements OnInit, AfterViewInit {
     }
 
     gotFinish() {
+        this.formData.finishAccordionSubscription();
         this.formData.openAccordionIndex = undefined;
         this.kickoffQuestions.selected = false;
         this.nextsteps.selected = false;

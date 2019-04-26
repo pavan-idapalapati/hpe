@@ -19,6 +19,7 @@ export class FormComponent implements OnInit, OnDestroy {
     metaData: any;
     routeChangeSubscription:Subscription;
     getquestionjumpSubscription: Subscription;
+    finishAccordionSubscription: Subscription
 
     constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
     }
@@ -30,7 +31,21 @@ export class FormComponent implements OnInit, OnDestroy {
         this.getquestionjumpSubscription  =this.formData.getQuestionJumpSubject().subscribe((data) => {
             this.moveToParticularQuestion(data);
         });
+
+        this.finishAccordionSubscription =this.formData.finishAccordionTab.subscribe(data => {
+            this.answerQuestion();
+
+        })
         var formData = this.formData.getFormData();
+        this.formData.conclusionPreviousButton.subscribe(data => {
+            let submittedData = this.utils.getItemFromLocalStorage("submittedFormData", true);
+            if(formData.currentPage == 0 && submittedData.data[0].formData[0].valuue == "no" ) {
+               this.finishButton = true;
+            } else {
+                this.finishButton = false;
+            }
+            
+        });
         if (!formData || !formData.currentPage || !formData.data) {
             this.formData.setInitialDataToLocalStorage();
         }
@@ -42,6 +57,9 @@ export class FormComponent implements OnInit, OnDestroy {
         }
         if(this.getquestionjumpSubscription) {
             this.getquestionjumpSubscription.unsubscribe();
+        }
+        if(this.finishAccordionSubscription) {
+            this.finishAccordionSubscription.unsubscribe();
         }
     }
 
@@ -260,6 +278,4 @@ export class FormComponent implements OnInit, OnDestroy {
         this.answerQuestion();
         this.router.navigate(['/conclusion']);
     }
-
-
 }
