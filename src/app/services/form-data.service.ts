@@ -805,11 +805,6 @@ export class FormDataService {
                                 "name": "ws-migration-strategy-radio",
                             },
 							{
-								"label": "Not applicable",
-								"value": "Not applicable",
-								"name": "ws-migration-strategy-radio"
-							},
-							{
 								"label": "Yes",
 								"value": "yes",
                                 "hasHelpField": true,
