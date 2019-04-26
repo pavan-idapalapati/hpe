@@ -122,7 +122,7 @@ export class ConclusionComponent implements OnInit {
         "form[other_questions_notes]": questionsData[13].formData[1].value
         }
         let string;
-        questionsData[11].formData[0].options[1].addDetailsData.forEach(group => {
+        questionsData[11].formData[0].options[0].addDetailsData.forEach(group => {
             group.fields.forEach(field => {
                 string =`${string},${field.label}:${field.value}`
             })

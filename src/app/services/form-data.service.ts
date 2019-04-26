@@ -798,11 +798,6 @@ export class FormDataService {
 						"name": "ws-migration-strategy-radio",
 						"id": "radio1",
 						"options": [
-                            {
-								"label": "Not Applicable",
-								"value": "not applicable",
-                                "name": "ws-migration-strategy-radio",
-                            },
 							{
 								"label": "Yes",
 								"value": "yes",
