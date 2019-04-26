@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormDataService } from 'src/app/services/form-data.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-accordion',
@@ -8,29 +8,30 @@ import { Router } from '@angular/router';
     styleUrls: ['./accordion.component.scss']
 })
 export class AccordionComponent implements OnInit, AfterViewInit {
-    // openAccordionIndex;
     questionnaireData = [];
     currentPage: any;
-    index = undefined;
     massagesQuestionnaireData: any;
     @ViewChild('kickoffQuestions') kickoffQuestions: any;
     @ViewChild('nextsteps') nextsteps: any;
     @ViewChild('accordion') accordion: any;
 
-    constructor(public formData: FormDataService, private router: Router) {
+    constructor(public formData: FormDataService,
+         private router: Router,
+         private route: ActivatedRoute) {
         this.formData.getQuestionChangeSubject().subscribe((data) => {
-            this.onInitOfComponent();
+            this.init();
         })
     }
 
     ngOnInit() {
-        this.onInitOfComponent();
+        this.init();
     }
+
     ngAfterViewInit() {
         this.openAccordion();
     }
 
-    onInitOfComponent() {
+    init() {
         let questionnaireData = this.formData.getFormData();
         if (questionnaireData && questionnaireData.data && questionnaireData.currentPage) {
             this.questionnaireData = questionnaireData.data.data;
@@ -58,10 +59,8 @@ export class AccordionComponent implements OnInit, AfterViewInit {
             }
         });
         this.openAccordion();
-
-
-
     }
+
     openAccordion() {
         // open left side accordion based on navigation   
         if (this.accordion) {
@@ -81,26 +80,23 @@ export class AccordionComponent implements OnInit, AfterViewInit {
     }
 
     onTabOpen(event) {
-        // this.cache = true;
         this.formData.openAccordionIndex = event.index;
     }
+
     onTabClose(event) {
-        // this.cache  =true;
         this.formData.openAccordionIndex = undefined;
     }
 
     takeQuestion(question) {
-        this.formData.moveToParticularQuestion(question.id);
-        if (this.router.url.indexOf("questionaire") >= 0) {
-            this.formData.triggerRouteChangeSubject();
-        } else {
-            this.router.navigate(["/questionaire"]);
-        }
+        // if(question.id != 14 && this.router.url === 'conclusion') {
+        //     this.formData.moveToParticularQuestion(question.id);
+        //     this.router.navigate(['/questionaire']);
+        // } else 
+        this.formData.triggerQuestionJumpSubject(question.id);
     }
 
     gotFinish() {
         this.formData.openAccordionIndex = undefined;
-        this.index = undefined;
         this.kickoffQuestions.selected = false;
         this.nextsteps.selected = false;
         this.router.navigate(["/conclusion"]);

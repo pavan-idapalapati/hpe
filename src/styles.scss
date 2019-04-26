@@ -145,6 +145,7 @@ body {
     color: #000000;
     font-family: "MetricHPE";
     font-size: 16px;
+    background-color: #614767;
 
 }
 body, app-root {
@@ -152,11 +153,6 @@ body, app-root {
     flex-direction: column;
     flex:auto;
     overflow: auto;
-}
-main {
-    display: flex;
-    flex-direction: column;
-    flex:auto;
 }
 .ui-accordion-content-wrapper-overflown {
     overflow: hidden;
@@ -199,7 +195,7 @@ input, textarea {
 
 
 .main-section {
-    background: #614767;
+    // background: #3c1454;
     // height: 100%;
     // max-width: 1366px;
     // margin: 0 auto;
@@ -687,7 +683,7 @@ input, textarea{
 
 .return-question-text{
   color:#191919;
-  max-width: 72;
+  max-width: 72%;
 }
 
 .stake-holder-section{
@@ -709,7 +705,6 @@ input, textarea{
 }
 app-form, app-conclusion {
     width: 100%;
-    background: #614767;
 }
 app-right-accordian {
     display: block;

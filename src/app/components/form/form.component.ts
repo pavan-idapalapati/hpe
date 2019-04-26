@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UtilService } from '../../services/util.service';
 import { FormDataService } from '../../services/form-data.service';
 import { Router } from '@angular/router';
-import { unescapeIdentifier } from '@angular/compiler';
-import { shouldCallLifecycleInitHook } from '@angular/core/src/view';
 
 @Component({
     selector: 'app-form',
@@ -22,7 +20,9 @@ export class FormComponent implements OnInit {
     constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
         this.formData.getROuteChangeSubject().subscribe((data) => {
             this.ngOnInit();
-            this.utils.scrolltoTop();
+        });
+        this.formData.getQuestionJumpSubject().subscribe((data) => {
+            this.moveToParticularQuestion(data);
         });
     }
 
@@ -40,6 +40,7 @@ export class FormComponent implements OnInit {
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();
         if (formData.currentPage < formData.data.data.length) {
+            this.router.navigate(['/questionaire']);
             this.generateTemplate(formData);
         } else {
             this.router.navigate(['/conclusion']);
@@ -140,38 +141,48 @@ export class FormComponent implements OnInit {
         if (currentPage <= 0) {
             return;
         }
-        this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
-        this.formData.setFormData(this.currentFormData, this.currentPage);
-        this.formData.moveToPreviousQuestion();
+        this.answerQuestion();
+        this.checkForSkip("prev");
         this.init();
-        this.utils.scrolltoTop();
         this.rightAccordion.openAccordion({});
-
     }
 
     nextQuestion() {
-        this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
-        this.formData.setFormData(this.currentFormData, this.currentPage);
-        this.formData.moveToNextQuestion();
+        this.answerQuestion();
+        this.checkForSkip("next");
         this.init();
-        this.utils.scrolltoTop();
         this.rightAccordion.openAccordion({});
-
     }
 
-    setIsAnswered(data) {
-        return data.formData.every((eachData) => {
-            if (eachData.isNotes || eachData.isConfirmStep) {
-                return true;
+    moveToParticularQuestion(questionId) {
+        this.answerQuestion();
+        this.formData.moveToParticularQuestion(questionId);
+        this.init();
+        this.rightAccordion && this.rightAccordion.openAccordion({});
+    }
+
+    // TODO: Change this hardcoded data to dynamic one.
+    checkForSkip(direction?) {
+        if(direction == "next") {
+            if(this.currentFormData.id == 10 && this.currentFormData.formData[0].value == "no") {
+                this.formData.moveToParticularQuestion(12);
+            } else {
+                this.formData.moveToNextQuestion();
             }
-            if (eachData.type === 'text' || eachData.type === 'textArea') {
-                return eachData.value.length;
-            } else if (eachData.type === 'radio') {
-                return eachData.value;
-            } else if (eachData.type === 'checkbox') {
-                return (eachData.options.some((eachData) => eachData.isSelected));
+        } else if(direction == "prev") {
+            let formData = this.formData.getFormData();
+            let enteredData = formData.data.data[10];
+            if(this.currentFormData.id == 12 && enteredData.formData[0].value == "no") {
+                this.formData.moveToParticularQuestion(10);
+            } else {
+                this.formData.moveToPreviousQuestion();
             }
-        })
+        }
+    }
+
+    answerQuestion() {
+        this.formData.setIsAnswered(this.currentFormData);
+        this.formData.setFormData(this.currentFormData, this.currentPage);
     }
 
     addNewDetails(eachFormElem, index) {
@@ -235,9 +246,10 @@ export class FormComponent implements OnInit {
     }
 
     finishQuestionaire() {
-        this.formData.resetWholeFormData();
-        this.utils.clearCookies();
-        this.router.navigate(['/'], { queryParams: { "new": true } });
+        // this.formData.resetWholeFormData();
+        // this.utils.clearCookies();
+        // this.router.navigate(['/'], { queryParams: { "new": true } });
+        this.router.navigate(['/conclusion']);
     }
 
 

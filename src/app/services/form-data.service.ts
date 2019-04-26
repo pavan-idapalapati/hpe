@@ -694,9 +694,8 @@ export class FormDataService {
 				"formData": [
 					{
 						"type": "textArea",
-						"label": "Notes (optional): ",
+						"label": "",
                         "value": "",
-                        "isNotes": true,
 						"name": "optional-notes"
 					}
 				]
@@ -946,6 +945,7 @@ export class FormDataService {
 
 	routeChange = new ReplaySubject<boolean>(1);
 	questionChange = new ReplaySubject<boolean>(1);
+	questionJump = new ReplaySubject<any>(1);
 
 	getROuteChangeSubject() {
 		return this.routeChange;
@@ -961,6 +961,14 @@ export class FormDataService {
 
 	triggerQuestionChangeSubject() {
 		this.questionChange.next(true);
+	}
+
+	getQuestionJumpSubject() {
+		return this.questionJump;
+	}
+
+	triggerQuestionJumpSubject(questionId) {
+		this.questionJump.next(questionId);
 	}
 
 	getWholeFormData() {
@@ -1004,6 +1012,24 @@ export class FormDataService {
 	moveToParticularQuestion(questionId) {
 		this.utils.setItemInLocalStorage("currentPage", Number(questionId), false);
 	}
+
+	setIsAnswered(data) {
+        if(data) {
+            let isAnswered = data.formData.every((eachData) => {
+                if (eachData.isNotes || eachData.isConfirmStep) {
+                    return true;
+                }
+                if (eachData.type === 'text' || eachData.type === 'textArea') {
+                    return eachData.value.length;
+                } else if (eachData.type === 'radio') {
+                    return eachData.value;
+                } else if (eachData.type === 'checkbox') {
+                    return (eachData.options.some((eachData) => eachData.isSelected));
+                }
+            });
+            data.isAnswered = isAnswered;
+        }
+    }
 
 	massageFormData(formData) {
 		try {
