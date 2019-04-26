@@ -946,6 +946,7 @@ export class FormDataService {
 
 	routeChange = new ReplaySubject<boolean>(1);
 	questionChange = new ReplaySubject<boolean>(1);
+	questionJump = new ReplaySubject<any>(1);
 
 	getROuteChangeSubject() {
 		return this.routeChange;
@@ -961,6 +962,14 @@ export class FormDataService {
 
 	triggerQuestionChangeSubject() {
 		this.questionChange.next(true);
+	}
+
+	getQuestionJumpSubject() {
+		return this.questionJump;
+	}
+
+	triggerQuestionJumpSubject(questionId) {
+		this.questionJump.next(questionId);
 	}
 
 	getWholeFormData() {

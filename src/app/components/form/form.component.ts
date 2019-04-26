@@ -22,7 +22,9 @@ export class FormComponent implements OnInit {
     constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
         this.formData.getROuteChangeSubject().subscribe((data) => {
             this.ngOnInit();
-            this.utils.scrolltoTop();
+        });
+        this.formData.getQuestionJumpSubject().subscribe((data) => {
+            this.moveToParticularQuestion(data);
         });
     }
 
@@ -143,7 +145,6 @@ export class FormComponent implements OnInit {
         this.answerQuestion();
         this.formData.moveToPreviousQuestion();
         this.init();
-        this.utils.scrolltoTop();
         this.rightAccordion.openAccordion({});
 
     }
@@ -152,9 +153,14 @@ export class FormComponent implements OnInit {
         this.answerQuestion();
         this.formData.moveToNextQuestion();
         this.init();
-        this.utils.scrolltoTop();
         this.rightAccordion.openAccordion({});
+    }
 
+    moveToParticularQuestion(questionId) {
+        this.answerQuestion();
+        this.formData.moveToParticularQuestion(questionId);
+        this.init();
+        this.rightAccordion.openAccordion({});
     }
 
     answerQuestion() {
