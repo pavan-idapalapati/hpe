@@ -47,12 +47,17 @@ export class ConclusionComponent implements OnInit {
             data: payload,
             url: "https://4d5cy2i133.execute-api.us-west-2.amazonaws.com/prod/convertr_request"
         }).subscribe(res => {
-            //google analytics submit event
-            this.utils.sendEvent('Click', '{Account Manager}-form-submit', 'Submit Event');
-            this.formData.showSuccessMessage = true;
-            this.formData.resetWholeFormData();
-            this.utils.clearCookies();
-            this.router.navigate(['/'], { queryParams: { "new": true }});
+            res = JSON.parse(res);
+            if(res.status && res.status == 400) {
+                this.showErrorPopup = true;
+            } else {
+                //google analytics submit event
+                this.utils.sendEvent('Click', '{Account Manager}-form-submit', 'Submit Event');
+                this.formData.showSuccessMessage = true;
+                this.formData.resetWholeFormData();
+                this.utils.clearCookies();
+                this.router.navigate(['/'], { queryParams: { "new": true }});
+            }
             
         }, e => {
             // this.formData.showSuccessMessage = true;
