@@ -140,8 +140,7 @@ export class FormComponent implements OnInit {
         if (currentPage <= 0) {
             return;
         }
-        this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
-        this.formData.setFormData(this.currentFormData, this.currentPage);
+        this.answerQuestion();
         this.formData.moveToPreviousQuestion();
         this.init();
         this.utils.scrolltoTop();
@@ -150,8 +149,7 @@ export class FormComponent implements OnInit {
     }
 
     nextQuestion() {
-        this.currentFormData.isAnswered = this.setIsAnswered(this.currentFormData);
-        this.formData.setFormData(this.currentFormData, this.currentPage);
+        this.answerQuestion();
         this.formData.moveToNextQuestion();
         this.init();
         this.utils.scrolltoTop();
@@ -159,19 +157,9 @@ export class FormComponent implements OnInit {
 
     }
 
-    setIsAnswered(data) {
-        return data.formData.every((eachData) => {
-            if (eachData.isNotes || eachData.isConfirmStep) {
-                return true;
-            }
-            if (eachData.type === 'text' || eachData.type === 'textArea') {
-                return eachData.value.length;
-            } else if (eachData.type === 'radio') {
-                return eachData.value;
-            } else if (eachData.type === 'checkbox') {
-                return (eachData.options.some((eachData) => eachData.isSelected));
-            }
-        })
+    answerQuestion() {
+        this.formData.setIsAnswered(this.currentFormData);
+        this.formData.setFormData(this.currentFormData, this.currentPage);
     }
 
     addNewDetails(eachFormElem, index) {
@@ -235,9 +223,10 @@ export class FormComponent implements OnInit {
     }
 
     finishQuestionaire() {
-        this.formData.resetWholeFormData();
-        this.utils.clearCookies();
-        this.router.navigate(['/'], { queryParams: { "new": true } });
+        // this.formData.resetWholeFormData();
+        // this.utils.clearCookies();
+        // this.router.navigate(['/'], { queryParams: { "new": true } });
+        this.router.navigate(['/conclusion']);
     }
 
 
