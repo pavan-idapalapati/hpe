@@ -42,6 +42,8 @@ export class ConclusionComponent implements OnInit {
         let data = this.formData.massageFormData(this.formData.getFormData());
         let payload = this.convertoPaload(data);
 
+        this.showLoader();
+
         this.backendService.doCall({
             type: "POST",
             data: payload,
@@ -59,9 +61,12 @@ export class ConclusionComponent implements OnInit {
                 this.router.navigate(['/'], { queryParams: { "new": true }});
             }
             
+
+            this.hideLoader();
         }, e => {
             // this.formData.showSuccessMessage = true;
             this.showErrorPopup = true;
+            this.hideLoader();
         })
         // jQuery.ajax({
         //     url: 'https://spiceworks.cvtr.io/webhook/campaign/46324/form/2576/leads?apikey=cd77dd36c500eb23579532f710125b02&campaignLinkId=10342&publisherId=11007',
@@ -77,6 +82,15 @@ export class ConclusionComponent implements OnInit {
         // })
     }
 
+    showLoader(){
+        var loader:any = document.querySelector('.loader-wrapper');
+        loader.style.display = "flex";
+    }
+
+    hideLoader(){
+        var loader:any = document.querySelector('.loader-wrapper');
+        loader.style.display = "";
+    }
 
     convertoPaload(data) {
         let userformData = data.userInfo.data[1].formData;

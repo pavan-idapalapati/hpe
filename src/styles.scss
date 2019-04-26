@@ -730,3 +730,25 @@ app-right-accordian {
     color: red;
     padding-top: 5px;
 }
+
+
+.loader-wrapper{
+    position: fixed;
+    background-color: rgba(255, 255, 255, .6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+}
+
+.loader{
+    display: inline-block;
+    vertical-align: middle;
+    img{
+        width: 50px;
+    }
+}
