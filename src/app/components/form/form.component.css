@@ -85,7 +85,9 @@ input[type=checkbox] + label:before {
 .disabled-nav{
     background-color: #468c98;
 }
-
+.disabled-nav .side-nav-icon {
+opacity: 0.5;
+}
 .close-add-details {
     display: flex;
     justify-content: flex-end;
