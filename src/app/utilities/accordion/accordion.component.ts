@@ -106,6 +106,7 @@ export class AccordionComponent implements OnInit, AfterViewInit {
     }
 
     gotFinish() {
+        this.formData.triggerQuestionJumpSubject(null);
         this.router.navigate(["/conclusion"]).then(()=> {
             this.formData.openAccordionIndex = undefined;
             this.kickoffQuestions.selected = false;

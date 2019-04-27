@@ -31,7 +31,12 @@ export class FormComponent implements OnInit, OnDestroy {
             this.ngOnInit();
         });
         this.getquestionjumpSubscription  =this.formData.getQuestionJumpSubject().subscribe((data) => {
-            this.moveToParticularQuestion(data);
+            if(data === null) {
+                this.answerQuestion();
+                this.formData.triggerQuestionChangeSubject();
+            } else {
+                this.moveToParticularQuestion(data);
+            }
         });
         
         // this.finishAccordionSubscription =this.formData.finishAccordionTab.subscribe(data => {
@@ -55,8 +60,8 @@ export class FormComponent implements OnInit, OnDestroy {
         this.init();
     }
     ngOnDestroy() {
-       this.answerQuestion();
-       this.formData.triggerQuestionChangeSubject();
+    //    this.answerQuestion();
+    //    this.formData.triggerQuestionChangeSubject();
         if(this.routeChangeSubscription) {
             this.routeChangeSubscription.unsubscribe();
         }
