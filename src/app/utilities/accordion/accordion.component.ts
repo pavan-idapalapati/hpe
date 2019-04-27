@@ -26,6 +26,8 @@ export class AccordionComponent implements OnInit, AfterViewInit {
             if(this.accordion) {
                 this.formData.openAccordionIndex = undefined;
                 this.accordion.activeIndex = undefined;
+                this.kickoffQuestions.selected = false;
+                this.nextsteps.selected = false;
                 // tPP_alse;
             }
         })
