@@ -20,7 +20,7 @@ export class FormComponent implements OnInit, OnDestroy {
     metaData: any;
     routeChangeSubscription:Subscription;
     getquestionjumpSubscription: Subscription;
-    finishAccordionSubscription: Subscription;
+    // finishAccordionSubscription: Subscription;
     // conclusionPreviousbuttonSubscription: Subscription;
 
     constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
@@ -34,10 +34,10 @@ export class FormComponent implements OnInit, OnDestroy {
             this.moveToParticularQuestion(data);
         });
         
-        this.finishAccordionSubscription =this.formData.finishAccordionTab.subscribe(data => {
-            this.answerQuestion();
+        // this.finishAccordionSubscription =this.formData.finishAccordionTab.subscribe(data => {
+        //     this.answerQuestion();
             
-        })
+        // })
         var formData = this.formData.getFormData();
         // let submittedData = this.utils.getItemFromLocalStorage("submittedFormData", true);
         // this.conclusionPreviousbuttonSubscription =this.formData.conclusionPreviousButton.subscribe(data => {
@@ -55,31 +55,24 @@ export class FormComponent implements OnInit, OnDestroy {
         this.init();
     }
     ngOnDestroy() {
+       this.answerQuestion();
+       this.formData.triggerQuestionChangeSubject();
         if(this.routeChangeSubscription) {
             this.routeChangeSubscription.unsubscribe();
         }
         if(this.getquestionjumpSubscription) {
             this.getquestionjumpSubscription.unsubscribe();
         }
-        if(this.finishAccordionSubscription) {
-            this.finishAccordionSubscription.unsubscribe();
-        }
-        // if(this.conclusionPreviousbuttonSubscription) {
-        //     this.conclusionPreviousbuttonSubscription.unsubscribe();
-        // }
     }
 
     init() {
         var formData = this.formData.getFormData();
         let submittedData = this.utils.getItemFromLocalStorage("submittedFormData", true);
         if(formData.currentPage == 0 && submittedData.data[0].formData[0].value == "no" ) {
-            this.showFinishButton = true;
            this.finishButton = true;
-        } 
-        if(!this.showFinishButton) {
+        } else {
             this.finishButton = false;
         }
-        this.showFinishButton = false;
         this.utils.scrolltoTop();
         this.formData.triggerQuestionChangeSubject();
         var formData = this.formData.getFormData();

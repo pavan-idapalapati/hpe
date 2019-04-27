@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormDataService } from 'src/app/services/form-data.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
     selector: 'app-accordion',
@@ -17,7 +18,7 @@ export class AccordionComponent implements OnInit, AfterViewInit {
 
     constructor(public formData: FormDataService,
          private router: Router,
-         private route: ActivatedRoute) {
+         private utils: UtilService) {
         this.formData.getQuestionChangeSubject().subscribe((data) => {
             this.init();
         })
@@ -106,10 +107,11 @@ export class AccordionComponent implements OnInit, AfterViewInit {
     }
 
     gotFinish() {
-        this.formData.openAccordionIndex = undefined;
-        this.kickoffQuestions.selected = false;
-        this.nextsteps.selected = false;
-        this.router.navigate(["/conclusion"]);
+        this.router.navigate(["/conclusion"]).then(()=> {
+            this.formData.openAccordionIndex = undefined;
+            this.kickoffQuestions.selected = false;
+            this.nextsteps.selected = false;
+        })
     }
 
 }

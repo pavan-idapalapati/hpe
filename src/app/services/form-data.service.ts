@@ -942,7 +942,7 @@ export class FormDataService {
 	questionChange = new Subject<boolean>();
     questionJump = new Subject<any>();
     // conclusionPreviousButton = new ReplaySubject<any>(1);
-    finishAccordionTab = new Subject<any>();
+    // finishAccordionTab = new ReplaySubject<any>(1);
     closeAccordionSubject = new Subject<any>();
 
 	getROuteChangeSubject() {
@@ -972,9 +972,9 @@ export class FormDataService {
         this.closeAccordionSubject.next(true);
     }
 
-    finishAccordionSubscription() {
-        this.finishAccordionTab.next(true);
-    }
+    // finishAccordionSubscription() {
+    //     this.finishAccordionTab.next(true);
+    // }
 
 	triggerQuestionJumpSubject(questionId) {
 		this.questionJump.next(questionId);
