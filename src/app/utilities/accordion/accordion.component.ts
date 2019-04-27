@@ -26,8 +26,7 @@ export class AccordionComponent implements OnInit, AfterViewInit {
             if(this.accordion) {
                 this.formData.openAccordionIndex = undefined;
                 this.accordion.activeIndex = undefined;
-                this.kickoffQuestions.selected = false;
-                this.nextsteps.selected = false;
+                // tPP_alse;
             }
         })
     }
@@ -73,7 +72,7 @@ export class AccordionComponent implements OnInit, AfterViewInit {
     openAccordion() {
         // open left side accordion based on navigation   
         if (this.accordion) {
-            if (this.currentPage == 14) {
+            if (this.currentPage == 14 || this.router.url === '/conclusion') {
                 this.formData.openAccordionIndex = undefined;
                 this.accordion.activeIndex = undefined;
                 this.kickoffQuestions.selected = false;
