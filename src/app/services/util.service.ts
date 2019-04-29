@@ -55,7 +55,7 @@ export class UtilService {
     getCookieExpiresTime() {
         var now = new Date();
         var time = now.getTime();
-        time += (1800 * 1000);
+        time += (5 * 1000);
         now.setTime(time);
         return now.toUTCString();
     }
