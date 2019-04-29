@@ -12,7 +12,7 @@ import { ValidationService } from 'src/app/validation.service';
 export class LandingComponent implements OnInit {
     pageView = "/1-landing";
     submitted: boolean = false;
-    userInfoForm = {
+    userInfoForm: any = {
         "name": "HPE Call Guide",
         "metadata": "HPE Call Guide Landing Page",
         "data": [
@@ -29,7 +29,8 @@ export class LandingComponent implements OnInit {
                         "value": "",
                         "name": "salesrepname",
                         "validators": ["required"],
-                        "errorMessage": "This is required"
+                        "errorMessage": "This is required",
+                        "cookieId": "accountManager"
                     }
                 ]
             },
@@ -45,6 +46,7 @@ export class LandingComponent implements OnInit {
                         "label": "Customer Name: ",
                         "value": "",
                         "name": "salesrepname",
+                        "cookieId": "customerName",
                         validators: []
                     },
                     {
@@ -52,6 +54,7 @@ export class LandingComponent implements OnInit {
                         "label": "Customer Company: ",
                         "value": "",
                         "name": "salesrepname",
+                        "cookieId": "customerCompany",
                         validators: []
                     },
                     {
@@ -59,7 +62,8 @@ export class LandingComponent implements OnInit {
                         "label": "Customer Phone: ",
                         "value": "",
                         "name": "salesrepname",
-                        validators: []
+                        validators: [],
+                        "cookieId": "customerPhone",
 
                     },
                     {
@@ -67,8 +71,8 @@ export class LandingComponent implements OnInit {
                         "label": "Customer Email: ",
                         "value": "",
                         "name": "salesrepname",
-                        validators: []
-
+                        validators: [],
+                        "cookieId": "customerEmail",
                     }
                 ]
             }
@@ -123,8 +127,14 @@ export class LandingComponent implements OnInit {
         if (valid) {
             this.formData.showSuccessMessage = false;
             this.createNewSession();
-            // this.formData.moveToParticularQuestion(0)
-            this.utils.setItemInLocalStorage("userInfo", this.userInfoForm, true);
+
+            //storing  userData in to  cookie
+            let userData = this.createUserInfoCookieData();
+            document.cookie = `userInfo=${JSON.stringify(userData)}`;
+
+            //storing formData in to localstorage without values.
+            userData = this.createFormDataForLocalStorage();
+            this.utils.setItemInLocalStorage("userInfo", userData, true);
             this.router.navigate(['/questionaire']);
 
             //call event for google analytics
@@ -133,12 +143,34 @@ export class LandingComponent implements OnInit {
 
     }
 
+    createUserInfoCookieData() {
+        let fd = {};
+        this.userInfoForm.data.forEach(form => {
+            form.formData.forEach(formData => {
+                fd[formData.cookieId] = formData.value
+            })
+        })
+        return fd;
+    }
+
+    createFormDataForLocalStorage() {
+        let fd: any = JSON.parse(JSON.stringify(this.userInfoForm)); // removing the reference
+        fd.data.forEach(form => {
+            form.formData.forEach(formData => {
+                formData.value = "";
+            })
+        })
+        return fd;
+    }
+
     resumeSession() {
         this.router.navigate(['/questionaire']);
     }
 
     showSessionResumeSection() {
-        let userData = this.utils.getItemFromLocalStorage("userInfo", true);
+
+        let userData = this.utils.setUserCookieDataToUserFormData();
+        
         if (userData && userData.data) {
             this.saleRepName = userData.data[0].formData[0].value;
             this.customerName = userData.data[1].formData[0].value;

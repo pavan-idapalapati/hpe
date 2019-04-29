@@ -994,10 +994,11 @@ export class FormDataService {
 	}
 
 	getFormData() {
+        let userData = this.utils.setUserCookieDataToUserFormData();
 		return {
 			data: this.utils.getItemFromLocalStorage('submittedFormData', true),
             currentPage: this.utils.getItemFromLocalStorage("currentPage", false),
-            userInfo: this.utils.getItemFromLocalStorage('userInfo', true)
+            userInfo: userData
 		}
 	}
 

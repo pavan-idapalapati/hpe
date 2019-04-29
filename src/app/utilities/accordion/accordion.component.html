@@ -2,8 +2,8 @@
     <p-accordionTab header="Accordion-header1" class="accordion-header" #kickoffQuestions >
         <p-header class="accordion-heading">
             <div class="accordion-title">{{massagesQuestionnaireData.kickOffQuestions.name}}</div>
-            <img src="{{'assets/images/icon_Plus.png' | assetspipe}}" class="icon-plus" *ngIf="kickoffQuestions.selected == false">
-            <img src="{{'assets/images/icon_Minus.png' | assetspipe}}" class="icon-minus" *ngIf="kickoffQuestions.selected == true">
+            <img src="{{'assets/images/icon_Plus.png' | assetspipe}}" class="icon-plus" *ngIf="!kickoffQuestions.selected">
+            <img src="{{'assets/images/icon_Minus.png' | assetspipe}}" class="icon-minus" *ngIf="kickoffQuestions.selected">
         </p-header>
         <div>
             <div class="accordion-content-items" *ngFor="let eachQue of massagesQuestionnaireData.kickOffQuestions.data; let ind= index">
@@ -23,8 +23,8 @@
     <p-accordionTab header="Accordion-header2" class="accordion-header" #nextsteps >
         <p-header class="accordion-heading">
             <div class="accordion-title">{{massagesQuestionnaireData.nextSteps.name}}</div>
-            <img src="{{'assets/images/icon_Plus.png' | assetspipe}}" class="icon-plus" *ngIf="nextsteps.selected == false">
-            <img src="{{'assets/images/icon_Minus.png' | assetspipe}}" class="icon-minus" *ngIf="nextsteps.selected == true">
+            <img src="{{'assets/images/icon_Plus.png' | assetspipe}}" class="icon-plus" *ngIf="!nextsteps.selected">
+            <img src="{{'assets/images/icon_Minus.png' | assetspipe}}" class="icon-minus" *ngIf="nextsteps.selected">
         </p-header>
         <div>
             <div class="next-steps accordion-content-items" *ngFor="let eachQue of massagesQuestionnaireData.nextSteps.data; let ind= index">

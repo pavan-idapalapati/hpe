@@ -38,7 +38,6 @@ export class ConclusionComponent implements OnInit {
     }
 
     finishQuestionaire() {
-        console.log(this.formData.getFormData());
         let data = this.formData.massageFormData(this.formData.getFormData());
         let payload = this.convertoPaload(data);
 

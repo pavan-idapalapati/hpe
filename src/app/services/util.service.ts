@@ -6,7 +6,7 @@ declare let gtag: Function;
 @Injectable({
     providedIn: 'root'
 })
-export class UtilService {   
+export class UtilService {
     constructor() { }
 
     setItemInLocalStorage(key, item, isObject) {
@@ -73,12 +73,33 @@ export class UtilService {
     }
 
     //Event triggering for google analytics
-    sendEvent(action, label,event) {
+    sendEvent(action, label, event) {
         gtag('event', action, {
             'event_category': 'Vendor Interactive',
             'event_label': label + '295984',
-            'non_interaction': false        
+            'non_interaction': false
         });
+    }
+
+    getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+
+    setUserCookieDataToUserFormData() {
+
+        //getting cookie user information data.
+        let cookieUserData = this.getCookie('userInfo');
+        cookieUserData = JSON.parse(cookieUserData);
+        let userData = this.getItemFromLocalStorage("userInfo", true);
+        //setting user cookies data to userForm;
+        userData.data.forEach(form => {
+            form.formData.forEach(formData => {
+                formData.value = cookieUserData[formData.cookieId];
+            })
+        })
+        return userData;
     }
 
 }
