@@ -102,4 +102,8 @@ export class UtilService {
         return userData;
     }
 
+    cloneDeep(data) {
+        return  JSON.parse(JSON.stringify(data));
+    }
+
 }
