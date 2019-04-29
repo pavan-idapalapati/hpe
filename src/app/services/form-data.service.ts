@@ -992,6 +992,7 @@ export class FormDataService {
     }
 
     getFormData() {
+        console.log(document.cookie);
         let userData = this.utils.setUserCookieDataToUserFormData();
         let submittedFormData =  this.utils.getItemFromLocalStorage('submittedFormData', true);
         let stackholdersCookieData = this.utils.getCookie('stackholdersData');
@@ -1014,7 +1015,7 @@ export class FormDataService {
         //storing stackholders data in the cookies
         if (currentPage == 11) {
             let stackholdersData = formData.formData[0].options[0].addDetailsData;
-            document.cookie = `stackholdersData=${JSON.stringify(stackholdersData)}`;
+            document.cookie = `stackholdersData=${JSON.stringify(stackholdersData)};expires=${this.utils.getCookieExpiresTime()}`;
             data = this.utils.cloneDeep(data);
 
             //remvoing stackholders data from  localstorage object

@@ -49,11 +49,15 @@ export class UtilService {
     }
 
     setSessionInCookies() {
+        document.cookie = `HPEstatus=active;expires=${this.getCookieExpiresTime()}`;
+    }
+
+    getCookieExpiresTime() {
         var now = new Date();
         var time = now.getTime();
         time += (1800 * 1000);
         now.setTime(time);
-        document.cookie = `HPEstatus=active;expires=${now.toUTCString()}`;
+        return now.toUTCString();
     }
 
     getSessionStatusFromCookies() {
@@ -103,7 +107,17 @@ export class UtilService {
     }
 
     cloneDeep(data) {
-        return  JSON.parse(JSON.stringify(data));
+        return JSON.parse(JSON.stringify(data));
+    }
+    updateCookieExpiryTime() {
+        setInterval(() => {
+            ['HPEstatus', 'userInfo', 'stackholdersData'].forEach(cookie => {
+                let cookieData = this.getCookie(cookie);
+                if (cookieData) {
+                    document.cookie = `${cookie}=${cookieData}; expires= ${this.getCookieExpiresTime()};`
+                }
+            })
+        }, 60000)
     }
 
 }

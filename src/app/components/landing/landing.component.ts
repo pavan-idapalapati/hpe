@@ -130,7 +130,8 @@ export class LandingComponent implements OnInit {
 
             //storing  userData in to  cookie
             let userData = this.createUserInfoCookieData();
-            document.cookie = `userInfo=${JSON.stringify(userData)}`;
+            document.cookie = `userInfo=${JSON.stringify(userData)};expires=${this.utils.getCookieExpiresTime()}`;
+            this.utils.updateCookieExpiryTime();
 
             //storing formData in to localstorage without values.
             userData = this.createFormDataForLocalStorage();
