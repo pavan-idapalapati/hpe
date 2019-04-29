@@ -123,7 +123,7 @@ export class UtilService {
                     document.cookie = `${cookie}=${cookieData}; expires= ${this.getCookieExpiresTime()};`
                 }
             })
-        }, 60000)
+        }, this.constants.COOKIE_REFRESH_TIME * 1000);
     }
 
 }
