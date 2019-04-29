@@ -1,3 +1,3 @@
 export class constants {
-    COOKIE_TIME_PERIOD = 300
+    COOKIE_TIME_PERIOD = 180
 }
