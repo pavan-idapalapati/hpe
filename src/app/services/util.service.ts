@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { LandingService } from '../landing.service';
+import { constants } from '../utilities/constants';
 
 
 declare let gtag: Function;
@@ -7,7 +9,9 @@ declare let gtag: Function;
     providedIn: 'root'
 })
 export class UtilService {
-    constructor() { }
+    cookieInterval;
+    constructor(private landingService: LandingService,
+        private constants: constants) { }
 
     setItemInLocalStorage(key, item, isObject) {
         // Put the item into storage
@@ -55,7 +59,7 @@ export class UtilService {
     getCookieExpiresTime() {
         var now = new Date();
         var time = now.getTime();
-        time += (300 * 1000);
+        time += (this.constants.COOKIE_TIME_PERIOD * 1000);
         now.setTime(time);
         return now.toUTCString();
     }
@@ -97,7 +101,7 @@ export class UtilService {
         let cookieUserData = this.getCookie('userInfo');
         if(cookieUserData) {
             cookieUserData = JSON.parse(cookieUserData);
-            let userData = this.getItemFromLocalStorage("landingPageFormObj", true);
+            let userData = this.landingService.getLandingPageData();
             //setting user cookies data to userForm;
             userData.data.forEach(form => {
                 form.formData.forEach(formData => {
@@ -112,7 +116,7 @@ export class UtilService {
         return JSON.parse(JSON.stringify(data));
     }
     updateCookieExpiryTime() {
-        setInterval(() => {
+        this.cookieInterval = setInterval(() => {
             ['HPEstatus', 'userInfo', 'stackholdersData'].forEach(cookie => {
                 let cookieData = this.getCookie(cookie);
                 if (cookieData) {

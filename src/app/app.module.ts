@@ -17,6 +17,7 @@ import { RightAccordianComponent } from './utilities/right-accordian/right-accor
 import { BackendService } from './backend.service';
 import { AssetsPipe } from './pipe/assets.pipe';
 import { ValidationService } from './validation.service';
+import { LandingService } from './landing.service';
 
 
 const appRoutes: Routes = [
@@ -47,7 +48,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [BackendService, ValidationService],
+  providers: [BackendService, ValidationService,LandingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

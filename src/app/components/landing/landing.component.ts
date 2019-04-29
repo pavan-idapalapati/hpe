@@ -3,6 +3,7 @@ import { FormDataService } from 'src/app/services/form-data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UtilService } from 'src/app/services/util.service';
 import { ValidationService } from 'src/app/validation.service';
+import { LandingService } from 'src/app/landing.service';
 
 @Component({
     selector: 'app-landing',
@@ -12,72 +13,7 @@ import { ValidationService } from 'src/app/validation.service';
 export class LandingComponent implements OnInit {
     pageView = "/1-landing";
     submitted: boolean = false;
-    userInfoForm: any = {
-        "name": "HPE Call Guide",
-        "metadata": "HPE Call Guide Landing Page",
-        "data": [
-            {
-                "question": "Your Information",
-                "isViewed": false,
-                "isAnswered": false,
-                "isRequired": false,
-                "id": 0,
-                "formData": [
-                    {
-                        "type": "text",
-                        "label": "Account Manager: ",
-                        "value": "",
-                        "name": "salesrepname",
-                        "validators": ["required"],
-                        "errorMessage": "This is required",
-                        "cookieId": "accountManager"
-                    }
-                ]
-            },
-            {
-                "question": "Customer Information",
-                "isViewed": false,
-                "isAnswered": false,
-                "isRequired": false,
-                "id": 0,
-                "formData": [
-                    {
-                        "type": "text",
-                        "label": "Customer Name: ",
-                        "value": "",
-                        "name": "salesrepname",
-                        "cookieId": "customerName",
-                        validators: []
-                    },
-                    {
-                        "type": "text",
-                        "label": "Customer Company: ",
-                        "value": "",
-                        "name": "salesrepname",
-                        "cookieId": "customerCompany",
-                        validators: []
-                    },
-                    {
-                        "type": "text",
-                        "label": "Customer Phone: ",
-                        "value": "",
-                        "name": "salesrepname",
-                        validators: [],
-                        "cookieId": "customerPhone",
-
-                    },
-                    {
-                        "type": "text",
-                        "label": "Customer Email: ",
-                        "value": "",
-                        "name": "salesrepname",
-                        validators: [],
-                        "cookieId": "customerEmail",
-                    }
-                ]
-            }
-        ]
-    };
+    userInfoForm: any;
     showSessionResumePopup: boolean;
     companyName: string;
     customerName: string;
@@ -87,9 +23,12 @@ export class LandingComponent implements OnInit {
         private utils: UtilService,
         private router: Router,
         private activatedRoute: ActivatedRoute,
-        private validationService: ValidationService) { }
+        private validationService: ValidationService,
+        private landingService: LandingService
+    ) { }
 
     ngOnInit() {
+        this.userInfoForm = this.landingService.getLandingPageData();
         this.activatedRoute.queryParams.subscribe(
             (queryParams: any) => {
                 // console.log(queryParams['new']);
@@ -135,7 +74,7 @@ export class LandingComponent implements OnInit {
 
             //storing formData in to localstorage without values.
             userData = this.createFormDataForLocalStorage();
-            this.utils.setItemInLocalStorage("landingPageFormObj", userData, true);
+            // this.utils.setItemInLocalStorage("landingPageFormObj", userData, true);
             this.router.navigate(['/questionaire']);
 
             //call event for google analytics
@@ -171,7 +110,7 @@ export class LandingComponent implements OnInit {
     showSessionResumeSection() {
 
         let userData = this.utils.setUserCookieDataToUserFormData();
-        
+
         if (userData && userData.data) {
             this.saleRepName = userData.data[0].formData[0].value;
             this.customerName = userData.data[1].formData[0].value;

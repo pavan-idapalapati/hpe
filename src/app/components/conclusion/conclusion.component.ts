@@ -57,6 +57,7 @@ export class ConclusionComponent implements OnInit {
                 this.formData.showSuccessMessage = true;
                 this.formData.resetWholeFormData();
                 this.utils.clearCookies();
+                clearInterval(this.utils.cookieInterval);
                 this.router.navigate(['/'], { queryParams: { "new": true }});
             }
             
