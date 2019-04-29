@@ -18,6 +18,7 @@ import { BackendService } from './backend.service';
 import { AssetsPipe } from './pipe/assets.pipe';
 import { ValidationService } from './validation.service';
 import { LandingService } from './landing.service';
+import { constants } from './utilities/constants';
 
 
 const appRoutes: Routes = [
@@ -48,7 +49,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [BackendService, ValidationService,LandingService],
+  providers: [BackendService, ValidationService,LandingService, constants],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
