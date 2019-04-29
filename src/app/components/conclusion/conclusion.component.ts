@@ -169,7 +169,7 @@ export class ConclusionComponent implements OnInit {
         
         // "form[ws_version_cb][]": "questionsData[1].formData[0].options[0].isSelected ? questionsData[1].formData[0].options[0].value: '',questionsData[1].formData[0].options[1].isSelected ? questionsData[1].formData[0].options[1].value: ''",
 
-        console.log("OBJ:", obj);
+        // console.log("OBJ:", obj);
 
         return obj;
     }

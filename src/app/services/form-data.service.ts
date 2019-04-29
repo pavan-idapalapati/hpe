@@ -994,7 +994,7 @@ export class FormDataService {
     }
 
     getFormData() {
-        console.log(document.cookie);
+        // console.log(document.cookie);
         let userData = this.utils.setUserCookieDataToUserFormData();
         let submittedFormData =  this.utils.getItemFromLocalStorage('submittedFormData', true);
         let stackholdersCookieData = this.utils.getCookie('stackholdersData');
