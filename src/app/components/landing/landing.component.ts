@@ -135,7 +135,7 @@ export class LandingComponent implements OnInit {
 
             //storing formData in to localstorage without values.
             userData = this.createFormDataForLocalStorage();
-            this.utils.setItemInLocalStorage("userInfo", userData, true);
+            this.utils.setItemInLocalStorage("landingPageFormObj", userData, true);
             this.router.navigate(['/questionaire']);
 
             //call event for google analytics

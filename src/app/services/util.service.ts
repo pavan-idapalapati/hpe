@@ -55,7 +55,7 @@ export class UtilService {
     getCookieExpiresTime() {
         var now = new Date();
         var time = now.getTime();
-        time += (5 * 1000);
+        time += (300 * 1000);
         now.setTime(time);
         return now.toUTCString();
     }
@@ -95,15 +95,17 @@ export class UtilService {
 
         //getting cookie user information data.
         let cookieUserData = this.getCookie('userInfo');
-        cookieUserData = JSON.parse(cookieUserData);
-        let userData = this.getItemFromLocalStorage("userInfo", true);
-        //setting user cookies data to userForm;
-        userData.data.forEach(form => {
-            form.formData.forEach(formData => {
-                formData.value = cookieUserData[formData.cookieId];
+        if(cookieUserData) {
+            cookieUserData = JSON.parse(cookieUserData);
+            let userData = this.getItemFromLocalStorage("landingPageFormObj", true);
+            //setting user cookies data to userForm;
+            userData.data.forEach(form => {
+                form.formData.forEach(formData => {
+                    formData.value = cookieUserData[formData.cookieId];
+                })
             })
-        })
-        return userData;
+            return userData;
+        }
     }
 
     cloneDeep(data) {
