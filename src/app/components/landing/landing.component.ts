@@ -24,7 +24,7 @@ export class LandingComponent implements OnInit {
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private validationService: ValidationService,
-        private landingService: LandingService
+        private landingService: LandingService,
     ) { }
 
     ngOnInit() {
@@ -43,6 +43,7 @@ export class LandingComponent implements OnInit {
         );
         //google analytics pageview triggering
         this.utils.sendPageView(this.pageView);
+       
 
     }
 

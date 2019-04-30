@@ -138,7 +138,8 @@ export class ConclusionComponent implements OnInit {
         "form[other_stakeholders_notes]": questionsData[11].formData[1].value,
         "form[confirm_nextsteps_notes]": questionsData[12].formData[1].value,
         "form[other_questions]":  questionsData[13].formData[0].value,
-        "form[other_questions_notes]": questionsData[13].formData[1].value
+        "form[other_questions_notes]": questionsData[13].formData[1].value,
+        "form[optin][terms]": this.utils.getCookie('CookieAccepence') || false
         }
         let string;
         questionsData[11].formData[0].options[0].addDetailsData.forEach(group => {

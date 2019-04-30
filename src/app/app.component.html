@@ -19,3 +19,14 @@
             <img src="{{'assets/images/loader.gif' | assetspipe}}">
         </div>
     </div>
+
+
+
+    <section class="cookie-section-container" *ngIf="showCookiesAcceptenceAlert">
+            <div class="cookie-acceptence-wrapper">
+                <div class="cookie-acceptence-note">
+                   {{constants.COOKIE_ACCEPTENCE_NOTE}}
+                </div>
+                <button class="cookie-acceptence-button" (click)="storeCookieAcceptenceInForm()">Accept and Close</button>
+            </div>
+        </section>

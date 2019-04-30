@@ -42,13 +42,16 @@ export class UtilService {
     }
 
     clearCookies() {
+        let clearCookies = ['HPEstatus', 'userInfo', 'stackholdersData'];
         var cookies = document.cookie.split(";");
 
         for (var i = 0; i < cookies.length; i++) {
             var cookie = cookies[i];
             var eqPos = cookie.indexOf("=");
             var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            if(clearCookies.includes(name)) {
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            }
         }
     }
 
@@ -117,7 +120,7 @@ export class UtilService {
     }
     updateCookieExpiryTime() {
         this.cookieInterval = setInterval(() => {
-            ['HPEstatus', 'userInfo', 'stackholdersData'].forEach(cookie => {
+            ['HPEstatus', 'userInfo', 'stackholdersData', 'CookieAccepence'].forEach(cookie => {
                 let cookieData = this.getCookie(cookie);
                 if (cookieData) {
                     document.cookie = `${cookie}=${cookieData}; expires= ${this.getCookieExpiresTime()};`

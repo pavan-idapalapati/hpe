@@ -291,3 +291,37 @@ input{
 .add-stake-holder{
   padding-left:10px;
 }
+
+.cookie-acceptence-wrapper {
+        /* background: white; */
+        padding: 12px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        width: 908px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* box-shadow: 0px 0 6px rgba(0, 0, 0, 0.1); */
+}
+.cookie-acceptence-button {
+    background: #2AD2C9;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+.cookie-acceptence-note {
+    width: 80%
+}
+.cookie-section-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    background: white;
+    box-shadow: 0px 0 6px rgba(0, 0, 0, 0.1);
+}
