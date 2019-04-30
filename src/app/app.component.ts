@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.init();
-        if (!this.utils.getCookie('CookieAccepence')) {
+        if (!this.utils.getCookie('CookieAcceptence')) {
             this.showCookiesAcceptenceAlert = true;
         }
 
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
 
     storeCookieAcceptenceInForm() {
         this.showCookiesAcceptenceAlert = false;
-        document.cookie = `CookieAccepence=true`;
+        document.cookie = `CookieAcceptence=true`;
     }
 
 }

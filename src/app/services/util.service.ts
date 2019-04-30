@@ -120,7 +120,7 @@ export class UtilService {
     }
     updateCookieExpiryTime() {
         this.cookieInterval = setInterval(() => {
-            ['HPEstatus', 'userInfo', 'stackholdersData', 'CookieAccepence'].forEach(cookie => {
+            ['HPEstatus', 'userInfo', 'stackholdersData', 'CookieAcceptence'].forEach(cookie => {
                 let cookieData = this.getCookie(cookie);
                 if (cookieData) {
                     document.cookie = `${cookie}=${cookieData}; expires= ${this.getCookieExpiresTime()};`
