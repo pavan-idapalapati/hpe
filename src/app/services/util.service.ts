@@ -49,6 +49,7 @@ export class UtilService {
             var cookie = cookies[i];
             var eqPos = cookie.indexOf("=");
             var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            name= name.trim();
             if(clearCookies.includes(name)) {
                 document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
             }
