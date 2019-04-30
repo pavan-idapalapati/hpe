@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { FormDataService } from 'src/app/services/form-data.service';
 import { Router } from '@angular/router';
-import { UtilService } from 'src/app/services/util.service';
 
 @Component({
     selector: 'app-accordion',
@@ -18,7 +17,7 @@ export class AccordionComponent implements OnInit, AfterViewInit {
 
     constructor(public formData: FormDataService,
          private router: Router,
-         private utils: UtilService) {
+         private changeDetector: ChangeDetectorRef) {
         this.formData.getQuestionChangeSubject().subscribe((data) => {
             this.init();
         })
@@ -39,6 +38,10 @@ export class AccordionComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         this.openAccordion();
+    }
+
+    ngAfterViewChecked() {
+        this.changeDetector.detectChanges();
     }
 
     init() {

@@ -334,11 +334,6 @@ export class FormDataService {
                         "id": "radio1",
                         "options": [
                             {
-                                "label": "Not applicable",
-                                "value": "not applicable",
-                                "name": "upgrade-onprem-radio"
-                            },
-                            {
                                 "label": "Haven’t made a plan",
                                 "value": "havent made plan",
                                 "name": "upgrade-onprem-radio"

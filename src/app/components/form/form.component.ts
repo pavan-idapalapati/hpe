@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy, ChangeDetectorRef   } from '@angular/core';
 import { UtilService } from '../../services/util.service';
 import { FormDataService } from '../../services/form-data.service';
 import { Router } from '@angular/router';
@@ -18,30 +18,31 @@ export class FormComponent implements OnInit, OnDestroy {
     currentFormData: any;
     currentPage: any;
     metaData: any;
-    routeChangeSubscription:Subscription;
+    routeChangeSubscription: Subscription;
     getquestionjumpSubscription: Subscription;
-    // finishAccordionSubscription: Subscription;
-    // conclusionPreviousbuttonSubscription: Subscription;
 
-    constructor(private utils: UtilService, private formData: FormDataService, private router: Router) {
+
+    constructor(private utils: UtilService, 
+        private formData: FormDataService, 
+        private router: Router ) {
     }
-    
+
     ngOnInit() {
-        this.routeChangeSubscription=this.formData.getROuteChangeSubject().subscribe((data) => {
+        this.routeChangeSubscription = this.formData.getROuteChangeSubject().subscribe((data) => {
             this.ngOnInit();
         });
-        this.getquestionjumpSubscription  =this.formData.getQuestionJumpSubject().subscribe((data) => {
-            if(data === null) {
+        this.getquestionjumpSubscription = this.formData.getQuestionJumpSubject().subscribe((data) => {
+            if (data === null) {
                 this.answerQuestion();
                 this.formData.triggerQuestionChangeSubject();
             } else {
                 this.moveToParticularQuestion(data);
             }
         });
-        
+
         // this.finishAccordionSubscription =this.formData.finishAccordionTab.subscribe(data => {
         //     this.answerQuestion();
-            
+
         // })
         var formData = this.formData.getFormData();
         // let submittedData = this.utils.getItemFromLocalStorage("submittedFormData", true);
@@ -52,20 +53,21 @@ export class FormComponent implements OnInit, OnDestroy {
         //     } else {
         //         this.finishButton = false;
         //     }
-            
+
         // });
         if (!formData || !formData.currentPage || !formData.data) {
             this.formData.setInitialDataToLocalStorage();
         }
         this.init();
     }
+
     ngOnDestroy() {
-    //    this.answerQuestion();
-    //    this.formData.triggerQuestionChangeSubject();
-        if(this.routeChangeSubscription) {
+        //    this.answerQuestion();
+        //    this.formData.triggerQuestionChangeSubject();
+        if (this.routeChangeSubscription) {
             this.routeChangeSubscription.unsubscribe();
         }
-        if(this.getquestionjumpSubscription) {
+        if (this.getquestionjumpSubscription) {
             this.getquestionjumpSubscription.unsubscribe();
         }
     }
@@ -73,8 +75,8 @@ export class FormComponent implements OnInit, OnDestroy {
     init() {
         var formData = this.formData.getFormData();
         let submittedData = this.utils.getItemFromLocalStorage("submittedFormData", true);
-        if(formData.currentPage == 0 && submittedData.data[0].formData[0].value == "no" ) {
-           this.finishButton = true;
+        if (formData.currentPage == 0 && submittedData.data[0].formData[0].value == "no") {
+            this.finishButton = true;
         } else {
             this.finishButton = false;
         }
@@ -119,7 +121,7 @@ export class FormComponent implements OnInit, OnDestroy {
                             } else {
                                 option = radioCheckboxControl.options.find(o => o.isSelected);
                             }
-                            if(option) {
+                            if (option) {
                                 this.rightAccordion.openAccordion(option);
                             }
                         }
@@ -205,16 +207,20 @@ export class FormComponent implements OnInit, OnDestroy {
 
     // TODO: Change this hardcoded data to dynamic one.
     checkForSkip(direction?) {
-        if(direction == "next") {
-            if(this.currentFormData.id == 10 && this.currentFormData.formData[0].value == "no") {
+        if (direction == "next") {
+            if (this.currentFormData.id == 10 && this.currentFormData.formData[0].value == "no") {
                 this.formData.moveToParticularQuestion(12);
+            } else if (this.currentFormData.id == 3 &&
+                !(this.currentFormData.formData[0].value == "on-prem" ||
+                    this.currentFormData.formData[0].value == "combo-on-prem-azure")) {
+                this.formData.moveToParticularQuestion(5);
             } else {
                 this.formData.moveToNextQuestion();
             }
-        } else if(direction == "prev") {
+        } else if (direction == "prev") {
             let formData = this.formData.getFormData();
             let enteredData = formData.data.data[10];
-            if(this.currentFormData.id == 12 && enteredData.formData[0].value == "no") {
+            if (this.currentFormData.id == 12 && enteredData.formData[0].value == "no") {
                 this.formData.moveToParticularQuestion(10);
             } else {
                 this.formData.moveToPreviousQuestion();
@@ -238,7 +244,7 @@ export class FormComponent implements OnInit, OnDestroy {
 
     openSideNav() {
         this.openSideNavFlag = true;
-        if(this.rightNavAccordion && this.rightNavAccordion.nativeElement) {
+        if (this.rightNavAccordion && this.rightNavAccordion.nativeElement) {
             this.rightNavAccordion.nativeElement.classList
                 .remove('remove-right-nav-accordion-transition')
             this.rightNavAccordion.nativeElement.classList
@@ -248,7 +254,7 @@ export class FormComponent implements OnInit, OnDestroy {
     }
     closeSideNav() {
         this.openSideNavFlag = false;
-        if(this.rightNavAccordion && this.rightNavAccordion.nativeElement) {
+        if (this.rightNavAccordion && this.rightNavAccordion.nativeElement) {
             this.rightNavAccordion.nativeElement.classList.remove('right-nav-accordion-transition')
             this.rightNavAccordion.nativeElement.classList.add('remove-right-nav-accordion-transition');
         }
