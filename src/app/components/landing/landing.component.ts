@@ -43,7 +43,7 @@ export class LandingComponent implements OnInit {
         );
         //google analytics pageview triggering
         this.utils.sendPageView(this.pageView);
-       
+
 
     }
 
@@ -58,12 +58,15 @@ export class LandingComponent implements OnInit {
         this.submitted = true;
         let valid;
         this.userInfoForm.data.forEach(ff => {
-            ff.formData.filter(formControl => {
-                if (this.validationService.validateFormControl(formControl)) {
-                    valid = true;
-                }
-            })
+            ff.formData.forEach(formControl => {
+                this.validationService.validateFormControl(formControl);
+            });
         });
+
+        valid = this.userInfoForm.data.every(ff => {
+            return ff.formData.every(fc => fc.isValid);
+        });
+
         if (valid) {
             this.formData.showSuccessMessage = false;
             this.createNewSession();

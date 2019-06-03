@@ -24,7 +24,26 @@ export class LandingService {
                         "validators": ["required"],
                         "errorMessage": "This is required",
                         "cookieId": "accountManager"
-                    }
+                    },
+                    {
+                        "type": "text",
+                        "label": "Account Manager Email: ",
+                        "value": "",
+                        "name": "salesrep_email",
+                        "validators": ["required", "email"],
+                        "errorMessage": "This is required",
+                        "cookieId": "accountManagerEmail"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Account Manager Employee ID: ",
+                        "value": "",
+                        "name": "salesrep_id",
+                        "validators": ["required"],
+                        "errorMessage": "This is required",
+                        "cookieId": "accountManagerEmployeeID"
+                    },
+
                 ]
             },
             {
