@@ -98,6 +98,8 @@ export class ConclusionComponent implements OnInit {
 
         let obj = {
         "form[salesrep_name]": data.userInfo.data[0].formData[0].value,
+        "form[salesrep_email]": data.userInfo.data[0].formData[1].value ,
+        "form[salesrep_id]": data.userInfo.data[0].formData[2].value ,
         "form[client_name]": userformData[0].value,
         "form[client_company]": userformData[1].value,
         "form[client_phone]": userformData[2].value,
