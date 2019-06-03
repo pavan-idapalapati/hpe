@@ -10,12 +10,13 @@ export class ValidationService {
         if(!formContol.validators.length) {
             formContol.isValid = true;
         }
-        formContol.validators.forEach(validator => {
+        formContol.validators.every(validator => {
             if (this[validator](formContol)) {
                 formContol.isValid = true;
             } else {
                 formContol.isValid = false;
             }
+            return formContol.isValid;
         });
         return formContol.isValid;
     }
